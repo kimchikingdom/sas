@@ -3,7 +3,7 @@
   outputs/를 준비하고 매 실행 전에 이전 결과를 날짜별로 보관한다.
   단계별 로그/HTML/상태를 남기지만, 실행 성공은 경고와 결과표 검수 후 판단한다.
 */
-%let projroot = /home/student;
+%let projroot = /home/student/github;
 %let run_heavy_text_model = 0;
 %let run_meta_model = 1;
 /* %include는 run_step 내부에서 실행되므로 단계 간 공유 매크로를 전역으로 만든다. */

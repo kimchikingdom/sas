@@ -2,7 +2,7 @@
    Copy the complete handoff to /home/student. Run in a UTF-8 SAS session.
    Change run_tag for another run; existing output folders are never reused.
    08 already has returned results. This runner does not refit 08 or any model. */
-%let projroot=/home/student;
+%let projroot=/home/student/github;
 %let run_tag=review_a_20260914;
 %let runout=&projroot./outputs/&run_tag.;
 

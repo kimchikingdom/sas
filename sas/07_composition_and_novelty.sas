@@ -19,7 +19,7 @@
   수렴: support.sas.com/kb/51/437.html
 ---------------------------------------------------------------------------*/
 
-%let projroot = /home/student;
+%let projroot = /home/student/github;
 %let sasdata = &projroot./data/processed/sas;
 %let joint_table = ModelANOVA;
 %let rare_min_rows = 30;

@@ -1,9 +1,9 @@
 NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
       실행 시간           0.02 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
-NOTE: SCAMLENS_STAGE=07_composition SAS_VERSION=V.04.00M0P021224 DATE=08SEP2026 TIME=09:11
+NOTE: SCAMLENS_STAGE=07_composition SAS_VERSION=V.04.00M0P021224 DATE=14SEP2026 TIME=06:38
 
     SAS (r) Proprietary Software Release V.04.00  TS1M0
 
@@ -32,69 +32,70 @@ NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
 
 NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
 WORK.PARMS.PARMS.SLIST.
-185     /**********************************************************************
-186     *   PRODUCT:   SAS
-187     *   VERSION:   V.04.00
-188     *   CREATOR:   External File Interface
-189     *   DATE:      08SEP26
-190     *   DESC:      Generated SAS Datastep Code
-191     *   TEMPLATE SOURCE:  (None Specified.)
-192     ***********************************************************************/
-193        data WORK.EXTERNAL    ;
-194        %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
-195        infile '/home/student/data/processed/sas/sas_external_evaluation.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2
-195  !  ;
-196           informat message_id $25. ;
-197           informat collection_year best32. ;
-198           informat collection_month ANYDTDTE7. ;
-199           informat attack_type_code $15. ;
-200           informat attack_type_ko $15. ;
-5                                                          SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 55초
+182     /**********************************************************************
+183     *   PRODUCT:   SAS
+184     *   VERSION:   V.04.00
+185     *   CREATOR:   External File Interface
+186     *   DATE:      14SEP26
+187     *   DESC:      Generated SAS Datastep Code
+188     *   TEMPLATE SOURCE:  (None Specified.)
+189     ***********************************************************************/
+190        data WORK.EXTERNAL    ;
+191        %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+192        infile '/home/student/github/data/processed/sas/sas_external_evaluation.csv' delimiter = ',' MISSOVER DSD lrecl=32767
+192  ! firstobs=2 ;
+193           informat message_id $25. ;
+194           informat collection_year best32. ;
+195           informat collection_month ANYDTDTE7. ;
+196           informat attack_type_code $15. ;
+197           informat attack_type_ko $15. ;
+5                                                          SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 05초
 
-201           informat has_url best32. ;
-202           informat text_length best32. ;
-203           informat probability best32. ;
-204           informat detected best32. ;
-205           informat similarity_to_train best32. ;
-206           informat novel best32. ;
-207           informat year_has_enough_rows best32. ;
-208           format message_id $25. ;
-209           format collection_year best12. ;
-210           format collection_month date7. ;
-211           format attack_type_code $15. ;
-212           format attack_type_ko $15. ;
-213           format has_url best12. ;
-214           format text_length best12. ;
-215           format probability best12. ;
-216           format detected best12. ;
-217           format similarity_to_train best12. ;
-218           format novel best12. ;
-219           format year_has_enough_rows best12. ;
-220        input
-221                    message_id  $
-222                    collection_year
-223                    collection_month
-224                    attack_type_code  $
-225                    attack_type_ko  $
-226                    has_url
-227                    text_length
-228                    probability
-229                    detected
-230                    similarity_to_train
-231                    novel
-232                    year_has_enough_rows
-233        ;
-234        if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
-235        run;
+198           informat has_url best32. ;
+199           informat text_length best32. ;
+200           informat probability best32. ;
+201           informat detected best32. ;
+202           informat similarity_to_train best32. ;
+203           informat novel best32. ;
+204           informat year_has_enough_rows best32. ;
+205           format message_id $25. ;
+206           format collection_year best12. ;
+207           format collection_month date7. ;
+208           format attack_type_code $15. ;
+209           format attack_type_ko $15. ;
+210           format has_url best12. ;
+211           format text_length best12. ;
+212           format probability best12. ;
+213           format detected best12. ;
+214           format similarity_to_train best12. ;
+215           format novel best12. ;
+216           format year_has_enough_rows best12. ;
+217        input
+218                    message_id  $
+219                    collection_year
+220                    collection_month
+221                    attack_type_code  $
+222                    attack_type_ko  $
+223                    has_url
+224                    text_length
+225                    probability
+226                    detected
+227                    similarity_to_train
+228                    novel
+229                    year_has_enough_rows
+230        ;
+231        if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+232        run;
 
-NOTE: 입력파일 '/home/student/data/processed/sas/sas_external_evaluation.csv':
-      파일 이름=/home/student/data/processed/sas/sas_external_evaluation.csv,
+NOTE: 입력파일 '/home/student/github/data/processed/sas/sas_external_evaluation.csv':
+      파일 이름=/home/student/github/data/processed/sas/sas_external_evaluation.csv,
       소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
-      액세스 권한=-rwxr-xr-x,
-      마지막 수정일=2026년 09월 08일 05시18분24초,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 02시54분09초,
       파일 크기(바이트)=480231
 
-NOTE: 5430개의 레코드를 입력파일 '/home/student/data/processed/sas/sas_external_evaluation.csv'에서 읽었습니다.
+NOTE: 5430개의 레코드를 입력파일 '/home/student/github/data/processed/sas/sas_external_evaluation.csv'에서 
+      읽었습니다.
       최소 레코드 길이는 75입니다.
       최대 레코드 길이는 99입니다.
 NOTE: 데이터셋 WORK.EXTERNAL에 5430개의 관측값과 12개의 변수가 있습니다.
@@ -103,17 +104,17 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
       cpu 시간            0.01 초
       
 
-5430 rows created in WORK.EXTERNAL from /home/student/data/processed/sas/sas_external_evaluation.csv.
+5430 rows created in WORK.EXTERNAL from /home/student/github/data/processed/sas/sas_external_evaluation.csv.
   
   
   
 NOTE: WORK.EXTERNAL 데이터셋을 성공적으로 생성했습니다.
-NOTE: 데이터셋 WORK.EXTERNAL에 5430개의 관측값과 12개의 변수가 있습니다.
-6                                                          SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 55초
+6                                                          SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 05초
 
+NOTE: 데이터셋 WORK.EXTERNAL에 5430개의 관측값과 12개의 변수가 있습니다.
 NOTE: 프로시저 IMPORT 실행 (총 프로세스 시간):
-      실행 시간           1.29 초
-      cpu 시간            1.32 초
+      실행 시간           1.31 초
+      cpu 시간            1.33 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
@@ -127,7 +128,7 @@ NOTE: 데이터셋 WORK.EXT에 5424개의 관측값과 12개의 변수가 있습
 NOTE: 데이터셋 WORK.EXCLUDED_SMALL_YEAR에 6개의 관측값과 12개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
@@ -136,7 +137,7 @@ NOTE: 데이터셋 WORK.DOMINANT에 5239개의 관측값과 12개의 변수가 �
 NOTE: 데이터셋 WORK.EXCLUDED_NON_DOMINANT에 185개의 관측값과 12개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
@@ -155,12 +156,12 @@ NOTE: Table WORK.CELL_COUNTS created, with 10 rows and 5 columns.
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.02 초
-      cpu 시간            0.02 초
+      cpu 시간            0.03 초
       
 
 
 NOTE: 5개의 관측값을 데이터셋 WORK.SAMPLE_FLOW.에서 읽었습니다.
-NOTE: PRINT 프로시저가 178 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 199 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.01 초
@@ -168,9 +169,9 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 22개의 관측값을 데이터셋 WORK.SAMPLE_FLOW_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 179 페이지를 인쇄했습니다.
-7                                                          SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 55초
+7                                                          SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 05초
 
+NOTE: PRINT 프로시저가 200 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.02 초
@@ -178,7 +179,7 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 10개의 관측값을 데이터셋 WORK.CELL_COUNTS.에서 읽었습니다.
-NOTE: PRINT 프로시저가 180 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 201 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.01 초
@@ -186,18 +187,18 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: FREQ 프로시저가 181-183 페이지를 인쇄했습니다.
+NOTE: FREQ 프로시저가 202-204 페이지를 인쇄했습니다.
 NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
-      실행 시간           0.05 초
+      실행 시간           0.06 초
       cpu 시간            0.06 초
       
 
 
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: MEANS 프로시저가 184 페이지를 인쇄했습니다.
+NOTE: MEANS 프로시저가 205 페이지를 인쇄했습니다.
 NOTE: 프로시저 MEANS 실행 (총 프로세스 시간):
-      실행 시간           0.02 초
-      cpu 시간            0.02 초
+      실행 시간           0.01 초
+      cpu 시간            0.03 초
       
 
 
@@ -208,7 +209,7 @@ NOTE: WORK.JOINT_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -221,16 +222,16 @@ NOTE: 데이터셋 WORK.CONV_YEAR에 1개의 관측값과 3개의 변수가 있�
 NOTE: 데이터셋 WORK.FIT_YEAR에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_YEAR에 5개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 185-186 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 206-207 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.29 초
+      실행 시간           0.30 초
       cpu 시간            0.19 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-8                                                          SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 56초
+8                                                          SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 05초
 
+      실행 시간           0.00 초
       cpu 시간            0.00 초
       
 
@@ -244,15 +245,15 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.CONV_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 187 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 208 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
 NOTE: 5개의 관측값을 데이터셋 WORK.OR_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 188 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 209 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.02 초
@@ -265,8 +266,8 @@ NOTE: WORK.CONV_SIM(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_SIM(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_SIM(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-      cpu 시간            0.00 초
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
       
 
 
@@ -277,9 +278,9 @@ NOTE: 데이터셋 WORK.CONV_SIM에 1개의 관측값과 3개의 변수가 있�
 NOTE: 데이터셋 WORK.FIT_SIM에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_SIM에 2개의 관측값과 7개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 189-190 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 210-211 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.20 초
+      실행 시간           0.21 초
       cpu 시간            0.12 초
       
 
@@ -288,29 +289,29 @@ NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       cpu 시간            0.01 초
       
 
+9                                                          SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 06초
 
-9                                                          SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 56초
 
 NOTE: 2개의 관측값을 데이터셋 WORK.EST_SIM.에서 읽었습니다.
 NOTE: 데이터셋 WORK.OR_SIM에 2개의 관측값과 11개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
-      
-
-
-NOTE: 1개의 관측값을 데이터셋 WORK.CONV_SIM.에서 읽었습니다.
-NOTE: PRINT 프로시저가 191 페이지를 인쇄했습니다.
-NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
       cpu 시간            0.00 초
       
 
 
-NOTE: 2개의 관측값을 데이터셋 WORK.OR_SIM.에서 읽었습니다.
-NOTE: PRINT 프로시저가 192 페이지를 인쇄했습니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.CONV_SIM.에서 읽었습니다.
+NOTE: PRINT 프로시저가 212 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2개의 관측값을 데이터셋 WORK.OR_SIM.에서 읽었습니다.
+NOTE: PRINT 프로시저가 213 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -322,7 +323,7 @@ NOTE: WORK.JOINT_TYPE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_TYPE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_TYPE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -335,10 +336,10 @@ NOTE: 데이터셋 WORK.CONV_TYPE에 1개의 관측값과 3개의 변수가 있�
 NOTE: 데이터셋 WORK.FIT_TYPE에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_TYPE에 2개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 193-194 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 214-215 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
       실행 시간           0.21 초
-      cpu 시간            0.13 초
+      cpu 시간            0.14 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
@@ -348,28 +349,28 @@ NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
 
 
 NOTE: 2개의 관측값을 데이터셋 WORK.EST_TYPE.에서 읽었습니다.
-NOTE: 데이터셋 WORK.OR_TYPE에 2개의 관측값과 12개의 변수가 있습니다.
-10                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 56초
+10                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 06초
 
+NOTE: 데이터셋 WORK.OR_TYPE에 2개의 관측값과 12개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.CONV_TYPE.에서 읽었습니다.
+NOTE: PRINT 프로시저가 216 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.00 초
       
 
 
-NOTE: 1개의 관측값을 데이터셋 WORK.CONV_TYPE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 195 페이지를 인쇄했습니다.
-NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-      cpu 시간            0.01 초
-      
-
-
 NOTE: 2개의 관측값을 데이터셋 WORK.OR_TYPE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 196 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 217 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
-      cpu 시간            0.01 초
+      cpu 시간            0.02 초
       
 
 
@@ -380,7 +381,7 @@ NOTE: WORK.JOINT_MAIN(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_MAIN(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_MAIN(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -393,30 +394,30 @@ NOTE: 데이터셋 WORK.CONV_MAIN에 1개의 관측값과 3개의 변수가 있�
 NOTE: 데이터셋 WORK.FIT_MAIN에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_MAIN에 3개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 197-198 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 218-219 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.21 초
+      실행 시간           0.23 초
       cpu 시간            0.14 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
 NOTE: 3개의 관측값을 데이터셋 WORK.EST_MAIN.에서 읽었습니다.
 NOTE: 데이터셋 WORK.OR_MAIN에 3개의 관측값과 12개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-11                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 56초
+11                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 06초
 
+      실행 시간           0.00 초
       cpu 시간            0.00 초
       
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.CONV_MAIN.에서 읽었습니다.
-NOTE: PRINT 프로시저가 199 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 220 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.00 초
@@ -424,10 +425,10 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 3개의 관측값을 데이터셋 WORK.OR_MAIN.에서 읽었습니다.
-NOTE: PRINT 프로시저가 200 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 221 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
-      cpu 시간            0.02 초
+      cpu 시간            0.01 초
       
 
 
@@ -438,8 +439,8 @@ NOTE: WORK.JOINT_FULL(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_FULL(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_FULL(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-      cpu 시간            0.00 초
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
       
 
 
@@ -451,10 +452,10 @@ NOTE: 데이터셋 WORK.CONV_FULL에 1개의 관측값과 3개의 변수가 있�
 NOTE: 데이터셋 WORK.FIT_FULL에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_FULL에 7개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 201-202 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 222-223 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.23 초
-      cpu 시간            0.15 초
+      실행 시간           0.26 초
+      cpu 시간            0.17 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
@@ -468,24 +469,24 @@ NOTE: 데이터셋 WORK.OR_FULL에 7개의 관측값과 12개의 변수가 있�
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.00 초
-      
-12                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 57초
+12                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 07초
 
+      
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.CONV_FULL.에서 읽었습니다.
-NOTE: PRINT 프로시저가 203 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 224 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
 NOTE: 7개의 관측값을 데이터셋 WORK.OR_FULL.에서 읽었습니다.
-NOTE: PRINT 프로시저가 204 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 225 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
-      cpu 시간            0.01 초
+      cpu 시간            0.02 초
       
 
 
@@ -496,8 +497,8 @@ NOTE: WORK.JOINT_YEAR_TYPE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_YEAR_TYPE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_YEAR_TYPE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-      cpu 시간            0.00 초
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
       
 
 
@@ -514,41 +515,41 @@ NOTE: 데이터셋 WORK.CONV_YEAR_TYPE에 1개의 관측값과 3개의 변수가
 NOTE: 데이터셋 WORK.FIT_YEAR_TYPE에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_YEAR_TYPE에 11개의 관측값과 9개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 205-207 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 226-228 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.23 초
-      cpu 시간            0.15 초
+      실행 시간           0.27 초
+      cpu 시간            0.16 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-      cpu 시간            0.01 초
-      
-
-
-NOTE: 11개의 관측값을 데이터셋 WORK.EST_YEAR_TYPE.에서 읽었습니다.
-NOTE: 데이터셋 WORK.OR_YEAR_TYPE에 11개의 관측값과 13개의 변수가 있습니다.
-NOTE: DATA 문장 실행 (총 프로세스 시간):
-13                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 57초
-
       실행 시간           0.00 초
       cpu 시간            0.00 초
       
 
 
-NOTE: 1개의 관측값을 데이터셋 WORK.CONV_YEAR_TYPE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 208 페이지를 인쇄했습니다.
-NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+NOTE: 11개의 관측값을 데이터셋 WORK.EST_YEAR_TYPE.에서 읽었습니다.
+NOTE: 데이터셋 WORK.OR_YEAR_TYPE에 11개의 관측값과 13개의 변수가 있습니다.
+13                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 07초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
       
 
 
+NOTE: 1개의 관측값을 데이터셋 WORK.CONV_YEAR_TYPE.에서 읽었습니다.
+NOTE: PRINT 프로시저가 229 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
 NOTE: 11개의 관측값을 데이터셋 WORK.OR_YEAR_TYPE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 209 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 230 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.02 초
-      cpu 시간            0.02 초
+      cpu 시간            0.03 초
       
 
 
@@ -576,7 +577,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.LR_YEAR_TYPE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 210 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 231 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -586,14 +587,14 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 NOTE: WORK.LR_YEAR_ADDITIVE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
+14                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 07초
 
-14                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 57초
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
@@ -604,12 +605,12 @@ NOTE: 1개의 관측값을 데이터셋 WORK.FIT_FULL.에서 읽었습니다.
 NOTE: 데이터셋 WORK.LR_YEAR_ADDITIVE에 1개의 관측값과 10개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.LR_YEAR_ADDITIVE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 211 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 232 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -623,7 +624,7 @@ NOTE: WORK.JOINT_INTER(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_INTER(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_INTER(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -644,17 +645,17 @@ NOTE: 데이터셋 WORK.FIT_INTER에 3개의 관측값과 4개의 변수가 있�
 NOTE: 데이터셋 WORK.EST_INTER에 4개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
 NOTE: 데이터셋 WORK.PRED_INTER에 5239개의 관측값과 14개의 변수가 있습니다.
-NOTE: LOGISTIC 프로시저가 212-213 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 233-234 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.76 초
-      cpu 시간            0.44 초
-      
-15                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 58초
+      실행 시간           0.81 초
+      cpu 시간            0.46 초
+15                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 08초
 
+      
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
@@ -667,7 +668,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.CONV_INTER.에서 읽었습니다.
-NOTE: PRINT 프로시저가 214 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 235 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -675,10 +676,10 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 4개의 관측값을 데이터셋 WORK.OR_INTER.에서 읽었습니다.
-NOTE: PRINT 프로시저가 215 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 236 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
-      cpu 시간            0.02 초
+      cpu 시간            0.01 초
       
 
 
@@ -689,7 +690,7 @@ NOTE: WORK.JOINT_INTER_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_INTER_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_INTER_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -707,17 +708,17 @@ NOTE: 데이터셋 WORK.CONV_INTER_YEAR에 1개의 관측값과 3개의 변수�
 NOTE: 데이터셋 WORK.FIT_INTER_YEAR에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_INTER_YEAR에 8개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5239개의 관측값을 데이터셋 WORK.DOMINANT.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 216-217 페이지를 인쇄했습니다.
-NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-16                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 58초
+NOTE: LOGISTIC 프로시저가 237-238 페이지를 인쇄했습니다.
+16                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 08초
 
-      실행 시간           0.24 초
-      cpu 시간            0.16 초
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.26 초
+      cpu 시간            0.17 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
@@ -730,7 +731,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.CONV_INTER_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 218 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 239 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -738,7 +739,7 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 8개의 관측값을 데이터셋 WORK.OR_INTER_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 219 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 240 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.02 초
@@ -748,7 +749,7 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 NOTE: WORK.LR_INTERACTION(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
@@ -764,14 +765,14 @@ NOTE: 1개의 관측값을 데이터셋 WORK.FIT_INTER.에서 읽었습니다.
 NOTE: 데이터셋 WORK.LR_INTERACTION에 1개의 관측값과 10개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
-NOTE: 1개의 관측값을 데이터셋 WORK.LR_INTERACTION.에서 읽었습니다.
-17                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 58초
+17                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 08초
 
-NOTE: PRINT 프로시저가 220 페이지를 인쇄했습니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.LR_INTERACTION.에서 읽었습니다.
+NOTE: PRINT 프로시저가 241 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -780,7 +781,7 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 NOTE: WORK.LR_JOINT_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -797,27 +798,27 @@ NOTE: 1개의 관측값을 데이터셋 WORK.FIT_INTER_YEAR.에서 읽었습니�
 NOTE: 데이터셋 WORK.LR_JOINT_YEAR에 1개의 관측값과 10개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.LR_JOINT_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 221 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 242 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
 NOTE: WORK.LR_INTERACTION_ADJUSTED_YEAR(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
-      cpu 시간            0.00 초
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
@@ -828,22 +829,22 @@ NOTE: 1개의 관측값을 데이터셋 WORK.FIT_INTER_YEAR.에서 읽었습니�
 NOTE: 데이터셋 WORK.LR_INTERACTION_ADJUSTED_YEAR에 1개의 관측값과 10개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
-18                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 58초
+18                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 08초
 
+      cpu 시간            0.00 초
       
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.LR_INTERACTION_ADJUSTED_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 222 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 243 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
-      실행 시간           0.01 초
+      실행 시간           0.00 초
       cpu 시간            0.01 초
       
 
 
 NOTE: 4개의 관측값을 데이터셋 WORK.JOINT_INTER_YEAR.에서 읽었습니다.
-NOTE: PRINT 프로시저가 223 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 244 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -861,7 +862,7 @@ NOTE: Table WORK.STRATIFIED created, with 8 rows and 6 columns.
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
 
@@ -869,28 +870,28 @@ NOTE: 8개의 관측값을 데이터셋 WORK.STRATIFIED.에서 읽었습니다.
 NOTE: 데이터셋 WORK.STRATIFIED_CI에 8개의 관측값과 13개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
 NOTE: 8개의 관측값을 데이터셋 WORK.STRATIFIED_CI.에서 읽었습니다.
-NOTE: PRINT 프로시저가 224 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 245 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
-      cpu 시간            0.01 초
+      cpu 시간            0.02 초
       
 
 
 NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
       실행 시간           0.15 초
-      cpu 시간            0.07 초
+      cpu 시간            0.08 초
       
 NOTE: 이미지 출력 리스팅이 
-      /opt/sas/viya/config/var/tmp/compsrv/default/ebfb9ca5-c84f-434b-88de-5808ebce51e4/SAS_work88D8000001E6_sas-compute-server-f664
-      ad37-e572-4b11-888b-b441bbd9e7bb-86/SGPlot15.png에 작성되었습니다.
-NOTE: 8개의 관측값을 데이터셋 WORK.STRATIFIED_CI.에서 읽었습니다.
-19                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 58초
+      /opt/sas/viya/config/var/tmp/compsrv/default/a2ab1bd6-a3f1-43fb-be4c-b1bed7cf108f/SAS_work5E73000001C1_sas-compute-server-7fab
+      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot8.png에 작성되었습니다.
+19                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 08초
 
+NOTE: 8개의 관측값을 데이터셋 WORK.STRATIFIED_CI.에서 읽었습니다.
 
 
 NOTE: 5239개의 관측값을 데이터셋 WORK.PRED_INTER.에서 읽었습니다.
@@ -902,7 +903,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 5239개의 관측값을 데이터셋 WORK.PRED_BINNED.에서 읽었습니다.
-NOTE: MEANS 프로시저가 225 페이지를 인쇄했습니다.
+NOTE: MEANS 프로시저가 246 페이지를 인쇄했습니다.
 NOTE: 프로시저 MEANS 실행 (총 프로세스 시간):
       실행 시간           0.03 초
       cpu 시간            0.04 초
@@ -914,15 +915,15 @@ NOTE: Table WORK.WITH_RARE created, with 5424 rows and 14 columns.
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.01 초
-      cpu 시간            0.02 초
+      cpu 시간            0.01 초
       
 
 
 NOTE: 5424개의 관측값을 데이터셋 WORK.WITH_RARE.에서 읽었습니다.
-NOTE: FREQ 프로시저가 226 페이지를 인쇄했습니다.
+NOTE: FREQ 프로시저가 247 페이지를 인쇄했습니다.
 NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
-      실행 시간           0.02 초
-      cpu 시간            0.02 초
+      실행 시간           0.01 초
+      cpu 시간            0.03 초
       
 
 
@@ -933,7 +934,7 @@ NOTE: WORK.JOINT_RARE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.OR_RARE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: WORK.NOBS_RARE(memtype=DATA)을(를) 삭제하는 중입니다.
 NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
@@ -946,17 +947,17 @@ NOTE: 데이터셋 WORK.CONV_RARE에 1개의 관측값과 3개의 변수가 있�
 NOTE: 데이터셋 WORK.FIT_RARE에 3개의 관측값과 4개의 변수가 있습니다.
 NOTE: 데이터셋 WORK.EST_RARE에 9개의 관측값과 8개의 변수가 있습니다.
 NOTE: 5424개의 관측값을 데이터셋 WORK.WITH_RARE.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 227-228 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 248-249 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.26 초
-20                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 54분 59초
+20                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 09초
 
-      cpu 시간            0.17 초
+      실행 시간           0.29 초
+      cpu 시간            0.18 초
       
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 
@@ -969,7 +970,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 1개의 관측값을 데이터셋 WORK.CONV_RARE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 229 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 250 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.01 초
@@ -977,10 +978,10 @@ NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
 
 
 NOTE: 9개의 관측값을 데이터셋 WORK.OR_RARE.에서 읽었습니다.
-NOTE: PRINT 프로시저가 230 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 251 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.02 초
-      cpu 시간            0.03 초
+      cpu 시간            0.02 초
       
 
 NOTE: 07 끝. 출력 생성은 통계 해석 또는 SAS 실행 검수 완료를 뜻하지 않습니다.

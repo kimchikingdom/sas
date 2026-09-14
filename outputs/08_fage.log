@@ -1,0 +1,5156 @@
+NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: SCAMLENS_STAGE=08_fage SAS_VERSION=V.04.00M0P021224 DATE=14SEP2026 TIME=06:38
+
+38                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 26초
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+ ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: HTML Body 파일 기록 중: 08_fage.html
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+SAS 옵션 ENCODING에 대한 옵션값 정보
+    값: UTF8
+    범위: SAS Session
+    옵션값 설정 방법: Config File
+    Config 파일명:
+            /config/saslocale.cfg
+
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 입력파일 "/home/student/github/data/processed/sas/sas_fage_abc_rows.csv":
+      파일 이름=/home/student/github/data/processed/sas/sas_fage_abc_rows.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 02시54분10초,
+      파일 크기(바이트)=5156106
+
+NOTE: 20464개의 레코드를 입력파일 "/home/student/github/data/processed/sas/sas_fage_abc_rows.csv"에서 읽었습니다.
+      최소 레코드 길이는 235입니다.
+      최대 레코드 길이는 265입니다.
+NOTE: 데이터셋 WORK.FAGE에 20464개의 관측값과 19개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.05 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.04 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 0개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 0개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+39                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 26초
+
+      
+
+
+NOTE: 20464개의 관측값을 데이터셋 WORK.FAGE.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 2230개의 관측값과 19개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ에 1884개의 관측값과 19개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_STACK_CV_42에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_FIT_42에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_PE_42에 7개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_MODEL_42에 55개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 281-282 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_CV_42에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_FIT_42에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_PE_42에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_MODEL_42에 105개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 283-284 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_STACK_CV_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_CV_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+40                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 26초
+
+
+NOTE: 데이터셋 WORK.STACK_CAL_42에 2230개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.STACK_READ_42에 1884개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_CAL_42에 2230개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ_42에 1884개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.STACK_CAL_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.84 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.52 초
+      cpu 시간            1.06 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.31 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_STACK_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_STACK_42.에서 읽었습니다.
+41                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 30초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.92 초
+      cpu 시간            0.59 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.49 초
+      cpu 시간            1.05 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+42                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 34초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 2개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=42 stacking_threshold=0.122 fage_threshold=0.274
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 2230개의 관측값과 21개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 2230개의 관측값과 22개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+43                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 35초
+
+NOTE: 데이터셋 WORK.FAGE_A_CV_42에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_FIT_42에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_PE_42에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_A_MODEL_42에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 285-286 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.08 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_A_CV_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_A_CAL_42에 2230개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_READ_42에 1884개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_A_CAL_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.07 초
+      cpu 시간            0.58 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.49 초
+      cpu 시간            1.07 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+44                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 38초
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_A_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_A_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 3개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_A_READ_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=42 method=fage_a threshold=0.403
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_C_CV_42에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_FIT_42에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_PE_42에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+45                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 38초
+
+NOTE: 데이터셋 WORK.FAGE_C_MODEL_42에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 287-288 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_C_CV_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_C_CAL_42에 2230개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_READ_42에 1884개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_C_CAL_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.02 초
+      cpu 시간            0.60 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.56 초
+      cpu 시간            1.11 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_C_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+46                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 43초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_C_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 4개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_C_READ_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 3768개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=42 method=fage_c threshold=0.386
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.71 초
+      cpu 시간            0.53 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+47                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 46초
+
+      실행 시간           0.52 초
+      cpu 시간            1.10 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_A_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_A_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 5개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+48                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 46초
+
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 5652개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=42 method=lr_a threshold=0.493
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.80 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.66 초
+      cpu 시간            1.23 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_B_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_B_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+49                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 49초
+
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 6개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 7536개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=42 method=lr_b threshold=0.56
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.97 초
+      cpu 시간            0.63 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.55 초
+      cpu 시간            1.14 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+50                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 53초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_C_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_C_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 7개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 9420개의 관측값과 11개의 변수가 있습니다.
+51                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 53초
+
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=42 method=lr_c threshold=0.555
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.35 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.49 초
+      cpu 시간            1.04 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_WORD_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_WORD_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+52                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 56초
+
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 8개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 11304개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=42 method=word threshold=0.613
+
+NOTE: 2230개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2234460개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.36 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.50 초
+      cpu 시간            1.05 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+53                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 59초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_KCBERT_42에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_KCBERT_42.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 9개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1884개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1884개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 13188개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=42 method=kcbert threshold=0.11
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.STACK_READ_42.에서 읽었습니다.
+54                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 59초
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.FAGE_READ_42.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_SCORED에 3768개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_SCORED을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 3768개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+NOTE: 3768개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 16956개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='stacking';
+NOTE: FREQ 프로시저가 289 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 290 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1884개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 291 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: 20464개의 관측값을 데이터셋 WORK.FAGE.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 2162개의 관측값과 19개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ에 1896개의 관측값과 19개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+55                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 59초
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_STACK_CV_101에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_FIT_101에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_PE_101에 7개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_MODEL_101에 55개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 292-293 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_CV_101에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_FIT_101에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_PE_101에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_MODEL_101에 105개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 294-295 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.47 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_STACK_CV_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_CV_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.STACK_CAL_101에 2162개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.STACK_READ_101에 1896개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_CAL_101에 2162개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ_101에 1896개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+56                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 00초
+
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.STACK_CAL_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.31 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.46 초
+      cpu 시간            0.99 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_STACK_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_STACK_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+57                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 03초
+
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 10개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.28 초
+      cpu 시간            0.54 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.46 초
+      cpu 시간            0.99 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+58                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 07초
+
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 11개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 stacking_threshold=0.165 fage_threshold=0.211
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 2162개의 관측값과 21개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 2162개의 관측값과 22개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_A_CV_101에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_FIT_101에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_PE_101에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_A_MODEL_101에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 296-297 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.11 초
+      cpu 시간            0.12 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_A_CV_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+59                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 07초
+
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_A_CAL_101에 2162개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_READ_101에 1896개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_A_CAL_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.89 초
+      cpu 시간            0.59 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.49 초
+      cpu 시간            1.03 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_A_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_A_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+60                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 10초
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 12개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_A_READ_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 18852개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 method=fage_a threshold=0.368
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_C_CV_101에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_FIT_101에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_PE_101에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_C_MODEL_101에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 298-299 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.09 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_C_CV_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_C_CAL_101에 2162개의 관측값과 26개의 변수가 있습니다.
+61                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 10초
+
+NOTE: 데이터셋 WORK.FAGE_C_READ_101에 1896개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_C_CAL_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.33 초
+      cpu 시간            0.58 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.50 초
+      cpu 시간            1.08 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_C_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_C_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+62                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 14초
+
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 13개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_C_READ_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 20748개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=101 method=fage_c threshold=0.351
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.06 초
+      cpu 시간            0.53 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.53 초
+      cpu 시간            1.11 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+63                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 18초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_A_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_A_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 14개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 22644개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 method=lr_a threshold=0.392
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+64                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 19초
+
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.43 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.58 초
+      cpu 시간            1.11 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_B_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_B_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 15개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+65                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 21초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 24540개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 method=lr_b threshold=0.477
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.25 초
+      cpu 시간            0.55 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.47 초
+      cpu 시간            1.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_C_101에 1개의 관측값과 7개의 변수가 있습니다.
+66                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 25초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_C_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 16개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 26436개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 method=lr_c threshold=0.416
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.95 초
+      cpu 시간            0.52 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+67                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 28초
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.47 초
+      cpu 시간            1.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_WORD_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_WORD_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 17개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+68                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 28초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 28332개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 method=word threshold=0.515
+
+NOTE: 2162개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 2166324개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.75 초
+      cpu 시간            0.52 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.47 초
+      cpu 시간            0.99 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_KCBERT_101에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_KCBERT_101.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+69                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 32초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 18개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1896개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1896개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 30228개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=101 method=kcbert threshold=0.125
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.STACK_READ_101.에서 읽었습니다.
+NOTE: 1896개의 관측값을 데이터셋 WORK.FAGE_READ_101.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_SCORED에 3792개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_SCORED을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 3792개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+NOTE: 3792개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 34020개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+70                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 32초
+
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='stacking';
+NOTE: FREQ 프로시저가 300 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 301 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 1896개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 302 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 20464개의 관측값을 데이터셋 WORK.FAGE.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1881개의 관측값과 19개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ에 2311개의 관측값과 19개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_STACK_CV_202에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_FIT_202에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_PE_202에 7개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_MODEL_202에 55개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 303-304 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+71                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 32초
+
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_CV_202에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_FIT_202에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_PE_202에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_MODEL_202에 105개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 305-306 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.08 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_STACK_CV_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_CV_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.STACK_CAL_202에 1881개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.STACK_READ_202에 2311개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_CAL_202에 1881개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ_202에 2311개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.STACK_CAL_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.76 초
+      cpu 시간            0.47 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.39 초
+      cpu 시간            0.83 초
+      
+
+
+72                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 35초
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_STACK_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_STACK_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 19개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.60 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+73                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 38초
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.42 초
+      cpu 시간            0.88 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 20개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=202 stacking_threshold=0.172 fage_threshold=0.203
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+74                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 38초
+
+      
+
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1881개의 관측값과 21개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1881개의 관측값과 22개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_A_CV_202에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_FIT_202에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_PE_202에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_A_MODEL_202에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 307-308 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_A_CV_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_A_CAL_202에 1881개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_READ_202에 2311개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_A_CAL_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.81 초
+      cpu 시간            0.49 초
+75                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 41초
+
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.46 초
+      cpu 시간            0.94 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_A_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_A_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 21개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+76                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 42초
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_A_READ_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 36331개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=202 method=fage_a threshold=0.416
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_C_CV_202에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_FIT_202에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_PE_202에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_C_MODEL_202에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 309-310 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_C_CV_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_C_CAL_202에 1881개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_READ_202에 2311개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_C_CAL_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.98 초
+      cpu 시간            0.51 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+77                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 45초
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.42 초
+      cpu 시간            0.90 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_C_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_C_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 22개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_C_READ_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+78                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 45초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 38642개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=202 method=fage_c threshold=0.53
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.45 초
+      cpu 시간            0.46 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.53 초
+      cpu 시간            0.99 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_A_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_A_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+79                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 48초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 23개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 40953개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=202 method=lr_a threshold=0.447
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.04 초
+      cpu 시간            0.49 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.48 초
+      cpu 시간            0.95 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+80                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 52초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_B_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_B_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 24개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+81                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 52초
+
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 43264개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=202 method=lr_b threshold=0.544
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.09 초
+      cpu 시간            0.49 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.43 초
+      cpu 시간            0.91 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_C_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_C_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+82                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 55초
+
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 25개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 45575개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=202 method=lr_c threshold=0.43
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.18 초
+      cpu 시간            0.47 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.45 초
+      cpu 시간            0.95 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+83                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 27분 59초
+
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_WORD_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_WORD_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 26개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 47886개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=202 method=word threshold=0.458
+
+84                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 00초
+
+NOTE: 1881개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1884762개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.22 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.45 초
+      cpu 시간            0.94 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_KCBERT_202에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_KCBERT_202.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 27개의 관측값과 5개의 변수가 있습니다.
+85                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 03초
+
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2311개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2311개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 50197개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=202 method=kcbert threshold=0.054
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.STACK_READ_202.에서 읽었습니다.
+NOTE: 2311개의 관측값을 데이터셋 WORK.FAGE_READ_202.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_SCORED에 4622개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_SCORED을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 4622개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+NOTE: 4622개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 54819개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='stacking';
+NOTE: FREQ 프로시저가 311 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 312 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+86                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 03초
+
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2311개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 313 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: 20464개의 관측값을 데이터셋 WORK.FAGE.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1899개의 관측값과 19개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ에 2262개의 관측값과 19개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_STACK_CV_303에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_FIT_303에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_PE_303에 7개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_MODEL_303에 55개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 314-315 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.06 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_CV_303에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_FIT_303에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_PE_303에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_MODEL_303에 105개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 316-317 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.08 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_STACK_CV_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+87                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 03초
+
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_CV_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.STACK_CAL_303에 1899개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.STACK_READ_303에 2262개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_CAL_303에 1899개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ_303에 2262개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.STACK_CAL_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.86 초
+      cpu 시간            0.50 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.46 초
+      cpu 시간            0.96 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+88                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 06초
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_STACK_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_STACK_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 28개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.77 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.43 초
+      cpu 시간            0.90 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+89                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 10초
+
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 29개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=303 stacking_threshold=0.58 fage_threshold=0.523
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1899개의 관측값과 21개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+90                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 10초
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1899개의 관측값과 22개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_A_CV_303에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_FIT_303에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_PE_303에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_A_MODEL_303에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 318-319 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.09 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_A_CV_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_A_CAL_303에 1899개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_READ_303에 2262개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_A_CAL_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.79 초
+      cpu 시간            0.50 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.44 초
+      cpu 시간            0.92 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+91                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 13초
+
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_A_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_A_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 30개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_A_READ_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 57081개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+92                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 13초
+
+      
+
+NOTE: seed=303 method=fage_a threshold=0.794
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_C_CV_303에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_FIT_303에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_PE_303에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_C_MODEL_303에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 320-321 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_C_CV_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_C_CAL_303에 1899개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_READ_303에 2262개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_C_CAL_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.99 초
+      cpu 시간            0.51 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.42 초
+      cpu 시간            0.89 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+93                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 17초
+
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_C_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_C_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 31개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_C_READ_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 59343개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=303 method=fage_c threshold=0.825
+
+94                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 17초
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.62 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.57 초
+      cpu 시간            1.05 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_A_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_A_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 32개의 관측값과 5개의 변수가 있습니다.
+95                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 20초
+
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 61605개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=303 method=lr_a threshold=0.538
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.37 초
+      cpu 시간            0.50 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.46 초
+      cpu 시간            0.95 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+96                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 23초
+
+NOTE: 데이터셋 WORK.TH_LR_B_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_B_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 33개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 63867개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=303 method=lr_b threshold=0.592
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.41 초
+      cpu 시간            0.45 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+97                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 26초
+
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.44 초
+      cpu 시간            0.93 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_C_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_C_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 34개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+98                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 26초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 66129개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=303 method=lr_c threshold=0.499
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.60 초
+      cpu 시간            0.47 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.45 초
+      cpu 시간            0.95 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_WORD_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_WORD_303.에서 읽었습니다.
+99                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 29초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 35개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 68391개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=303 method=word threshold=0.649
+
+NOTE: 1899개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1902798개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.46 초
+      cpu 시간            0.46 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.45 초
+      cpu 시간            0.94 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+100                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 32초
+
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_KCBERT_303에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_KCBERT_303.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 36개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 2262개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+101                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 32초
+
+NOTE: 2262개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 70653개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=303 method=kcbert threshold=0.756
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.STACK_READ_303.에서 읽었습니다.
+NOTE: 2262개의 관측값을 데이터셋 WORK.FAGE_READ_303.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_SCORED에 4524개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_SCORED을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 4524개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+NOTE: 4524개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 75177개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='stacking';
+NOTE: FREQ 프로시저가 322 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 323 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 2262개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 324 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: 20464개의 관측값을 데이터셋 WORK.FAGE.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1988개의 관측값과 19개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ에 1951개의 관측값과 19개의 변수가 있습니다.
+102                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 32초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_STACK_CV_404에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_FIT_404에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_PE_404에 7개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_STACK_MODEL_404에 55개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 325-326 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.06 초
+      cpu 시간            0.07 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_CV_404에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_FIT_404에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_PE_404에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_MODEL_404에 105개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 327-328 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.09 초
+      cpu 시간            0.09 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_STACK_CV_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_CV_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.STACK_CAL_404에 1988개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.STACK_READ_404에 1951개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.00 초
+103                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 32초
+
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_CAL_404에 1988개의 관측값과 23개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_READ_404에 1951개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.STACK_CAL_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.93 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.43 초
+      cpu 시간            0.90 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_STACK_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_STACK_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+104                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 35초
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 37개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 26개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.35 초
+      cpu 시간            0.49 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.45 초
+      cpu 시간            0.95 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_404.에서 읽었습니다.
+105                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 39초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 38개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=404 stacking_threshold=0.107 fage_threshold=0.23
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1988개의 관측값과 21개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_CAL에 1988개의 관측값과 22개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_A_CV_404에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_FIT_404에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_PE_404에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_A_MODEL_404에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 329-330 페이지를 인쇄했습니다.
+106                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 39초
+
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.07 초
+      cpu 시간            0.08 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_A_CV_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_A_CAL_404에 1988개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_A_READ_404에 1951개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_A_CAL_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.68 초
+      cpu 시간            0.52 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.48 초
+      cpu 시간            0.99 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_A_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+107                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 44초
+
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_A_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 39개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_A_READ_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 77128개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=404 method=fage_a threshold=0.406
+
+NOTE: PROC LOGISTIC is modeling the probability that target=1.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.FAGE_C_CV_404에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_FIT_404에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_PE_404에 11개의 관측값과 7개의 변수가 있습니다.
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_C_MODEL_404에 106개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 331-332 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.08 초
+      cpu 시간            0.08 초
+      
+108                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 44초
+
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_C_CV_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_C_CAL_404에 1988개의 관측값과 26개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.FAGE_C_READ_404에 1951개의 관측값과 23개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_C_CAL_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.83 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.51 초
+      cpu 시간            1.03 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_FAGE_C_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_FAGE_C_404.에서 읽었습니다.
+109                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 48초
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 40개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_C_READ_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 79079개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=404 method=fage_c threshold=0.653
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           3.31 초
+      cpu 시간            0.56 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.57 초
+      cpu 시간            1.08 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+110                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 52초
+
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_A_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_A_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 41개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+111                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 52초
+
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 81030개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=404 method=lr_a threshold=0.381
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.94 초
+      cpu 시간            0.52 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.44 초
+      cpu 시간            0.93 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_B_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_B_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+112                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 55초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 42개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 82981개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=404 method=lr_b threshold=0.407
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.72 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.42 초
+      cpu 시간            0.94 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+113                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 59초
+
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_LR_C_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_LR_C_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 43개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 84932개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: seed=404 method=lr_c threshold=0.406
+114                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 28분 59초
+
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.52 초
+      cpu 시간            0.49 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.44 초
+      cpu 시간            0.95 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_WORD_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_WORD_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+115                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 02초
+
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 44개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 86883개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=404 method=word threshold=0.433
+
+NOTE: 1988개의 관측값을 데이터셋 WORK.FAGE_CAL.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_GRID에 1991976개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           2.78 초
+      cpu 시간            0.48 초
+      
+
+NOTE: Table WORK.FAGE_THRESHOLD_STATS created, with 1002 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.44 초
+      cpu 시간            0.92 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1002개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLD_STATS에 1002개의 관측값과 7개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_THRESHOLD_STATS.에서 읽었습니다.
+116                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+      WHERE fpr<=0.01;
+NOTE: 데이터셋 WORK.TH_KCBERT_404에 1개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TH_KCBERT_404.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 데이터셋 WORK.FAGE_TH_ROW에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.FAGE_TH_ROW을(를) WORK.FAGE_THRESHOLDS에 추가하는 중입니다.
+NOTE: 1개의 관측값을 데이터셋 WORK.FAGE_TH_ROW.에서 읽었습니다.
+NOTE: 1개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_THRESHOLDS에 45개의 관측값과 5개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_READ.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_ONE에 1951개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: WORK.READ_ONE을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_ONE.에서 읽었습니다.
+NOTE: 1951개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 88834개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: seed=404 method=kcbert threshold=0.187
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.STACK_READ_404.에서 읽었습니다.
+NOTE: 1951개의 관측값을 데이터셋 WORK.FAGE_READ_404.에서 읽었습니다.
+NOTE: 데이터셋 WORK.READ_SCORED에 3902개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+117                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+
+
+NOTE: WORK.READ_SCORED을(를) WORK.FAGE_READOUT_SCORED에 추가하는 중입니다.
+NOTE: 3902개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+NOTE: 3902개 관측값이 추가되었습니다.
+NOTE: 데이터셋 WORK.FAGE_READOUT_SCORED에 92736개의 관측값과 11개의 변수가 있습니다.
+NOTE: 프로시저 APPEND 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='stacking';
+NOTE: FREQ 프로시저가 333 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 334 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1951개의 관측값을 데이터셋 WORK.READ_SCORED.에서 읽었습니다.
+      WHERE method='fage';
+NOTE: FREQ 프로시저가 335 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: 45개의 관측값을 데이터셋 WORK.FAGE_THRESHOLDS.에서 읽었습니다.
+NOTE: PRINT 프로시저가 336 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+NOTE: Table WORK.FAGE_READOUT_NOURL created, with 45 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.04 초
+      
+
+
+NOTE: 45개의 관측값을 데이터셋 WORK.FAGE_READOUT_NOURL.에서 읽었습니다.
+NOTE: PRINT 프로시저가 337 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+118                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+      cpu 시간            0.03 초
+      
+
+NOTE: Table WORK.FAGE_READOUT_FPR created, with 45 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.05 초
+      
+
+
+NOTE: 45개의 관측값을 데이터셋 WORK.FAGE_READOUT_FPR.에서 읽었습니다.
+NOTE: PRINT 프로시저가 338 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+1995    /**********************************************************************
+1996    *   PRODUCT:   SAS
+1997    *   VERSION:   V.04.00
+1998    *   CREATOR:   External File Interface
+1999    *   DATE:      14SEP26
+2000    *   DESC:      Generated SAS Datastep Code
+2001    *   TEMPLATE SOURCE:  (None Specified.)
+2002    ***********************************************************************/
+2003       data _null_;
+2004       %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2005       %let _EFIREC_ = 0;     /* clear export record count macro variable */
+2006       file '/home/student/github/outputs/fage_thresholds.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+2007       if _n_ = 1 then        /* write column names or labels */
+2008        do;
+2009          put
+2010             "seed"
+2011          ','
+2012             "method"
+2013          ','
+2014             "threshold"
+2015          ','
+2016             "recall"
+2017          ','
+2018             "fpr"
+2019          ;
+2020        end;
+2021      set  WORK.FAGE_THRESHOLDS   end=EFIEOD;
+2022          format seed best12. ;
+2023          format method $16. ;
+2024          format threshold best12. ;
+2025          format recall best12. ;
+119                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+2026          format fpr best12. ;
+2027        do;
+2028          EFIOUT + 1;
+2029          put seed @;
+2030          put method $ @;
+2031          put threshold @;
+2032          put recall @;
+2033          put fpr ;
+2034          ;
+2035        end;
+2036       if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+2037       if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2038       run;
+
+NOTE: 파일 '/home/student/github/outputs/fage_thresholds.csv':
+      파일 이름=/home/student/github/outputs/fage_thresholds.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 03시29분05초
+
+NOTE: 46개의 레코드를 파일 '/home/student/github/outputs/fage_thresholds.csv'에 기록했습니다.
+      최소 레코드 길이는 32입니다.
+      최대 레코드 길이는 44입니다.
+NOTE: 45개의 관측값을 데이터셋 WORK.FAGE_THRESHOLDS.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.01 초
+      
+
+45 records created in /home/student/github/outputs/fage_thresholds.csv from WORK.FAGE_THRESHOLDS.
+  
+  
+NOTE: "/home/student/github/outputs/fage_thresholds.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+2042    /**********************************************************************
+2043    *   PRODUCT:   SAS
+2044    *   VERSION:   V.04.00
+2045    *   CREATOR:   External File Interface
+2046    *   DATE:      14SEP26
+2047    *   DESC:      Generated SAS Datastep Code
+2048    *   TEMPLATE SOURCE:  (None Specified.)
+2049    ***********************************************************************/
+2050       data _null_;
+2051       %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2052       %let _EFIREC_ = 0;     /* clear export record count macro variable */
+2053       file '/home/student/github/outputs/fage_readout_nourl.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+2054       if _n_ = 1 then        /* write column names or labels */
+2055        do;
+2056          put
+2057             "seed"
+2058          ','
+120                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+2059             "method"
+2060          ','
+2061             "malicious_rows"
+2062          ','
+2063             "tp"
+2064          ','
+2065             "fn"
+2066          ;
+2067        end;
+2068      set  WORK.FAGE_READOUT_NOURL   end=EFIEOD;
+2069          format seed best12. ;
+2070          format method $16. ;
+2071          format malicious_rows best12. ;
+2072          format tp best12. ;
+2073          format fn best12. ;
+2074        do;
+2075          EFIOUT + 1;
+2076          put seed @;
+2077          put method $ @;
+2078          put malicious_rows @;
+2079          put tp @;
+2080          put fn ;
+2081          ;
+2082        end;
+2083       if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+2084       if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2085       run;
+
+NOTE: 파일 '/home/student/github/outputs/fage_readout_nourl.csv':
+      파일 이름=/home/student/github/outputs/fage_readout_nourl.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 03시29분05초
+
+NOTE: 46개의 레코드를 파일 '/home/student/github/outputs/fage_readout_nourl.csv'에 기록했습니다.
+      최소 레코드 길이는 15입니다.
+      최대 레코드 길이는 32입니다.
+NOTE: 45개의 관측값을 데이터셋 WORK.FAGE_READOUT_NOURL.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.00 초
+      
+
+45 records created in /home/student/github/outputs/fage_readout_nourl.csv from WORK.FAGE_READOUT_NOURL.
+  
+  
+NOTE: "/home/student/github/outputs/fage_readout_nourl.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+2089    /**********************************************************************
+2090    *   PRODUCT:   SAS
+2091    *   VERSION:   V.04.00
+121                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+2092    *   CREATOR:   External File Interface
+2093    *   DATE:      14SEP26
+2094    *   DESC:      Generated SAS Datastep Code
+2095    *   TEMPLATE SOURCE:  (None Specified.)
+2096    ***********************************************************************/
+2097       data _null_;
+2098       %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2099       %let _EFIREC_ = 0;     /* clear export record count macro variable */
+2100       file '/home/student/github/outputs/fage_readout_fpr.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+2101       if _n_ = 1 then        /* write column names or labels */
+2102        do;
+2103          put
+2104             "seed"
+2105          ','
+2106             "method"
+2107          ','
+2108             "normal_rows"
+2109          ','
+2110             "fp"
+2111          ','
+2112             "tn"
+2113          ;
+2114        end;
+2115      set  WORK.FAGE_READOUT_FPR   end=EFIEOD;
+2116          format seed best12. ;
+2117          format method $16. ;
+2118          format normal_rows best12. ;
+2119          format fp best12. ;
+2120          format tn best12. ;
+2121        do;
+2122          EFIOUT + 1;
+2123          put seed @;
+2124          put method $ @;
+2125          put normal_rows @;
+2126          put fp @;
+2127          put tn ;
+2128          ;
+2129        end;
+2130       if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+2131       if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2132       run;
+
+NOTE: 파일 '/home/student/github/outputs/fage_readout_fpr.csv':
+      파일 이름=/home/student/github/outputs/fage_readout_fpr.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 03시29분05초
+
+NOTE: 46개의 레코드를 파일 '/home/student/github/outputs/fage_readout_fpr.csv'에 기록했습니다.
+      최소 레코드 길이는 19입니다.
+      최대 레코드 길이는 29입니다.
+NOTE: 45개의 관측값을 데이터셋 WORK.FAGE_READOUT_FPR.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+45 records created in /home/student/github/outputs/fage_readout_fpr.csv from WORK.FAGE_READOUT_FPR.
+122                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+  
+  
+NOTE: "/home/student/github/outputs/fage_readout_fpr.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+2136    /**********************************************************************
+2137    *   PRODUCT:   SAS
+2138    *   VERSION:   V.04.00
+2139    *   CREATOR:   External File Interface
+2140    *   DATE:      14SEP26
+2141    *   DESC:      Generated SAS Datastep Code
+2142    *   TEMPLATE SOURCE:  (None Specified.)
+2143    ***********************************************************************/
+2144       data _null_;
+2145       %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2146       %let _EFIREC_ = 0;     /* clear export record count macro variable */
+2147       file '/home/student/github/outputs/fage_readout_scored.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+2148       if _n_ = 1 then        /* write column names or labels */
+2149        do;
+2150          put
+2151             "seed"
+2152          ','
+2153             "fold"
+2154          ','
+2155             "target"
+2156          ','
+2157             "has_url"
+2158          ','
+2159             "model_predicted"
+2160          ','
+2161             "method"
+2162          ','
+2163             "message_id"
+2164          ','
+2165             "role"
+2166          ','
+2167             "similarity_group_id"
+2168          ','
+2169             "label"
+2170          ','
+2171             "model_probability"
+2172          ;
+2173        end;
+2174      set  WORK.FAGE_READOUT_SCORED   end=EFIEOD;
+2175          format seed best12. ;
+2176          format fold best12. ;
+2177          format target best12. ;
+2178          format has_url best12. ;
+2179          format model_predicted best12. ;
+2180          format method $16. ;
+2181          format message_id $40. ;
+2182          format role $32. ;
+123                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 05초
+
+2183          format similarity_group_id $40. ;
+2184          format label $12. ;
+2185          format model_probability best12. ;
+2186        do;
+2187          EFIOUT + 1;
+2188          put seed @;
+2189          put fold @;
+2190          put target @;
+2191          put has_url @;
+2192          put model_predicted @;
+2193          put method $ @;
+2194          put message_id $ @;
+2195          put role $ @;
+2196          put similarity_group_id $ @;
+2197          put label $ @;
+2198          put model_probability ;
+2199          ;
+2200        end;
+2201       if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+2202       if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2203       run;
+
+NOTE: 파일 '/home/student/github/outputs/fage_readout_scored.csv':
+      파일 이름=/home/student/github/outputs/fage_readout_scored.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 03시29분05초
+
+NOTE: 92737개의 레코드를 파일 '/home/student/github/outputs/fage_readout_scored.csv'에 기록했습니다.
+      최소 레코드 길이는 101입니다.
+      최대 레코드 길이는 112입니다.
+NOTE: 92736개의 관측값을 데이터셋 WORK.FAGE_READOUT_SCORED.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.25 초
+      cpu 시간            0.21 초
+      
+
+92736 records created in /home/student/github/outputs/fage_readout_scored.csv from WORK.FAGE_READOUT_SCORED.
+  
+  
+NOTE: "/home/student/github/outputs/fage_readout_scored.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.28 초
+      cpu 시간            0.24 초
+      
+
+NOTE: Python FAGE 수치가 SAS 08 결과를 대신하지 않습니다. 로그와 ODS를 검수하십시오.

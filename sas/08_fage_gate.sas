@@ -28,7 +28,7 @@
   선행: data/processed/sas/sas_fage_abc_rows.csv
 ---------------------------------------------------------------------------*/
 
-%let projroot = /home/student;
+%let projroot = /home/student/github;
 %let sasdata  = &projroot./data/processed/sas;
 %let fpr_ceiling = 0.01;
 %let seed_list = 42 101 202 303 404;

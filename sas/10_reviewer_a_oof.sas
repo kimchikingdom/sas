@@ -10,7 +10,7 @@
   독립 실행. 선행: data/processed/sas/sas_reviewer_a_oof_20260912.csv
 ---------------------------------------------------------------------------*/
 
-%if not %symexist(projroot) %then %let projroot = /home/student;
+%let projroot = /home/student/github;
 %let sasdata  = &projroot./data/processed/sas;
 
 proc options option=encoding value; run;

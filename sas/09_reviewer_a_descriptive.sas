@@ -12,8 +12,8 @@
   선행: data/processed/sas/sas_reviewer_a_rows_20260912.csv
         data/processed/sas/sas_reviewer_a_pairs_20260912.csv
 ---------------------------------------------------------------------------*/
-
-%if not %symexist(projroot) %then %let projroot = /home/student;
+proc printto; run;
+%let projroot=/home/student/github;
 %let sasdata  = &projroot./data/processed/sas;
 
 proc options option=encoding value; run;
