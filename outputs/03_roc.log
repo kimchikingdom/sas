@@ -1,5 +1,5 @@
 NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.02 초
       cpu 시간            0.00 초
       
 
@@ -30,7 +30,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
       cpu 시간            0.00 초
       
 
-30                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 16초
+30                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 48분 22초
 
 
 NOTE: 2317개의 관측값을 데이터셋 WORK.ROC_COMPARISON.에서 읽었습니다.
@@ -48,10 +48,10 @@ NOTE: 데이터셋 WORK.ROC_DIFFERENCE_ALL에 3개의 관측값과 7개의 변�
 NOTE: 데이터셋 WORK.ROC_AUC_ALL에 3개의 관측값과 8개의 변수가 있습니다.
 NOTE: 2317개의 관측값을 데이터셋 WORK.ROC_COMPARISON.에서 읽었습니다.
       WHERE 1 /* an obviously TRUE WHERE clause */ ;
-NOTE: LOGISTIC 프로시저가 265-266 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 420-421 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           1.69 초
-      cpu 시간            1.07 초
+      실행 시간           1.71 초
+      cpu 시간            1.09 초
       
 
 
@@ -63,10 +63,10 @@ NOTE: 데이터셋 WORK.ROC_DIFFERENCE_URL에 3개의 관측값과 7개의 변�
 NOTE: 데이터셋 WORK.ROC_AUC_URL에 3개의 관측값과 8개의 변수가 있습니다.
 NOTE: 896개의 관측값을 데이터셋 WORK.ROC_COMPARISON.에서 읽었습니다.
       WHERE has_url=1;
-NOTE: LOGISTIC 프로시저가 267-268 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 422-423 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           1.01 초
-      cpu 시간            0.62 초
+      실행 시간           0.99 초
+      cpu 시간            0.60 초
       
 
 
@@ -84,9 +84,9 @@ NOTE: The NOFIT option is specified.  No parameters are estimated and all other 
 NOTE: PROC LOGISTIC is modeling the probability that target='1'.
 NOTE: 1421개의 관측값을 데이터셋 WORK.ROC_COMPARISON.에서 읽었습니다.
       WHERE has_url=0;
-NOTE: LOGISTIC 프로시저가 269 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 424 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.96 초
-      cpu 시간            0.56 초
+      실행 시간           0.95 초
+      cpu 시간            0.58 초
       
 

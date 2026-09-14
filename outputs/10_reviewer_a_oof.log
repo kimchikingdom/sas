@@ -2,7 +2,7 @@ NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
       실행 시간           0.00 초
       cpu 시간            0.00 초
       
-127                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 06초
+127                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 51분 02초
 
 
 NOTE: SCAMLENS_STAGE=10_reviewer_a_oof SAS_VERSION=V.04.00M0P021224 DATE=14SEP2026 TIME=06:38
@@ -59,15 +59,15 @@ NOTE: 5540개의 관측값을 데이터셋 WORK.REVIEW_A_OOF.에서 읽었습니
 NOTE: 데이터셋 WORK.REVIEW_A_OOF에 5540개의 관측값과 11개의 변수가 있습니다.
 NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
-128                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 29분 06초
+128                                                        SAS 시스템      2026년  9월 14일 월요일 오전 03시 51분 02초
 
 
 NOTE: 694개의 관측값을 데이터셋 WORK.REVIEW_A_OOF.에서 읽었습니다.
       WHERE (arm='C') and (role='development_readout') and (original_label='smishing');
-NOTE: FREQ 프로시저가 343-347 페이지를 인쇄했습니다.
+NOTE: FREQ 프로시저가 498-502 페이지를 인쇄했습니다.
 NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
       실행 시간           0.08 초
       cpu 시간            0.08 초
@@ -76,7 +76,7 @@ NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
 
 NOTE: 662개의 관측값을 데이터셋 WORK.REVIEW_A_OOF.에서 읽었습니다.
       WHERE (arm='C') and (role='development_readout') and (original_label='normal');
-NOTE: FREQ 프로시저가 348-352 페이지를 인쇄했습니다.
+NOTE: FREQ 프로시저가 503-507 페이지를 인쇄했습니다.
 NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
       실행 시간           0.08 초
       cpu 시간            0.08 초

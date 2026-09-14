@@ -7,12 +7,12 @@ NOTE: SCAMLENS_STAGE=05_visuals SAS_VERSION=V.04.00M0P021224 DATE=14SEP2026 TIME
 
     SAS (r) Proprietary Software Release V.04.00  TS1M0
 
-34                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 23초
+34                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 48분 29초
 
  ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
 NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.00 초
       
 
 NOTE: HTML Body 파일 기록 중: 05_visuals.html
@@ -25,12 +25,12 @@ NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
 
 
 NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
-      실행 시간           0.19 초
-      cpu 시간            0.12 초
+      실행 시간           0.20 초
+      cpu 시간            0.13 초
       
 NOTE: 이미지 출력 리스팅이 
       /opt/sas/viya/config/var/tmp/compsrv/default/a2ab1bd6-a3f1-43fb-be4c-b1bed7cf108f/SAS_work5E73000001C1_sas-compute-server-7fab
-      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot10.png에 작성되었습니다.
+      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot18.png에 작성되었습니다.
 NOTE: 2개의 관측값을 데이터셋 WORK.FPR_BY_URL.에서 읽었습니다.
 
 NOTE: Table WORK.FNR_BY_URL created, with 2 rows and 3 columns.
@@ -42,12 +42,12 @@ NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
 
 
 NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
-      실행 시간           0.16 초
+      실행 시간           0.15 초
       cpu 시간            0.09 초
       
 NOTE: 이미지 출력 리스팅이 
       /opt/sas/viya/config/var/tmp/compsrv/default/a2ab1bd6-a3f1-43fb-be4c-b1bed7cf108f/SAS_work5E73000001C1_sas-compute-server-7fab
-      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot12.png에 작성되었습니다.
+      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot20.png에 작성되었습니다.
 NOTE: 2개의 관측값을 데이터셋 WORK.FNR_BY_URL.에서 읽었습니다.
 
 
@@ -61,13 +61,13 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 
 NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
-      실행 시간           0.20 초
-      cpu 시간            0.12 초
+      실행 시간           0.19 초
+      cpu 시간            0.11 초
       
 NOTE: 이미지 출력 리스팅이 
       /opt/sas/viya/config/var/tmp/compsrv/default/a2ab1bd6-a3f1-43fb-be4c-b1bed7cf108f/SAS_work5E73000001C1_sas-compute-server-7fab
-      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot14.png에 작성되었습니다.
-35                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 24초
+      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPlot22.png에 작성되었습니다.
+35                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 48분 30초
 
 NOTE: 2317개의 관측값을 데이터셋 WORK.DIST.에서 읽었습니다.
 
@@ -84,7 +84,7 @@ NOTE: Table WORK.VISUAL_ROC_JOINED created, with 2317 rows and 24 columns.
 
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.01 초
+      cpu 시간            0.02 초
       
 
 
@@ -101,10 +101,10 @@ NOTE: The NOFIT option is specified.  No parameters are estimated and all other 
       LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
 NOTE: PROC LOGISTIC is modeling the probability that target='1'.
 NOTE: 2317개의 관측값을 데이터셋 WORK.VISUAL_ROC.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 279-280 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 434-435 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
       실행 시간           1.71 초
-      cpu 시간            1.07 초
+      cpu 시간            1.08 초
       
 
 
@@ -127,7 +127,7 @@ WORK.PARMS.PARMS.SLIST.
 1495          informat recall best32. ;
 1496          format model $25. ;
 1497          format variant $18. ;
-36                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 26분 26초
+36                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 48분 32초
 
 1498          format stage $20. ;
 1499          format recall best12. ;
@@ -164,16 +164,16 @@ NOTE: WORK.ROBUSTNESS 데이터셋을 성공적으로 생성했습니다.
 NOTE: 데이터셋 WORK.ROBUSTNESS에 24개의 관측값과 4개의 변수가 있습니다.
 NOTE: 프로시저 IMPORT 실행 (총 프로세스 시간):
       실행 시간           0.03 초
-      cpu 시간            0.04 초
+      cpu 시간            0.03 초
       
 
 
 NOTE: 프로시저 SGPANEL 실행 (총 프로세스 시간):
-      실행 시간           0.26 초
+      실행 시간           0.25 초
       cpu 시간            0.11 초
       
 NOTE: 이미지 출력 리스팅이 
       /opt/sas/viya/config/var/tmp/compsrv/default/a2ab1bd6-a3f1-43fb-be4c-b1bed7cf108f/SAS_work5E73000001C1_sas-compute-server-7fab
-      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPanel2.png에 작성되었습니다.
+      86e7-31c7-4f2c-8f0a-3bcbed42949e-99/SGPanel4.png에 작성되었습니다.
 NOTE: 24개의 관측값을 데이터셋 WORK.ROBUSTNESS.에서 읽었습니다.
 
