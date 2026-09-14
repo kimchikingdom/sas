@@ -129,10 +129,10 @@ proc freq data=work.by_attack;
     tables attack_type / nocum;
 run;
 
+/* 어떤 BY 그룹에 성공값 1이 전혀 없어도 Clopper-Pearson 구간을 계산한다. */
 proc sql;
     create table work.attack_detection as
-    select attack_type,
-           count(*) as n,
+    select attack_type, count(*) as n,
            sum(hit_text) as hits_text,
            sum(hit_kcbert) as hits_kcbert
     from work.by_attack
@@ -143,33 +143,22 @@ data work.attack_detection_ci;
     set work.attack_detection;
     array hits[2] hits_text hits_kcbert;
     length model $20;
-
     do model_index=1 to 2;
         if model_index=1 then model='문자 n-gram';
         else model='KcBERT';
-
         detected=hits[model_index];
         detection_rate=detected/n;
-
         if detected=0 then lower_95=0;
-        else lower_95=quantile(
-            'BETA', 0.025, detected, n-detected+1
-        );
-
+        else lower_95=quantile('BETA',0.025,detected,n-detected+1);
         if detected=n then upper_95=1;
-        else upper_95=quantile(
-            'BETA', 0.975, detected+1, n-detected
-        );
-
+        else upper_95=quantile('BETA',0.975,detected+1,n-detected);
         output;
     end;
-
-    keep attack_type model n detected
-         detection_rate lower_95 upper_95;
+    keep attack_type model n detected detection_rate lower_95 upper_95;
     format detection_rate lower_95 upper_95 percent8.2;
 run;
 
-title "공격 유형별 탐지율과 exact 95% 신뢰구간";
+title "공격 유형별 탐지율과 Clopper-Pearson exact 95% 신뢰구간";
 proc print data=work.attack_detection_ci noobs;
 run;
 

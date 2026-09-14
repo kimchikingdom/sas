@@ -1,0 +1,51 @@
+{
+  "status": "exported",
+  "rows": 5430,
+  "model": "char_tfidf_lr",
+  "threshold": 0.515,
+  "novelty_threshold": 0.5,
+  "minimum_year_rows": 50,
+  "overall_detection_rate": 0.983794,
+  "by_year": {
+    "2021": {
+      "rows": 6,
+      "detection_rate": 1.0,
+      "median_similarity": 0.796301,
+      "excluded_by_row_minimum": true
+    },
+    "2022": {
+      "rows": 1323,
+      "detection_rate": 0.993197,
+      "median_similarity": 0.581382,
+      "excluded_by_row_minimum": false
+    },
+    "2023": {
+      "rows": 1210,
+      "detection_rate": 0.993388,
+      "median_similarity": 0.50615,
+      "excluded_by_row_minimum": false
+    },
+    "2024": {
+      "rows": 1277,
+      "detection_rate": 0.981989,
+      "median_similarity": 0.490831,
+      "excluded_by_row_minimum": false
+    },
+    "2025": {
+      "rows": 1268,
+      "detection_rate": 0.976341,
+      "median_similarity": 0.624555,
+      "excluded_by_row_minimum": false
+    },
+    "2026": {
+      "rows": 346,
+      "detection_rate": 0.947977,
+      "median_similarity": 0.257527,
+      "excluded_by_row_minimum": false
+    }
+  },
+  "unmapped_attack_types": [],
+  "text_exported": false,
+  "note": "본문을 내보내지 않는다. 회귀에 필요한 것은 확률과 거리이고, SAS Viya 업로드는 외부 전송이다.",
+  "output": "data/processed/sas/sas_external_evaluation.csv"
+}

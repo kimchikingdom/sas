@@ -1,0 +1,39 @@
+{
+  "status": "exported",
+  "path": "data/processed/sas/sas_fage_abc_rows.csv",
+  "rows": 20464,
+  "columns": [
+    "message_id",
+    "seed",
+    "fold",
+    "role",
+    "similarity_group_id",
+    "label",
+    "target",
+    "has_url",
+    "p_lr_a",
+    "p_lr_b",
+    "p_lr_c",
+    "p_word",
+    "p_kcbert_filled",
+    "p_kcbert_missing",
+    "p_url_filled",
+    "p_url_missing",
+    "similarity_to_train",
+    "model_disagreement",
+    "uncertainty"
+  ],
+  "sha256": "eca87e38962692b1bc16ab18a81fd395662d9abec44740869d76f4fb6418e0e4",
+  "seeds": [
+    42,
+    101,
+    202,
+    303,
+    404
+  ],
+  "fold": 0,
+  "encoding": "utf-8",
+  "body_free": true,
+  "original_validation_test": "unused",
+  "sas_executed": false
+}

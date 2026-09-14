@@ -10,16 +10,29 @@
 3. `proc options option=encoding value; run;`으로 UTF-8을 확인한다.
 4. `outputs/` 쓰기 권한을 확인한다. 04를 실행할 때만 추가 WORK 공간·라이선스를 확인한다.
 
-## 실행
+## 이번 남은 실행
 
-`/home/student/sas/00_RUN_ALL.sas` 전체를 실행한다.
-순서는 07 → 01 → 02 → 03 → 06 → 05이며 04는 선택 실행이다.
-02는 유효한 OOF 입력이 있을 때 적합한다. OOF 부재로 02를 건너뛰면 메타 회귀는
-미완료로 남지만, 기존 점수 기반 ROC 비교·그림은 계속 만들 수 있다.
+`/home/student/sas/00_RUN_PENDING.sas`를 실행한다. 순서는 09 → 10이다.
+이 코드는 과거 A 단독 검수 결과를 SAS에서 재현한다. 이후 A/B 합의 결과를 대신하지 않는다.
 
-단독 실행 시 07은 독립 실행하고 내부 분석은 01부터 시작한다. PROC IMPORT가 대부분
-비어 있는 OOF 열의 타입을 잘못 추정하지 않았는지 `proc contents`로 확인한다.
-train OOF와 validation/test 일반 추론 점수를 혼동하지 않는다.
+- 09 입력: `sas_reviewer_a_rows_20260912.csv`, `sas_reviewer_a_pairs_20260912.csv`
+- 10 입력: `sas_reviewer_a_oof_20260912.csv`
+- 출력: `outputs/review_a_20260914/09_reviewer_a.log`와 `.html`,
+  `10_reviewer_a_oof.log`와 `.html`, `pending_run_status.csv`
+
+이미 같은 출력 폴더가 있으면 중단한다. 다시 실행할 때는 실행기 상단의 `run_tag`를
+새 이름으로 바꾼다. 입력과 SAS 코드를 섞지 말고 새 번들의 manifest를 보관한다.
+
+## 전체 과거 분석 재현
+
+`00_RUN_ALL.sas`는 07 → 01 → 02 → 03 → 06 → 05 순서로 시작하며 04는 선택 실행이다.
+08은 `sas_fage_abc_rows.csv`가 있으면 실행하고, 09·10도 각 입력 CSV가 있으면 이어진다.
+현재 확인된 과거 결과를 다시 얻기 위해 전체 실행할 필요는 없다.
+08은 원 train fold 0 개발 자료의 시드별 적합이며 01의 평가 범위와 다르다.
+
+02는 유효한 OOF 입력이 있을 때 적합한다. OOF 부재로 건너뛴 결과를 완료로 부르지 않는다.
+단독 실행 시 07·08·09·10은 독립 실행할 수 있고, 내부 분석은 01부터 시작한다.
+04는 활성 CAS 세션 `mysess`와 TextMine/HPL 관련 이용 환경 확인이 필요한 선택 실험이다.
 
 ## 성공 판정
 
@@ -32,6 +45,9 @@ train OOF와 validation/test 일반 추론 점수를 혼동하지 않는다.
 | 02 | train OOF 유효성, validation 임계값·적합 경고 |
 | 03/06 | 같은 행의 ROC-AUC 비교, 결측에 따른 제외 행 |
 | 05 | 입력 산출물에 연결된 그림, 모델·표본·전처리 단계 |
+| 08 | 시드별 임계값·예측 CSV, 실제 수렴 로그·오류·보정/결과 확인 구간 분리 |
+| 09 | A 단독 rows/pairs 입력의 교차표, 원 라벨을 정답 판단과 구분 |
+| 10 | 시드별 development_readout 교차표, 원 라벨·A 판단·모델 조건 구분 |
 
 07은 Python과 같은 추정 설정이면 수치 대조가 가능하다. 차이가 나면 데이터형·기준범주·
 제외 행·수렴·버전을 확인한다. 02는 Python과 규제·가중치가 달라 계수 부호를 합격

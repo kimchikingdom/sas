@@ -24,9 +24,9 @@ proc options option=encoding value; run;
 %macro assert_utf8;
     %local enc;
     %let enc=%upcase(%sysfunc(getoption(encoding)));
-
     %if "&enc" ne "UTF8" and "&enc" ne "UTF-8" %then %do;
-        %put ERROR: UTF-8 session required. Current encoding=&enc;
+        %put ERROR: 세션 인코딩이 UTF-8이 아닙니다 (&enc).;
+        %put ERROR- SAS Viya 세션을 UTF-8로 다시 시작한 뒤 실행하십시오.;
         %abort cancel;
     %end;
 %mend;

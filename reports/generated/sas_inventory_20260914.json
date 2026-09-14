@@ -1,0 +1,968 @@
+{
+  "status": "passed",
+  "programs": [
+    {
+      "program": "sas/00_RUN_ALL.sas",
+      "status": "실행 진입점",
+      "inputs": [
+        "sas_fage_abc_rows.csv",
+        "sas_reviewer_a_oof_20260912.csv",
+        "sas_reviewer_a_rows_20260912.csv"
+      ],
+      "sha256": "7ddea2f8bec9381466cc5a617f55ef255a24e70d6e7e70839e7194fbf8301cd0"
+    },
+    {
+      "program": "sas/00_RUN_PENDING.sas",
+      "status": "실행 진입점",
+      "inputs": [
+        "sas_reviewer_a_oof_20260912.csv",
+        "sas_reviewer_a_pairs_20260912.csv",
+        "sas_reviewer_a_rows_20260912.csv"
+      ],
+      "sha256": "356ea4eb0961228b093b405c9e1e2f195f7a745c762506455a8a3a2274b81971"
+    },
+    {
+      "program": "sas/01_load_and_audit.sas",
+      "status": "기존 로그·HTML 확인",
+      "inputs": [
+        "sas_message_scores.csv",
+        "sas_message_text.csv"
+      ],
+      "sha256": "944dc37f7056e36fb7d0bfd5472487de8284dbe3e7fac32ff0954031582e1a4a"
+    },
+    {
+      "program": "sas/02_meta_classifier.sas",
+      "status": "기존 로그·HTML 확인",
+      "inputs": [],
+      "sha256": "9fc65ebe7c18f3a6612e46a0f1f208e1544b8d6f1286335d08a4f8b3eafff43c"
+    },
+    {
+      "program": "sas/03_model_comparison.sas",
+      "status": "기존 로그·HTML 확인",
+      "inputs": [],
+      "sha256": "2581691f63a4ee2ffe3d0381c04119a4376e3a4559cc4a7faecff977c388da3f"
+    },
+    {
+      "program": "sas/04_korean_text_model.sas",
+      "status": "선택 실험·미실행",
+      "inputs": [],
+      "sha256": "f4803cf0a1fcf1d61f762abd56b42bb9ded731ddf732bbcff5edda771d757aff"
+    },
+    {
+      "program": "sas/05_visuals.sas",
+      "status": "기존 로그·HTML 확인",
+      "inputs": [
+        "sas_robustness.csv"
+      ],
+      "sha256": "185554ce66acd1774ef3ef27c47cdff34aacf030103c54c89b8e061fddd256c8"
+    },
+    {
+      "program": "sas/06_transformer_contrast.sas",
+      "status": "기존 로그·HTML 확인",
+      "inputs": [],
+      "sha256": "be75fbf926bc37db72f9825dc826c61ebdaa4e1afe31cda4011179dea6421b01"
+    },
+    {
+      "program": "sas/07_composition_and_novelty.sas",
+      "status": "기존 로그·HTML 확인",
+      "inputs": [
+        "sas_external_evaluation.csv"
+      ],
+      "sha256": "5807fa3069bb7e5718bd2b2c32827de06981d2372ab7539f03867b330ee47d82"
+    },
+    {
+      "program": "sas/08_fage_gate.sas",
+      "status": "반환 CSV·회수 로그/표 검산 완료",
+      "inputs": [
+        "sas_fage_abc_rows.csv"
+      ],
+      "sha256": "4e5a7963be0eee7c5b51d9eccc91ddbd01934ecc68691d89b93ae2f588c84651"
+    },
+    {
+      "program": "sas/09_reviewer_a_descriptive.sas",
+      "status": "SAS 실행 미확인·A 단독 재현",
+      "inputs": [
+        "sas_reviewer_a_pairs_20260912.csv",
+        "sas_reviewer_a_rows_20260912.csv"
+      ],
+      "sha256": "74efe8fe4ccbad4fdf55c8be01072414b4f229e592f48139173d7fb5bc43d16a"
+    },
+    {
+      "program": "sas/10_reviewer_a_oof.sas",
+      "status": "SAS 실행 미확인·A 단독 OOF 재현",
+      "inputs": [
+        "sas_reviewer_a_oof_20260912.csv"
+      ],
+      "sha256": "d25d8107916bcbb93ace8604de6ecb1df06e85a66d4f6a74dcd61d621b83b591"
+    }
+  ],
+  "input_csvs": [
+    {
+      "path": "data/processed/sas/sas_external_evaluation.csv",
+      "rows": 5430,
+      "columns": [
+        "message_id",
+        "collection_year",
+        "collection_month",
+        "attack_type_code",
+        "attack_type_ko",
+        "has_url",
+        "text_length",
+        "probability",
+        "detected",
+        "similarity_to_train",
+        "novel",
+        "year_has_enough_rows"
+      ],
+      "sha256": "66dfaf3e9dddd6ac744725c6c5509e6ab806bd5bdfc0931effe21cfd86a421d3"
+    },
+    {
+      "path": "data/processed/sas/sas_fage_abc_rows.csv",
+      "rows": 20464,
+      "columns": [
+        "message_id",
+        "seed",
+        "fold",
+        "role",
+        "similarity_group_id",
+        "label",
+        "target",
+        "has_url",
+        "p_lr_a",
+        "p_lr_b",
+        "p_lr_c",
+        "p_word",
+        "p_kcbert_filled",
+        "p_kcbert_missing",
+        "p_url_filled",
+        "p_url_missing",
+        "similarity_to_train",
+        "model_disagreement",
+        "uncertainty"
+      ],
+      "sha256": "eca87e38962692b1bc16ab18a81fd395662d9abec44740869d76f4fb6418e0e4"
+    },
+    {
+      "path": "data/processed/sas/sas_fage_rows.csv",
+      "rows": 20464,
+      "columns": [
+        "message_id",
+        "seed",
+        "fold",
+        "role",
+        "similarity_group_id",
+        "label",
+        "target",
+        "has_url",
+        "p_lr_a",
+        "p_lr_c",
+        "p_word",
+        "p_kcbert_filled",
+        "p_kcbert_missing",
+        "p_url_filled",
+        "p_url_missing",
+        "similarity_to_train",
+        "model_disagreement",
+        "uncertainty"
+      ],
+      "sha256": "6cdbc9aa8f7cb179e94a03aa8ef63741ba154527919abb16cf81cf5ab0750fac"
+    },
+    {
+      "path": "data/processed/sas/sas_message_scores.csv",
+      "rows": 16773,
+      "columns": [
+        "message_id",
+        "split",
+        "similarity_group_id",
+        "label",
+        "target",
+        "has_url",
+        "url_count",
+        "text_length",
+        "text_probability",
+        "text_probability_oof",
+        "text_probability_meta_input",
+        "oof_fold_id",
+        "sas_meta_fit_eligible",
+        "url_probability_filled",
+        "url_probability_missing",
+        "fixed_fusion_probability",
+        "url_neutral_probability",
+        "linear_cf_probability",
+        "kcbert_probability",
+        "kcbert_calibrated_probability",
+        "kcbert_cf_probability",
+        "attack_type"
+      ],
+      "sha256": "aa6dd8278f08c9416ca054848fdba061f691537154bd9d7f1941c67624625d85"
+    },
+    {
+      "path": "data/processed/sas/sas_message_text.csv",
+      "rows": 16773,
+      "columns": [
+        "message_id",
+        "split",
+        "label",
+        "target",
+        "has_url",
+        "text_utf8_bytes",
+        "text_normalized"
+      ],
+      "sha256": "5e1b8492db02f3d0f8e84e51c78f2ff51c5d95106c4d30bf7ab9640e7b4acd01"
+    },
+    {
+      "path": "data/processed/sas/sas_reviewer_a_oof_20260912.csv",
+      "rows": 5540,
+      "columns": [
+        "review_id",
+        "message_id",
+        "original_label",
+        "text_judgment",
+        "a_risk_bucket",
+        "seed",
+        "fold",
+        "role",
+        "arm",
+        "probability",
+        "prediction"
+      ],
+      "sha256": "f60eb121c0cb33f60aaa4f55c64163a700d8c5f729534b8410df0622508f5879"
+    },
+    {
+      "path": "data/processed/sas/sas_reviewer_a_pairs_20260912.csv",
+      "rows": 278,
+      "columns": [
+        "pair_id",
+        "target_review_id",
+        "control_review_id",
+        "target_judgment",
+        "control_judgment",
+        "same_judgment",
+        "cosine_similarity"
+      ],
+      "sha256": "8f6c9b9b696cfe513fac60fbab331a04a947a4691b0c4572191db70a1cc30020"
+    },
+    {
+      "path": "data/processed/sas/sas_reviewer_a_rows_20260912.csv",
+      "rows": 556,
+      "columns": [
+        "review_id",
+        "message_id",
+        "original_label",
+        "is_url_free_malicious",
+        "is_quarantined",
+        "heuristic_code",
+        "text_judgment",
+        "wave",
+        "note_chars",
+        "n_actions",
+        "action_payment",
+        "action_credentials",
+        "action_app",
+        "action_channel",
+        "action_callback",
+        "action_none",
+        "action_unclear"
+      ],
+      "sha256": "26933b2dae97df86e432c2aaebbba36818bb2515aa8be3e99954c88f595f36f3"
+    },
+    {
+      "path": "data/processed/sas/sas_robustness.csv",
+      "rows": 24,
+      "columns": [
+        "model",
+        "variant",
+        "stage",
+        "recall"
+      ],
+      "sha256": "d6e5ebcce5ca4fa79d8b41a0c8b9eb358228088a68472860c0aeb6c614f348af"
+    }
+  ],
+  "sas08": {
+    "rows": 92736,
+    "methods": [
+      "lr_a",
+      "lr_b",
+      "lr_c",
+      "word",
+      "kcbert",
+      "stacking",
+      "fage",
+      "fage_a",
+      "fage_c"
+    ],
+    "seeds": [
+      42,
+      101,
+      202,
+      303,
+      404
+    ],
+    "threshold_rows": 45,
+    "unique_no_url_malicious": 177,
+    "no_url_seed_rows_per_method": 238,
+    "rounded_threshold_ambiguities": 0,
+    "single_expert_calibration_cells_checked": 25,
+    "fitted_gate_calibration_scores_available": false,
+    "seed_metrics": [
+      {
+        "seed": 42,
+        "method": "lr_a",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 48,
+        "fn": 19,
+        "recall": 0.7164179104477612,
+        "normal_rows": 1398,
+        "fp": 5,
+        "fpr": 0.00357653791130186
+      },
+      {
+        "seed": 42,
+        "method": "lr_b",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 45,
+        "fn": 22,
+        "recall": 0.6716417910447762,
+        "normal_rows": 1398,
+        "fp": 3,
+        "fpr": 0.002145922746781116
+      },
+      {
+        "seed": 42,
+        "method": "lr_c",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 53,
+        "fn": 14,
+        "recall": 0.7910447761194029,
+        "normal_rows": 1398,
+        "fp": 3,
+        "fpr": 0.002145922746781116
+      },
+      {
+        "seed": 42,
+        "method": "word",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 41,
+        "fn": 26,
+        "recall": 0.6119402985074627,
+        "normal_rows": 1398,
+        "fp": 2,
+        "fpr": 0.001430615164520744
+      },
+      {
+        "seed": 42,
+        "method": "kcbert",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 64,
+        "fn": 3,
+        "recall": 0.9552238805970149,
+        "normal_rows": 1398,
+        "fp": 10,
+        "fpr": 0.00715307582260372
+      },
+      {
+        "seed": 42,
+        "method": "stacking",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 66,
+        "fn": 1,
+        "recall": 0.9850746268656716,
+        "normal_rows": 1398,
+        "fp": 7,
+        "fpr": 0.005007153075822604
+      },
+      {
+        "seed": 42,
+        "method": "fage",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 62,
+        "fn": 5,
+        "recall": 0.9253731343283582,
+        "normal_rows": 1398,
+        "fp": 8,
+        "fpr": 0.005722460658082976
+      },
+      {
+        "seed": 42,
+        "method": "fage_a",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 62,
+        "fn": 5,
+        "recall": 0.9253731343283582,
+        "normal_rows": 1398,
+        "fp": 8,
+        "fpr": 0.005722460658082976
+      },
+      {
+        "seed": 42,
+        "method": "fage_c",
+        "rows": 1884,
+        "no_url_malicious": 67,
+        "tp": 63,
+        "fn": 4,
+        "recall": 0.9402985074626866,
+        "normal_rows": 1398,
+        "fp": 9,
+        "fpr": 0.006437768240343348
+      },
+      {
+        "seed": 101,
+        "method": "lr_a",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 38,
+        "fn": 9,
+        "recall": 0.8085106382978723,
+        "normal_rows": 1425,
+        "fp": 19,
+        "fpr": 0.013333333333333334
+      },
+      {
+        "seed": 101,
+        "method": "lr_b",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 34,
+        "fn": 13,
+        "recall": 0.723404255319149,
+        "normal_rows": 1425,
+        "fp": 20,
+        "fpr": 0.014035087719298246
+      },
+      {
+        "seed": 101,
+        "method": "lr_c",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 41,
+        "fn": 6,
+        "recall": 0.8723404255319149,
+        "normal_rows": 1425,
+        "fp": 20,
+        "fpr": 0.014035087719298246
+      },
+      {
+        "seed": 101,
+        "method": "word",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 29,
+        "fn": 18,
+        "recall": 0.6170212765957447,
+        "normal_rows": 1425,
+        "fp": 14,
+        "fpr": 0.009824561403508772
+      },
+      {
+        "seed": 101,
+        "method": "kcbert",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 44,
+        "fn": 3,
+        "recall": 0.9361702127659575,
+        "normal_rows": 1425,
+        "fp": 14,
+        "fpr": 0.009824561403508772
+      },
+      {
+        "seed": 101,
+        "method": "stacking",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 43,
+        "fn": 4,
+        "recall": 0.9148936170212766,
+        "normal_rows": 1425,
+        "fp": 20,
+        "fpr": 0.014035087719298246
+      },
+      {
+        "seed": 101,
+        "method": "fage",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 43,
+        "fn": 4,
+        "recall": 0.9148936170212766,
+        "normal_rows": 1425,
+        "fp": 18,
+        "fpr": 0.01263157894736842
+      },
+      {
+        "seed": 101,
+        "method": "fage_a",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 43,
+        "fn": 4,
+        "recall": 0.9148936170212766,
+        "normal_rows": 1425,
+        "fp": 15,
+        "fpr": 0.010526315789473684
+      },
+      {
+        "seed": 101,
+        "method": "fage_c",
+        "rows": 1896,
+        "no_url_malicious": 47,
+        "tp": 43,
+        "fn": 4,
+        "recall": 0.9148936170212766,
+        "normal_rows": 1425,
+        "fp": 16,
+        "fpr": 0.011228070175438596
+      },
+      {
+        "seed": 202,
+        "method": "lr_a",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 15,
+        "fn": 12,
+        "recall": 0.5555555555555556,
+        "normal_rows": 1444,
+        "fp": 15,
+        "fpr": 0.01038781163434903
+      },
+      {
+        "seed": 202,
+        "method": "lr_b",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 15,
+        "fn": 12,
+        "recall": 0.5555555555555556,
+        "normal_rows": 1444,
+        "fp": 9,
+        "fpr": 0.006232686980609419
+      },
+      {
+        "seed": 202,
+        "method": "lr_c",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 20,
+        "fn": 7,
+        "recall": 0.7407407407407407,
+        "normal_rows": 1444,
+        "fp": 16,
+        "fpr": 0.0110803324099723
+      },
+      {
+        "seed": 202,
+        "method": "word",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 16,
+        "fn": 11,
+        "recall": 0.5925925925925926,
+        "normal_rows": 1444,
+        "fp": 19,
+        "fpr": 0.013157894736842105
+      },
+      {
+        "seed": 202,
+        "method": "kcbert",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 24,
+        "fn": 3,
+        "recall": 0.8888888888888888,
+        "normal_rows": 1444,
+        "fp": 13,
+        "fpr": 0.009002770083102494
+      },
+      {
+        "seed": 202,
+        "method": "stacking",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 23,
+        "fn": 4,
+        "recall": 0.8518518518518519,
+        "normal_rows": 1444,
+        "fp": 15,
+        "fpr": 0.01038781163434903
+      },
+      {
+        "seed": 202,
+        "method": "fage",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 23,
+        "fn": 4,
+        "recall": 0.8518518518518519,
+        "normal_rows": 1444,
+        "fp": 16,
+        "fpr": 0.0110803324099723
+      },
+      {
+        "seed": 202,
+        "method": "fage_a",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 23,
+        "fn": 4,
+        "recall": 0.8518518518518519,
+        "normal_rows": 1444,
+        "fp": 16,
+        "fpr": 0.0110803324099723
+      },
+      {
+        "seed": 202,
+        "method": "fage_c",
+        "rows": 2311,
+        "no_url_malicious": 27,
+        "tp": 23,
+        "fn": 4,
+        "recall": 0.8518518518518519,
+        "normal_rows": 1444,
+        "fp": 14,
+        "fpr": 0.009695290858725761
+      },
+      {
+        "seed": 303,
+        "method": "lr_a",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 22,
+        "fn": 17,
+        "recall": 0.5641025641025641,
+        "normal_rows": 1477,
+        "fp": 18,
+        "fpr": 0.012186865267433988
+      },
+      {
+        "seed": 303,
+        "method": "lr_b",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 21,
+        "fn": 18,
+        "recall": 0.5384615384615384,
+        "normal_rows": 1477,
+        "fp": 13,
+        "fpr": 0.008801624915368992
+      },
+      {
+        "seed": 303,
+        "method": "lr_c",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 30,
+        "fn": 9,
+        "recall": 0.7692307692307693,
+        "normal_rows": 1477,
+        "fp": 20,
+        "fpr": 0.013540961408259987
+      },
+      {
+        "seed": 303,
+        "method": "word",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 17,
+        "fn": 22,
+        "recall": 0.4358974358974359,
+        "normal_rows": 1477,
+        "fp": 13,
+        "fpr": 0.008801624915368992
+      },
+      {
+        "seed": 303,
+        "method": "kcbert",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 33,
+        "fn": 6,
+        "recall": 0.8461538461538461,
+        "normal_rows": 1477,
+        "fp": 13,
+        "fpr": 0.008801624915368992
+      },
+      {
+        "seed": 303,
+        "method": "stacking",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 33,
+        "fn": 6,
+        "recall": 0.8461538461538461,
+        "normal_rows": 1477,
+        "fp": 12,
+        "fpr": 0.008124576844955992
+      },
+      {
+        "seed": 303,
+        "method": "fage",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 34,
+        "fn": 5,
+        "recall": 0.8717948717948718,
+        "normal_rows": 1477,
+        "fp": 18,
+        "fpr": 0.012186865267433988
+      },
+      {
+        "seed": 303,
+        "method": "fage_a",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 34,
+        "fn": 5,
+        "recall": 0.8717948717948718,
+        "normal_rows": 1477,
+        "fp": 15,
+        "fpr": 0.010155721056194989
+      },
+      {
+        "seed": 303,
+        "method": "fage_c",
+        "rows": 2262,
+        "no_url_malicious": 39,
+        "tp": 34,
+        "fn": 5,
+        "recall": 0.8717948717948718,
+        "normal_rows": 1477,
+        "fp": 14,
+        "fpr": 0.009478672985781991
+      },
+      {
+        "seed": 404,
+        "method": "lr_a",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 40,
+        "fn": 18,
+        "recall": 0.6896551724137931,
+        "normal_rows": 1397,
+        "fp": 28,
+        "fpr": 0.020042949176807445
+      },
+      {
+        "seed": 404,
+        "method": "lr_b",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 41,
+        "fn": 17,
+        "recall": 0.7068965517241379,
+        "normal_rows": 1397,
+        "fp": 16,
+        "fpr": 0.01145311381531854
+      },
+      {
+        "seed": 404,
+        "method": "lr_c",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 47,
+        "fn": 11,
+        "recall": 0.8103448275862069,
+        "normal_rows": 1397,
+        "fp": 24,
+        "fpr": 0.01717967072297781
+      },
+      {
+        "seed": 404,
+        "method": "word",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 41,
+        "fn": 17,
+        "recall": 0.7068965517241379,
+        "normal_rows": 1397,
+        "fp": 17,
+        "fpr": 0.012168933428775949
+      },
+      {
+        "seed": 404,
+        "method": "kcbert",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 52,
+        "fn": 6,
+        "recall": 0.896551724137931,
+        "normal_rows": 1397,
+        "fp": 10,
+        "fpr": 0.0071581961345740875
+      },
+      {
+        "seed": 404,
+        "method": "stacking",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 56,
+        "fn": 2,
+        "recall": 0.9655172413793104,
+        "normal_rows": 1397,
+        "fp": 32,
+        "fpr": 0.02290622763063708
+      },
+      {
+        "seed": 404,
+        "method": "fage",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 56,
+        "fn": 2,
+        "recall": 0.9655172413793104,
+        "normal_rows": 1397,
+        "fp": 25,
+        "fpr": 0.01789549033643522
+      },
+      {
+        "seed": 404,
+        "method": "fage_a",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 56,
+        "fn": 2,
+        "recall": 0.9655172413793104,
+        "normal_rows": 1397,
+        "fp": 31,
+        "fpr": 0.02219040801717967
+      },
+      {
+        "seed": 404,
+        "method": "fage_c",
+        "rows": 1951,
+        "no_url_malicious": 58,
+        "tp": 56,
+        "fn": 2,
+        "recall": 0.9655172413793104,
+        "normal_rows": 1397,
+        "fp": 10,
+        "fpr": 0.0071581961345740875
+      }
+    ],
+    "means": {
+      "lr_a": {
+        "recall": 0.6668483681635092,
+        "fpr": 0.011905499464645131
+      },
+      "lr_b": {
+        "recall": 0.6391919384210314,
+        "fpr": 0.008533687235475262
+      },
+      "lr_c": {
+        "recall": 0.7967403078418069,
+        "fpr": 0.011596395001457892
+      },
+      "word": {
+        "recall": 0.5928696310634748,
+        "fpr": 0.009076725929803311
+      },
+      "kcbert": {
+        "recall": 0.9045977105087277,
+        "fpr": 0.008388045671831613
+      },
+      "stacking": {
+        "recall": 0.9126982366543913,
+        "fpr": 0.01209217138101259
+      },
+      "fage": {
+        "recall": 0.9058861432751337,
+        "fpr": 0.01190334552385858
+      },
+      "fage_a": {
+        "recall": 0.9058861432751337,
+        "fpr": 0.011935047586180723
+      },
+      "fage_c": {
+        "recall": 0.9088712179019994,
+        "fpr": 0.008799599678972756
+      }
+    }
+  },
+  "old_run_logs": {
+    "01_audit": {
+      "errors": 0,
+      "warnings": [],
+      "sha256": "e391c0f3dd799f37956021f4a71a0c010468b4a0601c7b56ac996c8d9819d102"
+    },
+    "02_meta": {
+      "errors": 0,
+      "warnings": [
+        "WARNING: 'OddsRatios' 출력이 생성되지 않았습니다.  출력 개체 이름,  레이블, 또는 경로의 철자가 "
+      ],
+      "sha256": "01c2de7f8d193ce01cbe0828ab2b29fa887a604a27c545b6d3c96c979e714107"
+    },
+    "03_roc": {
+      "errors": 0,
+      "warnings": [],
+      "sha256": "232ee2863e09869d92f51cd44536da2c6deadbe820d747f88ada635ef19e08a4"
+    },
+    "05_visuals": {
+      "errors": 0,
+      "warnings": [],
+      "sha256": "3eaac52f7c43985033ba775ffb3929db913cdcc41716b2b9333d7bdb215005d6"
+    },
+    "06_transformer": {
+      "errors": 0,
+      "warnings": [],
+      "sha256": "cf7ed8091c3c58fcc5c3ebfa464baba64f3de4746b15cfdaf223dd5643dbfaf0"
+    },
+    "07_composition": {
+      "errors": 0,
+      "warnings": [
+        "WARNING: Some plots have more than 5000 observations and are suppressed.  Specify the PLOTS(MAXPOINTS=NONE) option in the PROC "
+      ],
+      "sha256": "cbe253bfa03ff84f8a702908848e37ede11ffca5edc9d72eb6e87f7045149169"
+    }
+  },
+  "sas08_recovered_evidence": {
+    "kind": "recovered_user_pasted_ODS_text_and_log",
+    "path": "reports/sas_runs/20260911_fage_abc/recovered_evidence/user_supplied_tables_and_log.txt",
+    "errors": 0,
+    "warnings": [],
+    "convergence_mentions_in_tables_and_log": 40,
+    "scored_export_count_matches": true,
+    "native_ods_html_available": false,
+    "sha256": "f3f305b28509d395c78aa72ca1a7e13c6f0df48c1fb3d6648298bfe061aefff4"
+  },
+  "source_sha256": {
+    "sas/00_RUN_ALL.sas": "7ddea2f8bec9381466cc5a617f55ef255a24e70d6e7e70839e7194fbf8301cd0",
+    "sas/00_RUN_PENDING.sas": "356ea4eb0961228b093b405c9e1e2f195f7a745c762506455a8a3a2274b81971",
+    "sas/01_load_and_audit.sas": "944dc37f7056e36fb7d0bfd5472487de8284dbe3e7fac32ff0954031582e1a4a",
+    "sas/02_meta_classifier.sas": "9fc65ebe7c18f3a6612e46a0f1f208e1544b8d6f1286335d08a4f8b3eafff43c",
+    "sas/03_model_comparison.sas": "2581691f63a4ee2ffe3d0381c04119a4376e3a4559cc4a7faecff977c388da3f",
+    "sas/04_korean_text_model.sas": "f4803cf0a1fcf1d61f762abd56b42bb9ded731ddf732bbcff5edda771d757aff",
+    "sas/05_visuals.sas": "185554ce66acd1774ef3ef27c47cdff34aacf030103c54c89b8e061fddd256c8",
+    "sas/06_transformer_contrast.sas": "be75fbf926bc37db72f9825dc826c61ebdaa4e1afe31cda4011179dea6421b01",
+    "sas/07_composition_and_novelty.sas": "5807fa3069bb7e5718bd2b2c32827de06981d2372ab7539f03867b330ee47d82",
+    "sas/08_fage_gate.sas": "4e5a7963be0eee7c5b51d9eccc91ddbd01934ecc68691d89b93ae2f588c84651",
+    "sas/09_reviewer_a_descriptive.sas": "74efe8fe4ccbad4fdf55c8be01072414b4f229e592f48139173d7fb5bc43d16a",
+    "sas/10_reviewer_a_oof.sas": "d25d8107916bcbb93ace8604de6ecb1df06e85a66d4f6a74dcd61d621b83b591",
+    "data/processed/sas/sas_external_evaluation.csv": "66dfaf3e9dddd6ac744725c6c5509e6ab806bd5bdfc0931effe21cfd86a421d3",
+    "data/processed/sas/sas_fage_abc_rows.csv": "eca87e38962692b1bc16ab18a81fd395662d9abec44740869d76f4fb6418e0e4",
+    "data/processed/sas/sas_fage_rows.csv": "6cdbc9aa8f7cb179e94a03aa8ef63741ba154527919abb16cf81cf5ab0750fac",
+    "data/processed/sas/sas_message_scores.csv": "aa6dd8278f08c9416ca054848fdba061f691537154bd9d7f1941c67624625d85",
+    "data/processed/sas/sas_message_text.csv": "5e1b8492db02f3d0f8e84e51c78f2ff51c5d95106c4d30bf7ab9640e7b4acd01",
+    "data/processed/sas/sas_reviewer_a_oof_20260912.csv": "f60eb121c0cb33f60aaa4f55c64163a700d8c5f729534b8410df0622508f5879",
+    "data/processed/sas/sas_reviewer_a_pairs_20260912.csv": "8f6c9b9b696cfe513fac60fbab331a04a947a4691b0c4572191db70a1cc30020",
+    "data/processed/sas/sas_reviewer_a_rows_20260912.csv": "26933b2dae97df86e432c2aaebbba36818bb2515aa8be3e99954c88f595f36f3",
+    "data/processed/sas/sas_robustness.csv": "d6e5ebcce5ca4fa79d8b41a0c8b9eb358228088a68472860c0aeb6c614f348af",
+    "reports/sas_runs/20260911_fage_abc/fage_readout_fpr.csv": "29e1b2338517114b997572f39d7eaa563903ce4346dd0a09d5e5a7cbd9ec4d74",
+    "reports/sas_runs/20260911_fage_abc/fage_readout_nourl.csv": "66c8c600b8076f7ece17e44e6e2d171afd76f960c066d53de8bf47790bdd354d",
+    "reports/sas_runs/20260911_fage_abc/fage_readout_scored.csv": "10fa4dcbb99650ce5ae38cf7993c5f60c1684e5a718beded4aab63cedcc89b6f",
+    "reports/sas_runs/20260911_fage_abc/fage_thresholds.csv": "0b728f91eee86f1cfd64409e0ef73c6d87b5c9e9344e3fb23e67656702759725",
+    "reports/sas_runs/20260911_fage_abc/recovered_evidence/user_supplied_tables_and_log.txt": "f3f305b28509d395c78aa72ca1a7e13c6f0df48c1fb3d6648298bfe061aefff4",
+    "reports/sas_runs/20260908_final/analysis_run_status.csv": "f6e65a3867edb43b059f2e03d943e2ce2e2978bc6fe4a5bf089d625cc2c1786e"
+  },
+  "new_sas_runtime_execution": false,
+  "pending_default_order": [
+    "09_reviewer_a_descriptive.sas",
+    "10_reviewer_a_oof.sas"
+  ]
+}

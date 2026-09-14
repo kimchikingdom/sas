@@ -116,7 +116,7 @@ run;
     %end;
 %mend;
 title "ROC 곡선 — 기존 평가 점수 비교";
-proc logistic data=work.visual_roc plots(only);
+proc logistic data=work.visual_roc plots(only)=roc;
     model target(event='1') = / nofit;
     roc '문자 단독'     pred = text_probability;
     roc '고정가중 결합' pred = fixed_fusion;

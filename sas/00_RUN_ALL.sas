@@ -87,6 +87,39 @@ run;
 %mend;
 %run_optional_text;
 
+%macro run_fage_if_present;
+    %if %sysfunc(fileexist(&projroot./data/processed/sas/sas_fage_abc_rows.csv)) %then %do;
+        %run_step(08_fage, 08_fage_gate.sas);
+    %end;
+    %else %do;
+        %put NOTE: sas_fage_abc_rows.csv 가 없어 08 FAGE 게이트를 건너뜁니다.;
+        %skip_step(08_fage);
+    %end;
+%mend;
+%run_fage_if_present;
+
+%macro run_reviewer_a_if_present;
+    %if %sysfunc(fileexist(&projroot./data/processed/sas/sas_reviewer_a_rows_20260912.csv)) %then %do;
+        %run_step(09_reviewer_a, 09_reviewer_a_descriptive.sas);
+    %end;
+    %else %do;
+        %put NOTE: sas_reviewer_a_rows_20260912.csv 가 없어 09 A 단독 기술 통계를 건너뜁니다.;
+        %skip_step(09_reviewer_a);
+    %end;
+%mend;
+%run_reviewer_a_if_present;
+
+%macro run_reviewer_a_oof_if_present;
+    %if %sysfunc(fileexist(&projroot./data/processed/sas/sas_reviewer_a_oof_20260912.csv)) %then %do;
+        %run_step(10_reviewer_a_oof, 10_reviewer_a_oof.sas);
+    %end;
+    %else %do;
+        %put NOTE: sas_reviewer_a_oof_20260912.csv 가 없어 10 A-OOF 교차를 건너뜁니다.;
+        %skip_step(10_reviewer_a_oof);
+    %end;
+%mend;
+%run_reviewer_a_oof_if_present;
+
 proc export data=work.scamlens_run_status
     outfile="&projroot./outputs/analysis_run_status.csv" dbms=csv replace;
 run;

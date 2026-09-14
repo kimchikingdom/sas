@@ -1,0 +1,118 @@
+{
+  "status": "exported",
+  "messages": "data/processed/messages_split.csv",
+  "fixed_fusion_text_weight": 0.7,
+  "rows": 16773,
+  "input_sha256": {
+    "messages": "2451b94b6918e4362f1fb03fa7ba99d60297e3e9b63e16e24c03d952859551f4",
+    "message_urls": "67df7c5d39319a0a72350c3a9d28008f0b29ea0260f3e13445bb17fdfb106a75",
+    "text_model": "ca970cfd0c2500e355505950a34ee7749ee52469eff03aaba616e08df3435846",
+    "url_model": "9d5660a93bce186b9f2b29ce8b91a060d07512b887d68e064329daaf2a9935cd"
+  },
+  "oof_handoff": {
+    "status": "verified",
+    "sas_meta_fit_ready": true,
+    "score_source": "reconstructed_fixed_protocol",
+    "train_rows": 12100,
+    "folds": 5,
+    "scores_sha256": "0d60417e316f1a5e7e86ba7a47af74e4c142e3318343d43290a7cf99a7744af0",
+    "meta_model_sha256": "d1a4a18d640aa95738f884256001042675030b15981f3476c46994199ec9aa74",
+    "input_sha256": {
+      "messages": "2451b94b6918e4362f1fb03fa7ba99d60297e3e9b63e16e24c03d952859551f4",
+      "message_urls": "67df7c5d39319a0a72350c3a9d28008f0b29ea0260f3e13445bb17fdfb106a75",
+      "text_model": "ca970cfd0c2500e355505950a34ee7749ee52469eff03aaba616e08df3435846",
+      "url_model": "9d5660a93bce186b9f2b29ce8b91a060d07512b887d68e064329daaf2a9935cd"
+    },
+    "inference_scope": "SAS unweighted unpenalized refit on verified OOF features; not Wald inference for the balanced penalized Python model."
+  },
+  "max_text_utf8_bytes": 5547,
+  "rows_by_split": {
+    "train": 12100,
+    "validation": 2356,
+    "test": 2317
+  },
+  "label_distribution": {
+    "normal": 11812,
+    "smishing": 4961
+  },
+  "url_rows": 6732,
+  "url_probability_missing_rows": 10041,
+  "optional_columns": [
+    "linear_cf_probability",
+    "kcbert_probability",
+    "kcbert_calibrated_probability",
+    "kcbert_cf_probability",
+    "attack_type"
+  ],
+  "optional_column_coverage": {
+    "linear_cf_probability": {
+      "non_missing_rows": 16773,
+      "by_split": {
+        "test": 2317,
+        "train": 12100,
+        "validation": 2356
+      }
+    },
+    "kcbert_probability": {
+      "non_missing_rows": 4673,
+      "by_split": {
+        "test": 2317,
+        "train": 0,
+        "validation": 2356
+      }
+    },
+    "kcbert_calibrated_probability": {
+      "non_missing_rows": 4673,
+      "by_split": {
+        "test": 2317,
+        "train": 0,
+        "validation": 2356
+      }
+    },
+    "kcbert_cf_probability": {
+      "non_missing_rows": 4673,
+      "by_split": {
+        "test": 2317,
+        "train": 0,
+        "validation": 2356
+      }
+    },
+    "attack_type": {
+      "non_missing_rows": 380,
+      "by_split": {
+        "test": 54,
+        "train": 278,
+        "validation": 48
+      }
+    }
+  },
+  "safety_checks": {
+    "active_url": "pass",
+    "phone_number": "pass",
+    "resident_number": "pass",
+    "card_number": "pass"
+  },
+  "safety_check_matches": {
+    "active_url": 0,
+    "phone_number": 0,
+    "resident_number": 0,
+    "card_number": 0
+  },
+  "encoding": "utf-8",
+  "sas_notes": [
+    "Read with ENCODING='utf-8'; a SAS Viya session must run in UTF-8 for Korean text.",
+    "Use K functions (KSUBSTR, KLENGTH, KINDEX) for Korean character slicing; SUBSTR splits multi-byte characters and corrupts Hangul.",
+    "url_probability_filled is 0 where the message has no URL; url_probability_missing marks those rows so SAS can model them separately.",
+    "PROC LOGISTIC models the lower ordered value by default; always write model target(event='1').",
+    "text_probability on train is in-sample and diagnostic only. Fit SAS 02 using text_probability_meta_input after sas_meta_fit_eligible=1 verification.",
+    "SAS unweighted unpenalized regression is an inferential refit; its Wald tests are not tests of the balanced penalized Python estimator's coefficients."
+  ],
+  "outputs": [
+    "data/processed/sas/sas_message_scores.csv",
+    "data/processed/sas/sas_message_text.csv"
+  ],
+  "output_sha256": {
+    "sas_message_scores.csv": "aa6dd8278f08c9416ca054848fdba061f691537154bd9d7f1941c67624625d85",
+    "sas_message_text.csv": "5e1b8492db02f3d0f8e84e51c78f2ff51c5d95106c4d30bf7ab9640e7b4acd01"
+  }
+}

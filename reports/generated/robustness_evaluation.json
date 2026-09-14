@@ -1,0 +1,412 @@
+{
+  "test_rows": 2317,
+  "malicious_rows_transformed": 652,
+  "normal_rows_unchanged": 1665,
+  "policy": "transform malicious rows only; preserve normal rows",
+  "models": {
+    "word_tfidf_lr": {
+      "original": {
+        "threshold": 0.47,
+        "precision": 0.979398,
+        "recall": 0.947853,
+        "f1": 0.963367,
+        "macro_f1": 0.974671,
+        "pr_auc": 0.993315,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 34,
+          "tp": 618
+        },
+        "recall_drop_percentage_points": 0.0
+      },
+      "space_insertion": {
+        "threshold": 0.47,
+        "precision": 0.978618,
+        "recall": 0.912577,
+        "f1": 0.944444,
+        "macro_f1": 0.961849,
+        "pr_auc": 0.991878,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 57,
+          "tp": 595
+        },
+        "recall_drop_percentage_points": 3.5276
+      },
+      "symbol_insertion": {
+        "threshold": 0.47,
+        "precision": 0.978618,
+        "recall": 0.912577,
+        "f1": 0.944444,
+        "macro_f1": 0.961849,
+        "pr_auc": 0.991878,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 57,
+          "tp": 595
+        },
+        "recall_drop_percentage_points": 3.5276
+      },
+      "jamo_decomposition": {
+        "threshold": 0.47,
+        "precision": 0.978689,
+        "recall": 0.915644,
+        "f1": 0.946117,
+        "macro_f1": 0.962976,
+        "pr_auc": 0.984562,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 55,
+          "tp": 597
+        },
+        "recall_drop_percentage_points": 3.2209
+      }
+    },
+    "char_tfidf_lr": {
+      "original": {
+        "threshold": 0.515,
+        "precision": 0.993538,
+        "recall": 0.943252,
+        "f1": 0.967742,
+        "macro_f1": 0.977775,
+        "pr_auc": 0.996982,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 37,
+          "tp": 615
+        },
+        "recall_drop_percentage_points": 0.0
+      },
+      "space_insertion": {
+        "threshold": 0.515,
+        "precision": 0.993344,
+        "recall": 0.915644,
+        "f1": 0.952913,
+        "macro_f1": 0.967731,
+        "pr_auc": 0.995949,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 55,
+          "tp": 597
+        },
+        "recall_drop_percentage_points": 2.7608
+      },
+      "symbol_insertion": {
+        "threshold": 0.515,
+        "precision": 0.993367,
+        "recall": 0.918712,
+        "f1": 0.954582,
+        "macro_f1": 0.968856,
+        "pr_auc": 0.996151,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 53,
+          "tp": 599
+        },
+        "recall_drop_percentage_points": 2.454
+      },
+      "jamo_decomposition": {
+        "threshold": 0.515,
+        "precision": 0.993209,
+        "recall": 0.897239,
+        "f1": 0.942788,
+        "macro_f1": 0.960931,
+        "pr_auc": 0.983123,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 67,
+          "tp": 585
+        },
+        "recall_drop_percentage_points": 4.6013
+      }
+    },
+    "char_tfidf_url_neutral_lr": {
+      "original": {
+        "threshold": 0.405,
+        "precision": 0.99179,
+        "recall": 0.92638,
+        "f1": 0.95797,
+        "macro_f1": 0.971128,
+        "pr_auc": 0.994176,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 48,
+          "tp": 604
+        },
+        "recall_drop_percentage_points": 0.0
+      },
+      "space_insertion": {
+        "threshold": 0.405,
+        "precision": 0.991776,
+        "recall": 0.924847,
+        "f1": 0.957143,
+        "macro_f1": 0.970569,
+        "pr_auc": 0.994623,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 49,
+          "tp": 603
+        },
+        "recall_drop_percentage_points": 0.1533
+      },
+      "symbol_insertion": {
+        "threshold": 0.405,
+        "precision": 0.991424,
+        "recall": 0.886503,
+        "f1": 0.936032,
+        "macro_f1": 0.956395,
+        "pr_auc": 0.991128,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 74,
+          "tp": 578
+        },
+        "recall_drop_percentage_points": 3.9877
+      },
+      "jamo_decomposition": {
+        "threshold": 0.405,
+        "precision": 0.978448,
+        "recall": 0.34816,
+        "f1": 0.513575,
+        "macro_f1": 0.699454,
+        "pr_auc": 0.904011,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 425,
+          "tp": 227
+        },
+        "recall_drop_percentage_points": 57.822
+      }
+    }
+  },
+  "models_after_production_preprocessing": {
+    "word_tfidf_lr": {
+      "original": {
+        "threshold": 0.47,
+        "precision": 0.979398,
+        "recall": 0.947853,
+        "f1": 0.963367,
+        "macro_f1": 0.974671,
+        "pr_auc": 0.993315,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 34,
+          "tp": 618
+        },
+        "recall_drop_percentage_points": 0.0
+      },
+      "space_insertion": {
+        "threshold": 0.47,
+        "precision": 0.978618,
+        "recall": 0.912577,
+        "f1": 0.944444,
+        "macro_f1": 0.961849,
+        "pr_auc": 0.991878,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 57,
+          "tp": 595
+        },
+        "recall_drop_percentage_points": 3.5276
+      },
+      "symbol_insertion": {
+        "threshold": 0.47,
+        "precision": 0.978618,
+        "recall": 0.912577,
+        "f1": 0.944444,
+        "macro_f1": 0.961849,
+        "pr_auc": 0.991878,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 57,
+          "tp": 595
+        },
+        "recall_drop_percentage_points": 3.5276
+      },
+      "jamo_decomposition": {
+        "threshold": 0.47,
+        "precision": 0.979398,
+        "recall": 0.947853,
+        "f1": 0.963367,
+        "macro_f1": 0.974671,
+        "pr_auc": 0.993315,
+        "false_positive_rate": 0.007808,
+        "confusion_matrix": {
+          "tn": 1652,
+          "fp": 13,
+          "fn": 34,
+          "tp": 618
+        },
+        "recall_drop_percentage_points": 0.0
+      }
+    },
+    "char_tfidf_lr": {
+      "original": {
+        "threshold": 0.515,
+        "precision": 0.993538,
+        "recall": 0.943252,
+        "f1": 0.967742,
+        "macro_f1": 0.977775,
+        "pr_auc": 0.996982,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 37,
+          "tp": 615
+        },
+        "recall_drop_percentage_points": 0.0
+      },
+      "space_insertion": {
+        "threshold": 0.515,
+        "precision": 0.993344,
+        "recall": 0.915644,
+        "f1": 0.952913,
+        "macro_f1": 0.967731,
+        "pr_auc": 0.995949,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 55,
+          "tp": 597
+        },
+        "recall_drop_percentage_points": 2.7608
+      },
+      "symbol_insertion": {
+        "threshold": 0.515,
+        "precision": 0.993367,
+        "recall": 0.918712,
+        "f1": 0.954582,
+        "macro_f1": 0.968856,
+        "pr_auc": 0.996151,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 53,
+          "tp": 599
+        },
+        "recall_drop_percentage_points": 2.454
+      },
+      "jamo_decomposition": {
+        "threshold": 0.515,
+        "precision": 0.993538,
+        "recall": 0.943252,
+        "f1": 0.967742,
+        "macro_f1": 0.977775,
+        "pr_auc": 0.996982,
+        "false_positive_rate": 0.002402,
+        "confusion_matrix": {
+          "tn": 1661,
+          "fp": 4,
+          "fn": 37,
+          "tp": 615
+        },
+        "recall_drop_percentage_points": 0.0
+      }
+    },
+    "char_tfidf_url_neutral_lr": {
+      "original": {
+        "threshold": 0.405,
+        "precision": 0.99179,
+        "recall": 0.92638,
+        "f1": 0.95797,
+        "macro_f1": 0.971128,
+        "pr_auc": 0.994176,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 48,
+          "tp": 604
+        },
+        "recall_drop_percentage_points": 0.0
+      },
+      "space_insertion": {
+        "threshold": 0.405,
+        "precision": 0.991776,
+        "recall": 0.924847,
+        "f1": 0.957143,
+        "macro_f1": 0.970569,
+        "pr_auc": 0.994623,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 49,
+          "tp": 603
+        },
+        "recall_drop_percentage_points": 0.1533
+      },
+      "symbol_insertion": {
+        "threshold": 0.405,
+        "precision": 0.991424,
+        "recall": 0.886503,
+        "f1": 0.936032,
+        "macro_f1": 0.956395,
+        "pr_auc": 0.991128,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 74,
+          "tp": 578
+        },
+        "recall_drop_percentage_points": 3.9877
+      },
+      "jamo_decomposition": {
+        "threshold": 0.405,
+        "precision": 0.99179,
+        "recall": 0.92638,
+        "f1": 0.95797,
+        "macro_f1": 0.971128,
+        "pr_auc": 0.994176,
+        "false_positive_rate": 0.003003,
+        "confusion_matrix": {
+          "tn": 1660,
+          "fp": 5,
+          "fn": 48,
+          "tp": 604
+        },
+        "recall_drop_percentage_points": 0.0
+      }
+    }
+  },
+  "production_preprocessing": "NFKC Unicode normalization, lowercase conversion, whitespace collapse",
+  "limitations": [
+    "These are deterministic synthetic transformations, not observed attacker samples.",
+    "Jamo decomposition is an aggressive Unicode stress test.",
+    "Hard Negative evaluation remains separate and pending."
+  ]
+}

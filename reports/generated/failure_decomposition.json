@@ -1,0 +1,1248 @@
+{
+  "status": "evaluated",
+  "analysis_status": "exploratory_existing_frozen_predictions",
+  "sas_execution_status": "not_verified_by_this_python_run",
+  "input": "data/processed/sas/sas_external_evaluation.csv",
+  "input_sha256": "66dfaf3e9dddd6ac744725c6c5509e6ab806bd5bdfc0931effe21cfd86a421d3",
+  "sample_flow": {
+    "input": {
+      "rows": 5430,
+      "misses": 88,
+      "detections": 5342,
+      "by_year": {
+        "2021": {
+          "rows": 6,
+          "misses": 0
+        },
+        "2022": {
+          "rows": 1323,
+          "misses": 9
+        },
+        "2023": {
+          "rows": 1210,
+          "misses": 8
+        },
+        "2024": {
+          "rows": 1277,
+          "misses": 23
+        },
+        "2025": {
+          "rows": 1268,
+          "misses": 30
+        },
+        "2026": {
+          "rows": 346,
+          "misses": 18
+        }
+      }
+    },
+    "excluded_small_year": {
+      "rows": 6,
+      "misses": 0,
+      "detections": 6,
+      "by_year": {
+        "2021": {
+          "rows": 6,
+          "misses": 0
+        }
+      }
+    },
+    "eligible": {
+      "rows": 5424,
+      "misses": 88,
+      "detections": 5336,
+      "by_year": {
+        "2022": {
+          "rows": 1323,
+          "misses": 9
+        },
+        "2023": {
+          "rows": 1210,
+          "misses": 8
+        },
+        "2024": {
+          "rows": 1277,
+          "misses": 23
+        },
+        "2025": {
+          "rows": 1268,
+          "misses": 30
+        },
+        "2026": {
+          "rows": 346,
+          "misses": 18
+        }
+      }
+    },
+    "dominant": {
+      "rows": 5239,
+      "misses": 46,
+      "detections": 5193,
+      "by_year": {
+        "2022": {
+          "rows": 1321,
+          "misses": 7
+        },
+        "2023": {
+          "rows": 1198,
+          "misses": 8
+        },
+        "2024": {
+          "rows": 1212,
+          "misses": 7
+        },
+        "2025": {
+          "rows": 1192,
+          "misses": 19
+        },
+        "2026": {
+          "rows": 316,
+          "misses": 5
+        }
+      }
+    },
+    "excluded_non_dominant": {
+      "rows": 185,
+      "misses": 42,
+      "detections": 143,
+      "by_year": {
+        "2022": {
+          "rows": 2,
+          "misses": 2
+        },
+        "2023": {
+          "rows": 12,
+          "misses": 0
+        },
+        "2024": {
+          "rows": 65,
+          "misses": 16
+        },
+        "2025": {
+          "rows": 76,
+          "misses": 11
+        },
+        "2026": {
+          "rows": 30,
+          "misses": 13
+        }
+      }
+    }
+  },
+  "scope": {
+    "dominant_types": [
+      "delivery",
+      "public_agency"
+    ],
+    "rows_analysed": 5239,
+    "rows_available": 5424,
+    "share": 0.9659,
+    "reference_year": 2022
+  },
+  "observed_by_year": {
+    "2022": {
+      "rows": 1321,
+      "misses": 7,
+      "detection_rate": 0.9947,
+      "median_similarity": 0.5814,
+      "public_agency_share": 0.268,
+      "by_type": {
+        "delivery": 0.9959,
+        "public_agency": 0.9915
+      },
+      "by_type_counts": {
+        "delivery": {
+          "rows": 967,
+          "misses": 4
+        },
+        "public_agency": {
+          "rows": 354,
+          "misses": 3
+        }
+      }
+    },
+    "2023": {
+      "rows": 1198,
+      "misses": 8,
+      "detection_rate": 0.9933,
+      "median_similarity": 0.507,
+      "public_agency_share": 0.4165,
+      "by_type": {
+        "delivery": 0.9971,
+        "public_agency": 0.988
+      },
+      "by_type_counts": {
+        "delivery": {
+          "rows": 699,
+          "misses": 2
+        },
+        "public_agency": {
+          "rows": 499,
+          "misses": 6
+        }
+      }
+    },
+    "2024": {
+      "rows": 1212,
+      "misses": 7,
+      "detection_rate": 0.9942,
+      "median_similarity": 0.4807,
+      "public_agency_share": 0.4414,
+      "by_type": {
+        "delivery": 0.9956,
+        "public_agency": 0.9925
+      },
+      "by_type_counts": {
+        "delivery": {
+          "rows": 677,
+          "misses": 3
+        },
+        "public_agency": {
+          "rows": 535,
+          "misses": 4
+        }
+      }
+    },
+    "2025": {
+      "rows": 1192,
+      "misses": 19,
+      "detection_rate": 0.9841,
+      "median_similarity": 0.6252,
+      "public_agency_share": 0.672,
+      "by_type": {
+        "delivery": 0.9923,
+        "public_agency": 0.98
+      },
+      "by_type_counts": {
+        "delivery": {
+          "rows": 391,
+          "misses": 3
+        },
+        "public_agency": {
+          "rows": 801,
+          "misses": 16
+        }
+      }
+    },
+    "2026": {
+      "rows": 316,
+      "misses": 5,
+      "detection_rate": 0.9842,
+      "median_similarity": 0.2617,
+      "public_agency_share": 0.1171,
+      "by_type": {
+        "delivery": 0.9857,
+        "public_agency": 0.973
+      },
+      "by_type_counts": {
+        "delivery": {
+          "rows": 279,
+          "misses": 4
+        },
+        "public_agency": {
+          "rows": 37,
+          "misses": 1
+        }
+      }
+    }
+  },
+  "models": {
+    "year_only": {
+      "formula": "detected ~ C(year, Treatment(2022))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 5,
+        "parameter_count": 5,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 47.53860489365777,
+        "max_absolute_score": 2.1604940059205546e-13
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.0215,
+      "log_likelihood": -257.946,
+      "aic": 525.8922757005358,
+      "intercept": 5.234921049989258,
+      "terms": {
+        "C(year, Treatment(2022))[T.2023]": {
+          "coefficient": -0.2327,
+          "p_value": 0.6540142794341065,
+          "ci_low": -1.2501,
+          "ci_high": 0.7848,
+          "odds_ratio": 0.792427701674272,
+          "odds_ratio_ci": [
+            0.2864877721121008,
+            2.191862004271022
+          ]
+        },
+        "C(year, Treatment(2022))[T.2024]": {
+          "coefficient": -0.0866,
+          "p_value": 0.8716541113548185,
+          "ci_low": -1.1372,
+          "ci_high": 0.964,
+          "odds_ratio": 0.9170471841704262,
+          "odds_ratio_ci": [
+            0.32073056733238264,
+            2.622062327858447
+          ]
+        },
+        "C(year, Treatment(2022))[T.2025]": {
+          "coefficient": -1.112,
+          "p_value": 0.012251743568330437,
+          "ci_low": -1.9822,
+          "ci_high": -0.2419,
+          "odds_ratio": 0.32888728670991907,
+          "odds_ratio_ci": [
+            0.13776723200562882,
+            0.7851420529011796
+          ]
+        },
+        "C(year, Treatment(2022))[T.2026]": {
+          "coefficient": -1.1046,
+          "p_value": 0.06071564062901734,
+          "ci_low": -2.2588,
+          "ci_high": 0.0497,
+          "odds_ratio": 0.33135464231354117,
+          "odds_ratio_ci": [
+            0.10447166097701734,
+            1.0509634666083154
+          ]
+        }
+      }
+    },
+    "novelty_only": {
+      "formula": "detected ~ similarity_to_train",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 2,
+        "parameter_count": 2,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 92.53566970045156,
+        "max_absolute_score": 1.9984014443252818e-14
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.1373,
+      "log_likelihood": -227.424,
+      "aic": 458.84865533650265,
+      "intercept": 1.3185559228200385,
+      "terms": {
+        "similarity_to_train": {
+          "coefficient": 8.3578,
+          "p_value": 1.5884628303558082e-10,
+          "ci_low": 5.797,
+          "ci_high": 10.9187,
+          "odds_ratio": 4263.5174255659285,
+          "odds_ratio_ci": [
+            329.2955971895395,
+            55201.40868340088
+          ]
+        }
+      }
+    },
+    "type_only": {
+      "formula": "detected ~ C(attack_type_code, Treatment(\"delivery\"))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 2,
+        "parameter_count": 2,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 9.87490388658919,
+        "max_absolute_score": 2.602362769721367e-13
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.0184,
+      "log_likelihood": -258.767,
+      "aic": 521.5338818748976,
+      "intercept": 5.2327783450768255,
+      "terms": {
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": -0.9396,
+          "p_value": 0.002505234544974591,
+          "ci_low": -1.5488,
+          "ci_high": -0.3303,
+          "odds_ratio": 0.39079079079081247,
+          "odds_ratio_ci": [
+            0.2124983902302929,
+            0.7186757603264791
+          ]
+        }
+      }
+    },
+    "novelty_type_year": {
+      "formula": "detected ~ similarity_to_train + C(attack_type_code, Treatment(\"delivery\")) + C(year, Treatment(2022))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 7,
+        "parameter_count": 7,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 153.17731043178733,
+        "max_absolute_score": 3.4083846855992306e-14
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.2272,
+      "log_likelihood": -203.732,
+      "aic": 421.4639230210573,
+      "intercept": 1.4889781850949897,
+      "terms": {
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": -1.9379,
+          "p_value": 6.459962849382473e-08,
+          "ci_low": -2.6405,
+          "ci_high": -1.2352,
+          "odds_ratio": 0.14400796819236636,
+          "odds_ratio_ci": [
+            0.07132353226234288,
+            0.29076371072893326
+          ]
+        },
+        "C(year, Treatment(2022))[T.2023]": {
+          "coefficient": 0.6234,
+          "p_value": 0.24856411931954114,
+          "ci_low": -0.4355,
+          "ci_high": 1.6823,
+          "odds_ratio": 1.8652251887387477,
+          "odds_ratio_ci": [
+            0.6469291025169115,
+            5.37781495865623
+          ]
+        },
+        "C(year, Treatment(2022))[T.2024]": {
+          "coefficient": 0.0445,
+          "p_value": 0.9363025885211222,
+          "ci_low": -1.0468,
+          "ci_high": 1.1358,
+          "odds_ratio": 1.0455025107353846,
+          "odds_ratio_ci": [
+            0.3510610693850576,
+            3.113633482256231
+          ]
+        },
+        "C(year, Treatment(2022))[T.2025]": {
+          "coefficient": -0.3542,
+          "p_value": 0.4473230646847747,
+          "ci_low": -1.2678,
+          "ci_high": 0.5594,
+          "odds_ratio": 0.7017296961050005,
+          "odds_ratio_ci": [
+            0.28144756250197445,
+            1.7496138961664012
+          ]
+        },
+        "C(year, Treatment(2022))[T.2026]": {
+          "coefficient": 0.3102,
+          "p_value": 0.6224192085109272,
+          "ci_low": -0.9244,
+          "ci_high": 1.5447,
+          "odds_ratio": 1.363656510611634,
+          "odds_ratio_ci": [
+            0.3967783148559111,
+            4.686644933226229
+          ]
+        },
+        "similarity_to_train": {
+          "coefficient": 10.1048,
+          "p_value": 2.813702013044101e-15,
+          "ci_low": 7.5975,
+          "ci_high": 12.6121,
+          "odds_ratio": 24459.26078416914,
+          "odds_ratio_ci": [
+            1993.1211287961503,
+            300160.10038955434
+          ]
+        }
+      }
+    },
+    "interaction": {
+      "formula": "detected ~ similarity_to_train * C(attack_type_code, Treatment(\"delivery\"))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 4,
+        "parameter_count": 4,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 454.485608665734,
+        "max_absolute_score": 7.216449660063518e-14
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.2787,
+      "log_likelihood": -190.136,
+      "aic": 388.27209370100474,
+      "intercept": 4.493612995969087,
+      "terms": {
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": -6.5464,
+          "p_value": 2.4365103782176242e-14,
+          "ci_low": -8.2291,
+          "ci_high": -4.8638,
+          "odds_ratio": 0.0014352075209271532,
+          "odds_ratio_ci": [
+            0.0002667686684662971,
+            0.007721373877855141
+          ]
+        },
+        "similarity_to_train": {
+          "coefficient": 1.6239,
+          "p_value": 0.2293575814272535,
+          "ci_low": -1.024,
+          "ci_high": 4.2718,
+          "odds_ratio": 5.072833258687807,
+          "odds_ratio_ci": [
+            0.35916479796078,
+            71.64855079494511
+          ]
+        },
+        "similarity_to_train:C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": 13.9576,
+          "p_value": 7.924581943592745e-09,
+          "ci_low": 9.2165,
+          "ci_high": 18.6987,
+          "odds_ratio": 1152711.7662517983,
+          "odds_ratio_ci": [
+            10061.993426415891,
+            132055782.56163153
+          ]
+        }
+      }
+    },
+    "interaction_year": {
+      "formula": "detected ~ similarity_to_train * C(attack_type_code, Treatment(\"delivery\")) + C(year, Treatment(2022))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 8,
+        "parameter_count": 8,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 535.7465578434678,
+        "max_absolute_score": 1.4099832412739488e-14
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.2938,
+      "log_likelihood": -186.175,
+      "aic": 388.34930915853124,
+      "intercept": 4.6280922315825,
+      "terms": {
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": -6.7811,
+          "p_value": 6.978997837946493e-14,
+          "ci_low": -8.556,
+          "ci_high": -5.0063,
+          "odds_ratio": 0.001134986003004574,
+          "odds_ratio_ci": [
+            0.00019238421150029645,
+            0.006695940467101759
+          ]
+        },
+        "C(year, Treatment(2022))[T.2023]": {
+          "coefficient": 0.6853,
+          "p_value": 0.2357107089646433,
+          "ci_low": -0.4474,
+          "ci_high": 1.8181,
+          "odds_ratio": 1.9844143144573425,
+          "odds_ratio_ci": [
+            0.6392595144782223,
+            6.160096302418596
+          ]
+        },
+        "C(year, Treatment(2022))[T.2024]": {
+          "coefficient": -0.134,
+          "p_value": 0.8167756335496152,
+          "ci_low": -1.2678,
+          "ci_high": 0.9997,
+          "odds_ratio": 0.8745669414170644,
+          "odds_ratio_ci": [
+            0.281452102615906,
+            2.7175754876608735
+          ]
+        },
+        "C(year, Treatment(2022))[T.2025]": {
+          "coefficient": -0.5303,
+          "p_value": 0.2933570790420569,
+          "ci_low": -1.5195,
+          "ci_high": 0.4588,
+          "odds_ratio": 0.5884219274366566,
+          "odds_ratio_ci": [
+            0.21882855983413815,
+            1.5822448630594832
+          ]
+        },
+        "C(year, Treatment(2022))[T.2026]": {
+          "coefficient": -0.3127,
+          "p_value": 0.6425043939494148,
+          "ci_low": -1.6328,
+          "ci_high": 1.0075,
+          "odds_ratio": 0.7314896884336387,
+          "odds_ratio_ci": [
+            0.19537218723680672,
+            2.7387581203469127
+          ]
+        },
+        "similarity_to_train": {
+          "coefficient": 1.4254,
+          "p_value": 0.3165093635893187,
+          "ci_low": -1.3638,
+          "ci_high": 4.2146,
+          "odds_ratio": 4.159715474256883,
+          "odds_ratio_ci": [
+            0.25569850656271126,
+            67.67044930912984
+          ]
+        },
+        "similarity_to_train:C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": 14.685,
+          "p_value": 2.9726779534218682e-09,
+          "ci_low": 9.8339,
+          "ci_high": 19.5361,
+          "odds_ratio": 2385664.815255296,
+          "odds_ratio_ci": [
+            18655.392636012108,
+            305080505.2347434
+          ]
+        }
+      }
+    },
+    "year_type_interaction": {
+      "formula": "detected ~ similarity_to_train + C(attack_type_code, Treatment(\"delivery\")) * C(year, Treatment(2022))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 11,
+        "parameter_count": 11,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 389.9735531939409,
+        "max_absolute_score": 1.1213252548714081e-14
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.2326,
+      "log_likelihood": -202.295,
+      "aic": 426.59014027980055,
+      "intercept": 1.01596458520676,
+      "terms": {
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": -1.0588,
+          "p_value": 0.1737353597856509,
+          "ci_low": -2.5844,
+          "ci_high": 0.4668,
+          "odds_ratio": 0.3468701526862713,
+          "odds_ratio_ci": [
+            0.07544389778486112,
+            1.5948129187028939
+          ]
+        },
+        "C(year, Treatment(2022))[T.2023]": {
+          "coefficient": 1.0831,
+          "p_value": 0.21392006211573333,
+          "ci_low": -0.6249,
+          "ci_high": 2.791,
+          "odds_ratio": 2.953689865709488,
+          "odds_ratio_ci": [
+            0.5353137006167094,
+            16.297516414663225
+          ]
+        },
+        "C(year, Treatment(2022))[T.2024]": {
+          "coefficient": 0.9202,
+          "p_value": 0.2317921171353805,
+          "ci_low": -0.5881,
+          "ci_high": 2.4286,
+          "odds_ratio": 2.509899441678974,
+          "odds_ratio_ci": [
+            0.5553657313530523,
+            11.343147140160333
+          ]
+        },
+        "C(year, Treatment(2022))[T.2025]": {
+          "coefficient": 0.1947,
+          "p_value": 0.8023614385672211,
+          "ci_low": -1.3299,
+          "ci_high": 1.7193,
+          "odds_ratio": 1.2149459676545866,
+          "odds_ratio_ci": [
+            0.26449428032583766,
+            5.580815216501846
+          ]
+        },
+        "C(year, Treatment(2022))[T.2026]": {
+          "coefficient": 0.698,
+          "p_value": 0.33597012339298804,
+          "ci_low": -0.7238,
+          "ci_high": 2.1198,
+          "odds_ratio": 2.0097067814939997,
+          "odds_ratio_ci": [
+            0.4848823533123133,
+            8.329693419429304
+          ]
+        },
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]:C(year, Treatment(2022))[T.2023]": {
+          "coefficient": -0.8736,
+          "p_value": 0.44172260250478457,
+          "ci_low": -3.0994,
+          "ci_high": 1.3521,
+          "odds_ratio": 0.4174424956653298,
+          "odds_ratio_ci": [
+            0.0450781526056331,
+            3.8656916291978436
+          ]
+        },
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]:C(year, Treatment(2022))[T.2024]": {
+          "coefficient": -1.8247,
+          "p_value": 0.09942630474906825,
+          "ci_low": -3.9954,
+          "ci_high": 0.3459,
+          "odds_ratio": 0.16126097029419065,
+          "odds_ratio_ci": [
+            0.018400930828004505,
+            1.4132491874077633
+          ]
+        },
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]:C(year, Treatment(2022))[T.2025]": {
+          "coefficient": -0.9842,
+          "p_value": 0.32935535937568305,
+          "ci_low": -2.962,
+          "ci_high": 0.9935,
+          "odds_ratio": 0.37372137554503776,
+          "odds_ratio_ci": [
+            0.05171772898364182,
+            2.700576171537842
+          ]
+        },
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]:C(year, Treatment(2022))[T.2026]": {
+          "coefficient": -0.5163,
+          "p_value": 0.7116665698071372,
+          "ci_low": -3.254,
+          "ci_high": 2.2214,
+          "odds_ratio": 0.5967349467439458,
+          "odds_ratio_ci": [
+            0.03862122352248902,
+            9.220127282040872
+          ]
+        },
+        "similarity_to_train": {
+          "coefficient": 10.1356,
+          "p_value": 5.524664764254023e-16,
+          "ci_low": 7.6829,
+          "ci_high": 12.5884,
+          "odds_ratio": 25226.357193364092,
+          "odds_ratio_ci": [
+            2170.9535835978213,
+            293128.8361276555
+          ]
+        }
+      }
+    },
+    "main_effects": {
+      "formula": "detected ~ similarity_to_train + C(attack_type_code, Treatment(\"delivery\"))",
+      "observations": 5239,
+      "diagnostics": {
+        "design_rank": 3,
+        "parameter_count": 3,
+        "separation": {
+          "status": "none_detected",
+          "method": "signed_margin_linear_program"
+        },
+        "misses": 46,
+        "detections": 5193,
+        "converged": true,
+        "inference_valid": true,
+        "warnings": [],
+        "finite_estimates_and_covariance": true,
+        "hessian_condition_number": 110.63082678395074,
+        "max_absolute_score": 2.9753977059954195e-14
+      },
+      "status": "fitted",
+      "pseudo_r_squared": 0.2165,
+      "log_likelihood": -206.55,
+      "aic": 419.0999998469641,
+      "intercept": 1.7095138293940189,
+      "terms": {
+        "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+          "coefficient": -2.026,
+          "p_value": 2.895425119932577e-10,
+          "ci_low": -2.6558,
+          "ci_high": -1.3961,
+          "odds_ratio": 0.1318647433168868,
+          "odds_ratio_ci": [
+            0.07023954446594315,
+            0.24755727933941069
+          ]
+        },
+        "similarity_to_train": {
+          "coefficient": 9.8078,
+          "p_value": 1.1375129298536155e-15,
+          "ci_low": 7.4082,
+          "ci_high": 12.2074,
+          "odds_ratio": 18174.96607708865,
+          "odds_ratio_ci": [
+            1649.5239406691521,
+            200257.40988598234
+          ]
+        }
+      }
+    }
+  },
+  "year_effect_after_adjustment": {
+    "2023": {
+      "coefficient_year_only": -0.2327,
+      "p_value_year_only": 0.6540142794341065,
+      "odds_ratio_year_only": 0.7924,
+      "odds_ratio_ci_year_only": [
+        0.2865,
+        2.1919
+      ],
+      "coefficient_adjusted": 0.6234,
+      "p_value_adjusted": 0.24856411931954114,
+      "odds_ratio_adjusted": 1.8652,
+      "odds_ratio_ci_adjusted": [
+        0.6469,
+        5.3778
+      ],
+      "significant_before": false,
+      "significant_after": false
+    },
+    "2024": {
+      "coefficient_year_only": -0.0866,
+      "p_value_year_only": 0.8716541113548185,
+      "odds_ratio_year_only": 0.917,
+      "odds_ratio_ci_year_only": [
+        0.3207,
+        2.6221
+      ],
+      "coefficient_adjusted": 0.0445,
+      "p_value_adjusted": 0.9363025885211222,
+      "odds_ratio_adjusted": 1.0455,
+      "odds_ratio_ci_adjusted": [
+        0.3511,
+        3.1136
+      ],
+      "significant_before": false,
+      "significant_after": false
+    },
+    "2025": {
+      "coefficient_year_only": -1.112,
+      "p_value_year_only": 0.012251743568330437,
+      "odds_ratio_year_only": 0.3289,
+      "odds_ratio_ci_year_only": [
+        0.1378,
+        0.7851
+      ],
+      "coefficient_adjusted": -0.3542,
+      "p_value_adjusted": 0.4473230646847747,
+      "odds_ratio_adjusted": 0.7017,
+      "odds_ratio_ci_adjusted": [
+        0.2814,
+        1.7496
+      ],
+      "significant_before": true,
+      "significant_after": false
+    },
+    "2026": {
+      "coefficient_year_only": -1.1046,
+      "p_value_year_only": 0.06071564062901734,
+      "odds_ratio_year_only": 0.3314,
+      "odds_ratio_ci_year_only": [
+        0.1045,
+        1.051
+      ],
+      "coefficient_adjusted": 0.3102,
+      "p_value_adjusted": 0.6224192085109272,
+      "odds_ratio_adjusted": 1.3637,
+      "odds_ratio_ci_adjusted": [
+        0.3968,
+        4.6866
+      ],
+      "significant_before": false,
+      "significant_after": false
+    }
+  },
+  "interaction_test": {
+    "test": "likelihood ratio, 유사도 × 유형 추가 (연도 미보정)",
+    "status": "exploratory",
+    "statistic": 32.8279,
+    "degrees_of_freedom": 1,
+    "p_value": 1.0068896546959785e-08,
+    "aic_main": 419.1,
+    "aic_interaction": 388.27,
+    "prefers": "interaction",
+    "pseudo_r_squared_main": 0.2165,
+    "pseudo_r_squared_interaction": 0.2787
+  },
+  "joint_year_test_additive": {
+    "test": "likelihood ratio, 유사도 + 유형 가법모형에 범주형 연도 전체 추가",
+    "status": "exploratory",
+    "statistic": 5.6361,
+    "degrees_of_freedom": 4,
+    "p_value": 0.22802463065223805,
+    "aic_main": 419.1,
+    "aic_interaction": 421.46,
+    "prefers": "main_effects"
+  },
+  "joint_year_test_with_similarity_interaction": {
+    "test": "likelihood ratio, 유사도 × 유형 모형에 범주형 연도 전체 추가",
+    "status": "exploratory",
+    "statistic": 7.9228,
+    "degrees_of_freedom": 4,
+    "p_value": 0.09444799909718861,
+    "aic_main": 388.27,
+    "aic_interaction": 388.35,
+    "prefers": "main_effects",
+    "reading": "유사도 × 유형 교호작용을 포함한 같은 모형에서 연도 항 전체를 검정한 추가 탐색 진단이다. 비유의성은 효과 부재·동등성·시간 변화 부재를 뜻하지 않는다."
+  },
+  "similarity_interaction_test_adjusted_for_year": {
+    "test": "likelihood ratio, 범주형 연도를 유지하고 유사도 × 유형 추가",
+    "status": "exploratory",
+    "statistic": 35.1146,
+    "degrees_of_freedom": 1,
+    "p_value": 3.108591429954542e-09,
+    "aic_main": 421.46,
+    "aic_interaction": 388.35,
+    "prefers": "interaction"
+  },
+  "year_effect_with_similarity_interaction": {
+    "C(year, Treatment(2022))[T.2023]": {
+      "coefficient": 0.6853,
+      "p_value": 0.2357107089646433,
+      "ci_low": -0.4474,
+      "ci_high": 1.8181,
+      "odds_ratio": 1.9844143144573425,
+      "odds_ratio_ci": [
+        0.6392595144782223,
+        6.160096302418596
+      ]
+    },
+    "C(year, Treatment(2022))[T.2024]": {
+      "coefficient": -0.134,
+      "p_value": 0.8167756335496152,
+      "ci_low": -1.2678,
+      "ci_high": 0.9997,
+      "odds_ratio": 0.8745669414170644,
+      "odds_ratio_ci": [
+        0.281452102615906,
+        2.7175754876608735
+      ]
+    },
+    "C(year, Treatment(2022))[T.2025]": {
+      "coefficient": -0.5303,
+      "p_value": 0.2933570790420569,
+      "ci_low": -1.5195,
+      "ci_high": 0.4588,
+      "odds_ratio": 0.5884219274366566,
+      "odds_ratio_ci": [
+        0.21882855983413815,
+        1.5822448630594832
+      ]
+    },
+    "C(year, Treatment(2022))[T.2026]": {
+      "coefficient": -0.3127,
+      "p_value": 0.6425043939494148,
+      "ci_low": -1.6328,
+      "ci_high": 1.0075,
+      "odds_ratio": 0.7314896884336387,
+      "odds_ratio_ci": [
+        0.19537218723680672,
+        2.7387581203469127
+      ]
+    }
+  },
+  "year_by_type_interaction_test": {
+    "test": "likelihood ratio, 연도 × 유형 교호작용 추가",
+    "status": "exploratory",
+    "statistic": 2.8738,
+    "degrees_of_freedom": 4,
+    "p_value": 0.5791648238729518,
+    "aic_main": 421.46,
+    "aic_interaction": 426.59,
+    "prefers": "main_effects",
+    "reading": "유형별 연도 차이에 대한 추가 탐색이다. 비유의성은 상쇄가 없거나 유형별 추이가 같다는 증거가 아니다. 작은 칸과 넓은 신뢰구간을 함께 보고한다."
+  },
+  "stratified_detection_rate": {
+    "[0.0, 0.3]": {
+      "delivery": {
+        "rows": 576,
+        "misses": 7,
+        "detection_rate": 0.9878,
+        "ci_low": 0.9751,
+        "ci_high": 0.9941
+      },
+      "public_agency": {
+        "rows": 97,
+        "misses": 18,
+        "detection_rate": 0.8144,
+        "ci_low": 0.7256,
+        "ci_high": 0.8793
+      }
+    },
+    "(0.3, 0.5]": {
+      "delivery": {
+        "rows": 1251,
+        "misses": 3,
+        "detection_rate": 0.9976,
+        "ci_low": 0.993,
+        "ci_high": 0.9992
+      },
+      "public_agency": {
+        "rows": 462,
+        "misses": 11,
+        "detection_rate": 0.9762,
+        "ci_low": 0.9579,
+        "ci_high": 0.9867
+      }
+    },
+    "(0.5, 0.7]": {
+      "delivery": {
+        "rows": 626,
+        "misses": 3,
+        "detection_rate": 0.9952,
+        "ci_low": 0.986,
+        "ci_high": 0.9984
+      },
+      "public_agency": {
+        "rows": 678,
+        "misses": 1,
+        "detection_rate": 0.9985,
+        "ci_low": 0.9917,
+        "ci_high": 0.9997
+      }
+    },
+    "(0.7, 1.0]": {
+      "delivery": {
+        "rows": 560,
+        "misses": 3,
+        "detection_rate": 0.9946,
+        "ci_low": 0.9844,
+        "ci_high": 0.9982
+      },
+      "public_agency": {
+        "rows": 989,
+        "misses": 0,
+        "detection_rate": 1.0,
+        "ci_low": 0.9961,
+        "ci_high": 1.0
+      }
+    }
+  },
+  "sensitivity_including_rare_types": {
+    "formula": "detected ~ similarity_to_train + C(attack_type_code, Treatment(\"delivery\")) + C(year, Treatment(2022))",
+    "observations": 5424,
+    "diagnostics": {
+      "design_rank": 9,
+      "parameter_count": 9,
+      "separation": {
+        "status": "none_detected",
+        "method": "signed_margin_linear_program"
+      },
+      "misses": 88,
+      "detections": 5336,
+      "converged": true,
+      "inference_valid": true,
+      "warnings": [],
+      "finite_estimates_and_covariance": true,
+      "hessian_condition_number": 88.9930786611102,
+      "max_absolute_score": 8.326672684688674e-15
+    },
+    "status": "fitted",
+    "pseudo_r_squared": 0.297,
+    "log_likelihood": -316.332,
+    "aic": 650.6631525804994,
+    "intercept": 3.4132737928061405,
+    "terms": {
+      "C(attack_type_code, Treatment(\"delivery\"))[T.other]": {
+        "coefficient": -4.0348,
+        "p_value": 1.4116924276465785e-29,
+        "ci_low": -4.7351,
+        "ci_high": -3.3346,
+        "odds_ratio": 0.017688478111445326,
+        "odds_ratio_ci": [
+          0.008781785583764622,
+          0.03562854671349791
+        ]
+      },
+      "C(attack_type_code, Treatment(\"delivery\"))[T.public_agency]": {
+        "coefficient": -1.7012,
+        "p_value": 5.317951634844835e-07,
+        "ci_low": -2.3661,
+        "ci_high": -1.0363,
+        "odds_ratio": 0.18246655682682392,
+        "odds_ratio_ci": [
+          0.09384437098373229,
+          0.35477934383521
+        ]
+      },
+      "C(attack_type_code, Treatment(\"delivery\"))[T.rare]": {
+        "coefficient": -4.3037,
+        "p_value": 7.692999552706882e-18,
+        "ci_low": -5.284,
+        "ci_high": -3.3233,
+        "odds_ratio": 0.013518773979625554,
+        "odds_ratio_ci": [
+          0.005071948015200391,
+          0.03603295013365398
+        ]
+      },
+      "C(year, Treatment(2022))[T.2023]": {
+        "coefficient": 0.6144,
+        "p_value": 0.21887463113399586,
+        "ci_low": -0.365,
+        "ci_high": 1.5937,
+        "odds_ratio": 1.8485019553106439,
+        "odds_ratio_ci": [
+          0.6942044484962813,
+          4.922122706342146
+        ]
+      },
+      "C(year, Treatment(2022))[T.2024]": {
+        "coefficient": -0.3368,
+        "p_value": 0.43058420287482746,
+        "ci_low": -1.1742,
+        "ci_high": 0.5007,
+        "odds_ratio": 0.7140728723889324,
+        "odds_ratio_ci": [
+          0.30906540255121917,
+          1.6498128320826149
+        ]
+      },
+      "C(year, Treatment(2022))[T.2025]": {
+        "coefficient": -0.1388,
+        "p_value": 0.7381273061330555,
+        "ci_low": -0.9527,
+        "ci_high": 0.6751,
+        "odds_ratio": 0.8703696944792045,
+        "odds_ratio_ci": [
+          0.3856824190155453,
+          1.9641636945792191
+        ]
+      },
+      "C(year, Treatment(2022))[T.2026]": {
+        "coefficient": -0.2041,
+        "p_value": 0.6792364498379209,
+        "ci_low": -1.1716,
+        "ci_high": 0.7634,
+        "odds_ratio": 0.8153669212477165,
+        "odds_ratio_ci": [
+          0.3098686766423719,
+          2.145499904891229
+        ]
+      },
+      "similarity_to_train": {
+        "coefficient": 4.6095,
+        "p_value": 1.381775957091316e-12,
+        "ci_low": 3.3345,
+        "ci_high": 5.8845,
+        "odds_ratio": 100.43439928395584,
+        "odds_ratio_ci": [
+          28.0645434012894,
+          359.4239327287836
+        ]
+      }
+    },
+    "grouping": {
+      "minimum_rows_to_keep_type": 30,
+      "original_counts": {
+        "delivery": 3013,
+        "public_agency": 2226,
+        "other": 150,
+        "acquaintance": 14,
+        "finance_payment": 9,
+        "harmful_site": 5,
+        "google_form": 4,
+        "payment": 1,
+        "job_offer": 1,
+        "unclassified": 1
+      },
+      "mapping": {
+        "delivery": "delivery",
+        "public_agency": "public_agency",
+        "other": "other",
+        "acquaintance": "rare",
+        "finance_payment": "rare",
+        "harmful_site": "rare",
+        "google_form": "rare",
+        "payment": "rare",
+        "job_offer": "rare",
+        "unclassified": "rare"
+      },
+      "reference_type": "delivery"
+    }
+  },
+  "reading": "유사도·공격유형과 연도의 연관을 같은 표본의 중첩 모형으로 비교했다. 연도에 대한 결론은 개별 p값뿐 아니라 연도 전체 우도비 검정과 OR 신뢰구간, 가법·교호작용 모형 및 소수 유형 포함 여부를 함께 읽어야 한다. 주 분석에서 제외된 행과 미탐도 공개한다. 이미 관찰한 자료에 대한 탐색으로, 시간 효과 부재나 구성 변화의 인과 기여를 입증하지 않는다.",
+  "interpretation_guard": {
+    "avoid": [
+      "연도 효과가 사라졌다 / 없다 / 시간 효과가 아니다",
+      "Simpson's paradox",
+      "구성이 하락을 일으켰다 (인과 표현)"
+    ],
+    "use": [
+      "이 탐색 표본에서 범주형 연도 전체의 추가 설명력을 검정했다",
+      "유형별·유사도별 탐지율의 관찰 차이",
+      "각 모형의 OR와 신뢰구간을 함께 보고한다"
+    ],
+    "why": "개별 연도의 비유의성은 전체 연도 효과의 검정이나 동등성 검정을 대신하지 못한다. 공격유형이 교란변수인지 매개변수인지 구분할 수 없고 표본 수집·중복 제거의 영향도 있어 인과 해석을 할 수 없다."
+  },
+  "limitations": [
+    "전기간 중복 제거 후 최초 관측 연도에 배정된 사례다. 실제 연도별 문자 트래픽이나 미래 시간 홀드아웃을 대표하지 않는다.",
+    "이미 관찰한 외부 평가셋의 탐색 진단이다. p값은 다중 탐색 보정을 하지 않았고 모델·분류 임계값·유사도 경계 선택에 사용하지 않는다.",
+    "행 독립성을 가정한 MLE/Wald/LR 결과다. 캠페인·문서 출처 의존성, 문서 길이와 OCR 형식 영향은 추가 검토가 필요하다.",
+    "공격유형을 통제하는 것이 교란 보정인지 과잉보정인지 이 데이터로는 구분할 수 없다. KISA 신고 데이터에 표본 추출 방식 기록이 없어, 공격 구성이 실제로 변한 것인지 수집 방식이 변한 것인지 알 수 없다. 공격 구성 변화가 매개 경로에 있다면 이를 통제한 추정의 해석도 달라진다.",
+    "외부셋은 전부 악성이고 전부 URL을 포함한다. 정상 문자의 시간 변화와 URL 없는 공격은 이 분해가 다루지 못한다.",
+    "유사도는 char 3-5 gram TF-IDF 기준이다. 다른 표현에서는 거리 순서가 달라질 수 있다.",
+    "공공기관 × 저유사도 칸의 표본이 작다. 그 칸의 탐지율은 신뢰구간과 함께 읽어야 한다.",
+    "year_has_enough_rows가 0인 행은 사전에 정한 표본 조건에 따라 제외했다. 제외 연도·행·미탐 수는 sample_flow에 보존한다."
+  ]
+}

@@ -25,14 +25,11 @@
 %let rare_min_rows = 30;
 
 proc options option=encoding value; run;
-/* proc product_status; run; */
-
 %macro assert_utf8;
     %local enc;
     %let enc=%upcase(%sysfunc(getoption(encoding)));
-
     %if "&enc" ne "UTF8" and "&enc" ne "UTF-8" %then %do;
-        %put ERROR: UTF-8 session required. Current encoding=&enc;
+        %put ERROR: 세션 인코딩이 UTF-8이 아닙니다 (&enc).;
         %abort cancel;
     %end;
 %mend;

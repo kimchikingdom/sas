@@ -1,0 +1,8 @@
+{
+  "source": "reports/generated/robustness_evaluation.json",
+  "source_sha256": "fec76427b5c3114c3183b88611875937dbda795fe12f96fd6dd6a4aaf01db74b",
+  "output": "data/processed/sas/sas_robustness.csv",
+  "output_sha256": "d6e5ebcce5ca4fa79d8b41a0c8b9eb358228088a68472860c0aeb6c614f348af",
+  "rows": 24,
+  "status": "derived_from_saved_metrics"
+}
