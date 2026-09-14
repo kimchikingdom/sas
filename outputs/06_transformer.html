@@ -1,0 +1,3246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="Generator" content="SAS Software Version V.04.00, see www.sas.com">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>SAS Output</title>
+<style type="text/css">
+<!--
+.accessiblecaption
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.activelink
+{
+  color: #800080;
+}
+.aftercaption
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 4pt;
+}
+.batch
+{
+  background-color: #FAFBFE;
+  border: 1px solid #C1C1C1;
+  border-collapse: separate;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  padding: 7px;
+}
+.beforecaption
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.body
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.bodydate
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  text-align: right;
+  vertical-align: top;
+  width: 100%;
+}
+.bycontentfolder
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.byline
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.bylinecontainer
+{
+  background-color: #FAFBFE;
+  border: 0px solid #000000;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.caption
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.cell
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.container
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.contentfolder
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.contentitem
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.contentproclabel
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.contentprocname
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.contents
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: decimal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.contentsdate
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.contenttitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: bold;
+}
+.continued
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+  width: 100%;
+}
+.data
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.dataemphasis
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.dataemphasisfixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.dataempty
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.datafixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.datastrong
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.datastrongfixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.date
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.document
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+a:link {
+color:#0000FF
+}
+a:visited {
+color:#800080
+}
+a:active {
+color:#800080
+}
+.errorbanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.errorcontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.errorcontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.extendedpage
+{
+  background-color: #FAFBFE;
+  border: 1pt solid #000000;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+}
+.fatalbanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.fatalcontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.fatalcontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.folderaction
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.footer
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.footeremphasis
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.footeremphasisfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.footerempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.footerfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.footerstrong
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.footerstrongfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.frame
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.graph
+{
+  background-color: #FAFBFE;
+  border: 1px solid #C1C1C1;
+  border-collapse: separate;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.header
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headeremphasis
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.headeremphasisfixed
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.headerempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headerfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.headersandfooters
+{
+  background-color: #EDF2F9;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headerstrong
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headerstrongfixed
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.heading1
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading2
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading3
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading4
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading5
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading6
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.index
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.indexaction
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.indexitem
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.indexprocname
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.indextitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: bold;
+}
+.layoutcontainer
+{
+  border: 0px solid #000000;
+  border-spacing: 30px;
+}
+.layoutregion
+{
+  border: 0px solid #000000;
+  border-spacing: 30px;
+}
+.linecontent
+{
+  background-color: #FAFBFE;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.link
+{
+  color: #0000FF;
+}
+.list
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: disc;
+}
+.list10
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list2
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: circle;
+}
+.list3
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list4
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list5
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list6
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list7
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list8
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list9
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: disc;
+}
+.listitem10
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem2
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: circle;
+}
+.listitem3
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem4
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem5
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem6
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem7
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem8
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem9
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.note
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.notebanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.notecontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.notecontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.output
+{
+  background-color: #FAFBFE;
+  border: 1px solid #C1C1C1;
+  border-collapse: separate;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.pageno
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: top;
+}
+.pages
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: decimal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.pagesdate
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.pagesitem
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.pagesproclabel
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.pagesprocname
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.pagestitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: bold;
+}
+.paragraph
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.parskip
+{
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.prepage
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+}
+.proctitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.proctitlefixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooter
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooteremphasis
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowfooteremphasisfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowfooterempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooterfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.rowfooterstrong
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooterstrongfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheader
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheaderemphasis
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowheaderemphasisfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowheaderempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheaderfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.rowheaderstrong
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheaderstrongfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemfooter
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter10
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter2
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter3
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter4
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter5
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter6
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter7
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter8
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter9
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemtitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle10
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle2
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle3
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle4
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle5
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle6
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle7
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle8
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle9
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systitleandfootercontainer
+{
+  background-color: #FAFBFE;
+  border: 0px solid #000000;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.table
+{
+  border-bottom-width: 0px;
+  border-collapse: collapse;
+  border-color: #C1C1C1;
+  border-left-width: 1px;
+  border-right-width: 0px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 1px;
+}
+.top_stacked_value
+{
+  padding-bottom: 1px;
+  border: 0;
+}
+.middle_stacked_value
+{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: 0;
+}
+.bottom_stacked_value
+{
+  padding-top: 1px;
+  border: 0;
+}
+.titleandnotecontainer
+{
+  background-color: #FAFBFE;
+  border: 0px solid #000000;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.titlesandfooters
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.usertext
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.visitedlink
+{
+  color: #800080;
+}
+.warnbanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.warncontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.warncontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.l {text-align: left }
+.c {text-align: center }
+.r {text-align: right }
+.d {text-align: right }
+.j {text-align: justify }
+.t {vertical-align: top }
+.m {vertical-align: middle }
+.b {vertical-align: bottom }
+TD, TH {vertical-align: top }
+.stacked_cell{padding: 0 }
+-->
+</style>
+</head>
+<body class="body">
+
+<div class="branch">
+<a name="IDX"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">비교 대상 행 수 — 입력 manifest 및 모델 결측과 대조</td>
+</tr>
+</table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure SQL: Query Results">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">rows</th>
+<th class="r b header" scope="col">malicious</th>
+<th class="r b header" scope="col">url_rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">2317</td>
+<td class="r data">652</td>
+<td class="r data">896</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX1"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">test 전체 — 문자 n-gram vs KcBERT vs 반사실 학습</td>
+</tr>
+</table><br>
+<div class="c proctitle">The LOGISTIC Procedure</div>
+<p>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Data Set</th>
+<td class="l data">WORK.CONTRAST</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Response Variable</th>
+<td class="l data">target</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Number of Response Levels</th>
+<td class="l data">2</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Model</th>
+<td class="l data">binary logit</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Optimization Technique</th>
+<td class="l data">Fisher&#39;s scoring</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX2"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Observations Summary">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Number of Observations Read</th>
+<td class="r data">2317</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Number of Observations Used</th>
+<td class="r data">2317</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX3"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Response Profile">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Response Profile</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Ordered<br/>Value</th>
+<th class="l b header" scope="col">target</th>
+<th class="r b header" scope="col">Total<br/>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="l data">0</td>
+<td class="r data">1665</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="l data">1</td>
+<td class="r data">652</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">Probability modeled is target=&#39;1&#39;.</td></tr></table>
+</div><p>
+</div>
+<br>
+<a name="IDX4"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Global Score">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Score Test for Global Null<br/>Hypothesis</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Pr&nbsp;&gt;&nbsp;ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">0.0000</td>
+<td class="r data">0</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: 문자 n-gram</td></tr></table>
+</div><p>
+<p>
+<a name="IDX5"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: 문자 n-gram Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">text_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX6"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for 문자 n-gram" src="ROCCurve32.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: KcBERT</td></tr></table>
+</div><p>
+<p>
+<a name="IDX7"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: KcBERT Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">kcbert_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX8"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for KcBERT" src="ROCCurve34.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: KcBERT 반사실</td></tr></table>
+</div><p>
+<p>
+<a name="IDX9"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: KcBERT 반사실 Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">kcbert_cf_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX10"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for KcBERT 반사실" src="ROCCurve36.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: 문자 n-gram 반사실</td></tr></table>
+</div><p>
+<p>
+<a name="IDX11"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: 문자 n-gram 반사실 Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">linear_cf_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX12"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for 문자 n-gram 반사실" src="ROCCurve38.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<a name="IDX13"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curves for Comparisons" src="ROCOverlay12.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<a name="IDX14"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: ROC Association Statistics">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="8" scope="colgroup">ROC Association Statistics</th>
+</tr>
+<tr>
+<th class="l b header" rowspan="2" scope="col">ROC Model</th>
+<th class="c b header" colspan="4" scope="colgroup"> Mann-Whitney </th>
+<th class="r b header" rowspan="2" scope="col">Somers&#39; D</th>
+<th class="r b header" rowspan="2" scope="col">Gamma</th>
+<th class="r b header" rowspan="2" scope="col">Tau-a</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Area</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="c b header" colspan="2" scope="colgroup">95% Wald<br/>Confidence Limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram</th>
+<td class="r data">0.9987</td>
+<td class="r data">0.000354</td>
+<td class="r data">0.9980</td>
+<td class="r data">0.9994</td>
+<td class="r data">0.9974</td>
+<td class="r data">0.9974</td>
+<td class="r data">0.4036</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT</th>
+<td class="r data">0.9992</td>
+<td class="r data">0.000329</td>
+<td class="r data">0.9986</td>
+<td class="r data">0.9999</td>
+<td class="r data">0.9985</td>
+<td class="r data">0.9985</td>
+<td class="r data">0.4040</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 반사실</th>
+<td class="r data">0.9978</td>
+<td class="r data">0.000633</td>
+<td class="r data">0.9965</td>
+<td class="r data">0.9990</td>
+<td class="r data">0.9955</td>
+<td class="r data">0.9955</td>
+<td class="r data">0.4028</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram 반사실</th>
+<td class="r data">0.9976</td>
+<td class="r data">0.00100</td>
+<td class="r data">0.9957</td>
+<td class="r data">0.9996</td>
+<td class="r data">0.9952</td>
+<td class="r data">0.9952</td>
+<td class="r data">0.4027</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX15"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: ROC Contrast Coefficients">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="4" scope="colgroup">ROC Contrast Coefficients</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">ROC Model</th>
+<th class="r b header" scope="col">Row1</th>
+<th class="r b header" scope="col">Row2</th>
+<th class="r b header" scope="col">Row3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram</th>
+<td class="r data" nowrap>-1</td>
+<td class="r data" nowrap>-1</td>
+<td class="r data" nowrap>-1</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT</th>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 반사실</th>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram 반사실</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX16"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Wald Test for ROC Contrast">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="4" scope="colgroup">ROC Contrast Test Results</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">Contrast</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">Pr&nbsp;&gt;&nbsp;ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Reference = 문자 n-gram</th>
+<td class="r data">3</td>
+<td class="r data">7.3757</td>
+<td class="r data">0.0608</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX17"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Estimates for ROC Contrast Rows">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">ROC Contrast Estimation and Testing Results by Row</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">Contrast</th>
+<th class="r b header" scope="col">Estimate</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="c b header" colspan="2" scope="colgroup">95% Wald<br/>Confidence Limits</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">Pr &gt; ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram - KcBERT</th>
+<td class="r data" nowrap>-0.00052</td>
+<td class="r data">0.000295</td>
+<td class="r data" nowrap>-0.00110</td>
+<td class="r data">0.000062</td>
+<td class="r data">3.0637</td>
+<td class="r data">0.0801</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram - KcBERT 반사실</th>
+<td class="r data">0.000942</td>
+<td class="r data">0.000681</td>
+<td class="r data" nowrap>-0.00039</td>
+<td class="r data">0.00228</td>
+<td class="r data">1.9174</td>
+<td class="r data">0.1661</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram - 문자 n-gram 반사실</th>
+<td class="r data">0.00110</td>
+<td class="r data">0.000972</td>
+<td class="r data" nowrap>-0.00080</td>
+<td class="r data">0.00301</td>
+<td class="r data">1.2822</td>
+<td class="r data">0.2575</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT - KcBERT 반사실</th>
+<td class="r data">0.00146</td>
+<td class="r data">0.000663</td>
+<td class="r data">0.000161</td>
+<td class="r data">0.00276</td>
+<td class="r data">4.8508</td>
+<td class="r data">0.0276</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT - 문자 n-gram 반사실</th>
+<td class="r data">0.00162</td>
+<td class="r data">0.00102</td>
+<td class="r data" nowrap>-0.00038</td>
+<td class="r data">0.00361</td>
+<td class="r data">2.5307</td>
+<td class="r data">0.1116</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 반사실 - 문자 n-gram 반사실</th>
+<td class="r data">0.000158</td>
+<td class="r data">0.000625</td>
+<td class="r data" nowrap>-0.00107</td>
+<td class="r data">0.00138</td>
+<td class="r data">0.0643</td>
+<td class="r data">0.7998</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX18"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">test — URL 없는 문자만</td>
+</tr>
+</table><br>
+<div class="c proctitle">The LOGISTIC Procedure</div>
+<p>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Data Set</th>
+<td class="l data">WORK.CONTRAST</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Response Variable</th>
+<td class="l data">target</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Number of Response Levels</th>
+<td class="l data">2</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Model</th>
+<td class="l data">binary logit</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Optimization Technique</th>
+<td class="l data">Fisher&#39;s scoring</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX19"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Observations Summary">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Number of Observations Read</th>
+<td class="r data">1421</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Number of Observations Used</th>
+<td class="r data">1421</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX20"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Response Profile">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Response Profile</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Ordered<br/>Value</th>
+<th class="l b header" scope="col">target</th>
+<th class="r b header" scope="col">Total<br/>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="l data">0</td>
+<td class="r data">1367</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="l data">1</td>
+<td class="r data">54</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">Probability modeled is target=&#39;1&#39;.</td></tr></table>
+</div><p>
+</div>
+<br>
+<a name="IDX21"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Global Score">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Score Test for Global Null<br/>Hypothesis</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Pr&nbsp;&gt;&nbsp;ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">0.0000</td>
+<td class="r data">0</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: 문자 n-gram</td></tr></table>
+</div><p>
+<p>
+<a name="IDX22"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: 문자 n-gram Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">text_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX23"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for 문자 n-gram" src="ROCCurve40.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: KcBERT</td></tr></table>
+</div><p>
+<p>
+<a name="IDX24"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: KcBERT Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">kcbert_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX25"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for KcBERT" src="ROCCurve42.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: KcBERT 반사실</td></tr></table>
+</div><p>
+<p>
+<a name="IDX26"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: KcBERT 반사실 Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">kcbert_cf_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX27"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curve for KcBERT 반사실" src="ROCCurve44.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<a name="IDX28"></a>
+<div>
+<div  class="c">
+<img alt="ROC Curves for Comparisons" src="ROCOverlay14.png" style=" height: 5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<a name="IDX29"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: ROC Association Statistics">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="8" scope="colgroup">ROC Association Statistics</th>
+</tr>
+<tr>
+<th class="l b header" rowspan="2" scope="col">ROC Model</th>
+<th class="c b header" colspan="4" scope="colgroup"> Mann-Whitney </th>
+<th class="r b header" rowspan="2" scope="col">Somers&#39; D</th>
+<th class="r b header" rowspan="2" scope="col">Gamma</th>
+<th class="r b header" rowspan="2" scope="col">Tau-a</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Area</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="c b header" colspan="2" scope="colgroup">95% Wald<br/>Confidence Limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram</th>
+<td class="r data">0.9986</td>
+<td class="r data">0.000841</td>
+<td class="r data">0.9969</td>
+<td class="r data">1.0000</td>
+<td class="r data">0.9971</td>
+<td class="r data">0.9971</td>
+<td class="r data">0.0730</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT</th>
+<td class="r data">0.9984</td>
+<td class="r data">0.00144</td>
+<td class="r data">0.9956</td>
+<td class="r data">1.0000</td>
+<td class="r data">0.9968</td>
+<td class="r data">0.9968</td>
+<td class="r data">0.0729</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 반사실</th>
+<td class="r data">0.9999</td>
+<td class="r data">0.000116</td>
+<td class="r data">0.9996</td>
+<td class="r data">1.0000</td>
+<td class="r data">0.9997</td>
+<td class="r data">0.9997</td>
+<td class="r data">0.0731</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX30"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: ROC Contrast Coefficients">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">ROC Contrast Coefficients</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">ROC Model</th>
+<th class="r b header" scope="col">Row1</th>
+<th class="r b header" scope="col">Row2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram</th>
+<td class="r data" nowrap>-1</td>
+<td class="r data" nowrap>-1</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT</th>
+<td class="r data">1</td>
+<td class="r data">0</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 반사실</th>
+<td class="r data">0</td>
+<td class="r data">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX31"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Wald Test for ROC Contrast">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="4" scope="colgroup">ROC Contrast Test Results</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">Contrast</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">Pr&nbsp;&gt;&nbsp;ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Reference = 문자 n-gram</th>
+<td class="r data">2</td>
+<td class="r data">2.4276</td>
+<td class="r data">0.2971</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX32"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Estimates for ROC Contrast Rows">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">ROC Contrast Estimation and Testing Results by Row</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">Contrast</th>
+<th class="r b header" scope="col">Estimate</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="c b header" colspan="2" scope="colgroup">95% Wald<br/>Confidence Limits</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">Pr &gt; ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram - KcBERT</th>
+<td class="r data">0.000149</td>
+<td class="r data">0.00110</td>
+<td class="r data" nowrap>-0.00200</td>
+<td class="r data">0.00230</td>
+<td class="r data">0.0184</td>
+<td class="r data">0.8921</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">문자 n-gram - KcBERT 반사실</th>
+<td class="r data" nowrap>-0.00131</td>
+<td class="r data">0.000843</td>
+<td class="r data" nowrap>-0.00297</td>
+<td class="r data">0.000339</td>
+<td class="r data">2.4270</td>
+<td class="r data">0.1193</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT - KcBERT 반사실</th>
+<td class="r data" nowrap>-0.00146</td>
+<td class="r data">0.00143</td>
+<td class="r data" nowrap>-0.00427</td>
+<td class="r data">0.00134</td>
+<td class="r data">1.0438</td>
+<td class="r data">0.3069</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX33"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">온도 보정 전후 AUC — 같아야 한다 (구현 검증)</td>
+</tr>
+</table><br>
+<div class="c proctitle">The LOGISTIC Procedure</div>
+<p>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Data Set</th>
+<td class="l data">WORK.CONTRAST</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Response Variable</th>
+<td class="l data">target</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Number of Response Levels</th>
+<td class="l data">2</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Model</th>
+<td class="l data">binary logit</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Optimization Technique</th>
+<td class="l data">Fisher&#39;s scoring</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX34"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Observations Summary">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Number of Observations Read</th>
+<td class="r data">2317</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">Number of Observations Used</th>
+<td class="r data">2317</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX35"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Response Profile">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Response Profile</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Ordered<br/>Value</th>
+<th class="l b header" scope="col">target</th>
+<th class="r b header" scope="col">Total<br/>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="l data">0</td>
+<td class="r data">1665</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="l data">1</td>
+<td class="r data">652</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">Probability modeled is target=&#39;1&#39;.</td></tr></table>
+</div><p>
+</div>
+<br>
+<a name="IDX36"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Global Score">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Score Test for Global Null<br/>Hypothesis</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Pr&nbsp;&gt;&nbsp;ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">0.0000</td>
+<td class="r data">0</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: KcBERT 원본</td></tr></table>
+</div><p>
+<p>
+<a name="IDX37"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: KcBERT 원본 Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">kcbert_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
+<p>
+<div align="center"><table class="proctitle"><tr><td class="c proctitle">ROC Model: KcBERT 보정후</td></tr></table>
+</div><p>
+<p>
+<a name="IDX38"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: KcBERT 보정후 Model Information">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Model Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">ROC Contrast Coefficients</th>
+<td class="l data">kcbert_calibrated_probability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX39"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: ROC Association Statistics">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="8" scope="colgroup">ROC Association Statistics</th>
+</tr>
+<tr>
+<th class="l b header" rowspan="2" scope="col">ROC Model</th>
+<th class="c b header" colspan="4" scope="colgroup"> Mann-Whitney </th>
+<th class="r b header" rowspan="2" scope="col">Somers&#39; D</th>
+<th class="r b header" rowspan="2" scope="col">Gamma</th>
+<th class="r b header" rowspan="2" scope="col">Tau-a</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Area</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="c b header" colspan="2" scope="colgroup">95% Wald<br/>Confidence Limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 원본</th>
+<td class="r data">0.9992</td>
+<td class="r data">0.000329</td>
+<td class="r data">0.9986</td>
+<td class="r data">0.9999</td>
+<td class="r data">0.9985</td>
+<td class="r data">0.9985</td>
+<td class="r data">0.4040</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 보정후</th>
+<td class="r data">0.9992</td>
+<td class="r data">0.000329</td>
+<td class="r data">0.9986</td>
+<td class="r data">0.9999</td>
+<td class="r data">0.9985</td>
+<td class="r data">0.9985</td>
+<td class="r data">0.4040</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX40"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: ROC Contrast Coefficients">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">ROC Contrast Coefficients</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">ROC Model</th>
+<th class="r b header" scope="col">Row1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 원본</th>
+<td class="r data" nowrap>-1</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 보정후</th>
+<td class="r data">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX41"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Wald Test for ROC Contrast">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="4" scope="colgroup">ROC Contrast Test Results</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">Contrast</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">Pr&nbsp;&gt;&nbsp;ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">Reference = KcBERT 원본</th>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX42"></a>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Logistic: Estimates for ROC Contrast Rows">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">ROC Contrast Estimation and Testing Results by Row</th>
+</tr>
+<tr>
+<th class="l b header" scope="col">Contrast</th>
+<th class="r b header" scope="col">Estimate</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="c b header" colspan="2" scope="colgroup">95% Wald<br/>Confidence Limits</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">Pr &gt; ChiSq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">KcBERT 보정후 - KcBERT 원본</th>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX43"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">공격 유형별 표본 수 — 유형당 표본이 매우 작다</td>
+</tr>
+</table><br>
+<div class="c proctitle">The FREQ Procedure</div>
+<p>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Freq: 일원 빈도 테이블">
+<colgroup>
+<col>
+</colgroup>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l b header" scope="col">attack_type</th>
+<th class="r b header" scope="col">빈도</th>
+<th class="r b header" scope="col"> 백분율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="l rowheader" scope="row">job_scam</th>
+<td class="r data">3</td>
+<td class="r data">5.56</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">loan_ad</th>
+<td class="r data">25</td>
+<td class="r data">46.30</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">messenger_phishing</th>
+<td class="r data">14</td>
+<td class="r data">25.93</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">other</th>
+<td class="r data">9</td>
+<td class="r data">16.67</td>
+</tr>
+<tr>
+<th class="l rowheader" scope="row">payment_impersonation</th>
+<td class="r data">3</td>
+<td class="r data">5.56</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX44"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">공격 유형별 탐지율과 exact 95% 신뢰구간</td>
+</tr>
+</table><br>
+<div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.ATTACK_DETECTION_CI">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">attack_type</th>
+<th class="r header" scope="col">n</th>
+<th class="l header" scope="col">model</th>
+<th class="r header" scope="col">detected</th>
+<th class="r header" scope="col">detection_rate</th>
+<th class="r header" scope="col">lower_95</th>
+<th class="r header" scope="col">upper_95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">job_scam</td>
+<td class="r data">3</td>
+<td class="l data">문자 n-gram</td>
+<td class="r data">0</td>
+<td class="r data">0.00%</td>
+<td class="r data">0.00%</td>
+<td class="r data">70.76%</td>
+</tr>
+<tr>
+<td class="l data">job_scam</td>
+<td class="r data">3</td>
+<td class="l data">KcBERT</td>
+<td class="r data">3</td>
+<td class="r data">100.0%</td>
+<td class="r data">29.24%</td>
+<td class="r data">100.0%</td>
+</tr>
+<tr>
+<td class="l data">loan_ad</td>
+<td class="r data">25</td>
+<td class="l data">문자 n-gram</td>
+<td class="r data">24</td>
+<td class="r data">96.00%</td>
+<td class="r data">79.65%</td>
+<td class="r data">99.90%</td>
+</tr>
+<tr>
+<td class="l data">loan_ad</td>
+<td class="r data">25</td>
+<td class="l data">KcBERT</td>
+<td class="r data">24</td>
+<td class="r data">96.00%</td>
+<td class="r data">79.65%</td>
+<td class="r data">99.90%</td>
+</tr>
+<tr>
+<td class="l data">messenger_phishing</td>
+<td class="r data">14</td>
+<td class="l data">문자 n-gram</td>
+<td class="r data">8</td>
+<td class="r data">57.14%</td>
+<td class="r data">28.86%</td>
+<td class="r data">82.34%</td>
+</tr>
+<tr>
+<td class="l data">messenger_phishing</td>
+<td class="r data">14</td>
+<td class="l data">KcBERT</td>
+<td class="r data">14</td>
+<td class="r data">100.0%</td>
+<td class="r data">76.84%</td>
+<td class="r data">100.0%</td>
+</tr>
+<tr>
+<td class="l data">other</td>
+<td class="r data">9</td>
+<td class="l data">문자 n-gram</td>
+<td class="r data">1</td>
+<td class="r data">11.11%</td>
+<td class="r data">0.28%</td>
+<td class="r data">48.25%</td>
+</tr>
+<tr>
+<td class="l data">other</td>
+<td class="r data">9</td>
+<td class="l data">KcBERT</td>
+<td class="r data">7</td>
+<td class="r data">77.78%</td>
+<td class="r data">39.99%</td>
+<td class="r data">97.19%</td>
+</tr>
+<tr>
+<td class="l data">payment_impersonation</td>
+<td class="r data">3</td>
+<td class="l data">문자 n-gram</td>
+<td class="r data">2</td>
+<td class="r data">66.67%</td>
+<td class="r data">9.43%</td>
+<td class="r data">99.16%</td>
+</tr>
+<tr>
+<td class="l data">payment_impersonation</td>
+<td class="r data">3</td>
+<td class="l data">KcBERT</td>
+<td class="r data">3</td>
+<td class="r data">100.0%</td>
+<td class="r data">29.24%</td>
+<td class="r data">100.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+</div>
+</body>
+</html>

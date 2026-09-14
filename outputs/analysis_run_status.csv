@@ -1,0 +1,8 @@
+stage,state,syserr,syscc
+07_composition,completed_check_log,0,0
+01_audit,completed_check_log,0,0
+02_meta,completed_check_log,0,0
+03_roc,completed_check_log,0,0
+06_transformer,completed_check_log,0,0
+05_visuals,completed_check_log,0,0
+04_text,skipped_not_completed,,

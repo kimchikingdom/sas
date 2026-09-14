@@ -1,0 +1,121 @@
+NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: SCAMLENS_STAGE=06_transformer SAS_VERSION=V.04.00M0P021224 DATE=08SEP2026 TIME=09:11
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+ ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: HTML Body 파일 기록 중: 06_transformer.html
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE (split='test') and (not MISSING(kcbert_probability));
+NOTE: 데이터셋 WORK.CONTRAST에 2317개의 관측값과 23개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: SQL 프로시저가 249 페이지를 인쇄했습니다.
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: No explanatory variables have been specified.
+NOTE: The NOFIT option is specified.  No parameters are estimated and all other MODEL statement options (except EQUALSLOPES, FIRTH, 
+      LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
+NOTE: PROC LOGISTIC is modeling the probability that target='1'.
+32                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 12초
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
+NOTE: LOGISTIC 프로시저가 250-251 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           2.03 초
+      cpu 시간            1.26 초
+      
+
+
+NOTE: No explanatory variables have been specified.
+NOTE: The NOFIT option is specified.  No parameters are estimated and all other MODEL statement options (except EQUALSLOPES, FIRTH, 
+      LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
+NOTE: PROC LOGISTIC is modeling the probability that target='1'.
+NOTE: 1421개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
+      WHERE has_url=0;
+NOTE: LOGISTIC 프로시저가 252-253 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           1.19 초
+      cpu 시간            0.75 초
+      
+
+
+NOTE: No explanatory variables have been specified.
+NOTE: The NOFIT option is specified.  No parameters are estimated and all other MODEL statement options (except EQUALSLOPES, FIRTH, 
+      LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
+NOTE: PROC LOGISTIC is modeling the probability that target='1'.
+NOTE: 2317개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
+NOTE: LOGISTIC 프로시저가 254-255 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.05 초
+      cpu 시간            0.06 초
+      
+
+
+NOTE: 54개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
+      WHERE (target=1) and (has_url=0) and (not MISSING(attack_type)) and (attack_type not = ' ');
+NOTE: 데이터셋 WORK.BY_ATTACK에 54개의 관측값과 27개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 54개의 관측값을 데이터셋 WORK.BY_ATTACK.에서 읽었습니다.
+NOTE: 데이터셋 WORK.BY_ATTACK에 54개의 관측값과 27개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 54개의 관측값을 데이터셋 WORK.BY_ATTACK.에서 읽었습니다.
+NOTE: FREQ 프로시저가 256 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+NOTE: Table WORK.ATTACK_DETECTION created, with 5 rows and 4 columns.
+33                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 13초
+
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 5개의 관측값을 데이터셋 WORK.ATTACK_DETECTION.에서 읽었습니다.
+NOTE: 데이터셋 WORK.ATTACK_DETECTION_CI에 10개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 10개의 관측값을 데이터셋 WORK.ATTACK_DETECTION_CI.에서 읽었습니다.
+NOTE: W.D 출력형식이 너무 작아 인쇄할 수 없습니다. 소수점 이하는 "BEST" 출력형식으로 이동됩니다.
+NOTE: PRINT 프로시저가 257 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+

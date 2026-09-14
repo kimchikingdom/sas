@@ -1,0 +1,180 @@
+NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: SCAMLENS_STAGE=05_visuals SAS_VERSION=V.04.00M0P021224 DATE=08SEP2026 TIME=09:11
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+ ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+34                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 13초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: HTML Body 파일 기록 중: 05_visuals.html
+NOTE: Table WORK.FPR_BY_URL created, with 2 rows and 3 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
+      실행 시간           0.17 초
+      cpu 시간            0.11 초
+      
+NOTE: 이미지 출력 리스팅이 
+      /opt/sas/viya/config/var/tmp/compsrv/default/ebfb9ca5-c84f-434b-88de-5808ebce51e4/SAS_work88D8000001E6_sas-compute-server-f664
+      ad37-e572-4b11-888b-b441bbd9e7bb-86/SGPlot17.png에 작성되었습니다.
+NOTE: 2개의 관측값을 데이터셋 WORK.FPR_BY_URL.에서 읽었습니다.
+
+NOTE: Table WORK.FNR_BY_URL created, with 2 rows and 3 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
+      실행 시간           0.14 초
+      cpu 시간            0.08 초
+      
+NOTE: 이미지 출력 리스팅이 
+      /opt/sas/viya/config/var/tmp/compsrv/default/ebfb9ca5-c84f-434b-88de-5808ebce51e4/SAS_work88D8000001E6_sas-compute-server-f664
+      ad37-e572-4b11-888b-b441bbd9e7bb-86/SGPlot19.png에 작성되었습니다.
+NOTE: 2개의 관측값을 데이터셋 WORK.FNR_BY_URL.에서 읽었습니다.
+
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE split='test';
+NOTE: 데이터셋 WORK.DIST에 2317개의 관측값과 23개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 프로시저 SGPLOT 실행 (총 프로세스 시간):
+      실행 시간           0.19 초
+      cpu 시간            0.10 초
+      
+NOTE: 이미지 출력 리스팅이 
+      /opt/sas/viya/config/var/tmp/compsrv/default/ebfb9ca5-c84f-434b-88de-5808ebce51e4/SAS_work88D8000001E6_sas-compute-server-f664
+      ad37-e572-4b11-888b-b441bbd9e7bb-86/SGPlot21.png에 작성되었습니다.
+NOTE: 2317개의 관측값을 데이터셋 WORK.DIST.에서 읽었습니다.
+
+35                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 14초
+
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE split='test';
+NOTE: 데이터셋 WORK.VISUAL_ROC에 2317개의 관측값과 23개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: Table WORK.VISUAL_ROC_JOINED created, with 2317 rows and 24 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.VISUAL_ROC_JOINED.에서 읽었습니다.
+NOTE: 데이터셋 WORK.VISUAL_ROC에 2317개의 관측값과 24개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: No explanatory variables have been specified.
+NOTE: The NOFIT option is specified.  No parameters are estimated and all other MODEL statement options (except EQUALSLOPES, FIRTH, 
+      LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
+NOTE: PLOTS 옵션은 사용자가 하위 옵션을 지정하지 않는 한 무시됩니다.
+NOTE: PROC LOGISTIC is modeling the probability that target='1'.
+NOTE: 2317개의 관측값을 데이터셋 WORK.VISUAL_ROC.에서 읽었습니다.
+NOTE: LOGISTIC 프로시저가 258-259 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.05 초
+      cpu 시간            0.06 초
+      
+
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+1495    /**********************************************************************
+1496    *   PRODUCT:   SAS
+1497    *   VERSION:   V.04.00
+1498    *   CREATOR:   External File Interface
+1499    *   DATE:      08SEP26
+1500    *   DESC:      Generated SAS Datastep Code
+1501    *   TEMPLATE SOURCE:  (None Specified.)
+1502    ***********************************************************************/
+1503       data WORK.ROBUSTNESS    ;
+1504       %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1505       infile '/home/student/data/processed/sas/sas_robustness.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+1506          informat model $25. ;
+1507          informat variant $18. ;
+1508          informat stage $20. ;
+1509          informat recall best32. ;
+1510          format model $25. ;
+1511          format variant $18. ;
+1512          format stage $20. ;
+36                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 14초
+
+1513          format recall best12. ;
+1514       input
+1515                   model  $
+1516                   variant  $
+1517                   stage  $
+1518                   recall
+1519       ;
+1520       if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+1521       run;
+
+NOTE: 입력파일 '/home/student/data/processed/sas/sas_robustness.csv':
+      파일 이름=/home/student/data/processed/sas/sas_robustness.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rwxr-xr-x,
+      마지막 수정일=2026년 09월 08일 05시14분41초,
+      파일 크기(바이트)=1554
+
+NOTE: 24개의 레코드를 입력파일 '/home/student/data/processed/sas/sas_robustness.csv'에서 읽었습니다.
+      최소 레코드 길이는 51입니다.
+      최대 레코드 길이는 73입니다.
+NOTE: 데이터셋 WORK.ROBUSTNESS에 24개의 관측값과 4개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+24 rows created in WORK.ROBUSTNESS from /home/student/data/processed/sas/sas_robustness.csv.
+  
+  
+  
+NOTE: WORK.ROBUSTNESS 데이터셋을 성공적으로 생성했습니다.
+NOTE: 데이터셋 WORK.ROBUSTNESS에 24개의 관측값과 4개의 변수가 있습니다.
+NOTE: 프로시저 IMPORT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.04 초
+      
+
+
+NOTE: 프로시저 SGPANEL 실행 (총 프로세스 시간):
+      실행 시간           0.28 초
+      cpu 시간            0.11 초
+      
+NOTE: 이미지 출력 리스팅이 
+      /opt/sas/viya/config/var/tmp/compsrv/default/ebfb9ca5-c84f-434b-88de-5808ebce51e4/SAS_work88D8000001E6_sas-compute-server-f664
+      ad37-e572-4b11-888b-b441bbd9e7bb-86/SGPanel4.png에 작성되었습니다.
+NOTE: 24개의 관측값을 데이터셋 WORK.ROBUSTNESS.에서 읽었습니다.
+

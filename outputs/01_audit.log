@@ -1,0 +1,287 @@
+NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: SCAMLENS_STAGE=01_audit SAS_VERSION=V.04.00M0P021224 DATE=08SEP2026 TIME=09:11
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+ ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: HTML Body 파일 기록 중: 01_audit.html
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+SAS 옵션 ENCODING에 대한 옵션값 정보
+    값: UTF8
+    범위: SAS Session
+    옵션값 설정 방법: Config File
+    Config 파일명:
+            /config/saslocale.cfg
+
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+566     /**********************************************************************
+567     *   PRODUCT:   SAS
+568     *   VERSION:   V.04.00
+569     *   CREATOR:   External File Interface
+570     *   DATE:      08SEP26
+571     *   DESC:      Generated SAS Datastep Code
+572     *   TEMPLATE SOURCE:  (None Specified.)
+573     ***********************************************************************/
+574        data WORK.SCORES    ;
+575        %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+576        infile '/home/student/data/processed/sas/sas_message_scores.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+577           informat message_id $24. ;
+578           informat split $10. ;
+579           informat similarity_group_id $24. ;
+580           informat label $8. ;
+581           informat target best32. ;
+582           informat has_url best32. ;
+583           informat url_count best32. ;
+584           informat text_length best32. ;
+585           informat text_probability best32. ;
+586           informat text_probability_oof best32. ;
+587           informat text_probability_meta_input best32. ;
+588           informat oof_fold_id best32. ;
+22                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 05초
+
+589           informat sas_meta_fit_eligible best32. ;
+590           informat url_probability_filled best32. ;
+591           informat url_probability_missing best32. ;
+592           informat fixed_fusion_probability best32. ;
+593           informat url_neutral_probability best32. ;
+594           informat linear_cf_probability best32. ;
+595           informat kcbert_probability best32. ;
+596           informat kcbert_calibrated_probability best32. ;
+597           informat kcbert_cf_probability best32. ;
+598           informat attack_type $21. ;
+599           format message_id $24. ;
+600           format split $10. ;
+601           format similarity_group_id $24. ;
+602           format label $8. ;
+603           format target best12. ;
+604           format has_url best12. ;
+605           format url_count best12. ;
+606           format text_length best12. ;
+607           format text_probability best12. ;
+608           format text_probability_oof best12. ;
+609           format text_probability_meta_input best12. ;
+610           format oof_fold_id best12. ;
+611           format sas_meta_fit_eligible best12. ;
+612           format url_probability_filled best12. ;
+613           format url_probability_missing best12. ;
+614           format fixed_fusion_probability best12. ;
+615           format url_neutral_probability best12. ;
+616           format linear_cf_probability best12. ;
+617           format kcbert_probability best12. ;
+618           format kcbert_calibrated_probability best12. ;
+619           format kcbert_cf_probability best12. ;
+620           format attack_type $21. ;
+621        input
+622                    message_id  $
+623                    split  $
+624                    similarity_group_id  $
+625                    label  $
+626                    target
+627                    has_url
+628                    url_count
+629                    text_length
+630                    text_probability
+631                    text_probability_oof
+632                    text_probability_meta_input
+633                    oof_fold_id
+634                    sas_meta_fit_eligible
+635                    url_probability_filled
+636                    url_probability_missing
+637                    fixed_fusion_probability
+638                    url_neutral_probability
+639                    linear_cf_probability
+640                    kcbert_probability
+641                    kcbert_calibrated_probability
+642                    kcbert_cf_probability
+643                    attack_type  $
+644        ;
+645        if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+646        run;
+23                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 05초
+
+
+NOTE: 입력파일 '/home/student/data/processed/sas/sas_message_scores.csv':
+      파일 이름=/home/student/data/processed/sas/sas_message_scores.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rwxr-xr-x,
+      마지막 수정일=2026년 09월 08일 05시14분41초,
+      파일 크기(바이트)=3662397
+
+NOTE: 16773개의 레코드를 입력파일 '/home/student/data/processed/sas/sas_message_scores.csv'에서 읽었습니다.
+      최소 레코드 길이는 195입니다.
+      최대 레코드 길이는 255입니다.
+NOTE: 데이터셋 WORK.SCORES에 16773개의 관측값과 22개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.03 초
+      
+
+16773 rows created in WORK.SCORES from /home/student/data/processed/sas/sas_message_scores.csv.
+  
+  
+  
+NOTE: WORK.SCORES 데이터셋을 성공적으로 생성했습니다.
+NOTE: 데이터셋 WORK.SCORES에 16773개의 관측값과 22개의 변수가 있습니다.
+NOTE: 프로시저 IMPORT 실행 (총 프로세스 시간):
+      실행 시간           5.74 초
+      cpu 시간            5.75 초
+      
+
+
+NOTE: 입력파일 "/home/student/data/processed/sas/sas_message_text.csv":
+      파일 이름=/home/student/data/processed/sas/sas_message_text.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rwxr-xr-x,
+      마지막 수정일=2026년 09월 08일 05시14분41초,
+      파일 크기(바이트)=5163148
+
+NOTE: 16773개의 레코드를 입력파일 "/home/student/data/processed/sas/sas_message_text.csv"에서 읽었습니다.
+      최소 레코드 길이는 49입니다.
+      최대 레코드 길이는 5595입니다.
+NOTE: 데이터셋 WORK.MSGTEXT에 16773개의 관측값과 7개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.11 초
+      cpu 시간            0.11 초
+      
+
+NOTE: Table WORK.TEXT_LENGTH_AUDIT created, with 1 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.05 초
+      cpu 시간            0.05 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TEXT_LENGTH_AUDIT.에서 읽었습니다.
+NOTE: PRINT 프로시저가 231 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+24                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 05초
+
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.TEXT_LENGTH_AUDIT.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 16773개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+NOTE: FREQ 프로시저가 232 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: Verified OOF input readiness = 1
+
+NOTE: 16773개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+NOTE: FREQ 프로시저가 233 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+
+NOTE: 12100개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE split='train';
+NOTE: FREQ 프로시저가 234 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.03 초
+      
+
+
+NOTE: 1665개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE (split='test') and (target=0);
+NOTE: 데이터셋 WORK.NORMAL_TEST에 1665개의 관측값과 24개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 1665개의 관측값을 데이터셋 WORK.NORMAL_TEST.에서 읽었습니다.
+NOTE: 데이터셋 WORK.NORMAL_TEST에 1665개의 관측값과 24개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+25                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 05초
+
+NOTE: 1665개의 관측값을 데이터셋 WORK.NORMAL_TEST.에서 읽었습니다.
+NOTE: 데이터셋 WORK.NORMAL_TEST_CI에 1669개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 1669개의 관측값을 데이터셋 WORK.NORMAL_TEST_CI.에서 읽었습니다.
+NOTE: FREQ 프로시저가 235-236 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.05 초
+      
+
+
+NOTE: 652개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE (split='test') and (target=1);
+NOTE: 데이터셋 WORK.MALICIOUS_TEST에 652개의 관측값과 24개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 652개의 관측값을 데이터셋 WORK.MALICIOUS_TEST.에서 읽었습니다.
+NOTE: 데이터셋 WORK.MALICIOUS_TEST에 652개의 관측값과 24개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 652개의 관측값을 데이터셋 WORK.MALICIOUS_TEST.에서 읽었습니다.
+NOTE: 데이터셋 WORK.MALICIOUS_TEST_CI에 656개의 관측값과 25개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 656개의 관측값을 데이터셋 WORK.MALICIOUS_TEST_CI.에서 읽었습니다.
+NOTE: FREQ 프로시저가 237-238 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.05 초
+      
+

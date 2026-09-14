@@ -1,0 +1,148 @@
+NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: SCAMLENS_STAGE=02_meta SAS_VERSION=V.04.00M0P021224 DATE=08SEP2026 TIME=09:11
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+ ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: HTML Body 파일 기록 중: 02_meta.html
+
+NOTE: WORK.METAMODEL(memtype=DATA)을(를) 삭제하는 중입니다.
+NOTE: WORK.SCORED(memtype=DATA)을(를) 삭제하는 중입니다.
+NOTE: WORK.TEST_SCORED(memtype=DATA)을(를) 삭제하는 중입니다.
+NOTE: WORK.META_CONVERGENCE(memtype=DATA)을(를) 삭제하는 중입니다.
+NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+27                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 05초
+
+      
+
+
+NOTE: PROC LOGISTIC is modeling the probability that target='1'.
+NOTE: Convergence criterion (GCONV=1E-8) satisfied.
+NOTE: 데이터셋 WORK.META_CONVERGENCE에 1개의 관측값과 3개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.META_FIT_STATISTICS에 3개의 관측값과 4개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.META_URL_BLOCK_TEST에 1개의 관측값과 5개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.META_ODDS_CI에 3개의 관측값과 5개의 변수가 있습니다.
+NOTE: 데이터셋 WORK.META_PARAMETERS에 4개의 관측값과 7개의 변수가 있습니다.
+WARNING: 'OddsRatios' 출력이 생성되지 않았습니다.  출력 개체 이름,  레이블, 또는 경로의 철자가 
+         올바른지 확인하십시오.  또한, 요청된 출력 개체를 생성하는 데 적절한 프로시저 옵션이 
+         사용되었는지도 확인하십시오.  예를 들어, NOPRINT 옵션이 사용되고 있지 않은지 
+         확인하십시오.
+NOTE: 12100개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
+      WHERE split='train';
+NOTE: 데이터셋 WORK.METAMODEL에 28개의 관측값과 6개의 변수가 있습니다.
+NOTE: LOGISTIC 프로시저가 239-240 페이지를 인쇄했습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.28 초
+      cpu 시간            0.19 초
+      
+
+
+NOTE: 1개의 관측값을 데이터셋 WORK.META_CONVERGENCE.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 데이터셋 WORK.SCORED에 16773개의 관측값과 26개의 변수가 있습니다.
+NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 16773개의 관측값을 데이터셋 WORK.SCORED.에서 읽었습니다.
+NOTE: 데이터셋 WORK.SCORED에 16773개의 관측값과 27개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2356개의 관측값을 데이터셋 WORK.SCORED.에서 읽었습니다.
+      WHERE split='validation';
+NOTE: 데이터셋 WORK.GRID에 426436개의 관측값과 30개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.10 초
+      cpu 시간            0.10 초
+      
+
+NOTE: Table WORK.THRESHOLD_STATS created, with 181 rows and 5 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.09 초
+28                                                         SAS 시스템      2026년  9월  8일 화요일 오전 05시 55분 06초
+
+      cpu 시간            0.18 초
+      
+
+
+NOTE: 181개의 관측값을 데이터셋 WORK.THRESHOLD_STATS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.THRESHOLD_STATS에 181개의 관측값과 8개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+NOTE: The query as specified involves ordering by an item that doesn't appear in its SELECT clause.
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: validation에서 선택한 메타 임계값 = 0.7
+
+NOTE: 1개의 관측값을 데이터셋 WORK.THRESHOLD_STATS.에서 읽었습니다.
+      WHERE ABS((threshold-0.7))<1E-8;
+NOTE: PRINT 프로시저가 241 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.SCORED.에서 읽었습니다.
+      WHERE split='test';
+NOTE: 데이터셋 WORK.TEST_SCORED에 2317개의 관측값과 29개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.TEST_SCORED.에서 읽었습니다.
+NOTE: FREQ 프로시저가 242 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+
+NOTE: 2317개의 관측값을 데이터셋 WORK.TEST_SCORED.에서 읽었습니다.
+NOTE: FREQ 프로시저가 243 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.02 초
+      cpu 시간            0.03 초
+      
+
