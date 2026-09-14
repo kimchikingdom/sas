@@ -1,0 +1,596 @@
+NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+15                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 17초
+
+
+NOTE: SCAMLENS_AB_STAGE=12_consensus_models SAS_VERSION=V.04.00M0P021224
+NOTE: INPUT_ROOT=/home/student/github/data/processed/sas OUTPUT_ROOT=/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B
+
+    SAS (r) Proprietary Software Release V.04.00  TS1M0
+
+ ENCODING=UTF8     Specifies the default character-set encoding for the SAS session.
+NOTE: 프로시저 OPTIONS 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+NOTE: HTML Body 파일 기록 중: 12_consensus_models.html
+NOTE: %INCLUDE(레벨 1) 파일 /home/student/github/sas/12_consensus_model_comparison.sas은(는) 파일 
+      /home/student/github/sas/12_consensus_model_comparison.sas입니다.
+466   +/* Consensus comparison: metrics use original_label, never consensus as truth. */
+467   +%macro sc12_check;
+468   +  %if &syscc ne 0 or &syserr ne 0 %then %do;
+469   +    %put ERROR: SAS 12 stopped after an unsuccessful step.;
+470   +    %abort cancel;
+471   +  %end;
+472   +%mend;
+473   +%macro sc12_defaults;
+474   +  %global projroot sasdata runout;
+475   +  %global sc12_complete; %let sc12_complete=0;
+476   +  %if %length(%superq(projroot))=0 %then %let projroot=/home/student/github;
+477   +  %if %length(%superq(sasdata))=0 %then %let sasdata=&projroot./data/processed/sas;
+478   +  %if %length(%superq(runout))=0 %then %do; %put ERROR: Official runner must define runout.; %abort cancel; %end;
+479   +%mend;
+480   +%sc12_defaults;
+481   +%macro sc12_input_check;
+482   +  %if not %sysfunc(fileexist(&sasdata./sas_consensus_predictions_20260914.csv)) %then %do; %put ERROR: Missing consensus
+482  !+prediction input.; %abort cancel; %end;
+483   +%mend;
+484   +%sc12_input_check;
+485   +data work.sc12_p;
+486   + infile "&sasdata./sas_consensus_predictions_20260914.csv" dsd dlm=',' firstobs=2 truncover encoding='utf-8' lrecl=32767;
+487   + length review_id $32 model $12 seed fold 8 role $32 original_label $12 final_category 8 probability threshold prediction 8;
+488   + input review_id $ model $ seed fold role $ original_label $ final_category probability threshold prediction;
+489   +run;
+
+NOTE: 입력파일 "/home/student/github/data/processed/sas/sas_consensus_predictions_20260914.csv":
+      파일 이름=/home/student/github/data/processed/sas/sas_consensus_predictions_20260914.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 04시20분04초,
+      파일 크기(바이트)=327626
+
+NOTE: 3122개의 레코드를 입력파일 "/home/student/github/data/processed/sas/sas_consensus_predictions_20260914.csv"에서 
+      읽었습니다.
+      최소 레코드 길이는 98입니다.
+      최대 레코드 길이는 109입니다.
+NOTE: 데이터셋 WORK.SC12_P에 3122개의 관측값과 10개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+16                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 17초
+
+490   +%sc12_check;
+491   +proc sql noprint;
+492   + select count(*),count(distinct catx('|',review_id,model,put(seed,best.),put(fold,best.))) into :n,:u from work.sc12_p;
+493   +  select count(*) into :bad from work.sc12_p where missing(review_id) or missing(model) or missing(seed) or missing(fold) or
+493  !+missing(role) or missing(original_label) or missing(final_category) or missing(probability) or missing(threshold) or
+493  !+missing(prediction) or prediction not in (0,1) or probability<0 or probability>1 or threshold<0 or threshold>1.000001 or
+493  !+final_category not in (1,2,3,4) or original_label not in ('normal','smishing') or role ne 'development_readout' or fold ne 0
+493  !+or model not in ('LR-A','LR-B','LR-C','Kc-A','Kc-C','FAGE','Stacking');
+494   + select count(*) into :bad2 from work.sc12_p where prediction ne (probability>=threshold);
+495   +quit;
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+496   +%sc12_check;
+497   +%macro sc12_validate;
+498   +  %local bad3 bad4 bad5 bad6 uid;
+499   +  %if &n ne 3122 or &u ne 3122 or &bad ne 0 or &bad2 ne 0 %then %do; %put ERROR: Invalid consensus prediction input rows=&n
+499  !+unique=&u bad=&bad threshold=&bad2.; %abort cancel; %end;
+500   +  proc sql noprint;
+501   +    select count(*) into :bad3 from (select seed,review_id from work.sc12_p group by seed,review_id having count(distinct
+501  !+model) ne 7);
+502   +    select count(*) into :bad4 from (select review_id,seed from work.sc12_p group by review_id,seed having count(distinct
+502  !+catx('|',original_label,put(final_category,best.))) ne 1);
+503   +    select count(*) into :bad5 from work.sc12_p where seed not in (42,101,202,303,404);
+504   +    select count(*) into :bad6 from (select seed,model,count(*) as nr from work.sc12_p group by seed,model having (seed=42
+504  !+and nr ne 108) or (seed=101 and nr ne 88) or (seed=202 and nr ne 77) or (seed=303 and nr ne 71) or (seed=404 and nr ne 102));
+505   +    select count(distinct review_id) into :uid from work.sc12_p;
+506   +  quit;
+507   +%sc12_check;
+508   +  %if &bad3 ne 0 or &bad4 ne 0 or &bad5 ne 0 or &bad6 ne 0 or &uid ne 325 %then %do; %put ERROR: Model seed key metadata seed
+508  !+ or row sets differ.; %abort cancel; %end;
+509   +%mend;
+510   +%sc12_validate;
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+511   +
+512   +data work.sc12_levels; do final_category=1 to 4; output; end; run;
+
+NOTE: 데이터셋 WORK.SC12_LEVELS에 4개의 관측값과 1개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+513   +%sc12_check;
+514   +data work.sc12_models;
+515   +  length model $12;
+516   +  do i=1 to 7;
+517   +    model=scan('LR-A LR-B LR-C Kc-A Kc-C FAGE Stacking',i,' ');
+518   +    output;
+519   +  end;
+520   +  keep model;
+521   +run;
+17                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 17초
+
+
+NOTE: 데이터셋 WORK.SC12_MODELS에 7개의 관측값과 1개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+522   +%sc12_check;
+523   +data work.sc12_seeds;
+524   +  do seed=42,101,202,303,404; output; end;
+525   +run;
+
+NOTE: 데이터셋 WORK.SC12_SEEDS에 5개의 관측값과 1개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+526   +%sc12_check;
+527   +data work.sc12_labels; length original_label $12; original_label='normal'; output; original_label='smishing'; output; run;
+
+NOTE: 데이터셋 WORK.SC12_LABELS에 2개의 관측값과 1개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+528   +%sc12_check;
+529   +
+530   +proc sql;
+531   + create table work.sc12_grid as select m.model,s.seed,l.original_label,c.final_category
+532   + from work.sc12_models m cross join work.sc12_seeds s cross join work.sc12_labels l cross join work.sc12_levels c;
+NOTE: The execution of this query involves performing one or more Cartesian product joins that can not be optimized.
+NOTE: Table WORK.SC12_GRID created, with 280 rows and 4 columns.
+
+533   + create table work.sc12_strata as select g.model,g.seed,g.original_label,g.final_category,count(p.review_id) as n,
+534   +   sum(p.original_label='smishing' and p.prediction=1) as tp,
+535   +   sum(p.original_label='smishing' and p.prediction=0) as fn,
+536   +   sum(p.original_label='normal' and p.prediction=1) as fp,
+537   +   sum(p.original_label='normal' and p.prediction=0) as tn
+538   + from work.sc12_grid g left join work.sc12_p p on p.model=g.model and p.seed=g.seed and p.original_label=g.original_label and
+538  !+ p.final_category=g.final_category group by g.model,g.seed,g.original_label,g.final_category order by
+538  !+g.model,g.seed,g.original_label,g.final_category;
+NOTE: Table WORK.SC12_STRATA created, with 280 rows and 9 columns.
+
+539   +quit;
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.02 초
+      
+
+540   +%sc12_check;
+541   +data work.sc12_strata; set work.sc12_strata; if (tp+fn)>0 then recall=tp/(tp+fn); else recall=.; if (fp+tn)>0 then
+541  !+fpr=fp/(fp+tn); else fpr=.; keep model seed original_label final_category n tp fn fp tn recall fpr; run;
+
+NOTE: 280개의 관측값을 데이터셋 WORK.SC12_STRATA.에서 읽었습니다.
+NOTE: 데이터셋 WORK.SC12_STRATA에 280개의 관측값과 11개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+18                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 17초
+
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+542   +%sc12_check;
+543   +
+544   +proc sql;
+545   + create table work.sc12_metrics as select model,seed,count(*) as rows,
+546   +   sum(p.original_label='smishing' and p.prediction=1) as tp,sum(p.original_label='smishing' and p.prediction=0) as
+546  !+fn,sum(p.original_label='normal' and p.prediction=1) as fp,sum(p.original_label='normal' and p.prediction=0) as tn
+547   + from work.sc12_p p group by model,seed order by model,seed;
+NOTE: Table WORK.SC12_METRICS created, with 35 rows and 7 columns.
+
+548   +quit;
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+549   +%sc12_check;
+550   +data work.sc12_metrics; set work.sc12_metrics; if tp+fn>0 then recall=tp/(tp+fn); else recall=.; if fp+tn>0 then
+550  !+fpr=fp/(fp+tn); else fpr=.; if 2*tp+fp+fn>0 then f1=2*tp/(2*tp+fp+fn); else f1=.; keep model seed rows tp fn fp tn recall fpr
+550  !+ f1; run;
+
+NOTE: 35개의 관측값을 데이터셋 WORK.SC12_METRICS.에서 읽었습니다.
+NOTE: 데이터셋 WORK.SC12_METRICS에 35개의 관측값과 10개의 변수가 있습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+551   +%sc12_check;
+552   +proc sql;
+552  !+          create table work.sc12_seed_means as select model,mean(recall) as recall,mean(fpr) as fpr,mean(f1) as f1 from
+552  !+work.sc12_metrics group by model order by model; quit;
+NOTE: Table WORK.SC12_SEED_MEANS created, with 7 rows and 4 columns.
+
+NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.01 초
+      
+
+553   +%sc12_check;
+554   +proc sort data=work.sc12_p out=work.sc12_p_sorted; by model seed original_label; run;
+
+NOTE: 3122개의 관측값을 데이터셋 WORK.SC12_P.에서 읽었습니다.
+NOTE: 데이터셋 WORK.SC12_P_SORTED에 3122개의 관측값과 10개의 변수가 있습니다.
+NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
+      실행 시간           0.00 초
+      cpu 시간            0.00 초
+      
+
+555   +%sc12_check;
+556   +title 'Original-label and consensus strata: stored development predictions';
+557   +proc freq data=work.sc12_p_sorted; by model seed original_label; tables final_category*prediction / nopercent norow nocol;
+557  !+run;
+
+NOTE: 3122개의 관측값을 데이터셋 WORK.SC12_P_SORTED.에서 읽었습니다.
+19                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 18초
+
+NOTE: FREQ 프로시저가 765-834 페이지를 인쇄했습니다.
+NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
+      실행 시간           0.93 초
+      cpu 시간            0.96 초
+      
+
+558   +%sc12_check;
+559   +proc datasets library=work nolist; modify sc12_metrics;
+559  !+                                                        format recall fpr f1 best32.; quit;
+
+NOTE: WORK.SC12_METRICS.DATA에 대한 MODIFY에 성공했습니다.
+NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+560   +%sc12_check;
+561   +proc datasets library=work nolist; modify sc12_strata;
+561  !+                                                       format recall fpr best32.; quit;
+
+NOTE: WORK.SC12_STRATA.DATA에 대한 MODIFY에 성공했습니다.
+NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+562   +%sc12_check;
+563   +proc datasets library=work nolist; modify sc12_seed_means;
+563  !+                                                           format recall fpr f1 best32.; quit;
+
+NOTE: WORK.SC12_SEED_MEANS.DATA에 대한 MODIFY에 성공했습니다.
+NOTE: 프로시저 DATASETS 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+564   +%sc12_check;
+565   +proc export data=work.sc12_metrics outfile="&runout./12_metrics.csv" dbms=csv replace;
+565  !+                                                                                       run;
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+566     /**********************************************************************
+567     *   PRODUCT:   SAS
+568     *   VERSION:   V.04.00
+569     *   CREATOR:   External File Interface
+570     *   DATE:      14SEP26
+571     *   DESC:      Generated SAS Datastep Code
+572     *   TEMPLATE SOURCE:  (None Specified.)
+573     ***********************************************************************/
+574        data _null_;
+575        %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+576        %let _EFIREC_ = 0;     /* clear export record count macro variable */
+577        file '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_metrics.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+578        if _n_ = 1 then        /* write column names or labels */
+579         do;
+580           put
+581              "model"
+20                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 18초
+
+582           ','
+583              "seed"
+584           ','
+585              "rows"
+586           ','
+587              "tp"
+588           ','
+589              "fn"
+590           ','
+591              "fp"
+592           ','
+593              "tn"
+594           ','
+595              "recall"
+596           ','
+597              "fpr"
+598           ','
+599              "f1"
+600           ;
+601         end;
+602       set  WORK.SC12_METRICS   end=EFIEOD;
+603           format model $12. ;
+604           format seed best12. ;
+605           format rows best12. ;
+606           format tp best12. ;
+607           format fn best12. ;
+608           format fp best12. ;
+609           format tn best12. ;
+610           format recall best32. ;
+611           format fpr best32. ;
+612           format f1 best32. ;
+613         do;
+614           EFIOUT + 1;
+615           put model $ @;
+616           put seed @;
+617           put rows @;
+618           put tp @;
+619           put fn @;
+620           put fp @;
+621           put tn @;
+622           put recall @;
+623           put fpr @;
+624           put f1 ;
+625           ;
+626         end;
+627        if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+628        if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+629        run;
+
+NOTE: 파일 '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_metrics.csv':
+      파일 이름=/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_metrics.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 04시30분18초
+
+NOTE: 36개의 레코드를 파일 '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_metrics.csv'에 기록했습니다.
+      최소 레코드 길이는 41입니다.
+      최대 레코드 길이는 77입니다.
+21                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 18초
+
+NOTE: 35개의 관측값을 데이터셋 WORK.SC12_METRICS.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.00 초
+      
+
+35 records created in /home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_metrics.csv from WORK.SC12_METRICS.
+  
+  
+NOTE: "/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_metrics.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.03 초
+      
+
+630   +%sc12_check;
+631   +proc export data=work.sc12_strata outfile="&runout./12_strata.csv" dbms=csv replace;
+631  !+                                                                                     run;
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+632     /**********************************************************************
+633     *   PRODUCT:   SAS
+634     *   VERSION:   V.04.00
+635     *   CREATOR:   External File Interface
+636     *   DATE:      14SEP26
+637     *   DESC:      Generated SAS Datastep Code
+638     *   TEMPLATE SOURCE:  (None Specified.)
+639     ***********************************************************************/
+640        data _null_;
+641        %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+642        %let _EFIREC_ = 0;     /* clear export record count macro variable */
+643        file '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_strata.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+644        if _n_ = 1 then        /* write column names or labels */
+645         do;
+646           put
+647              "model"
+648           ','
+649              "seed"
+650           ','
+651              "original_label"
+652           ','
+653              "final_category"
+654           ','
+655              "n"
+656           ','
+657              "tp"
+658           ','
+659              "fn"
+660           ','
+661              "fp"
+662           ','
+663              "tn"
+664           ','
+665              "recall"
+666           ','
+667              "fpr"
+668           ;
+22                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 18초
+
+669         end;
+670       set  WORK.SC12_STRATA   end=EFIEOD;
+671           format model $12. ;
+672           format seed best12. ;
+673           format original_label $12. ;
+674           format final_category best12. ;
+675           format n best12. ;
+676           format tp best12. ;
+677           format fn best12. ;
+678           format fp best12. ;
+679           format tn best12. ;
+680           format recall best32. ;
+681           format fpr best32. ;
+682         do;
+683           EFIOUT + 1;
+684           put model $ @;
+685           put seed @;
+686           put original_label $ @;
+687           put final_category @;
+688           put n @;
+689           put tp @;
+690           put fn @;
+691           put fp @;
+692           put tn @;
+693           put recall @;
+694           put fpr ;
+695           ;
+696         end;
+697        if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+698        if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+699        run;
+
+NOTE: 파일 '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_strata.csv':
+      파일 이름=/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_strata.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 04시30분18초
+
+NOTE: 281개의 레코드를 파일 '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_strata.csv'에 기록했습니다.
+      최소 레코드 길이는 28입니다.
+      최대 레코드 길이는 65입니다.
+NOTE: 280개의 관측값을 데이터셋 WORK.SC12_STRATA.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+280 records created in /home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_strata.csv from WORK.SC12_STRATA.
+  
+  
+NOTE: "/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_strata.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.03 초
+      
+
+700   +%sc12_check;
+701   +proc export data=work.sc12_seed_means outfile="&runout./12_seed_means.csv" dbms=csv replace;
+23                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 18초
+
+701  !+                                                                                             run;
+
+NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to 
+WORK.PARMS.PARMS.SLIST.
+702     /**********************************************************************
+703     *   PRODUCT:   SAS
+704     *   VERSION:   V.04.00
+705     *   CREATOR:   External File Interface
+706     *   DATE:      14SEP26
+707     *   DESC:      Generated SAS Datastep Code
+708     *   TEMPLATE SOURCE:  (None Specified.)
+709     ***********************************************************************/
+710        data _null_;
+711        %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+712        %let _EFIREC_ = 0;     /* clear export record count macro variable */
+713        file '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_seed_means.csv' delimiter=',' DSD DROPOVER lrecl=32767
+713  ! ;
+714        if _n_ = 1 then        /* write column names or labels */
+715         do;
+716           put
+717              "model"
+718           ','
+719              "recall"
+720           ','
+721              "fpr"
+722           ','
+723              "f1"
+724           ;
+725         end;
+726       set  WORK.SC12_SEED_MEANS   end=EFIEOD;
+727           format model $12. ;
+728           format recall best32. ;
+729           format fpr best32. ;
+730           format f1 best32. ;
+731         do;
+732           EFIOUT + 1;
+733           put model $ @;
+734           put recall @;
+735           put fpr @;
+736           put f1 ;
+737           ;
+738         end;
+739        if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+740        if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+741        run;
+
+NOTE: 파일 '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_seed_means.csv':
+      파일 이름=/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_seed_means.csv,
+      소유자 이름=UNKNOWN,그룹 이름=UNKNOWN,
+      액세스 권한=-rw-r--r--,
+      마지막 수정일=2026년 09월 14일 04시30분18초
+
+NOTE: 8개의 레코드를 파일 '/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_seed_means.csv'에 
+      기록했습니다.
+      최소 레코드 길이는 19입니다.
+      최대 레코드 길이는 59입니다.
+NOTE: 7개의 관측값을 데이터셋 WORK.SC12_SEED_MEANS.에서 읽었습니다.
+NOTE: DATA 문장 실행 (총 프로세스 시간):
+24                                                         SAS 시스템      2026년  9월 14일 월요일 오전 04시 30분 18초
+
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+7 records created in /home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_seed_means.csv from WORK.SC12_SEED_MEANS.
+  
+  
+NOTE: "/home/student/github/outputs/ab_20260914_41DF5DDBF5CC8B3B/12_seed_means.csv" 파일을 성공적으로 생성했습니다.
+NOTE: 프로시저 EXPORT 실행 (총 프로세스 시간):
+      실행 시간           0.03 초
+      cpu 시간            0.02 초
+      
+
+742   +%sc12_check;
+743   +title 'Original-label metrics for each model and seed';
+744   +proc print data=work.sc12_metrics noobs; run;
+
+NOTE: 35개의 관측값을 데이터셋 WORK.SC12_METRICS.에서 읽었습니다.
+NOTE: PRINT 프로시저가 835 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.04 초
+      cpu 시간            0.05 초
+      
+
+745   +%sc12_check;
+746   +title 'Unweighted means of per-seed metrics: selected URL-free development rows';
+747   +proc print data=work.sc12_seed_means noobs; run;
+
+NOTE: 7개의 관측값을 데이터셋 WORK.SC12_SEED_MEANS.에서 읽었습니다.
+NOTE: PRINT 프로시저가 836 페이지를 인쇄했습니다.
+NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
+      실행 시간           0.01 초
+      cpu 시간            0.01 초
+      
+
+748   +%sc12_check;
+749   +title;
+750   +%macro sc12_finish;
+751   +  %if &syserr ne 0 or &syscc ne 0 %then %do; %put ERROR: SCAMLENS_12 failed before completion.; %abort cancel; %end;
+752   +  %let sc12_complete=1;
+753   +  %put NOTE: Evidence is descriptive selected development URL-free rows;
+754   +  %put A was AI-assisted and B was no-AI/no-prior-exposure attested. Consensus is not used as truth for metrics.;
+755   +  %put NOTE: SCAMLENS_12_COMPLETE;
+756   +%mend;
+757   +%sc12_finish;
+NOTE: Evidence is descriptive selected development URL-free rows
+A was AI-assisted and B was no-AI/no-prior-exposure attested. Consensus is not used as truth for metrics.
+NOTE: SCAMLENS_12_COMPLETE
+NOTE: %INCLUDE(레벨 1)를 종료 중입니다.
+
