@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "score_source": "reconstructed_fixed_protocol",
+  "rows": 12100,
+  "folds": 5,
+  "splitter": "GroupKFold(shuffle=False)",
+  "grouped_by": "similarity_group_id",
+  "sklearn_version": "1.6.1",
+  "input_sha256": {
+    "messages": "2451b94b6918e4362f1fb03fa7ba99d60297e3e9b63e16e24c03d952859551f4",
+    "message_urls": "67df7c5d39319a0a72350c3a9d28008f0b29ea0260f3e13445bb17fdfb106a75",
+    "text_model": "ca970cfd0c2500e355505950a34ee7749ee52469eff03aaba616e08df3435846",
+    "url_model": "9d5660a93bce186b9f2b29ce8b91a060d07512b887d68e064329daaf2a9935cd"
+  },
+  "meta_model_sha256": "d1a4a18d640aa95738f884256001042675030b15981f3476c46994199ec9aa74",
+  "scores_sha256": "0d60417e316f1a5e7e86ba7a47af74e4c142e3318343d43290a7cf99a7744af0"
+}

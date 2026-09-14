@@ -1,0 +1,6 @@
+sample_id,text_raw_masked,text_normalized,label,message_category,brand,has_url,url_count,source,collected_at,real_or_synthetic,collection_basis,annotation_confidence,review_status,eligible_for_evaluation
+hard-msg-3f1087b20184e67b844f,[카드사] 해외결제 승인 안내입니다. 자세한 내역은 앱에서 확인하세요.,[카드사] 해외결제 승인 안내입니다. 자세한 내역은 앱에서 확인하세요.,normal,card_payment,,0,0,scamlens_synthetic_sample,2026-07-31,synthetic,synthetic,1.0,verified,0
+hard-msg-3c187df420b16fb6b0fd,[은행] 본인확인 절차가 완료되었습니다. 문의는 공식 고객센터를 이용하세요.,[은행] 본인확인 절차가 완료되었습니다. 문의는 공식 고객센터를 이용하세요.,normal,banking_auth,,0,0,scamlens_synthetic_sample,2026-07-31,synthetic,synthetic,1.0,verified,0
+hard-msg-e4d5417e26e7a1734377,[택배] 배송이 완료되었습니다. 배송조회 [URL],[택배] 배송이 완료되었습니다. 배송조회 [url],normal,delivery,,1,1,scamlens_synthetic_sample,2026-07-31,synthetic,synthetic,1.0,verified,0
+hard-msg-ac40d73c1a824ad856fd,[공공기관] 민원 처리 결과가 등록되었습니다. 공식 앱에서 확인하세요.,[공공기관] 민원 처리 결과가 등록되었습니다. 공식 앱에서 확인하세요.,normal,public_service,,0,0,scamlens_synthetic_sample,2026-07-31,synthetic,synthetic,1.0,verified,0
+hard-msg-6211ca6e8aa2c6220b01,[서비스] 인증번호 [CODE]를 타인에게 알려주지 마세요.,[서비스] 인증번호 [code]를 타인에게 알려주지 마세요.,normal,account_security,,0,0,scamlens_synthetic_sample,2026-07-31,synthetic,synthetic,1.0,verified,0
