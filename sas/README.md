@@ -3,18 +3,15 @@
 목적은 스미싱 탐지의 실패 조건을 설명하고 검수 우선순위로 연결하는 교육 최종 발표와
 포트폴리오다. Python은 전처리·분할·기존 탐지 모델을, SAS는 감사·통계 분석·시각화를 맡는다.
 
-**단계별 실행 상태는 [현재 SAS 현황](../docs/SAS_STATUS_20260914.md)을 따른다.**
-01·02·03·05·06·07은 기존 로그·HTML을 확인했고, 08은 반환 CSV와 회수한 사용자 제공
-출력표·로그를 검산했다. 남은 09·10은 A 단독 재현용이며 새 SAS 실행은 아직 확인되지 않았다.
+**현재 실행은 `00_RUN_AB.sas` → 11 → 12다.**
+합의 전 A/B 검수 일치도와 최종 합의 범주별 저장 모델 판정을 분석한다.
+과거 A 단독 09·10은 `archive/`로 이동했으며 현행 실행 코드에 포함하지 않는다.
+기존 결과와 단계별 상태는 [SAS 현황](../docs/SAS_STATUS_20260914.md)에 있다.
 
 ## 시작하기
 
-이번 실행은 `00_RUN_PENDING.sas`로 09 → 10만 진행한다. A/B 합의 결과를 분석하는
-코드가 아니며, 과거 A 단독 교차표를 SAS에서 재현하는 목적이다.
-
 [런북](RUNBOOK.md)과 [현장 체크리스트](../docs/SAS_EXECUTION_CHECKLIST.md)를 따른다.
-개인 이전 번들은 `scripts/create_sas_bundle.py`로 만든다. 기본 위치는
-`/home/student/`이며 기존 날짜의 번들을 덮어쓰지 않는다.
+SAS 서버 기본 위치는 `/home/student/github/`이며 기존 출력은 덮어쓰지 않는다.
 
 | 프로그램 | 질문 / 산출물 | 선행 조건 |
 |---|---|---|
@@ -26,15 +23,16 @@
 | 07_composition_and_novelty | 유형·유사도·연도와 실패의 연관, 제외 표본 영향 | 외부 feature CSV, 독립 실행 |
 | 04_korean_text_model | SAS 자체 텍스트 모델의 보조 실험 | 01, 선택 실행 |
 | 08_fage_gate | 원래 train fold 0에서 A/B/C와 스태킹·FAGE를 시드별 재적합 | `sas_fage_abc_rows.csv`, 독립 실행 |
-| 09_reviewer_a_descriptive | 검수자 A 본문 판단의 PROC FREQ. 정확도·적합 아님 | `sas_reviewer_a_rows_20260912.csv`, 독립 실행 |
-| 10_reviewer_a_oof | 저장 선형 OOF와 A 판단의 PROC FREQ. 임계값 재선택 아님 | `sas_reviewer_a_oof_20260912.csv`, 독립 실행 |
+| 11_reviewer_ab_agreement | 합의 전 A/B 범주·행동 일치도 | `sas_reviewer_ab_20260914.csv`, AB 실행기 |
+| 12_consensus_model_comparison | 최종 합의 범주별 원 라벨 기준 오류·시드 평균 | `sas_consensus_predictions_20260914.csv`, AB 실행기 |
+| 13_publish_ab_to_cas | 검증된 11·12 집계의 선택적 CAS 공유·저장 | 같은 세션의 11·12 완료 문맥 |
 
-`00_RUN_PENDING.sas`는 새 출력 폴더에 09·10 로그·HTML·상태를 남긴다.
-전체 과거 분석을 재현할 때는 `00_RUN_ALL.sas`를 사용한다. 이 실행기도 단계별 로그·HTML과 실행 상태를 남긴다. 07을 먼저 실행하고
+`00_RUN_PENDING.sas`는 과거 진입점임을 안내하고 종료한다.
+`00_RUN_AB.sas`는 11·12의 로그·HTML·CSV를 새 출력 폴더에 남긴다.
+현재 보관 중인 공통 분석 단계를 재현할 때는 `00_RUN_ALL.sas`를 사용한다. 이 실행기도 단계별 로그·HTML과 실행 상태를 남긴다. 07을 먼저 실행하고
 내부 분석으로 이어진다. 04는 기본 비활성이다. 08은 `sas_fage_abc_rows.csv`가 있을 때만,
-09·10은 해당 A 단독 CSV가 있을 때만 이어서 실행한다. 시드를 한 모형에 합치지 않으며, 원래 validation/test를 쓰지 않는다.
-Python FAGE 수치가 08 로그를 대신하지 않는다. 09는 검수자 B 없이 kappa를
-계산하지 않으며 교차표를 정확도로 읽지 않는다.
+실행한다. 시드를 한 모형에 합치지 않으며, 원래 validation/test를 쓰지 않는다.
+Python FAGE 수치가 08 로그를 대신하지 않는다.
 
 ## OOF와 메타 회귀
 

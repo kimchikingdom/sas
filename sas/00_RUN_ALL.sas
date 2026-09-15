@@ -1,7 +1,8 @@
 /*
-  ScamLens 개인 SAS 실행기. 번들 내부 폴더를 /home/student/에 배치한다.
+  ScamLens 과거 공통 SAS 단계 재현 실행기. 번들 내부 폴더를 /home/student/github/에 배치한다.
   outputs/를 준비하고 매 실행 전에 이전 결과를 날짜별로 보관한다.
   단계별 로그/HTML/상태를 남기지만, 실행 성공은 경고와 결과표 검수 후 판단한다.
+  검수자 A 단독 09·10은 archive로 이동되어 이 실행 범위에서 제외한다.
 */
 %let projroot = /home/student/github;
 %let run_heavy_text_model = 0;
@@ -97,28 +98,6 @@ run;
     %end;
 %mend;
 %run_fage_if_present;
-
-%macro run_reviewer_a_if_present;
-    %if %sysfunc(fileexist(&projroot./data/processed/sas/sas_reviewer_a_rows_20260912.csv)) %then %do;
-        %run_step(09_reviewer_a, 09_reviewer_a_descriptive.sas);
-    %end;
-    %else %do;
-        %put NOTE: sas_reviewer_a_rows_20260912.csv 가 없어 09 A 단독 기술 통계를 건너뜁니다.;
-        %skip_step(09_reviewer_a);
-    %end;
-%mend;
-%run_reviewer_a_if_present;
-
-%macro run_reviewer_a_oof_if_present;
-    %if %sysfunc(fileexist(&projroot./data/processed/sas/sas_reviewer_a_oof_20260912.csv)) %then %do;
-        %run_step(10_reviewer_a_oof, 10_reviewer_a_oof.sas);
-    %end;
-    %else %do;
-        %put NOTE: sas_reviewer_a_oof_20260912.csv 가 없어 10 A-OOF 교차를 건너뜁니다.;
-        %skip_step(10_reviewer_a_oof);
-    %end;
-%mend;
-%run_reviewer_a_oof_if_present;
 
 proc export data=work.scamlens_run_status
     outfile="&projroot./outputs/analysis_run_status.csv" dbms=csv replace;
