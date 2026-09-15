@@ -62,6 +62,24 @@
     group by g.a_category,g.b_category order by g.a_category,g.b_category;
   quit;
   %sc11_check;
+  data work.sc11_final_category_grid;
+    do final_category=1 to 4; output; end;
+  run;
+  %sc11_check;
+  proc sql;
+    create table work.sc11_final_category_cells as
+    select g.final_category,count(x.review_id) as n
+    from work.sc11_final_category_grid g left join work.sc11_ab x
+      on g.final_category=x.final_category
+    group by g.final_category order by g.final_category;
+  quit;
+  %sc11_check;
+  data work.sc11_final_category_cells;
+    set work.sc11_final_category_cells;
+    proportion=n/&n.;
+    format proportion best32.;
+  run;
+  %sc11_check;
   data work.sc11_actions;
     set work.sc11_ab;
     do action_code=1 to 7;
@@ -142,6 +160,8 @@
   proc freq data=work.sc11_ab; tables final_category; run;
   %sc11_check;
   proc export data=work.sc11_category_cells outfile="&runout./11_category_cells.csv" dbms=csv replace; run;
+  %sc11_check;
+  proc export data=work.sc11_final_category_cells outfile="&runout./11_final_category_cells.csv" dbms=csv replace; run;
   %sc11_check;
   proc export data=work.sc11_agreement outfile="&runout./11_agreement.csv" dbms=csv replace; run;
   %sc11_check;
