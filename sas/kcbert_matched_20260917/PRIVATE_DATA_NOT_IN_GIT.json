@@ -1,0 +1,57 @@
+{
+  "arms": [
+    "DUP",
+    "FLIP",
+    "BASE"
+  ],
+  "bundle_manifest_sha256": "ce10b3a0dc53dbc9521065f1e9e922ba802f1fbe0054d0bdd8f1978e16664ac3",
+  "checkpoint_sha256": "f9e4bf3e835047dbfa27fd8ff812d765a38debb8b68a659dcd59c4da3a611450",
+  "dependencies_available": true,
+  "device_available": {
+    "cpu": true,
+    "cuda": false,
+    "mps": false
+  },
+  "edits": {
+    "preflight_pass": 281,
+    "prospective_approval": false,
+    "token_visible": 281
+  },
+  "full_kcbert_training_complete": false,
+  "network": "disabled_local_files_only",
+  "private_input_not_in_report": true,
+  "rows": {
+    "calibration": 1703,
+    "fit": 6680,
+    "readout": 1750,
+    "total": 10133
+  },
+  "sas_runtime_verified": false,
+  "schedule": {
+    "base_replacement": true,
+    "base_rows": 6680,
+    "batch_size": 32,
+    "batches_per_epoch": 218,
+    "common_draws": 20928,
+    "common_update_budget": 654,
+    "dup_rows": 6961,
+    "e_preflight_pass": 281,
+    "epochs": 3,
+    "flip_rows": 6961,
+    "n_original": 6680,
+    "padding_per_epoch": 15
+  },
+  "schema_version": "1.0",
+  "scope": "local_preflight_not_sas_runtime_or_full_training",
+  "seeds": [
+    42,
+    101,
+    202,
+    303,
+    404
+  ],
+  "source_report": "reports/generated/matched_kcbert_sas_local_preflight_20260917_v1.json",
+  "source_report_sha256": "6e77ab492e108ffce8bd1d1fcda67c3ac907a9ed768fd7dc769fd6a2a423eeef",
+  "status": "local_preflight_receipt_only",
+  "status_preflight": "preflight_no_training"
+}

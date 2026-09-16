@@ -1,0 +1,100 @@
+{
+  "bundle_version": "20260917_kcbert_git_v3",
+  "deployment_original": {
+    "bundle": "20260917_kcbert_launch_v2",
+    "files": {
+      "00_KCBERT_ENV_CHECK.sas": {
+        "bytes": 2513,
+        "path": "dist/sas/20260917_kcbert_launch_v2/00_KCBERT_ENV_CHECK.sas",
+        "sha256": "5328e6f26b3db2bc7475d9f64281b85c33fe5499b5e16d6193ab5a349a01c303"
+      },
+      "01B_KCBERT_SMOKE.sas": {
+        "bytes": 818,
+        "path": "dist/sas/20260917_kcbert_launch_v2/01B_KCBERT_SMOKE.sas",
+        "sha256": "dd4ea2094fbefc9a2e6daf7c99c9dd0ec0f117ab3da41d69fec7e6a3ef61b921"
+      },
+      "01_KCBERT_PREFLIGHT.sas": {
+        "bytes": 800,
+        "path": "dist/sas/20260917_kcbert_launch_v2/01_KCBERT_PREFLIGHT.sas",
+        "sha256": "eaeae46a3f252669dda48698aee35177a58f738ba4ff767c274ad11b11d1df54"
+      },
+      "02_KCBERT_RUN.sas": {
+        "bytes": 1677,
+        "path": "dist/sas/20260917_kcbert_launch_v2/02_KCBERT_RUN.sas",
+        "sha256": "311d3ffaa106cb4c7bd5c81f7bd28b1ae58176eb5957aeb73d6faec77430529c"
+      },
+      "03_KCBERT_CHECK.sas": {
+        "bytes": 844,
+        "path": "dist/sas/20260917_kcbert_launch_v2/03_KCBERT_CHECK.sas",
+        "sha256": "51f0ced1f48aa6d92699dbbea60c7fa97472ec0cae6852286e89bb09ef3f4769"
+      },
+      "kcbert_private_store_20260917.py": {
+        "bytes": 8875,
+        "path": "dist/sas/20260917_kcbert_launch_v2/kcbert_private_store_20260917.py",
+        "sha256": "dd0ca2757581879ff4acc7530fd767b352507fc0062cbb4f882975acf0f3d035"
+      },
+      "run_matched_kcbert_portable_20260917.py": {
+        "bytes": 27175,
+        "path": "dist/sas/20260917_kcbert_launch_v2/run_matched_kcbert_portable_20260917.py",
+        "sha256": "a8e819bb40140ca8af2d76ec74597c47ae2e7399db129e7326490825628a3e65"
+      }
+    }
+  },
+  "files": {
+    "00_KCBERT_ENV_CHECK.sas": {
+      "bytes": 2549,
+      "sha256": "77df58a92974ae914c221badded633e9cac3f3e34f96f13677a47c7c72620c4c"
+    },
+    "01B_KCBERT_SMOKE.sas": {
+      "bytes": 836,
+      "sha256": "015321bb9267e5cd09ebbc6ddebc3943e9777266d65c3e9501ae7a6c9fc75103"
+    },
+    "01_KCBERT_PREFLIGHT.sas": {
+      "bytes": 818,
+      "sha256": "811457edf9c55ffd4b8c5a6d6b7d93ae3474a3e9f6e3af08d0585e41b6c91032"
+    },
+    "02_KCBERT_RUN.sas": {
+      "bytes": 1695,
+      "sha256": "04ea82084d2e6dd474568e9309f375e09bf3094f080c94705df6a9877802b1a4"
+    },
+    "02_KCBERT_RUN_OPERATIONAL_COPY.sas": {
+      "bytes": 1695,
+      "sha256": "04ea82084d2e6dd474568e9309f375e09bf3094f080c94705df6a9877802b1a4"
+    },
+    "03_KCBERT_CHECK.sas": {
+      "bytes": 862,
+      "sha256": "8dce9100b40128872dcccc36a4896a4a2af175b7c3968fdfe035d126854ba9e4"
+    },
+    "PRIVATE_DATA_NOT_IN_GIT.json": {
+      "bytes": 1474,
+      "sha256": "77f80259ab37a49183412e6f56410a3b2d25bfa397a384f1a51404ddc0cac116"
+    },
+    "README.md": {
+      "bytes": 1614,
+      "sha256": "4e56cc4dd14e6caf9f280ec1ce11f98d7ab0362856363eb902ef9638fa86569e"
+    },
+    "kcbert_private_store_20260917.py": {
+      "bytes": 8875,
+      "sha256": "dd0ca2757581879ff4acc7530fd767b352507fc0062cbb4f882975acf0f3d035"
+    },
+    "run_matched_kcbert_portable_20260917.py": {
+      "bytes": 27175,
+      "sha256": "a8e819bb40140ca8af2d76ec74597c47ae2e7399db129e7326490825628a3e65"
+    }
+  },
+  "git_checkout_server_path": "/home/student/github/sas/kcbert_matched_20260917/",
+  "notes": [
+    "Git-sync only the runner/store Python files and reviewed SAS code; never model_rows, edits or checkpoint.",
+    "Transfer private input and output under /home/student/scamlens_private/ by an approved private channel.",
+    "02_KCBERT_RUN_OPERATIONAL_COPY.sas is the only copy intended for explicit confirmation/CPU opt-in edits.",
+    "No URL access, downloads, CAS upload, or VA publication is performed by this bundle."
+  ],
+  "private_data_must_be_privately_transferred": true,
+  "private_input_not_included": true,
+  "private_input_source": "data/interim/matched_kcbert_sas_private_20260917_v1",
+  "private_server_root": "/home/student/scamlens_private/",
+  "remote_python_dependencies_verified": false,
+  "sas_runtime_verified": false,
+  "schema_version": "1.0",
+  "status": "code_only_git_handoff_not_sas_runtime_verified"
+}
