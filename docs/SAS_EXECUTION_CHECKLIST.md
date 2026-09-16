@@ -6,6 +6,10 @@
 
 ## 이번 실행: A/B 검수 후 분석
 
+- 현재 A/B와 CAS만: 새 세션에서 `sas/00_RUN_AB_CAS.sas` 전체 실행
+- 과거 01~08까지 포함: 새 세션에서 `sas/00_RUN_ALL_AB_CAS.sas` 전체 실행
+- 통합 실행기를 쓰지 않을 때만 아래 `00_RUN_AB` 수동 절차를 따른다.
+
 - [ ] 사용한 A/B manifest와 입력 파일 해시 보관
 - [ ] 내부 폴더를 `/home/student/github/`에 배치하고 실행기의 projroot 확인
 - [ ] 이전 따옴표 오류가 남았다면 저장 후 SAS 계산 세션 재시작
@@ -14,6 +18,8 @@
 - [ ] 12: 같은 시드·ID의 원 라벨 기준 오류와 최종 합의 범주별 비교 확인
 - [ ] 새 outputs 폴더 전체와 사용한 manifest 보관·반환
 - [ ] 로그·HTML·CSV·상태표를 대조한 뒤 완료 표시
+- [ ] CAS 로그에서 `SCAMLENS_CAS_UPLOAD_VERIFIED`와 통합 실행 완료 NOTE 확인
+- [ ] 개인 `CASUSER`의 접미사 포함 7개 테이블 및 VA 표시 확인
 
 09·10은 과거 A 단독 분석으로 `archive/`에 이동했으며 현행 실행기에서 제외했다.
 

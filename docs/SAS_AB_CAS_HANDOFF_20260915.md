@@ -13,11 +13,27 @@ URL 편집 검수의 독립성 확인을 가져다 쓰지 않는다.
 | `sas/12_consensus_model_comparison.sas` | 검수 CSV와 ID·최종 범주 교차 확인, 같은 ID의 시드 간 라벨·범주 일관성 확인 | 기존 모델·시드·분할·계산식·출력 |
 | `sas/00_RUN_AB.sas` | 상태 테이블 생성·추가·저장 오류 검사, 성공한 실행 문맥 생성 | 새 출력 폴더 생성, 11→12 순서 |
 | `sas/13_publish_ab_to_cas.sas` | 집계만 담은 시각화용 WORK 테이블 준비 및 선택적 CAS 적재 | 기본값은 CAS 연결·적재 없음 |
+| `sas/00_RUN_AB_CAS.sas` | 11→12→개인 CASUSER 적재·승격 통합 실행 | 집계 allowlist·읽기 대조·덮어쓰기 방지 |
+| `sas/00_RUN_ALL_AB_CAS.sas` | 과거 01~08→상태 검사→11→12→CAS 통합 실행 | 선택 단계 skip 정책·오류 시 CAS 진입 차단 |
 
 11은 합의 전 검수자 판단의 일치도를 계산한다. 추가한 최종 범주표는 합의 후 구성비이며
 일치도와 다른 개념이다. 12의 오류 판정 기준은 계속 `original_label`이다.
 `final_category`는 결과를 나누어 보는 층일 뿐 새 정답이 아니다.
 URL 없는 선택된 development 행에 대한 기술적 분석이며 일반화 성능이나 인과효과로 해석하지 않는다.
+
+## 통합 실행기
+
+새 UTF-8 Compute 세션에서 현재 A/B 분석과 CAS 적재만 실행하려면
+`sas/00_RUN_AB_CAS.sas` 전체를 실행한다. 과거 공통 단계까지 모두 재현하려면
+`sas/00_RUN_ALL_AB_CAS.sas`를 실행한다. 후자는 `00_RUN_ALL` 상태표에
+`requires_review`가 하나라도 있으면 A/B와 CAS 단계로 넘어가지 않는다.
+
+두 통합 실행기는 개인 `CASUSER`, `upload=1`, `promote=1`, `save=0`이 기본이다.
+CAS 대상 이름에는 실행 `run_tag`에서 만든 새 12자 이하 접미사가 자동으로 붙는다.
+`Public`을 기본으로 사용하지 않고 기존 대상을 삭제하거나 덮어쓰지 않는다. 영구 저장이
+필요한 경우에만 실행 전 `scabcas_save=1`로 바꾼다. 실제 성공은 로그의
+`SCAMLENS_AB_CAS_RUN_COMPLETE` 또는 `SCAMLENS_ALL_AB_CAS_RUN_COMPLETE`와
+`SCAMLENS_CAS_UPLOAD_VERIFIED`를 모두 확인한다.
 
 ## 먼저 해야 할 일: 새 00_RUN_AB 실행
 
