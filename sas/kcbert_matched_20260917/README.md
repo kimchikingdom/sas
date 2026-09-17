@@ -16,6 +16,13 @@ CPU 전체 학습 차단 상태다. 실제 실행 때는 **버전 폴더 밖**�
 만들어 확인값과 CPU 허용을 필요에 따라 바꾼다. 수정본은 Git에 커밋하지 않고,
 SHA-256과 실행 로그를 보관한다. 15개 arm 완료 후 `03`으로 저장 예측을 재계산한다.
 
+SAS Studio 업로드 제한으로 checkpoint를 조각으로 올릴 때는 먼저
+`00_KCBERT_REASSEMBLE.sas`의 `part_dir`를 실제 업로드 폴더로 바꾸고 실행한다.
+`model.safetensors.part.*` 파일을 이름순으로 바이너리 병합하며, 최종 파일이 이미
+있으면 덮어쓰지 않고 중단한다. 로그에 출력된 SHA-256을 분할 전 원본 해시와
+대조한 뒤에만 `00_KCBERT_ENV_CHECK.sas`를 실행한다. 조각은 Git·CAS·VA에 올리지
+않고 서버의 비공개 경로에 둔다.
+
 경로는 현재 SAS Git checkout `/home/student/github`와 비공개 루트
 `/home/student/scamlens_private`를 전제로 고정했다. 실제 경로가 다르면
 v3 파일을 직접 수정·푸시하지 말고 새 버전으로 경로와 해시를 다시 고정한다.
