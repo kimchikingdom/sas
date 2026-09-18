@@ -42,53 +42,142 @@ data _null_;
   if not fileexist("&outdir.") then created=dcreate('sas_kcbert_visuals',"&projroot./outputs");
 run;
 
-/* 2. 필수 CSV 입력 파일 존재 여부 검사 */
-%macro check_inputs;
-  %local missing;
-  %let missing=;
-  %if not %sysfunc(fileexist(&sasdata./sas_kcbert_15arms.csv)) %then
-    %let missing=&missing. sas_kcbert_15arms.csv;
-  %if not %sysfunc(fileexist(&sasdata./sas_kcbert_arm_summary.csv)) %then
-    %let missing=&missing. sas_kcbert_arm_summary.csv;
-  %if not %sysfunc(fileexist(&sasdata./sas_kcbert_subgroup_url.csv)) %then
-    %let missing=&missing. sas_kcbert_subgroup_url.csv;
-  %if not %sysfunc(fileexist(&sasdata./sas_kcbert_transitions.csv)) %then
-    %let missing=&missing. sas_kcbert_transitions.csv;
-  %if not %sysfunc(fileexist(&sasdata./sas_kcbert_top_uncertain.csv)) %then
-    %let missing=&missing. sas_kcbert_top_uncertain.csv;
-
-  %if %length(&missing.) > 0 %then %do;
-    %put ERROR: 다음 필수 CSV 파일이 없습니다: &missing.;
-    %abort cancel;
+/* 2. 데이터 로드 (외부 CSV가 있으면 PROC IMPORT, 없으면 내장 정본 데이터셋으로 자동 실행) */
+%macro load_data;
+  %if %sysfunc(fileexist(&sasdata./sas_kcbert_15arms.csv)) %then %do;
+    %put NOTE: =========================================================================;
+    %put NOTE: [CSV MODE] 외부 CSV 파일에서 데이터를 로드합니다: &sasdata.;
+    %put NOTE: =========================================================================;
+    proc import datafile="&sasdata./sas_kcbert_15arms.csv" out=work.kcbert_15arms dbms=csv replace; guessingrows=max; run;
+    proc import datafile="&sasdata./sas_kcbert_arm_summary.csv" out=work.kcbert_arm_summary dbms=csv replace; guessingrows=max; run;
+    proc import datafile="&sasdata./sas_kcbert_subgroup_url.csv" out=work.kcbert_subgroup_url dbms=csv replace; guessingrows=max; run;
+    proc import datafile="&sasdata./sas_kcbert_transitions.csv" out=work.kcbert_transitions dbms=csv replace; guessingrows=max; run;
+    proc import datafile="&sasdata./sas_kcbert_top_uncertain.csv" out=work.kcbert_top_uncertain dbms=csv replace; guessingrows=max; run;
   %end;
-%mend check_inputs;
-%check_inputs;
-
-/* 3. CSV 데이터 로드 (PROC IMPORT) */
-proc import datafile="&sasdata./sas_kcbert_15arms.csv"
-  out=work.kcbert_15arms dbms=csv replace;
-  guessingrows=max;
+  %else %do;
+    %put NOTE: =========================================================================;
+    %put NOTE: [SELF-CONTAINED MODE] 외부 CSV 파일이 발견되지 않아, 프로그램에 내장된;
+    %put NOTE: ScamLens 15-Arm 정본 데이터셋(Embedded Datasets)으로 자동 로드합니다.;
+    %put NOTE: =========================================================================;
+/* --- kcbert_15arms 내장 정본 데이터 --- */
+data work.kcbert_15arms;
+  length arm ;
+  infile datalines dlm="," dsd truncover;
+  input arm :. seed threshold recall fpr f1 tp fp fn tn total_n brier_score;
+  datalines;
+DUP,42,0.025356,0.972727,0.007746,0.969789,321,11,9,1409,1750,0.012249
+FLIP,42,0.249265,0.960606,0.008451,0.962064,317,12,13,1408,1750,0.011669
+BASE,42,0.033222,0.978788,0.009155,0.969970,323,13,7,1407,1750,0.012018
+DUP,101,0.056655,0.957576,0.008451,0.960486,316,12,14,1408,1750,0.015002
+FLIP,101,0.038150,0.966667,0.007746,0.966667,319,11,11,1409,1750,0.011353
+BASE,101,0.108383,0.969697,0.011972,0.959520,320,17,10,1403,1750,0.013184
+DUP,202,0.023381,0.978788,0.007746,0.972892,323,11,7,1409,1750,0.010791
+FLIP,202,0.068893,0.966667,0.004930,0.972561,319,7,11,1413,1750,0.010618
+BASE,202,0.620583,0.939394,0.003521,0.961240,310,5,20,1415,1750,0.013332
+DUP,303,0.018280,0.969697,0.010563,0.962406,320,15,10,1405,1750,0.012190
+FLIP,303,0.294521,0.951515,0.007746,0.958779,314,11,16,1409,1750,0.013780
+BASE,303,0.199156,0.966667,0.011972,0.957958,319,17,11,1403,1750,0.013492
+DUP,404,0.019324,0.972727,0.009859,0.965414,321,14,9,1406,1750,0.010659
+FLIP,404,0.036188,0.963636,0.004930,0.970992,318,7,12,1413,1750,0.010497
+BASE,404,0.013827,0.975758,0.010563,0.965517,322,15,8,1405,1750,0.011603
+;
 run;
 
-proc import datafile="&sasdata./sas_kcbert_arm_summary.csv"
-  out=work.kcbert_arm_summary dbms=csv replace;
-  guessingrows=max;
+/* --- kcbert_arm_summary 내장 정본 데이터 --- */
+data work.kcbert_arm_summary;
+  length arm ;
+  infile datalines dlm="," dsd truncover;
+  input arm :. recall_mean recall_std fpr_mean fpr_std f1_mean f1_std brier_mean brier_std group_std_all group_std_multi group_std_singleton;
+  datalines;
+DUP,0.970303,0.007016,0.008873,0.001144,0.966197,0.004589,0.012178,0.001563,0.006167,0.011112,0.005886
+FLIP,0.961818,0.005620,0.006761,0.001517,0.966212,0.005212,0.011583,0.001183,0.005771,0.013670,0.005322
+BASE,0.966061,0.014005,0.009437,0.003137,0.962841,0.004368,0.012726,0.000765,0.007722,0.014283,0.007349
+;
 run;
 
-proc import datafile="&sasdata./sas_kcbert_subgroup_url.csv"
-  out=work.kcbert_subgroup_url dbms=csv replace;
-  guessingrows=max;
+/* --- kcbert_subgroup_url 내장 정본 데이터 --- */
+data work.kcbert_subgroup_url;
+  length arm  url_group ;
+  infile datalines dlm="," dsd truncover;
+  input arm :. seed has_url url_group :. recall fpr f1 tp fp fn tn total_n;
+  datalines;
+DUP,42,0,URL_NO,0.962264,0.002597,0.953271,51,3,2,1152,1208
+DUP,42,1,URL_YES,0.974729,0.030189,0.972973,270,8,7,257,542
+FLIP,42,0,URL_NO,0.943396,0.004329,0.925926,50,5,3,1150,1208
+FLIP,42,1,URL_YES,0.963899,0.026415,0.969147,267,7,10,258,542
+BASE,42,0,URL_NO,0.943396,0.004329,0.925926,50,5,3,1150,1208
+BASE,42,1,URL_YES,0.985560,0.030189,0.978495,273,8,4,257,542
+DUP,101,0,URL_NO,0.924528,0.002597,0.933333,49,3,4,1152,1208
+DUP,101,1,URL_YES,0.963899,0.033962,0.965642,267,9,10,256,542
+FLIP,101,0,URL_NO,0.962264,0.004329,0.935780,51,5,2,1150,1208
+FLIP,101,1,URL_YES,0.967509,0.022642,0.972777,268,6,9,259,542
+BASE,101,0,URL_NO,0.905660,0.004329,0.905660,48,5,5,1150,1208
+BASE,101,1,URL_YES,0.981949,0.045283,0.969697,272,12,5,253,542
+DUP,202,0,URL_NO,0.981132,0.001732,0.971963,52,2,1,1153,1208
+DUP,202,1,URL_YES,0.978339,0.033962,0.973070,271,9,6,256,542
+FLIP,202,0,URL_NO,0.943396,0.003463,0.934579,50,4,3,1151,1208
+FLIP,202,1,URL_YES,0.971119,0.011321,0.979964,269,3,8,262,542
+BASE,202,0,URL_NO,0.849057,0.000866,0.909091,45,1,8,1154,1208
+BASE,202,1,URL_YES,0.956679,0.015094,0.970696,265,4,12,261,542
+DUP,303,0,URL_NO,0.943396,0.002597,0.943396,50,3,3,1152,1208
+DUP,303,1,URL_YES,0.974729,0.045283,0.966011,270,12,7,253,542
+FLIP,303,0,URL_NO,0.886792,0.003463,0.903846,47,4,6,1151,1208
+FLIP,303,1,URL_YES,0.963899,0.026415,0.969147,267,7,10,258,542
+BASE,303,0,URL_NO,0.962264,0.003463,0.944444,51,4,2,1151,1208
+BASE,303,1,URL_YES,0.967509,0.049057,0.960573,268,13,9,252,542
+DUP,404,0,URL_NO,0.924528,0.002597,0.933333,49,3,4,1152,1208
+DUP,404,1,URL_YES,0.981949,0.041509,0.971429,272,11,5,254,542
+FLIP,404,0,URL_NO,0.924528,0.001732,0.942308,49,2,4,1153,1208
+FLIP,404,1,URL_YES,0.971119,0.018868,0.976407,269,5,8,260,542
+BASE,404,0,URL_NO,0.943396,0.003463,0.934579,50,4,3,1151,1208
+BASE,404,1,URL_YES,0.981949,0.041509,0.971429,272,11,5,254,542
+;
 run;
 
-proc import datafile="&sasdata./sas_kcbert_transitions.csv"
-  out=work.kcbert_transitions dbms=csv replace;
-  guessingrows=max;
+/* --- kcbert_transitions 내장 정본 데이터 --- */
+data work.kcbert_transitions;
+  length transition_code  transition_name_kr  net_effect ;
+  infile datalines dlm="," dsd truncover;
+  input transition_code :. transition_name_kr :. total_count unique_messages url_0_count url_1_count url_1_ratio net_effect :.;
+  datalines;
+resolved_fp,정상 오탐 해소,25,14,2,23,0.9200,개선(+)
+lost_tp,악성 정탐 손실,22,9,8,14,0.6364,악화(-)
+new_fp,신규 정상 오탐,10,7,8,2,0.2000,악화(-)
+rescued_fn,악성 미탐 구제,8,6,4,4,0.5000,개선(+)
+;
 run;
 
-proc import datafile="&sasdata./sas_kcbert_top_uncertain.csv"
-  out=work.kcbert_top_uncertain dbms=csv replace;
-  guessingrows=max;
+/* --- kcbert_top_uncertain 내장 정본 데이터 --- */
+data work.kcbert_top_uncertain;
+  length group_id_short ;
+  infile datalines dlm="," dsd truncover;
+  input group_rank group_id_short :. label_kr group_size has_url base_mean dup_mean flip_mean base_std dup_std flip_std;
+  datalines;
+1,37027523,정상,1,1,0.961792,0.596392,0.401538,0.056629,0.458889,0.455347
+2,bcaa3ff2,스미싱,1,0,0.128196,0.207435,0.367219,0.216663,0.245682,0.440154
+3,f2869943,정상,2,1,0.950564,0.733824,0.374136,0.091237,0.278455,0.439216
+4,e2187648,정상,1,0,0.226809,0.003916,0.327932,0.389032,0.004412,0.387543
+5,772d4c5a,스미싱,1,1,0.999218,0.604843,0.752189,0.000832,0.481803,0.381202
+6,1dbebbdd,스미싱,1,1,0.297923,0.188523,0.248049,0.297307,0.348949,0.375487
+7,c44cad38,정상,1,1,0.022506,0.119011,0.198615,0.027704,0.229198,0.369747
+8,0df9abfd,스미싱,1,1,0.999526,0.999536,0.783509,0.000353,0.000247,0.352195
+9,f495a399,스미싱,2,1,0.759811,0.982680,0.765352,0.383383,0.032149,0.339518
+10,2359f71f,스미싱,1,0,0.019260,0.150656,0.585657,0.019684,0.206974,0.338988
+11,7964a599,스미싱,1,1,0.903909,0.589601,0.575252,0.119106,0.367110,0.333583
+12,72bea48f,스미싱,1,0,0.606623,0.412056,0.552535,0.330556,0.322929,0.312353
+13,aacad2de,정상,1,1,0.791462,0.973397,0.651527,0.386627,0.036077,0.308368
+14,2de44534,정상,1,1,0.140756,0.231406,0.464674,0.213868,0.334198,0.298094
+15,2668f9cc,스미싱,1,0,0.350154,0.044224,0.310125,0.423258,0.038169,0.298002
+16,48cd83d4,정상,1,0,0.158641,0.005356,0.168242,0.287999,0.003452,0.290138
+17,0a415ee5,스미싱,1,1,0.999513,0.999381,0.849724,0.000429,0.000382,0.277202
+18,39efe806,정상,1,0,0.034156,0.003297,0.145697,0.065384,0.003227,0.270638
+19,e8dd0f61,스미싱,2,1,0.861935,0.468088,0.099237,0.259279,0.439803,0.206695
+20,3ab8514e,스미싱,1,0,0.751340,0.771393,0.898550,0.361525,0.350489,0.198125
+;
 run;
+  %end;
+%mend load_data;
+%load_data;
 
 /* 4. 포맷 및 라벨 정의 */
 proc format;
