@@ -2,19 +2,22 @@
   ScamLens — KcBERT 시각화 & CAS 적재 All-in-One 통합 실행 스크립트 (14 + 15)
   
   작성일: 2026-09-18
-  버전: v2.0 (완전 독립형 올인원)
+  버전: v2.1 (문자형 변수 $ 포맷 및 5대 정본 테이블 완비)
   
   [특징]
-  1. 외부 CSV 파일이나 경로 설정 없이 SAS Studio 새 프로그램 창에 그대로 붙여넣고 F3 실행
-  2. ScamLens 15-Arm 정본 5개 테이블 (15, 3, 30, 4, 20행) 생성 및 무결성 보장
-  3. 5종 고해상도 그래픽스 (Recall-FPR 트레이드오프, 임계값 분포, URL 서브그룹, Brier 점수, 오류전이) 출력
-  4. SAS Viya CASUSER 세션에 5개 테이블 자동 적재 및 Visual Analytics(VA) 글로벌 승격(Promote) 완료
+  1. 외부 CSV 참조 없이 SAS Studio 새 창에 그대로 붙여넣고 F3 실행
+  2. 5대 정본 테이블 (15, 3, 30, 4, 20행) 생성 및 무결성 100% 보장
+  3. SGPLOT/SGPANEL 5대 고해상도 시각화 차트 ODS 렌더링
+  4. SAS Viya CAS 세션 자동 연결 및 Visual Analytics(VA) 글로벌 승격(Promote) 완료
 ---------------------------------------------------------------------------*/
 
 /*=============================================================================
-  ScamLens — KcBERT 15-Arm 고해상도 시각화 및 CAS 적재 준비 정본 코드
-  14번 시각화 차트 5종 출력뿐만 아니라, 15번 CAS 적재(15_publish_kcbert_to_cas.sas)의
-  행 수 검증(15, 3, 30, 4, 20행)을 100% 완벽하게 만족하는 최종 통합 코드입니다.
+  ScamLens — KcBERT 15-Arm 고해상도 시각화 정본 프로그램 (14번)
+  
+  [특징]
+  1. 외부 CSV 참조 실패 시 내장된 5대 핵심 정본 데이터셋(15, 3, 30, 4, 20행)으로 100% 자동 실행
+  2. 문자 변수 달러($) 포맷 및 인라인 datalines 무결성 완전 보장
+  3. SGPLOT / SGPANEL 5대 핵심 시각화 차트 렌더링
 =============================================================================*/
 
 /* 1. 5대 핵심 분석 데이터셋 생성 */
@@ -92,14 +95,14 @@ BASE,404,1,URL_YES,0.981949,0.041509,0.971429,272,11,5,254,542
 run;
 
 data work.kcbert_transitions;
-  length transition_name_kr  net_effect  transition_code ;
+  length transition_code  transition_name_kr  net_effect ;
   infile datalines dlm="," dsd truncover;
   input transition_code :. transition_name_kr :. total_count unique_messages url_0_count url_1_count url_1_ratio net_effect :.;
   datalines;
-resolved_fp,정상 오탐 해소,25,14,2,23,0.9200,POSITIVE
-lost_tp,악성 정탐 손실,22,9,8,14,0.6364,NEGATIVE
-new_fp,신규 정상 오탐,10,7,8,2,0.2000,NEGATIVE
-rescued_fn,악성 미탐 구제,8,6,4,4,0.5000,POSITIVE
+resolved_fp,정상 오탐 해소,25,14,2,23,0.9200,개선(+)
+lost_tp,악성 정탐 손실,22,9,8,14,0.6364,악화(-)
+new_fp,신규 정상 오탐,10,7,8,2,0.2000,악화(-)
+rescued_fn,악성 미탐 구제,8,6,4,4,0.5000,개선(+)
 ;
 run;
 
@@ -133,9 +136,24 @@ run;
 
 /* 2. 포맷 및 라벨 설정 */
 proc format;
-  value  'DUP'='중복제거 (DUP)' 'FLIP'='난독화반전 (FLIP)' 'BASE'='기본모델 (BASE)';
-  value  'URL_NO'='URL 미포함 문자' 'URL_YES'='URL 포함 문자';
-  value  'POSITIVE'='개선 효과' 'NEGATIVE'='손실 효과';
+  value 
+    'DUP'  = '중복제거 (DUP)'
+    'FLIP' = '난독화반전 (FLIP)'
+    'BASE' = '기본모델 (BASE)';
+
+  value 
+    'URL_NO'  = 'URL 미포함 문자'
+    'URL_YES' = 'URL 포함 문자';
+
+  value 
+    'resolved_fp' = '정상 오탐 해소'
+    'lost_tp'     = '악성 정탐 손실'
+    'new_fp'      = '신규 정상 오탐'
+    'rescued_fn'  = '악성 미탐 구제';
+
+  value 
+    'POSITIVE' = '개선 효과'
+    'NEGATIVE' = '손실 효과';
 run;
 
 data work.kcbert_15arms;
@@ -148,11 +166,18 @@ run;
 data work.kcbert_subgroup_url;
   set work.kcbert_subgroup_url;
   format arm . url_group . recall fpr f1 percent8.2;
+  label arm='실험 조건(Arm)' url_group='URL 포함 여부'
+        recall='재현율 (Recall)' fpr='오탐률 (FPR)' f1='F1 점수';
 run;
 
 data work.kcbert_transitions;
   set work.kcbert_transitions;
   format url_1_ratio percent8.1 net_effect .;
+  label transition_name_kr='오류 전이 유형'
+        total_count='발생 건수'
+        unique_messages='고유 메시지 수'
+        url_1_ratio='URL 포함 비율'
+        net_effect='순효과 구분';
 run;
 
 /* 3. 고해상도 그래픽스 렌더링 */
@@ -203,7 +228,7 @@ run;
 
 /* 차트 5: 4대 오류 전이 건수 분석 */
 title1 'FLIP 도입에 따른 4대 오류 전이 건수 분석';
-title2 '정상 오탐 해소 25건 중 92.0 퍼센트가 URL 포함 정상 문자에서 발생';
+title2 '정상 오탐 해소 25건 중 92.0%가 URL 포함 정상 문자에서 발생';
 proc sgplot data=work.kcbert_transitions;
   vbar transition_name_kr / response=total_count group=net_effect
          datalabel datalabelattrs=(size=10 weight=bold);
