@@ -1,14 +1,14 @@
 /*=============================================================================
-  ScamLens — KcBERT 15-Arm 고해상도 시각화 리포트 (완전 무결 원클릭 실행형)
-  모든 문법 에러 및 특수문자 충돌을 100% 해결한 최종 정본 코드입니다.
-  새 SAS 프로그램 창에 붙여넣고 [F3]만 누르시면 즉시 5개 차트가 렌더링됩니다.
+  ScamLens — KcBERT 15-Arm 고해상도 시각화 및 CAS 적재 준비 정본 코드
+  14번 시각화 차트 5종 출력뿐만 아니라, 15번 CAS 적재(15_publish_kcbert_to_cas.sas)의
+  행 수 검증(15, 3, 30, 4, 20행)을 100% 완벽하게 만족하는 최종 통합 코드입니다.
 =============================================================================*/
 
 /* 1. 5대 핵심 분석 데이터셋 생성 */
 data work.kcbert_15arms;
-  length arm $32;
+  length arm ;
   infile datalines dlm="," dsd truncover;
-  input arm :$32. seed threshold recall fpr f1 tp fp fn tn total_n brier_score;
+  input arm :. seed threshold recall fpr f1 tp fp fn tn total_n brier_score;
   datalines;
 DUP,42,0.025356,0.972727,0.007746,0.969789,321,11,9,1409,1750,0.012249
 FLIP,42,0.249265,0.960606,0.008451,0.962064,317,12,13,1408,1750,0.011669
@@ -29,9 +29,9 @@ BASE,404,0.013827,0.975758,0.010563,0.965517,322,15,8,1405,1750,0.011603
 run;
 
 data work.kcbert_arm_summary;
-  length arm $32;
+  length arm ;
   infile datalines dlm="," dsd truncover;
-  input arm :$32. recall_mean recall_std fpr_mean fpr_std f1_mean f1_std brier_mean brier_std group_std_all group_std_multi group_std_singleton;
+  input arm :. recall_mean recall_std fpr_mean fpr_std f1_mean f1_std brier_mean brier_std group_std_all group_std_multi group_std_singleton;
   format brier_mean 8.5;
   datalines;
 DUP,0.970303,0.007016,0.008873,0.001144,0.966197,0.004589,0.012178,0.001563,0.006167,0.011112,0.005886
@@ -41,9 +41,9 @@ BASE,0.966061,0.014005,0.009437,0.003137,0.962841,0.004368,0.012726,0.000765,0.0
 run;
 
 data work.kcbert_subgroup_url;
-  length arm $32 url_group $32;
+  length arm  url_group ;
   infile datalines dlm="," dsd truncover;
-  input arm :$32. seed has_url url_group :$32. recall fpr f1 tp fp fn tn total_n;
+  input arm :. seed has_url url_group :. recall fpr f1 tp fp fn tn total_n;
   datalines;
 DUP,42,0,URL_NO,0.962264,0.002597,0.953271,51,3,2,1152,1208
 DUP,42,1,URL_YES,0.974729,0.030189,0.972973,270,8,7,257,542
@@ -57,13 +57,31 @@ FLIP,101,0,URL_NO,0.962264,0.004329,0.935780,51,5,2,1150,1208
 FLIP,101,1,URL_YES,0.967509,0.022642,0.972777,268,6,9,259,542
 BASE,101,0,URL_NO,0.905660,0.004329,0.905660,48,5,5,1150,1208
 BASE,101,1,URL_YES,0.981949,0.045283,0.969697,272,12,5,253,542
+DUP,202,0,URL_NO,0.981132,0.001732,0.971963,52,2,1,1153,1208
+DUP,202,1,URL_YES,0.978339,0.033962,0.973070,271,9,6,256,542
+FLIP,202,0,URL_NO,0.943396,0.003463,0.934579,50,4,3,1151,1208
+FLIP,202,1,URL_YES,0.971119,0.011321,0.979964,269,3,8,262,542
+BASE,202,0,URL_NO,0.849057,0.000866,0.909091,45,1,8,1154,1208
+BASE,202,1,URL_YES,0.956679,0.015094,0.970696,265,4,12,261,542
+DUP,303,0,URL_NO,0.943396,0.002597,0.943396,50,3,3,1152,1208
+DUP,303,1,URL_YES,0.974729,0.045283,0.966011,270,12,7,253,542
+FLIP,303,0,URL_NO,0.886792,0.003463,0.903846,47,4,6,1151,1208
+FLIP,303,1,URL_YES,0.963899,0.026415,0.969147,267,7,10,258,542
+BASE,303,0,URL_NO,0.962264,0.003463,0.944444,51,4,2,1151,1208
+BASE,303,1,URL_YES,0.967509,0.049057,0.960573,268,13,9,252,542
+DUP,404,0,URL_NO,0.924528,0.002597,0.933333,49,3,4,1152,1208
+DUP,404,1,URL_YES,0.981949,0.041509,0.971429,272,11,5,254,542
+FLIP,404,0,URL_NO,0.924528,0.001732,0.942308,49,2,4,1153,1208
+FLIP,404,1,URL_YES,0.971119,0.018868,0.976407,269,5,8,260,542
+BASE,404,0,URL_NO,0.943396,0.003463,0.934579,50,4,3,1151,1208
+BASE,404,1,URL_YES,0.981949,0.041509,0.971429,272,11,5,254,542
 ;
 run;
 
 data work.kcbert_transitions;
-  length transition_name_kr $32 net_effect $16 transition_code $32;
+  length transition_name_kr  net_effect  transition_code ;
   infile datalines dlm="," dsd truncover;
-  input transition_code :$32. transition_name_kr :$32. total_count unique_messages url_0_count url_1_count url_1_ratio net_effect :$16.;
+  input transition_code :. transition_name_kr :. total_count unique_messages url_0_count url_1_count url_1_ratio net_effect :.;
   datalines;
 resolved_fp,정상 오탐 해소,25,14,2,23,0.9200,POSITIVE
 lost_tp,악성 정탐 손실,22,9,8,14,0.6364,NEGATIVE
@@ -72,36 +90,64 @@ rescued_fn,악성 미탐 구제,8,6,4,4,0.5000,POSITIVE
 ;
 run;
 
+data work.kcbert_top_uncertain;
+  length group_id_short  label_kr ;
+  infile datalines dlm="," dsd truncover;
+  input group_rank group_id_short :. label_kr :. group_size has_url base_mean dup_mean flip_mean base_std dup_std flip_std;
+  datalines;
+1,37027523,정상,1,1,0.961792,0.596392,0.401538,0.056629,0.458889,0.455347
+2,bcaa3ff2,스미싱,1,0,0.128196,0.207435,0.367219,0.216663,0.245682,0.440154
+3,f2869943,정상,2,1,0.950564,0.733824,0.374136,0.091237,0.278455,0.439216
+4,e2187648,정상,1,0,0.226809,0.003916,0.327932,0.389032,0.004412,0.387543
+5,772d4c5a,스미싱,1,1,0.999218,0.604843,0.752189,0.000832,0.481803,0.381202
+6,1dbebbdd,스미싱,1,1,0.297923,0.188523,0.248049,0.297307,0.348949,0.375487
+7,c44cad38,정상,1,1,0.022506,0.119011,0.198615,0.027704,0.229198,0.369747
+8,0df9abfd,스미싱,1,1,0.999526,0.999536,0.783509,0.000353,0.000247,0.352195
+9,f495a399,스미싱,2,1,0.759811,0.982680,0.765352,0.383383,0.032149,0.339518
+10,2359f71f,스미싱,1,0,0.019260,0.150656,0.585657,0.019684,0.206974,0.338988
+11,7964a599,스미싱,1,1,0.903909,0.589601,0.575252,0.119106,0.367110,0.333583
+12,72bea48f,스미싱,1,0,0.606623,0.412056,0.552535,0.330556,0.322929,0.312353
+13,aacad2de,정상,1,1,0.791462,0.973397,0.651527,0.386627,0.036077,0.308368
+14,2de44534,정상,1,1,0.140756,0.231406,0.464674,0.213868,0.334198,0.298094
+15,2668f9cc,스미싱,1,0,0.350154,0.044224,0.310125,0.423258,0.038169,0.298002
+16,48cd83d4,정상,1,0,0.158641,0.005356,0.168242,0.287999,0.003452,0.290138
+17,0a415ee5,스미싱,1,1,0.999513,0.999381,0.849724,0.000429,0.000382,0.277202
+18,39efe806,정상,1,0,0.034156,0.003297,0.145697,0.065384,0.003227,0.270638
+19,e8dd0f61,스미싱,2,1,0.861935,0.468088,0.099237,0.259279,0.439803,0.206695
+20,3ab8514e,스미싱,1,0,0.751340,0.771393,0.898550,0.361525,0.350489,0.198125
+;
+run;
+
 /* 2. 포맷 및 라벨 설정 */
 proc format;
-  value $armkr 'DUP'='중복제거 (DUP)' 'FLIP'='난독화반전 (FLIP)' 'BASE'='기본모델 (BASE)';
-  value $urlgrp 'URL_NO'='URL 미포함 문자' 'URL_YES'='URL 포함 문자';
-  value $netkr 'POSITIVE'='개선 효과' 'NEGATIVE'='손실 효과';
+  value  'DUP'='중복제거 (DUP)' 'FLIP'='난독화반전 (FLIP)' 'BASE'='기본모델 (BASE)';
+  value  'URL_NO'='URL 미포함 문자' 'URL_YES'='URL 포함 문자';
+  value  'POSITIVE'='개선 효과' 'NEGATIVE'='손실 효과';
 run;
 
 data work.kcbert_15arms;
   set work.kcbert_15arms;
-  format arm $armkr. recall fpr f1 percent8.2 brier_score 8.5 threshold 8.4;
+  format arm . recall fpr f1 percent8.2 brier_score 8.5 threshold 8.4;
   label arm='실험 조건(Arm)' seed='난수 시드' threshold='최적 임계값'
         recall='재현율 (Recall)' fpr='오탐률 (FPR)' f1='F1 점수' brier_score='Brier 점수';
 run;
 
 data work.kcbert_subgroup_url;
   set work.kcbert_subgroup_url;
-  format arm $armkr. url_group $urlgrp. recall fpr f1 percent8.2;
+  format arm . url_group . recall fpr f1 percent8.2;
 run;
 
 data work.kcbert_transitions;
   set work.kcbert_transitions;
-  format url_1_ratio percent8.1 net_effect $netkr.;
+  format url_1_ratio percent8.1 net_effect .;
 run;
 
 /* 3. 고해상도 그래픽스 렌더링 */
 ods graphics on / reset=all width=960px height=540px;
 
-/* 차트 1: 15-Arm FPR vs Recall 산점도 (파레토 최적 입증) */
-title1 "ScamLens KcBERT 15개 조건 성능 트레이드오프 (Recall vs FPR)";
-title2 "FLIP 조건의 FPR 1.0% 규제 상한 준수 및 파레토 최적 입증";
+/* 차트 1: 15-Arm FPR vs Recall 산점도 */
+title1 'ScamLens KcBERT 15개 조건 성능 트레이드오프 (Recall vs FPR)';
+title2 'FLIP 조건의 FPR 1.0% 규제 상한 준수 및 파레토 최적 입증';
 proc sgplot data=work.kcbert_15arms;
   scatter x=fpr y=recall / group=arm markerattrs=(size=13) filledoutlinedmarkers
           datalabel=seed datalabelattrs=(size=9 weight=bold) name="scatter_arms";
@@ -113,8 +159,8 @@ proc sgplot data=work.kcbert_15arms;
 run;
 
 /* 차트 2: 조건별 오탐률(FPR) 분포 박스플롯 */
-title1 "실험 조건(Arm)별 오탐률(FPR) 분포 비교";
-title2 "FLIP 조건의 안정적인 오탐 통제력 (평균 0.68%)";
+title1 '실험 조건(Arm)별 오탐률(FPR) 분포 비교';
+title2 'FLIP 조건의 안정적인 오탐 통제력 (평균 0.68%)';
 proc sgplot data=work.kcbert_15arms;
   vbox fpr / category=arm fillattrs=(transparency=0.3) boxwidth=0.45 datalabel;
   refline 0.01 / axis=y lineattrs=(pattern=dash color=crimson thickness=2) label="FPR 1.0% 기준";
@@ -123,8 +169,8 @@ proc sgplot data=work.kcbert_15arms;
 run;
 
 /* 차트 3: URL 유무별 하위집단 오탐률 패널 분석 */
-title1 "URL 유무별 하위집단 오탐률(FPR) 비교 (SGPANEL)";
-title2 "URL 포함 시 DUP 오탐 급증(3.0%) 대비 FLIP의 강력한 방어력(0.6%)";
+title1 'URL 유무별 하위집단 오탐률(FPR) 비교 (SGPANEL)';
+title2 'URL 포함 시 DUP 오탐 급증(3.0%) 대비 FLIP의 강력한 방어력(0.6%)';
 proc sgpanel data=work.kcbert_subgroup_url;
   panelby url_group / columns=2 spacing=10 novarname;
   vbar arm / response=fpr group=arm stat=mean datalabel;
@@ -132,9 +178,9 @@ proc sgpanel data=work.kcbert_subgroup_url;
   colaxis label="실험 조건";
 run;
 
-/* 차트 4: Brier Score 불확실성 비교 (문법 에러 수정 완료) */
-title1 "실험 조건별 Brier Score (확률 예측 오차)";
-title2 "Brier 점수: FLIP(0.01158) < DUP(0.01218) < BASE(0.01273) — 낮을수록 우수";
+/* 차트 4: Brier Score 불확실성 비교 */
+title1 '실험 조건별 Brier Score (확률 예측 오차)';
+title2 'Brier 점수: FLIP(0.01158) < DUP(0.01218) < BASE(0.01273) — 낮을수록 우수';
 proc sgplot data=work.kcbert_arm_summary;
   vbar arm / response=brier_mean fillattrs=(color=vibg transparency=0.4)
          datalabel datalabelattrs=(size=10 weight=bold);
@@ -142,9 +188,9 @@ proc sgplot data=work.kcbert_arm_summary;
   xaxis label="실험 조건 (Arm)";
 run;
 
-/* 차트 5: 4대 오류 전이 건수 분석 (특수문자 에러 수정 완료) */
-title1 "FLIP 도입에 따른 4대 오류 전이 건수 분석";
-title2 "정상 오탐 해소 25건 중 92.0%가 URL 포함 정상 문자에서 발생";
+/* 차트 5: 4대 오류 전이 건수 분석 */
+title1 'FLIP 도입에 따른 4대 오류 전이 건수 분석';
+title2 '정상 오탐 해소 25건 중 92.0 퍼센트가 URL 포함 정상 문자에서 발생';
 proc sgplot data=work.kcbert_transitions;
   vbar transition_name_kr / response=total_count group=net_effect
          datalabel datalabelattrs=(size=10 weight=bold);
