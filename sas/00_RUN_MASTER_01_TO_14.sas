@@ -3,7 +3,7 @@
 
   프로젝트: ScamLens (안심문자 탐지 및 난독화 강건성 연구)
   작성일: 2026-09-18
-  버전: v1.0
+  버전: v1.1 (경로 자동 감지 및 무결성 검증 강화)
   
   [전체 파이프라인 구성]
   1단계: 01 ~ 08 베이스라인 ML & 감사 파이프라인 (%include 00_RUN_ALL.sas)
@@ -18,13 +18,13 @@
   - SAS Studio에서 본 프로그램을 열거나 복사해 넣고 F3을 누르면 01부터 14까지 전 과정이 순차 완주됩니다.
 ---------------------------------------------------------------------------*/
 
+%global projroot;
 %macro init_master_env;
-  %global projroot;
-  %if not %symexist(projroot) %then %do;
-    %if %sysfunc(fileexist(/home/student/github/sas/14_kcbert_visuals.sas)) %then %do;
+  %if %length(%superq(projroot))=0 %then %do;
+    %if %sysfunc(fileexist(/home/student/github/sas/00_RUN_ALL.sas)) %then %do;
       %let projroot=/home/student/github;
     %end;
-    %else %if %sysfunc(fileexist(/Users/sangwoolee/sas/sas/sas/14_kcbert_visuals.sas)) %then %do;
+    %else %if %sysfunc(fileexist(/Users/sangwoolee/sas/sas/sas/00_RUN_ALL.sas)) %then %do;
       %let projroot=/Users/sangwoolee/sas/sas;
     %end;
     %else %do;
@@ -35,8 +35,12 @@
 %init_master_env;
 
 %macro run_master_pipeline;
-  %local t_start t_end;
+  %local t_start t_end f1 f2 f3;
   %let t_start=%sysfunc(datetime());
+
+  %let f1=&projroot./sas/00_RUN_ALL.sas;
+  %let f2=&projroot./sas/00_RUN_AB_CAS.sas;
+  %let f3=&projroot./sas/14_kcbert_visuals.sas;
 
   %put NOTE: =========================================================================;
   %put NOTE: ScamLens 전체 분석 파이프라인 (01 ~ 14) 마스터 실행 시작;
@@ -44,9 +48,23 @@
   %put NOTE: 시작 시각: %sysfunc(datetime(), datetime20.);
   %put NOTE: =========================================================================;
 
+  /* 사전 파일 검증 */
+  %if not %sysfunc(fileexist(&f1.)) %then %do;
+    %put ERROR: 1단계 실행 파일이 존재하지 않습니다: &f1.;
+    %abort cancel;
+  %end;
+  %if not %sysfunc(fileexist(&f2.)) %then %do;
+    %put ERROR: 2단계 실행 파일이 존재하지 않습니다: &f2.;
+    %abort cancel;
+  %end;
+  %if not %sysfunc(fileexist(&f3.)) %then %do;
+    %put ERROR: 3단계 실행 파일이 존재하지 않습니다: &f3.;
+    %abort cancel;
+  %end;
+
   /* --- [1단계: 01 ~ 08 파이프라인] --- */
   %put NOTE: [STEP 1/3] 01 ~ 08 베이스라인 및 감사 파이프라인 실행 중...;
-  %include "&projroot./sas/00_RUN_ALL.sas";
+  %include "&f1.";
   %if &syscc ne 0 or &syserr ne 0 %then %do;
     %put ERROR: 00_RUN_ALL.sas 실행 중 오류 발생. 파이프라인을 중단합니다.;
     %abort cancel;
@@ -55,7 +73,7 @@
 
   /* --- [2단계: 11 ~ 13 파이프라인] --- */
   %put NOTE: [STEP 2/3] 11 ~ 13 인간-AI 합의 및 A/B CAS 배포 실행 중...;
-  %include "&projroot./sas/00_RUN_AB_CAS.sas";
+  %include "&f2.";
   %if &syscc ne 0 or &syserr ne 0 %then %do;
     %put ERROR: 00_RUN_AB_CAS.sas 실행 중 오류 발생. 파이프라인을 중단합니다.;
     %abort cancel;
@@ -64,7 +82,7 @@
 
   /* --- [3단계: 14 파이프라인 (14+15 올인원)] --- */
   %put NOTE: [STEP 3/3] 14 KcBERT 고해상도 시각화 및 CAS 적재 실행 중...;
-  %include "&projroot./sas/14_kcbert_visuals.sas";
+  %include "&f3.";
   %if &syscc ne 0 or &syserr ne 0 %then %do;
     %put ERROR: 14_kcbert_visuals.sas 실행 중 오류 발생. 파이프라인을 중단합니다.;
     %abort cancel;
