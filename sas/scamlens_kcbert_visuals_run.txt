@@ -2,16 +2,16 @@
   ScamLens — KcBERT 15-Arm 고해상도 시각화 정본 프로그램 (14번)
   
   [특징]
-  1. 외부 CSV 참조 실패 시 내장된 5대 핵심 정본 데이터셋(15, 3, 30, 4, 20행)으로 100% 자동 실행
-  2. 문자 변수 달러($) 포맷 및 인라인 datalines 무결성 완전 보장
+  1. 외부 CSV 참조 없이 독립 실행 가능한 내장 정본 데이터셋(15, 3, 30, 4, 20행) 탑재
+  2. 문자형 변수($) 길이 및 SAS 포맷 무결성 보장
   3. SGPLOT / SGPANEL 5대 핵심 시각화 차트 렌더링
 =============================================================================*/
 
 /* 1. 5대 핵심 분석 데이터셋 생성 */
 data work.kcbert_15arms;
-  length arm ;
+  length arm $8;
   infile datalines dlm="," dsd truncover;
-  input arm :. seed threshold recall fpr f1 tp fp fn tn total_n brier_score;
+  input arm :$8. seed threshold recall fpr f1 tp fp fn tn total_n brier_score;
   datalines;
 DUP,42,0.025356,0.972727,0.007746,0.969789,321,11,9,1409,1750,0.012249
 FLIP,42,0.249265,0.960606,0.008451,0.962064,317,12,13,1408,1750,0.011669
@@ -32,9 +32,9 @@ BASE,404,0.013827,0.975758,0.010563,0.965517,322,15,8,1405,1750,0.011603
 run;
 
 data work.kcbert_arm_summary;
-  length arm ;
+  length arm $8;
   infile datalines dlm="," dsd truncover;
-  input arm :. recall_mean recall_std fpr_mean fpr_std f1_mean f1_std brier_mean brier_std group_std_all group_std_multi group_std_singleton;
+  input arm :$8. recall_mean recall_std fpr_mean fpr_std f1_mean f1_std brier_mean brier_std group_std_all group_std_multi group_std_singleton;
   format brier_mean 8.5;
   datalines;
 DUP,0.970303,0.007016,0.008873,0.001144,0.966197,0.004589,0.012178,0.001563,0.006167,0.011112,0.005886
@@ -44,9 +44,9 @@ BASE,0.966061,0.014005,0.009437,0.003137,0.962841,0.004368,0.012726,0.000765,0.0
 run;
 
 data work.kcbert_subgroup_url;
-  length arm  url_group ;
+  length arm $8 url_group $12;
   infile datalines dlm="," dsd truncover;
-  input arm :. seed has_url url_group :. recall fpr f1 tp fp fn tn total_n;
+  input arm :$8. seed has_url url_group :$12. recall fpr f1 tp fp fn tn total_n;
   datalines;
 DUP,42,0,URL_NO,0.962264,0.002597,0.953271,51,3,2,1152,1208
 DUP,42,1,URL_YES,0.974729,0.030189,0.972973,270,8,7,257,542
@@ -82,9 +82,9 @@ BASE,404,1,URL_YES,0.981949,0.041509,0.971429,272,11,5,254,542
 run;
 
 data work.kcbert_transitions;
-  length transition_code  transition_name_kr  net_effect ;
+  length transition_code $20 transition_name_kr $40 net_effect $12;
   infile datalines dlm="," dsd truncover;
-  input transition_code :. transition_name_kr :. total_count unique_messages url_0_count url_1_count url_1_ratio net_effect :.;
+  input transition_code :$20. transition_name_kr :$40. total_count unique_messages url_0_count url_1_count url_1_ratio net_effect :$12.;
   datalines;
 resolved_fp,정상 오탐 해소,25,14,2,23,0.9200,개선(+)
 lost_tp,악성 정탐 손실,22,9,8,14,0.6364,악화(-)
@@ -94,9 +94,9 @@ rescued_fn,악성 미탐 구제,8,6,4,4,0.5000,개선(+)
 run;
 
 data work.kcbert_top_uncertain;
-  length group_id_short  label_kr ;
+  length group_id_short $12 label_kr $12;
   infile datalines dlm="," dsd truncover;
-  input group_rank group_id_short :. label_kr :. group_size has_url base_mean dup_mean flip_mean base_std dup_std flip_std;
+  input group_rank group_id_short :$12. label_kr :$12. group_size has_url base_mean dup_mean flip_mean base_std dup_std flip_std;
   datalines;
 1,37027523,정상,1,1,0.961792,0.596392,0.401538,0.056629,0.458889,0.455347
 2,bcaa3ff2,스미싱,1,0,0.128196,0.207435,0.367219,0.216663,0.245682,0.440154
@@ -123,43 +123,43 @@ run;
 
 /* 2. 포맷 및 라벨 설정 */
 proc format;
-  value 
+  value $armkr
     'DUP'  = '중복제거 (DUP)'
     'FLIP' = '난독화반전 (FLIP)'
     'BASE' = '기본모델 (BASE)';
 
-  value 
+  value $urlgrp
     'URL_NO'  = 'URL 미포함 문자'
     'URL_YES' = 'URL 포함 문자';
 
-  value 
+  value $transkr
     'resolved_fp' = '정상 오탐 해소'
     'lost_tp'     = '악성 정탐 손실'
     'new_fp'      = '신규 정상 오탐'
     'rescued_fn'  = '악성 미탐 구제';
 
-  value 
+  value $neteff
     'POSITIVE' = '개선 효과'
     'NEGATIVE' = '손실 효과';
 run;
 
 data work.kcbert_15arms;
   set work.kcbert_15arms;
-  format arm . recall fpr f1 percent8.2 brier_score 8.5 threshold 8.4;
+  format arm $armkr. recall fpr f1 percent8.2 brier_score 8.5 threshold 8.4;
   label arm='실험 조건(Arm)' seed='난수 시드' threshold='최적 임계값'
         recall='재현율 (Recall)' fpr='오탐률 (FPR)' f1='F1 점수' brier_score='Brier 점수';
 run;
 
 data work.kcbert_subgroup_url;
   set work.kcbert_subgroup_url;
-  format arm . url_group . recall fpr f1 percent8.2;
+  format arm $armkr. url_group $urlgrp. recall fpr f1 percent8.2;
   label arm='실험 조건(Arm)' url_group='URL 포함 여부'
         recall='재현율 (Recall)' fpr='오탐률 (FPR)' f1='F1 점수';
 run;
 
 data work.kcbert_transitions;
   set work.kcbert_transitions;
-  format url_1_ratio percent8.1 net_effect .;
+  format url_1_ratio percent8.1 net_effect $neteff.;
   label transition_name_kr='오류 전이 유형'
         total_count='발생 건수'
         unique_messages='고유 메시지 수'
