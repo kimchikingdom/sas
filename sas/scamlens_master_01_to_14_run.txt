@@ -3,28 +3,21 @@
 
   프로젝트: ScamLens (안심문자 탐지 및 난독화 강건성 연구)
   작성일: 2026-09-18
-  버전: v1.1 (경로 자동 감지 및 무결성 검증 강화)
+  버전: v2.0 (실시간 화면 로깅 & 견고한 단계별 내결함성 탑재)
   
-  [전체 파이프라인 구성]
-  1단계: 01 ~ 08 베이스라인 ML & 감사 파이프라인 (%include 00_RUN_ALL.sas)
-         - 01_load_and_audit, 07_composition, 02_meta, 03_roc, 06_transformer, 
-           05_visuals, 04_text(optional), 08_fage
-  2단계: 11 ~ 13 인간-AI 합의 및 A/B CAS 배포 파이프라인 (%include 00_RUN_AB_CAS.sas)
-         - 11_reviewer_ab_agreement, 12_consensus_model_comparison, 13_publish_ab_to_cas
-  3단계: 14 심층 KcBERT 강건성 시각화 및 CAS 배포 (%include 14_kcbert_visuals.sas)
-         - 5대 정본 테이블 생성, 5종 고해상도 그래픽스, Visual Analytics 글로벌 승격
-
-  [실행 방법]
-  - SAS Studio에서 본 프로그램을 열거나 복사해 넣고 F3을 누르면 01부터 14까지 전 과정이 순차 완주됩니다.
+  [특징]
+  1. proc printto 리다이렉트 없이 SAS Studio 화면에 각 단계별 진행 상황을 실시간 표시
+  2. 단순 경고(WARNING, syscc=4)로 인한 강제 중단을 방지하고 끝까지 완주
+  3. 완료 후 전체 단계별 성공/실패 현황표(work.scamlens_master_run_status) 출력
 ---------------------------------------------------------------------------*/
 
 %global projroot;
 %macro init_master_env;
   %if %length(%superq(projroot))=0 %then %do;
-    %if %sysfunc(fileexist(/home/student/github/sas/00_RUN_ALL.sas)) %then %do;
+    %if %sysfunc(fileexist(/home/student/github/sas/14_kcbert_visuals.sas)) %then %do;
       %let projroot=/home/student/github;
     %end;
-    %else %if %sysfunc(fileexist(/Users/sangwoolee/sas/sas/sas/00_RUN_ALL.sas)) %then %do;
+    %else %if %sysfunc(fileexist(/Users/sangwoolee/sas/sas/sas/14_kcbert_visuals.sas)) %then %do;
       %let projroot=/Users/sangwoolee/sas/sas;
     %end;
     %else %do;
@@ -34,94 +27,92 @@
 %mend init_master_env;
 %init_master_env;
 
-%macro run_master_pipeline;
-  %local t_start t_end f1 f2 f3;
+/* 상태 기록 테이블 초기화 */
+data work.scamlens_master_run_status;
+  length step 8 stage_num $10 stage_name $45 program $35 status $15 syscc 8;
+  stop;
+run;
+
+%macro run_substage(step_idx, stage_id, stage_desc, sas_file);
+  %put NOTE: ;
+  %put NOTE: =========================================================================;
+  %put NOTE: >>> [Step &step_idx.] &stage_desc. (&sas_file.);
+  %put NOTE: =========================================================================;
+  
+  %local file_path cur_syscc;
+  %let file_path=&projroot./sas/&sas_file.;
+  
+  %if not %sysfunc(fileexist(&file_path.)) %then %do;
+    %put WARNING: 실행 파일이 존재하지 않아 건너뜁니다: &file_path.;
+    data work._tmp_status;
+      length step 8 stage_num $10 stage_name $45 program $35 status $15 syscc 8;
+      step = &step_idx.;
+      stage_num = "&stage_id.";
+      stage_name = "&stage_desc.";
+      program = "&sas_file.";
+      status = "SKIPPED";
+      syscc = .;
+    run;
+  %end;
+  %else %do;
+    %let syscc=0;
+    %include "&file_path.";
+    %let cur_syscc=&syscc.;
+    
+    data work._tmp_status;
+      length step 8 stage_num $10 stage_name $45 program $35 status $15 syscc 8;
+      step = &step_idx.;
+      stage_num = "&stage_id.";
+      stage_name = "&stage_desc.";
+      program = "&sas_file.";
+      syscc = &cur_syscc.;
+      if syscc <= 4 then status = "SUCCESS";
+      else status = "ERROR";
+    run;
+  %end;
+  
+  proc append base=work.scamlens_master_run_status data=work._tmp_status force; run;
+%mend run_substage;
+
+%macro run_scamlens_full_master;
+  %local t_start t_end;
   %let t_start=%sysfunc(datetime());
 
-  %let f1=&projroot./sas/00_RUN_ALL.sas;
-  %let f2=&projroot./sas/00_RUN_AB_CAS.sas;
-  %let f3=&projroot./sas/14_kcbert_visuals.sas;
-
   %put NOTE: =========================================================================;
-  %put NOTE: ScamLens 전체 분석 파이프라인 (01 ~ 14) 마스터 실행 시작;
-  %put NOTE: 실행 환경 루트: &projroot.;
+  %put NOTE: ScamLens 01 ~ 14 전체 마스터 파이프라인 시작 (실행 환경: &projroot.);
   %put NOTE: 시작 시각: %sysfunc(datetime(), datetime20.);
   %put NOTE: =========================================================================;
 
-  /* 사전 파일 검증 */
-  %if not %sysfunc(fileexist(&f1.)) %then %do;
-    %put ERROR: 1단계 실행 파일이 존재하지 않습니다: &f1.;
-    %abort cancel;
-  %end;
-  %if not %sysfunc(fileexist(&f2.)) %then %do;
-    %put ERROR: 2단계 실행 파일이 존재하지 않습니다: &f2.;
-    %abort cancel;
-  %end;
-  %if not %sysfunc(fileexist(&f3.)) %then %do;
-    %put ERROR: 3단계 실행 파일이 존재하지 않습니다: &f3.;
-    %abort cancel;
-  %end;
+  /* [Track 1] 베이스라인 머신러닝 및 데이터 감사 */
+  %run_substage(1, 01, 데이터 적재 및 무결성 감사, 01_load_and_audit.sas);
+  %run_substage(2, 07, 특징 구성 및 신종 스미싱 분석, 07_composition_and_novelty.sas);
+  %run_substage(3, 02, 메타 분류기 학습 및 평가, 02_meta_classifier.sas);
+  %run_substage(4, 03, 단일/앙상블 모델 비교 (ROC), 03_model_comparison.sas);
+  %run_substage(5, 06, 트랜스포머 vs ML 대조 분석, 06_transformer_contrast.sas);
+  %run_substage(6, 05, 베이스라인 종합 시각화, 05_visuals.sas);
+  %run_substage(7, 08, FAGE 공정성 및 신뢰성 게이트, 08_fage_gate.sas);
 
-  /* --- [1단계: 01 ~ 08 파이프라인] --- */
-  %put NOTE: [STEP 1/3] 01 ~ 08 베이스라인 및 감사 파이프라인 실행 중...;
-  %include "&f1.";
-  %if &syscc ne 0 or &syserr ne 0 %then %do;
-    %put ERROR: 00_RUN_ALL.sas 실행 중 오류 발생. 파이프라인을 중단합니다.;
-    %abort cancel;
-  %end;
-  %put NOTE: [SUCCESS] 01 ~ 08 파이프라인 완주 완료.;
+  /* [Track 2] 인간-AI 검수자 합의 및 A/B 배포 */
+  %run_substage(8, 11, 검수자 A/B 일치도 (Kappa), 11_reviewer_ab_agreement.sas);
+  %run_substage(9, 12, 최종 합의 모델 성능 평가, 12_consensus_model_comparison.sas);
+  %run_substage(10, 13, 합의 집계 7종 테이블 CAS 적재, 13_publish_ab_to_cas.sas);
 
-  /* --- [2단계: 11 ~ 13 파이프라인] --- */
-  %put NOTE: [STEP 2/3] 11 ~ 13 인간-AI 합의 및 A/B CAS 배포 실행 중...;
-  %include "&f2.";
-  %if &syscc ne 0 or &syserr ne 0 %then %do;
-    %put ERROR: 00_RUN_AB_CAS.sas 실행 중 오류 발생. 파이프라인을 중단합니다.;
-    %abort cancel;
-  %end;
-  %put NOTE: [SUCCESS] 11 ~ 13 파이프라인 완주 완료.;
-
-  /* --- [3단계: 14 파이프라인 (14+15 올인원)] --- */
-  %put NOTE: [STEP 3/3] 14 KcBERT 고해상도 시각화 및 CAS 적재 실행 중...;
-  %include "&f3.";
-  %if &syscc ne 0 or &syserr ne 0 %then %do;
-    %put ERROR: 14_kcbert_visuals.sas 실행 중 오류 발생. 파이프라인을 중단합니다.;
-    %abort cancel;
-  %end;
-  %put NOTE: [SUCCESS] 14 KcBERT 시각화 및 CAS 배포 완주 완료.;
+  /* [Track 3] 심층 KcBERT 15-Arm 강건성 시각화 및 CAS 글로벌 승격 */
+  %run_substage(11, 14, KcBERT 15-Arm 시각화 & CAS 배포, 14_kcbert_visuals.sas);
 
   %let t_end=%sysfunc(datetime());
   %put NOTE: =========================================================================;
-  %put NOTE: ScamLens 01 ~ 14 전체 마스터 파이프라인이 성공적으로 완주되었습니다!;
+  %put NOTE: ScamLens 01 ~ 14 전체 마스터 파이프라인 완주 완료!;
   %put NOTE: 총 소요 시간: %sysfunc(round(%sysevalf(&t_end. - &t_start.), 0.01)) 초;
-  %put NOTE: SAS Visual Analytics(VA)에서 배포된 테이블들을 즉시 조회할 수 있습니다.;
   %put NOTE: =========================================================================;
 
-  /* 최종 요약 테이블 생성 및 출력 */
-  data work.scamlens_pipeline_summary;
-    length track $40 stages $30 status $20 details $60;
-    track = "Track 1: Baseline ML & Audit";
-    stages = "01 ~ 08";
-    status = "COMPLETED";
-    details = "데이터 감사, 메타 분류, ROC, 트랜스포머 대조, FAGE";
-    output;
-
-    track = "Track 2: Human-AI Consensus & CAS";
-    stages = "11 ~ 13";
-    status = "COMPLETED";
-    details = "검수자 A/B 합의, Kappa 일치도, 7종 테이블 CAS 적재";
-    output;
-
-    track = "Track 3: KcBERT Robustness & CAS";
-    stages = "14 (14+15)";
-    status = "COMPLETED";
-    details = "15-Arm 5대 테이블, 5종 ODS 그래픽스, VA 글로벌 승격";
-    output;
-  run;
-
-  title1 "ScamLens 01 ~ 14 전체 파이프라인 종합 실행 결과 요약";
-  proc print data=work.scamlens_pipeline_summary noobs;
+  /* 최종 종합 실행 현황표 출력 */
+  title1 "ScamLens 01 ~ 14 전체 파이프라인 단계별 실행 결과 현황표";
+  title2 "전체 11개 세부 단계 완주 요약 (SUCCESS / SKIPPED / ERROR)";
+  proc print data=work.scamlens_master_run_status noobs;
+    var step stage_num stage_name program status syscc;
   run;
   title;
-%mend run_master_pipeline;
+%mend run_scamlens_full_master;
 
-%run_master_pipeline;
+%run_scamlens_full_master;
