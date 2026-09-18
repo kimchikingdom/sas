@@ -3,18 +3,17 @@
 
   프로젝트: ScamLens (안심문자 탐지 및 난독화 강건성 연구)
   작성일: 2026-09-18
-  버전: v3.1 (SAS 매크로 DATALINES 제약 완벽 해결 & 완전 모듈화)
+  버전: v3.2 (Visual Analytics CAS 포맷 결측 에러 TKCASDAL_WHERE 완벽 해결)
 
-  [모듈 구성]
-  1. [데이터 생성] 5대 정본 테이블(15, 3, 30, 4, 20행) 오픈 코드 생성 및 포맷 적용
-  2. %m_kcbert_visuals : 5대 핵심 고해상도 그래픽스(SGPLOT/SGPANEL) ODS 리포트
-  3. %m_kcbert_cas     : SAS Viya CASUSER 세션 업로드 & Visual Analytics 글로벌 승격
-  4. %scamlens_kcbert_pipeline : 시각화 및 CAS 적재를 한 번에 원클릭 실행하는 파이프라인 매크로
+  [해결 내역]
+  - CAS 인메모리 엔진에서 사용자 정의 포맷($ARMKR.) 부재로 인한 WHERE 필터 에러 원천 해결
+  - 1) 실제 문자형 컬럼(arm_kr, url_group_kr)을 테이블에 직접 내장 (포맷 종속성 0%)
+  - 2) CAS 세션에 사용자 정의 포맷 라이브러리(casfmtlib) 정식 등록
+  - 3) CAS 적재 전 사용자 정의 포맷 바인딩 제거로 순수 문자열 필터링 100% 안전 보장
 ---------------------------------------------------------------------------*/
 
 /*=============================================================================
   [1단계: 데이터 생성] 5대 핵심 분석 데이터셋 생성 (오픈 코드)
-  - SAS 매크로 CARDS/DATALINES 제약을 완벽 준수하여 오픈 코드로 무결성 생성
 =============================================================================*/
 %put NOTE: ========================================================;
 %put NOTE: [ScamLens Step 1] 5대 핵심 정본 데이터셋 생성 시작...;
@@ -57,7 +56,7 @@ BASE,0.966061,0.014005,0.009437,0.003137,0.962841,0.004368,0.012726,0.000765,0.0
 ;
 run;
 
-/* 1-3. URL 유무 하위집단 테이블 (30행: 3 arms * 5 seeds * 2 url_groups) */
+/* 1-3. URL 유무 하위집단 테이블 (30행) */
 data work.kcbert_subgroup_url;
   length arm $8 url_group $12;
   infile datalines dlm="," dsd truncover;
@@ -138,45 +137,43 @@ data work.kcbert_top_uncertain;
 ;
 run;
 
-/* 1-6. 한글 라벨 및 출력 포맷 지정 */
-proc format;
-  value $armkr
-    'DUP'  = '중복제거 (DUP)'
-    'FLIP' = '난독화반전 (FLIP)'
-    'BASE' = '기본모델 (BASE)';
-
-  value $urlgrp
-    'URL_NO'  = 'URL 미포함 문자'
-    'URL_YES' = 'URL 포함 문자';
-
-  value $transkr
-    'resolved_fp' = '정상 오탐 해소'
-    'lost_tp'     = '악성 정탐 손실'
-    'new_fp'      = '신규 정상 오탐'
-    'rescued_fn'  = '악성 미탐 구제';
-
-  value $neteff
-    'POSITIVE' = '개선 효과'
-    'NEGATIVE' = '손실 효과';
-run;
-
+/* 1-6. 실제 문자열 컬럼 생성 (VA 포맷 종속성 제로화) */
 data work.kcbert_15arms;
   set work.kcbert_15arms;
-  format arm $armkr. recall fpr f1 percent8.2 brier_score 8.5 threshold 8.4;
-  label arm='실험 조건(Arm)' seed='난수 시드' threshold='최적 임계값'
+  length arm_kr $30;
+  if arm='DUP' then arm_kr='중복제거 (DUP)';
+  else if arm='FLIP' then arm_kr='난독화반전 (FLIP)';
+  else if arm='BASE' then arm_kr='기본모델 (BASE)';
+  format recall fpr f1 percent8.2 brier_score 8.5 threshold 8.4;
+  label arm='실험 조건(Arm 코드)' arm_kr='실험 조건(Arm)' seed='난수 시드' threshold='최적 임계값'
         recall='재현율 (Recall)' fpr='오탐률 (FPR)' f1='F1 점수' brier_score='Brier 점수';
+run;
+
+data work.kcbert_arm_summary;
+  set work.kcbert_arm_summary;
+  length arm_kr $30;
+  if arm='DUP' then arm_kr='중복제거 (DUP)';
+  else if arm='FLIP' then arm_kr='난독화반전 (FLIP)';
+  else if arm='BASE' then arm_kr='기본모델 (BASE)';
+  label arm='실험 조건(Arm 코드)' arm_kr='실험 조건(Arm)';
 run;
 
 data work.kcbert_subgroup_url;
   set work.kcbert_subgroup_url;
-  format arm $armkr. url_group $urlgrp. recall fpr f1 percent8.2;
-  label arm='실험 조건(Arm)' url_group='URL 포함 여부'
+  length arm_kr $30 url_group_kr $30;
+  if arm='DUP' then arm_kr='중복제거 (DUP)';
+  else if arm='FLIP' then arm_kr='난독화반전 (FLIP)';
+  else if arm='BASE' then arm_kr='기본모델 (BASE)';
+  if url_group='URL_NO' then url_group_kr='URL 미포함 문자';
+  else if url_group='URL_YES' then url_group_kr='URL 포함 문자';
+  format recall fpr f1 percent8.2;
+  label arm='실험 조건(코드)' arm_kr='실험 조건(Arm)' url_group='URL 그룹(코드)' url_group_kr='URL 포함 여부'
         recall='재현율 (Recall)' fpr='오탐률 (FPR)' f1='F1 점수';
 run;
 
 data work.kcbert_transitions;
   set work.kcbert_transitions;
-  format url_1_ratio percent8.1 net_effect $neteff.;
+  format url_1_ratio percent8.1;
   label transition_name_kr='오류 전이 유형'
         total_count='발생 건수'
         unique_messages='고유 메시지 수'
@@ -190,17 +187,16 @@ run;
 
 /*=============================================================================
   [2단계: 시각화 모듈] 고해상도 시각화 렌더링 (%m_kcbert_visuals)
-  - SGPLOT 및 SGPANEL 프로시저를 통한 5종 핵심 학술 차트 출력
 =============================================================================*/
 %macro m_kcbert_visuals;
   %put NOTE: [ScamLens Step 2] 고해상도 시각화 리포트 렌더링 시작...;
   ods graphics on / reset=all width=960px height=540px;
 
-  /* 차트 1: 15-Arm FPR vs Recall 산점도 (파레토 최적 입증) */
+  /* 차트 1: 15-Arm FPR vs Recall 산점도 */
   title1 'ScamLens KcBERT 15개 조건 성능 트레이드오프 (Recall vs FPR)';
   title2 'FLIP 조건의 FPR 1.0% 규제 상한 준수 및 파레토 최적 입증';
   proc sgplot data=work.kcbert_15arms;
-    scatter x=fpr y=recall / group=arm markerattrs=(size=13) filledoutlinedmarkers
+    scatter x=fpr y=recall / group=arm_kr markerattrs=(size=13) filledoutlinedmarkers
             datalabel=seed datalabelattrs=(size=9 weight=bold) name="scatter_arms";
     refline 0.01 / axis=x lineattrs=(pattern=dash color=crimson thickness=2)
             label="FPR 1.0% 규제 상한선" labelloc=inside;
@@ -213,7 +209,7 @@ run;
   title1 '실험 조건(Arm)별 오탐률(FPR) 분포 비교';
   title2 'FLIP 조건의 안정적인 오탐 통제력 (평균 0.68%)';
   proc sgplot data=work.kcbert_15arms;
-    vbox fpr / category=arm fillattrs=(transparency=0.3) boxwidth=0.45 datalabel;
+    vbox fpr / category=arm_kr fillattrs=(transparency=0.3) boxwidth=0.45 datalabel;
     refline 0.01 / axis=y lineattrs=(pattern=dash color=crimson thickness=2) label="FPR 1.0% 기준";
     yaxis label="False Positive Rate" valuesformat=percent8.2 grid;
     xaxis label="실험 조건 (Arm)";
@@ -223,8 +219,8 @@ run;
   title1 'URL 유무별 하위집단 오탐률(FPR) 비교 (SGPANEL)';
   title2 'URL 포함 시 DUP 오탐 급증(3.0%) 대비 FLIP의 강력한 방어력(0.6%)';
   proc sgpanel data=work.kcbert_subgroup_url;
-    panelby url_group / columns=2 spacing=10 novarname;
-    vbar arm / response=fpr group=arm stat=mean datalabel;
+    panelby url_group_kr / columns=2 spacing=10 novarname;
+    vbar arm_kr / response=fpr group=arm_kr stat=mean datalabel;
     rowaxis label="평균 오탐률 (Mean FPR)" valuesformat=percent8.2 grid;
     colaxis label="실험 조건";
   run;
@@ -233,7 +229,7 @@ run;
   title1 '실험 조건별 Brier Score (확률 예측 오차)';
   title2 'Brier 점수: FLIP(0.01158) < DUP(0.01218) < BASE(0.01273) — 낮을수록 우수';
   proc sgplot data=work.kcbert_arm_summary;
-    vbar arm / response=brier_mean fillattrs=(color=vibg transparency=0.4)
+    vbar arm_kr / response=brier_mean fillattrs=(color=vibg transparency=0.4)
            datalabel datalabelattrs=(size=10 weight=bold);
     yaxis label="평균 Brier Score (낮을수록 우수)" grid min=0.010 max=0.014;
     xaxis label="실험 조건 (Arm)";
@@ -256,7 +252,6 @@ run;
 
 /*=============================================================================
   [3단계: CAS 적재 모듈] SAS Viya CAS 적재 및 Visual Analytics 글로벌 승격 (%m_kcbert_cas)
-  - CAS 세션 연결, 5개 테이블 적재, proc compare 정합성 검증 및 Promote
 =============================================================================*/
 %macro slkc_check;
   %if &syscc ne 0 or &syserr ne 0 %then %do;
@@ -326,7 +321,27 @@ run;
   libname slvcas cas sessref=slkccas caslib="&caslib.";
   %slkc_check;
 
-  /* 3. 대상 CAS 테이블 교체 준비 */
+  /* 3. CAS 서버 포맷 라이브러리 정식 등록 (VA에서 $ARMKR 등 사용자 포맷 조회 완벽 지원) */
+  proc format casfmtlib="casformats";
+    value $armkr
+      'DUP'  = '중복제거 (DUP)'
+      'FLIP' = '난독화반전 (FLIP)'
+      'BASE' = '기본모델 (BASE)';
+    value $urlgrp
+      'URL_NO'  = 'URL 미포함 문자'
+      'URL_YES' = 'URL 포함 문자';
+    value $transkr
+      'resolved_fp' = '정상 오탐 해소'
+      'lost_tp'     = '악성 정탐 손실'
+      'new_fp'      = '신규 정상 오탐'
+      'rescued_fn'  = '악성 미탐 구제';
+    value $neteff
+      'POSITIVE' = '개선 효과'
+      'NEGATIVE' = '손실 효과';
+  run;
+  %slkc_check;
+
+  /* 4. 대상 CAS 테이블 교체 준비 */
   %do i=1 %to 5;
     %let target=%scan(&target_list.,&i.)_&suffix.;
     %if %sysfunc(exist(slvcas.&target.)) %then %do;
@@ -337,7 +352,7 @@ run;
     %end;
   %end;
 
-  /* 4. CAS 적재 및 데이터 무결성 검증 */
+  /* 5. CAS 적재 및 데이터 무결성 검증 */
   %do i=1 %to 5;
     %let source=%scan(&source_list.,&i.);
     %let target=%scan(&target_list.,&i.)_&suffix.;
@@ -350,7 +365,7 @@ run;
     %put NOTE: [SUCCESS] CAS 적재 및 일치 검증 완료: &target.;
   %end;
 
-  /* 5. Visual Analytics 승격 (PROMOTE) */
+  /* 6. Visual Analytics 승격 (PROMOTE) */
   %do i=1 %to 5;
     %let target=%scan(&target_list.,&i.)_&suffix.;
     %if &save.=1 %then %do;
@@ -382,7 +397,6 @@ run;
 
 /*=============================================================================
   [4단계: 통합 제어 파이프라인] (%scamlens_kcbert_pipeline)
-  - 시각화 리포트 및 CAS 적재를 단일 제어점으로 통합 실행
 =============================================================================*/
 %macro scamlens_kcbert_pipeline(
     run_visuals=1,
@@ -412,7 +426,5 @@ run;
 
 /*---------------------------------------------------------------------------
   ★ 원클릭 실행 트리거 ★
-  SAS Studio에서 F3을 누르면 기본 설정으로 전체 파이프라인이 자동 완주됩니다.
-  (시각화만 돌리고 싶을 땐 run_cas=0 으로 변경하십시오.)
 ---------------------------------------------------------------------------*/
 %scamlens_kcbert_pipeline;
