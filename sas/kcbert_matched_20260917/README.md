@@ -28,3 +28,24 @@ SAS Studio 업로드 제한으로 checkpoint를 조각으로 올릴 때는 먼�
 v3 파일을 직접 수정·푸시하지 말고 새 버전으로 경로와 해시를 다시 고정한다.
 `MANIFEST.json`은 수정 전 코드의 해시다. SAS 런타임·원격 라이브러리·
 학습·CAS/VA 성공은 아직 확인되지 않았다.
+
+## 실행 환경 판정 (2026-09-17)
+
+SAS Viya Compute에서 확인한 cgroup 메모리 한도는 `2147483648`바이트(2 GiB)였다.
+호스트에서 보이는 약 135 GiB RAM은 Compute 컨테이너가 사용할 수 있는 메모리를
+의미하지 않는다. KcBERT checkpoint는 약 438 MB이며, 학습에는 가중치 외에
+gradient·optimizer 상태·activation·Python 런타임 메모리가 추가로 필요하다.
+
+`02_KCBERT_RUN_OPERATIONAL_COPY.sas`는 CPU 전체 실행 허가를 받은 뒤 모델 로딩
+단계에서 Python exit code 265로 종료됐다. 따라서 이 2 GiB Compute 환경은 현재
+학습 실행 대상으로 판정하지 않는다. `slkc_confirm=NO`를 유지하고 재시도하지
+않는다. batch 또는 max length를 줄인 축소 실험은 원래 프로토콜과 다른 별도
+버전으로만 기록한다.
+
+## 로컬 실행 원칙
+
+학습은 메모리가 충분한 승인된 로컬 Python 환경에서 실행한다. 로컬에서는
+`run_matched_kcbert_portable_20260917.py`를 사용하고, private bundle·checkpoint·
+예측 결과는 GitHub, CAS, VA에 올리지 않는다. 실행 전 환경 점검과 bundle 해시를
+기록하고, 실행 후 결과 폴더와 로그를 별도 보관한다. SAS는 환경 점검·재현성 확인과
+집계 전달에만 사용하며, 2 GiB Compute에서 학습을 우회 실행하지 않는다.

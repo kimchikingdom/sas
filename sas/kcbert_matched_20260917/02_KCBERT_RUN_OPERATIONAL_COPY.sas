@@ -6,14 +6,10 @@
    preflight and resources. Keep reviewed v2 unchanged for another root. */
 
 %let slkc_confirm=NO;
-%macro slkc_run;
-  %if %upcase(&slkc_confirm) ne YES %then %do;
-    %put ERROR: SCAMLENS_KCBERT_RUN_NOT_CONFIRMED. Set slkc_confirm=YES after preflight.;
-    %abort cancel;
-  %end;
-
-  proc python;
-  submit;
+proc python;
+submit;
+if SAS.symget('slkc_confirm').upper() != 'YES':
+    raise RuntimeError('SCAMLENS_KCBERT_RUN_NOT_CONFIRMED: set slkc_confirm=YES after preflight')
 from pathlib import Path
 import runpy
 import sys
@@ -36,7 +32,5 @@ try:
 finally:
     sys.argv = old_argv
 print('SCAMLENS_KCBERT_RUN_RETURNED_CHECK_RESULT_STATUS')
-  endsubmit;
-  run;
-%mend;
-%slkc_run;
+endsubmit;
+run;

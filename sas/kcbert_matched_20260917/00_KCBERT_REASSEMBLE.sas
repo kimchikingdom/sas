@@ -31,6 +31,11 @@ for path in parts:
     if path.is_symlink() or not path.is_file():
         raise RuntimeError(f"SCAMLENS_KCBERT_PART_INVALID: {path}")
     if stat.S_IMODE(path.stat().st_mode) & 0o077:
+        try:
+            os.chmod(path, 0o600)
+        except OSError as error:
+            raise RuntimeError(f"SCAMLENS_KCBERT_PART_PERMISSION_TOO_OPEN: {path}") from error
+    if stat.S_IMODE(path.stat().st_mode) & 0o077:
         raise RuntimeError(f"SCAMLENS_KCBERT_PART_PERMISSION_TOO_OPEN: {path}")
 
 output_file.parent.mkdir(parents=True, exist_ok=True)
