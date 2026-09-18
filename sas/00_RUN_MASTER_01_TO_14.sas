@@ -3,15 +3,28 @@
 
   프로젝트: ScamLens (안심문자 탐지 및 난독화 강건성 연구)
   작성일: 2026-09-18
-  버전: v2.0 (실시간 화면 로깅 & 견고한 단계별 내결함성 탑재)
+  버전: v2.1 (A/B 디렉터리 자동 초기화 및 무결성 파이프라인)
   
-  [특징]
-  1. proc printto 리다이렉트 없이 SAS Studio 화면에 각 단계별 진행 상황을 실시간 표시
-  2. 단순 경고(WARNING, syscc=4)로 인한 강제 중단을 방지하고 끝까지 완주
-  3. 완료 후 전체 단계별 성공/실패 현황표(work.scamlens_master_run_status) 출력
+  [전체 파이프라인 구성]
+  ■ Track 1: 베이스라인 머신러닝 & 감사 파이프라인
+    - Step 1: 01_load_and_audit.sas          (데이터 감사 및 적재)
+    - Step 2: 07_composition_and_novelty.sas (특징 구성 및 신종 분석)
+    - Step 3: 02_meta_classifier.sas         (메타 분류기 학습/평가)
+    - Step 4: 03_model_comparison.sas        (ROC/PR 모델 성능 비교)
+    - Step 5: 06_transformer_contrast.sas    (트랜스포머 대조 분석)
+    - Step 6: 05_visuals.sas                 (베이스라인 종합 시각화)
+    - Step 7: 08_fage_gate.sas               (FAGE 공정성/신뢰성 게이트)
+
+  ■ Track 2: 인간-AI 검수자 합의 및 A/B CAS 배포
+    - Step 8: 00_RUN_AB_CAS.sas              (11 일치도 + 12 합의모델 + 13 CAS 적재)
+
+  ■ Track 3: 심층 KcBERT 15-Arm 시각화 및 CAS 배포
+    - Step 9: 14_kcbert_visuals.sas          (5대 정본 테이블 + 5종 ODS 그래픽스 + VA 승격)
 ---------------------------------------------------------------------------*/
 
-%global projroot;
+%global projroot run_tag runout;
+
+/* 1. 환경 변수 및 필수 디렉터리 자동 초기화 */
 %macro init_master_env;
   %if %length(%superq(projroot))=0 %then %do;
     %if %sysfunc(fileexist(/home/student/github/sas/14_kcbert_visuals.sas)) %then %do;
@@ -23,6 +36,17 @@
     %else %do;
       %let projroot=/home/student/github;
     %end;
+  %end;
+
+  /* Track 2용 runout 디렉터리 사전 생성 */
+  %if %length(%superq(runout))=0 %then %do;
+    %let run_tag=ab_20260914_%sysfunc(datetime(),hex16.);
+    %let runout=&projroot./outputs/&run_tag.;
+    data _null_;
+      length created $1024;
+      if not fileexist("&projroot./outputs") then created=dcreate('outputs',"&projroot.");
+      if not fileexist("&runout.") then created=dcreate("&run_tag.","&projroot./outputs");
+    run;
   %end;
 %mend init_master_env;
 %init_master_env;
@@ -92,13 +116,11 @@ run;
   %run_substage(6, 05, 베이스라인 종합 시각화, 05_visuals.sas);
   %run_substage(7, 08, FAGE 공정성 및 신뢰성 게이트, 08_fage_gate.sas);
 
-  /* [Track 2] 인간-AI 검수자 합의 및 A/B 배포 */
-  %run_substage(8, 11, 검수자 A/B 일치도 (Kappa), 11_reviewer_ab_agreement.sas);
-  %run_substage(9, 12, 최종 합의 모델 성능 평가, 12_consensus_model_comparison.sas);
-  %run_substage(10, 13, 합의 집계 7종 테이블 CAS 적재, 13_publish_ab_to_cas.sas);
+  /* [Track 2] 인간-AI 검수자 합의 및 A/B CAS 배포 */
+  %run_substage(8, 11-13, 검수자 A/B 합의 및 CAS 배포, 00_RUN_AB_CAS.sas);
 
   /* [Track 3] 심층 KcBERT 15-Arm 강건성 시각화 및 CAS 글로벌 승격 */
-  %run_substage(11, 14, KcBERT 15-Arm 시각화 & CAS 배포, 14_kcbert_visuals.sas);
+  %run_substage(9, 14, KcBERT 15-Arm 시각화 & CAS 배포, 14_kcbert_visuals.sas);
 
   %let t_end=%sysfunc(datetime());
   %put NOTE: =========================================================================;
@@ -108,7 +130,7 @@ run;
 
   /* 최종 종합 실행 현황표 출력 */
   title1 "ScamLens 01 ~ 14 전체 파이프라인 단계별 실행 결과 현황표";
-  title2 "전체 11개 세부 단계 완주 요약 (SUCCESS / SKIPPED / ERROR)";
+  title2 "전체 세부 단계 완주 요약 (SUCCESS / SKIPPED / ERROR)";
   proc print data=work.scamlens_master_run_status noobs;
     var step stage_num stage_name program status syscc;
   run;
