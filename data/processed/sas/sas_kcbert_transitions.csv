@@ -1,0 +1,5 @@
+transition_code,transition_name_kr,total_count,unique_messages,url_0_count,url_1_count,url_1_ratio,net_effect
+resolved_fp,정상 오탐 해소,25,14,2,23,0.9200,개선(+)
+lost_tp,악성 정탐 손실,22,9,8,14,0.6364,악화(-)
+new_fp,신규 정상 오탐,10,7,8,2,0.2000,악화(-)
+rescued_fn,악성 미탐 구제,8,6,4,4,0.5000,개선(+)
