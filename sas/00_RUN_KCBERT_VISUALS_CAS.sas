@@ -11,7 +11,10 @@
 %macro init_kcbert_runner;
   %global projroot run_cas slkc_caslib slkc_promote slkc_save;
   %if not %symexist(projroot) %then %do;
-    %if %sysfunc(fileexist(/Users/sangwoolee/sas/sas/sas/14_kcbert_visuals.sas)) %then %do;
+    %if %sysfunc(fileexist(/home/student/github/sas/14_kcbert_visuals.sas)) %then %do;
+      %let projroot=/home/student/github;
+    %end;
+    %else %if %sysfunc(fileexist(/Users/sangwoolee/sas/sas/sas/14_kcbert_visuals.sas)) %then %do;
       %let projroot=/Users/sangwoolee/sas/sas;
     %end;
     %else %do;
