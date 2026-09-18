@@ -7,5 +7,3 @@ stage,state,syserr,syscc
 05_visuals,completed_check_log,0,0
 04_text,skipped_not_completed,,
 08_fage,completed_check_log,0,0
-09_reviewer_a,completed_check_log,0,0
-10_reviewer_a_oof,completed_check_log,0,0

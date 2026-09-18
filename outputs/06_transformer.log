@@ -1,9 +1,9 @@
 NOTE: 프로시저 PRINTTO 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.00 초
       
 
-NOTE: SCAMLENS_STAGE=06_transformer SAS_VERSION=V.04.00M0P021224 DATE=14SEP2026 TIME=06:38
+NOTE: SCAMLENS_STAGE=06_transformer SAS_VERSION=V.04.00M0P021224 DATE=18SEP2026 TIME=05:53
 
     SAS (r) Proprietary Software Release V.04.00  TS1M0
 
@@ -20,27 +20,27 @@ NOTE: 2317개의 관측값을 데이터셋 WORK.SCORES.에서 읽었습니다.
 NOTE: 데이터셋 WORK.CONTRAST에 2317개의 관측값과 23개의 변수가 있습니다.
 NOTE: DATA 문장 실행 (총 프로세스 시간):
       실행 시간           0.00 초
-      cpu 시간            0.00 초
+      cpu 시간            0.01 초
       
 
-NOTE: SQL 프로시저가 425 페이지를 인쇄했습니다.
+NOTE: SQL 프로시저가 73 페이지를 인쇄했습니다.
 NOTE: 프로시저 SQL 실행 (총 프로세스 시간):
-      실행 시간           0.00 초
+      실행 시간           0.01 초
       cpu 시간            0.01 초
       
 
 
 NOTE: No explanatory variables have been specified.
 NOTE: The NOFIT option is specified.  No parameters are estimated and all other MODEL statement options (except EQUALSLOPES, FIRTH, 
-32                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 48분 26초
-
       LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
+32                                                         SAS 시스템      2026년  9월 18일 금요일 오전 01시 59분 21초
+
 NOTE: PROC LOGISTIC is modeling the probability that target='1'.
 NOTE: 2317개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 426-427 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 74-75 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           2.05 초
-      cpu 시간            1.30 초
+      실행 시간           2.09 초
+      cpu 시간            1.29 초
       
 
 
@@ -50,10 +50,10 @@ NOTE: The NOFIT option is specified.  No parameters are estimated and all other 
 NOTE: PROC LOGISTIC is modeling the probability that target='1'.
 NOTE: 1421개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
       WHERE has_url=0;
-NOTE: LOGISTIC 프로시저가 428-429 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 76-77 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           1.24 초
-      cpu 시간            0.76 초
+      실행 시간           1.32 초
+      cpu 시간            0.77 초
       
 
 
@@ -62,9 +62,9 @@ NOTE: The NOFIT option is specified.  No parameters are estimated and all other 
       LINK=, NOINT, OFFSET=, TECHNIQUE=, and UNEQUALSLOPES) are ignored.
 NOTE: PROC LOGISTIC is modeling the probability that target='1'.
 NOTE: 2317개의 관측값을 데이터셋 WORK.CONTRAST.에서 읽었습니다.
-NOTE: LOGISTIC 프로시저가 430-431 페이지를 인쇄했습니다.
+NOTE: LOGISTIC 프로시저가 78-79 페이지를 인쇄했습니다.
 NOTE: 프로시저 LOGISTIC 실행 (총 프로세스 시간):
-      실행 시간           0.06 초
+      실행 시간           0.07 초
       cpu 시간            0.07 초
       
 
@@ -87,13 +87,13 @@ NOTE: 프로시저 SORT 실행 (총 프로세스 시간):
 
 
 NOTE: 54개의 관측값을 데이터셋 WORK.BY_ATTACK.에서 읽었습니다.
-NOTE: FREQ 프로시저가 432 페이지를 인쇄했습니다.
+NOTE: FREQ 프로시저가 80 페이지를 인쇄했습니다.
 NOTE: 프로시저 FREQ 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.01 초
       
-33                                                         SAS 시스템      2026년  9월 14일 월요일 오전 03시 48분 29초
 
+33                                                         SAS 시스템      2026년  9월 18일 금요일 오전 01시 59분 24초
 
 NOTE: Table WORK.ATTACK_DETECTION created, with 5 rows and 4 columns.
 
@@ -113,7 +113,7 @@ NOTE: DATA 문장 실행 (총 프로세스 시간):
 
 NOTE: 10개의 관측값을 데이터셋 WORK.ATTACK_DETECTION_CI.에서 읽었습니다.
 NOTE: W.D 출력형식이 너무 작아 인쇄할 수 없습니다. 소수점 이하는 "BEST" 출력형식으로 이동됩니다.
-NOTE: PRINT 프로시저가 433 페이지를 인쇄했습니다.
+NOTE: PRINT 프로시저가 81 페이지를 인쇄했습니다.
 NOTE: 프로시저 PRINT 실행 (총 프로세스 시간):
       실행 시간           0.01 초
       cpu 시간            0.02 초
