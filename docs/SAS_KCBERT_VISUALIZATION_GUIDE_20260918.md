@@ -1,5 +1,7 @@
 # ScamLens: KcBERT SAS 시각화 명세서 및 가이드라인 (2026-09-18)
 
+> 최신 발표용 Studio·VA 작업은 [2026-09-21 실행 안내](../visualization_20260921_v1/SAS_FINAL_VISUALIZATION_20260921.md)를 따릅니다. 아래 내용은 이전 판의 기록이며, 공개본에 없는 행별 입력을 요구할 수 있습니다.
+
 본 문서는 GitHub 연동 저장소(`kimchikingdom/sas`) 내에서 **ScamLens KcBERT 15개 조건 Matched Control 실험**, **불확실성(Brier Score)**, **하위집단(URL 유무)**, 그리고 **4대 오류 전이(Transition)** 결과를 SAS Studio 및 SAS Visual Analytics(VA)에서 시각화하기 위한 **사용 데이터 명세**와 **시각화 방법론**을 상세히 기술합니다.
 
 ---

@@ -8,6 +8,7 @@
 /data/**
 !/data/README.md
 /outputs/
+/visualization_20260921_v1/outputs/
 /archive/bank_csv/
 /archive/shop_csv/
 /archive/shop_db/

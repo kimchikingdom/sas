@@ -1,0 +1,156 @@
+{
+  "files": {
+    "README.md": {
+      "sha256": "5d07ac75dc93da5223a734414bdd269aeacd473e3242e672aba074695da27753",
+      "size_bytes": 569
+    },
+    "evidence/submission_final_20260921.json": {
+      "sha256": "4b448d8c0f2af3efb4f3c7547f4ffbe75edb2c49a3c118f80c227452ed391934",
+      "size_bytes": 6991
+    },
+    "index.html": {
+      "sha256": "ad787ce031a6b1dfeaf1ed2758942b3e32bb3081e6abfbb0e9565633ae1c3c90",
+      "size_bytes": 923
+    },
+    "presentation/ONE_PAGE_SUMMARY.md": {
+      "sha256": "9477a2a0b2e7e677a2e6af0cfb187953d823c3d79377bea5076fccbc03718b27",
+      "size_bytes": 631
+    },
+    "presentation/PRESENTATION_20260921.pdf": {
+      "sha256": "d84482bfe6c4414b60ad86ec5efbe2c449d9b46e65f7b6ed30cec920085127b9",
+      "size_bytes": 200302
+    },
+    "presentation/PRESENTATION_20260921.pptx": {
+      "sha256": "978ecce1ea955d97dc72ff30ffbf902e72e132f480f88059d1229e971b3c576f",
+      "size_bytes": 79427
+    },
+    "presentation/PRESENTATION_SLIDES/slide_01.png": {
+      "sha256": "88da79513810197cada5ef31e23979e8b26b45f22b75c7d5ee86e0a1130a98c5",
+      "size_bytes": 51429
+    },
+    "presentation/PRESENTATION_SLIDES/slide_02.png": {
+      "sha256": "3b19b1c5b8d6148d9fdd382800f5be51a6b3c5fa2502bfb95e333d3d076f3780",
+      "size_bytes": 90065
+    },
+    "presentation/PRESENTATION_SLIDES/slide_03.png": {
+      "sha256": "38c74a5938c178ea7f99b85aea8e494181eb9fe5cac74f2775e502283af543c8",
+      "size_bytes": 79771
+    },
+    "presentation/PRESENTATION_SLIDES/slide_04.png": {
+      "sha256": "f0ade92e9b40e786ed3e4e466a4f689c5172bc6a3a51afbeb16554a43c4638df",
+      "size_bytes": 86783
+    },
+    "presentation/PRESENTATION_SLIDES/slide_05.png": {
+      "sha256": "7344c673392810f944bdb224934be1e2f1ac5379a807d04be2347dfa62801a19",
+      "size_bytes": 67074
+    },
+    "presentation/PRESENTATION_SLIDES/slide_06.png": {
+      "sha256": "b01e96768d594161560e8abe6ef03f29fb2dd186b1c2921fe79d09b7e2494fab",
+      "size_bytes": 85190
+    },
+    "presentation/PRESENTATION_SLIDES/slide_07.png": {
+      "sha256": "aedcf793456fb831ae7596ea4ac359b676959cd420fc484c32839476363a7838",
+      "size_bytes": 77309
+    },
+    "presentation/PRESENTATION_SLIDES/slide_08.png": {
+      "sha256": "aa2d2eabe9f473e63a76c8207d7ec817fc1d5b798559febdbfc2a45bd2d7704f",
+      "size_bytes": 82391
+    },
+    "presentation/PRESENTATION_SLIDES/slide_09.png": {
+      "sha256": "fdf9c05f4ca9c5e13ce34bdfc9e96b9dcacc902c66d7723063f9706c46f3c086",
+      "size_bytes": 57881
+    },
+    "presentation/PRESENTATION_SLIDES/slide_10.png": {
+      "sha256": "7d6563e1a002a3199db211e6f21755f3ac9924e123f61dc57022d6ed36910dd8",
+      "size_bytes": 61361
+    },
+    "presentation/PRESENTATION_SLIDES/slide_11.png": {
+      "sha256": "6685a348e63a87aa305a56ada6faade83ca57cdc1b405c8c1e1a9df75cb065ad",
+      "size_bytes": 104958
+    },
+    "presentation/PRESENTATION_SLIDES/slide_12.png": {
+      "sha256": "431cf15fe3c4830da72aded2492a19cfa94a122bbc271cce09a3eb25c82d03e2",
+      "size_bytes": 67046
+    },
+    "presentation/PRESENTATION_SLIDES/slide_13.png": {
+      "sha256": "29850e7e3f5ede6d6a0f4fcd4c54dc8b1b851413205fc15e11eaf026164ac3f4",
+      "size_bytes": 81041
+    },
+    "presentation/PRESENTATION_SLIDES/slide_14.png": {
+      "sha256": "cb208bf90f27669e47011a0618cac357f29803546087fa2105f5c20ba6803a67",
+      "size_bytes": 85970
+    },
+    "presentation/PRESENTATION_SLIDES/slide_15.png": {
+      "sha256": "66f1e5e3980cf7c757b0357da20f5b0f22b68fee132bb4cd8c4100ac1d43acfb",
+      "size_bytes": 52598
+    },
+    "presentation/PRESENTATION_SLIDES/slide_16.png": {
+      "sha256": "3c709e5da1958c045f8326c6e0c3756fb453b3c61a00ffb9430d489c8e6a88ef",
+      "size_bytes": 94695
+    },
+    "presentation/PRESENTATION_SLIDES/slide_17.png": {
+      "sha256": "12d9ec4d69c3362921dad9b0fe38ed4bbf94c10ccf8a04a1052b41cdf66a23ae",
+      "size_bytes": 78248
+    },
+    "presentation/PRESENTATION_SLIDES/slide_18.png": {
+      "sha256": "8bf79d4504a6bf2fffcc7e858291fdd0374b76f443177cca8e2596a7805083e4",
+      "size_bytes": 87193
+    },
+    "presentation/QA.md": {
+      "sha256": "e637d2534fc8005b741316f65ccc978794a2ce462613ac92b4c8d038dec0dfb4",
+      "size_bytes": 1370
+    },
+    "presentation/README.md": {
+      "sha256": "9a6778c2d3f1cd5d957a50a117688b54c1b2a51b85e0723ef898ea90c3c5a706",
+      "size_bytes": 1247
+    },
+    "presentation/RESEARCH_REPORT.md": {
+      "sha256": "c6c67517bd44ed1d93fdba0f87184fcbcdf2e708de4ad2f7529a044a905847e3",
+      "size_bytes": 4188
+    },
+    "presentation/SPEAKER_SCRIPT.md": {
+      "sha256": "b79c3d8d879b79d1ba7d30ee64b49f7b866b5d6fb5bbeaaed07141f2fbc12ef9",
+      "size_bytes": 2038
+    },
+    "presentation/index.html": {
+      "sha256": "4a5e58568a97cfb9c14bf7a844c909da2326b924a0d7c20488fe235236b9e5e4",
+      "size_bytes": 3769
+    }
+  },
+  "package": "materials/20260921_final_v1",
+  "source_hashes": {
+    "ONE_PAGE_SUMMARY.md": "9477a2a0b2e7e677a2e6af0cfb187953d823c3d79377bea5076fccbc03718b27",
+    "PRESENTATION_20260921.pdf": "d84482bfe6c4414b60ad86ec5efbe2c449d9b46e65f7b6ed30cec920085127b9",
+    "PRESENTATION_20260921.pptx": "978ecce1ea955d97dc72ff30ffbf902e72e132f480f88059d1229e971b3c576f",
+    "PRESENTATION_SLIDES/slide_01.png": "88da79513810197cada5ef31e23979e8b26b45f22b75c7d5ee86e0a1130a98c5",
+    "PRESENTATION_SLIDES/slide_02.png": "3b19b1c5b8d6148d9fdd382800f5be51a6b3c5fa2502bfb95e333d3d076f3780",
+    "PRESENTATION_SLIDES/slide_03.png": "38c74a5938c178ea7f99b85aea8e494181eb9fe5cac74f2775e502283af543c8",
+    "PRESENTATION_SLIDES/slide_04.png": "f0ade92e9b40e786ed3e4e466a4f689c5172bc6a3a51afbeb16554a43c4638df",
+    "PRESENTATION_SLIDES/slide_05.png": "7344c673392810f944bdb224934be1e2f1ac5379a807d04be2347dfa62801a19",
+    "PRESENTATION_SLIDES/slide_06.png": "b01e96768d594161560e8abe6ef03f29fb2dd186b1c2921fe79d09b7e2494fab",
+    "PRESENTATION_SLIDES/slide_07.png": "aedcf793456fb831ae7596ea4ac359b676959cd420fc484c32839476363a7838",
+    "PRESENTATION_SLIDES/slide_08.png": "aa2d2eabe9f473e63a76c8207d7ec817fc1d5b798559febdbfc2a45bd2d7704f",
+    "PRESENTATION_SLIDES/slide_09.png": "fdf9c05f4ca9c5e13ce34bdfc9e96b9dcacc902c66d7723063f9706c46f3c086",
+    "PRESENTATION_SLIDES/slide_10.png": "7d6563e1a002a3199db211e6f21755f3ac9924e123f61dc57022d6ed36910dd8",
+    "PRESENTATION_SLIDES/slide_11.png": "6685a348e63a87aa305a56ada6faade83ca57cdc1b405c8c1e1a9df75cb065ad",
+    "PRESENTATION_SLIDES/slide_12.png": "431cf15fe3c4830da72aded2492a19cfa94a122bbc271cce09a3eb25c82d03e2",
+    "PRESENTATION_SLIDES/slide_13.png": "29850e7e3f5ede6d6a0f4fcd4c54dc8b1b851413205fc15e11eaf026164ac3f4",
+    "PRESENTATION_SLIDES/slide_14.png": "cb208bf90f27669e47011a0618cac357f29803546087fa2105f5c20ba6803a67",
+    "PRESENTATION_SLIDES/slide_15.png": "66f1e5e3980cf7c757b0357da20f5b0f22b68fee132bb4cd8c4100ac1d43acfb",
+    "PRESENTATION_SLIDES/slide_16.png": "3c709e5da1958c045f8326c6e0c3756fb453b3c61a00ffb9430d489c8e6a88ef",
+    "PRESENTATION_SLIDES/slide_17.png": "12d9ec4d69c3362921dad9b0fe38ed4bbf94c10ccf8a04a1052b41cdf66a23ae",
+    "PRESENTATION_SLIDES/slide_18.png": "8bf79d4504a6bf2fffcc7e858291fdd0374b76f443177cca8e2596a7805083e4",
+    "QA.md": "e637d2534fc8005b741316f65ccc978794a2ce462613ac92b4c8d038dec0dfb4",
+    "README.md": "5f43ebe5c69e3caef3fec241ddb0fff065f75f5b16ea5f0f1d9479d77d7d0048",
+    "RESEARCH_REPORT.md": "c6c67517bd44ed1d93fdba0f87184fcbcdf2e708de4ad2f7529a044a905847e3",
+    "SPEAKER_SCRIPT.md": "b79c3d8d879b79d1ba7d30ee64b49f7b866b5d6fb5bbeaaed07141f2fbc12ef9",
+    "reports/generated/submission_final_20260921.json": "4b448d8c0f2af3efb4f3c7547f4ffbe75edb2c49a3c118f80c227452ed391934"
+  },
+  "transforms": [
+    {
+      "file": "materials/20260921_final_v1/presentation/README.md",
+      "kind": "public_delivery_scope_note"
+    }
+  ],
+  "version": "scamlens.final_delivery.20260921.v2"
+}

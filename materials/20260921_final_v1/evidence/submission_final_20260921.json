@@ -1,0 +1,308 @@
+{
+  "arms": {
+    "BASE": {
+      "mean_fn": 14.2,
+      "mean_fp": 10,
+      "mean_fpr": 0.006006006006006006,
+      "mean_recall": 0.9782208588957055
+    },
+    "DUP": {
+      "mean_fn": 13.8,
+      "mean_fp": 7.4,
+      "mean_fpr": 0.0044444444444444444,
+      "mean_recall": 0.9788343558282209
+    },
+    "FLIP": {
+      "mean_fn": 16,
+      "mean_fp": 7.6,
+      "mean_fpr": 0.0045645645645645645,
+      "mean_recall": 0.9754601226993865
+    }
+  },
+  "candidate_condition": "head_tail128",
+  "candidate_seeds": 5,
+  "fusion_n": 142,
+  "fusion_normal": 108,
+  "fusion_rows": {
+    "K": {
+      "fn": 0,
+      "fp": 0
+    },
+    "KJ": {
+      "fn": 0,
+      "fp": 0
+    },
+    "KJU": {
+      "fn": 0,
+      "fp": 0
+    },
+    "KU": {
+      "fn": 0,
+      "fp": 1
+    },
+    "rawK": {
+      "fn": 0,
+      "fp": 0
+    }
+  },
+  "fusion_smishing": 34,
+  "jev_total": 88,
+  "jev_transitions": {
+    "abstain_from_correct": 1,
+    "abstain_from_error": 0,
+    "corrected_fn": 0,
+    "corrected_fp": 8,
+    "new_fn": 41,
+    "new_fp": 0,
+    "persistent_fn": 8,
+    "persistent_fp": 0,
+    "retained_correct": 30
+  },
+  "kisa_base": {
+    "fn": 9,
+    "rep_fn": 9,
+    "rep_tp": 9,
+    "tp": 13
+  },
+  "kisa_conditions": {
+    "cap300": {
+      "fn": 9,
+      "normal_fp": 24,
+      "normal_new_fp": 13,
+      "recall": 0.5909090909090909,
+      "tp": 13
+    },
+    "head_tail128": {
+      "fn": 9,
+      "normal_fp": 17,
+      "normal_new_fp": 6,
+      "recall": 0.5909090909090909,
+      "tp": 13
+    },
+    "ocr_delete128": {
+      "fn": 9,
+      "normal_fp": 11,
+      "normal_new_fp": 0,
+      "recall": 0.5909090909090909,
+      "tp": 13
+    },
+    "ocr_delete300": {
+      "fn": 8,
+      "normal_fp": 24,
+      "normal_new_fp": 13,
+      "recall": 0.6363636363636364,
+      "tp": 14
+    },
+    "ocr_unk128": {
+      "fn": 9,
+      "normal_fp": 11,
+      "normal_new_fp": 0,
+      "recall": 0.5909090909090909,
+      "tp": 13
+    },
+    "ocr_unk300": {
+      "fn": 6,
+      "normal_fp": 24,
+      "normal_new_fp": 13,
+      "recall": 0.7272727272727273,
+      "tp": 16
+    },
+    "original128": {
+      "fn": 9,
+      "normal_fp": 11,
+      "normal_new_fp": 0,
+      "recall": 0.5909090909090909,
+      "tp": 13
+    }
+  },
+  "kisa_rep_total": 18,
+  "kisa_unique_total": 22,
+  "max_len": 128,
+  "n_test": 2317,
+  "normal": 1665,
+  "normal_candidates_total": 250,
+  "provenance": {
+    "comparison": "reports/generated/jev_kcbert_redacted_20260920.json",
+    "completion": "reports/generated/kisa_followup_completion_20260921.json",
+    "diagnostics": "reports/generated/u5_error_diagnostics_20260920.json",
+    "fusion": "reports/generated/jev_kcbert_fusion_20260920.json",
+    "kisa": "reports/generated/kisa_ocr_diagnostics_20260921.json",
+    "routes": "reports/generated/submission_evidence_20260919.json",
+    "u5": "reports/generated/matched_kcbert_u5_unused_test_20260918_v1.json"
+  },
+  "routes": {
+    "10m": {
+      "seconds": {
+        "1": 45,
+        "10": 60,
+        "11": 90,
+        "12": 80,
+        "13": 60,
+        "15": 55,
+        "2": 60,
+        "5": 70,
+        "7": 80
+      },
+      "slides": [
+        1,
+        2,
+        5,
+        7,
+        10,
+        11,
+        12,
+        13,
+        15
+      ]
+    },
+    "15m": {
+      "seconds": {
+        "1": 45,
+        "10": 60,
+        "11": 90,
+        "12": 90,
+        "13": 60,
+        "14": 60,
+        "15": 70,
+        "2": 60,
+        "3": 55,
+        "5": 70,
+        "7": 70,
+        "8": 70
+      },
+      "slides": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "20m": {
+      "seconds": {
+        "1": 60,
+        "10": 60,
+        "11": 60,
+        "12": 60,
+        "13": 60,
+        "14": 60,
+        "15": 60,
+        "16": 60,
+        "17": 60,
+        "18": 60,
+        "2": 60,
+        "3": 60,
+        "4": 60,
+        "5": 60,
+        "6": 60,
+        "7": 60,
+        "8": 60,
+        "9": 60
+      },
+      "slides": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    }
+  },
+  "sas_contrast": {
+    "ci_95": [
+      -0.00039,
+      0.000267
+    ],
+    "estimate": -6e-05,
+    "interpretation": "문자 단독(0.9987)과 SAS OOF 메타 모형(0.9988)의 차이는 신뢰구간과 p값에서 차이가 검출되지 않음 (estimate=-0.00006, 95% CI [-0.00039, 0.000267], p=0.7233). 이는 두 모형의 동등성 증명이 아니며 차이가 검출되지 않았음을 의미함. 고정가중 결합 모형의 관측 AUC({blend_auc}) 역시 문자 단독보다 낮았으므로, 단순 결합 가정을 채택할 수 없다는 판단을 뒷받침함.",
+    "p_value": 0.7233
+  },
+  "sas_distinction": "SAS 09-08 분석은 SAS 서버 환경에서 OOF를 메타 모형 학습 입력으로 사용하고 테스트 분할(where split='test')에서 ROC를 비교한 결과임. 최신 U5 실험은 로컬 Python/MPS 환경에서 수행된 KcBERT 대조실험임. 두 실행 환경과 모형이 상이하므로 SAS 분석의 p값을 U5 결과에 적용하지 않음.",
+  "sas_prior": {
+    "fixed_weight_blend": 0.995,
+    "sas_oof_meta": 0.9988,
+    "text_only": 0.9987
+  },
+  "sas_runtime": {
+    "pngs_inspected": 35,
+    "stages_ok": 4,
+    "zip_members": 55
+  },
+  "schema_version": "submission-final-20260921-v1",
+  "seeds": [
+    42,
+    101,
+    202,
+    303,
+    404
+  ],
+  "smishing": 652,
+  "source_hashes": {
+    "comparison": "2002656e75077be83f016cd8378a00489338e3221b54b1573d90ed812aee8030",
+    "completion": "3db2f0986791f95af000572aa6f89493445dcde5737757e1cddae13ce37a9f96",
+    "diagnostics": "97583f08c755a13343987d925066dfb289b8151c3f69740831e77148173f77ba",
+    "fusion": "0957198e34d301956aab0d7f2ed44268a72da94c1e39955e8dff7db8b46f99fe",
+    "kisa": "3cda8e3fbd66db8393e235e3d800448be870993ebdbfb0af46c4885437df7761",
+    "narrative": "44051ae2e9ad9259de6cca19121eeefccdea3142db52a1d3a05e227057b3c63b",
+    "routes": "04ea0890d22a29c6a6adb52ca137c499c14c25a2942cad4dcbf449fac3549899",
+    "u5": "92ce02458b4dc4e0c9371ad50626a96c681594dd829cff4af1a40bc221201fba"
+  },
+  "trunc": {
+    "nontruncated": {
+      "fnr": 0.007058823529411765,
+      "mean_fn": 4.2,
+      "messages": 595
+    },
+    "truncated": {
+      "fnr": 0.16842105263157894,
+      "mean_fn": 9.6,
+      "messages": 57
+    }
+  },
+  "url": {
+    "0": {
+      "mean_fpr": 0.0010241404535479151,
+      "normal": 1367,
+      "smishing": 54
+    },
+    "1": {
+      "mean_fpr": 0.020134228187919462,
+      "normal": 298,
+      "smishing": 598
+    }
+  },
+  "url_fpr": {
+    "BASE": {
+      "0": 0.0021945866861741038,
+      "1": 0.02348993288590604
+    },
+    "DUP": {
+      "0": 0.0010241404535479151,
+      "1": 0.020134228187919462
+    },
+    "FLIP": {
+      "0": 0.0008778346744696416,
+      "1": 0.021476510067114093
+    }
+  }
+}
