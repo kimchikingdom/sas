@@ -479,7 +479,7 @@ title;
     %abort cancel;
   %end;
   %else %do;
-    %put NOTE: [ScamLens 16] SCAMLENS_U5_DIAGNOSTICS_COMPLETE: SAS execution finished; inspect exported readback tables.;
+    %put NOTE: [ScamLens 16] SCAMLENS_U5_DIAGNOSTICS_COMPLETE: SAS execution finished. Inspect exported readback tables.;
   %end;
 %mend finalize_status;
 %finalize_status;

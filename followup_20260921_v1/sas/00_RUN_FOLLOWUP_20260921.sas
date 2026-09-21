@@ -59,15 +59,34 @@ run;
       put "ERROR: expected output missing (&label)";
       abort cancel;
     end;
-    len = input(finfo(fid, 'File Size (bytes)'), best.);
+    /* Read one byte: do not depend on localized FINFO item names. */
+    read_rc = fread(fid);
     rc = fclose(fid);
     rc = filename('_fuchk');
-    if missing(len) or len <= 0 then do;
+    if read_rc ne 0 then do;
       put "ERROR: expected output empty (&label)";
       abort cancel;
     end;
   run;
 %mend fu_expect_nonempty;
+
+/* Echo bounded error/warning context after PRINTTO is restored so that
+   the SAS Studio log contains the first failure, not only the wrapper. */
+%macro fu_echo_failure(log_path);
+  data _null_;
+    infile "%superq(log_path)" lrecl=32767 truncover end=eof;
+    retain context 0 printed 0;
+    input;
+    if prxmatch('/^\s*(ERROR|WARNING)\b/i', _infile_) then context=8;
+    if context>0 and printed<200 then do;
+      put _infile_;
+      printed+1;
+      context=context-1;
+    end;
+    if eof and printed=0 then
+      put 'NOTE: No ERROR/WARNING excerpt found. Inspect the full stage log.';
+  run;
+%mend fu_echo_failure;
 
 %macro run_followup;
   %local pkg runid rundir s1root s2root s4csv
@@ -127,7 +146,8 @@ run;
   %let _s1cc = &syscc;
   proc printto; run;
   %if &_s1err > 0 or &_s1cc > 4 %then %do;
-    %put ERROR: stage_u5 failed (SYSCC/SYSERR); see stage_u5.log.;
+    %put ERROR: stage_u5 failed (SYSCC=&_s1cc SYSERR=&_s1err). See &rundir./stage_u5.log.;
+    %fu_echo_failure(&rundir./stage_u5.log)
     %abort cancel;
   %end;
   %fu_expect_nonempty(&s1root./outputs/u5_error_diagnostics_report.html, stage_u5_report)
@@ -154,7 +174,8 @@ run;
   %let _s2cc = &syscc;
   proc printto; run;
   %if &_s2err > 0 or &_s2cc > 4 %then %do;
-    %put ERROR: stage_cmp failed (SYSCC/SYSERR); see stage_cmp.log.;
+    %put ERROR: stage_cmp failed (SYSCC=&_s2cc SYSERR=&_s2err). See &rundir./stage_cmp.log.;
+    %fu_echo_failure(&rundir./stage_cmp.log)
     %abort cancel;
   %end;
   %fu_expect_nonempty(&s2root./outputs/jev_kcbert_comparison_summary.html, stage_cmp_report)
@@ -184,7 +205,8 @@ run;
   %let _s3cc = &syscc;
   proc printto; run;
   %if &_s3err > 0 or &_s3cc > 4 %then %do;
-    %put ERROR: stage_fus failed (SYSCC/SYSERR); see stage_fus.log.;
+    %put ERROR: stage_fus failed (SYSCC=&_s3cc SYSERR=&_s3err). See &rundir./stage_fus.log.;
+    %fu_echo_failure(&rundir./stage_fus.log)
     %abort cancel;
   %end;
   %fu_expect_nonempty(&rundir./stage_fus.html, stage_fus_report)
@@ -210,7 +232,8 @@ run;
   %let _s4cc = &syscc;
   proc printto; run;
   %if &_s4err > 0 or &_s4cc > 4 %then %do;
-    %put ERROR: stage_kisa failed (SYSCC/SYSERR); see stage_kisa.log.;
+    %put ERROR: stage_kisa failed (SYSCC=&_s4cc SYSERR=&_s4err). See &rundir./stage_kisa.log.;
+    %fu_echo_failure(&rundir./stage_kisa.log)
     %abort cancel;
   %end;
   %fu_expect_nonempty(&rundir./kisa_stage.html, stage_kisa_report)
