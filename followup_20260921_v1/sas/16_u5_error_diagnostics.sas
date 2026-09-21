@@ -389,7 +389,7 @@ run;
 
 /* 6. ODS 리포트 생성 및 PROC SGPLOT 시각화 5종 */
 ods graphics on / reset=all width=10in height=6in imagefmt=png;
-ods html path="&out_dir." (url=none) gpath="&out_dir." file="u5_error_diagnostics_report.html" style=HTMLBlue;
+ods html path="&out_dir." (url=none) gpath="&out_dir." (url=none) file="u5_error_diagnostics_report.html" style=HTMLBlue;
 footnote "Descriptive results; five seeds reuse the same messages. Not causal evidence.";
 
 title1 bold "ScamLens KcBERT U5 오류 진단 및 모델 신뢰성 평가 (SAS 9.4 / Viya)";
