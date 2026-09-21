@@ -17,6 +17,11 @@ projroot은 followup_20260921_v1 폴더가 있는 서버 경로로 맞춘다.
 코드·집계 검사는 완료했으며 실제 SAS 실행은 사용자 로그를 받아 확인한다.
 새 모델 학습이나 CAS/VA 게시를 수행하는 실행기는 아니다.
 
+폴더 다운로드가 어려우면 [ZIP 반환 도우미](sas/99_ZIP_FOLLOWUP_OUTPUTS.sas)를
+실행해 결과를 ZIP 하나로 묶는다. 받을 실행 폴더를 `zip_run`으로 지정한다.
+실행 코드는 [반환 안내](docs/SAS_FOLLOWUP_RUN_GUIDE_20260921.md#zip-하나로-받기)에 있다.
+ZIP은 Git에서 제외된 outputs/ 안에 생성되며, SAS 파일 목록에서 하나만 내려받으면 된다.
+
 기존 A/B 검수 분석은 sas/00_RUN_AB.sas에서 11 → 12 순서로 재현한다.
 기존 실행 범위와 검수 기준은 sas/README.md와 sas/RUNBOOK.md를 따른다.
 
