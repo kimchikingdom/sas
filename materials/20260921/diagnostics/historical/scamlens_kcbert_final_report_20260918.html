@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ScamLens KcBERT 연구 종합 보고서 (2026-09-18)</title>
+<style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --card-bg: #ffffff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --primary: #1e40af;
+  --primary-light: #eff6ff;
+  --green: #15803d;
+  --green-light: #f0fdf4;
+  --red: #b91c1c;
+  --red-light: #fef2f2;
+  --orange: #c2410c;
+  --orange-light: #fff7ed;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Nanum Gothic", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+header {
+  background: #0f172a;
+  color: #fff;
+  padding: 48px 0;
+  border-bottom: 4px solid #3b82f6;
+}
+header .inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #1e293b;
+  color: #93c5fd;
+  margin-bottom: 12px;
+}
+h1 {
+  margin: 0 0 12px;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.header-desc {
+  font-size: 16px;
+  color: #cbd5e1;
+  max-width: 820px;
+  margin: 0;
+}
+.meta-bar {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #334155;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+.meta-bar strong {
+  color: #f1f5f9;
+}
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary-light);
+  padding-bottom: 8px;
+}
+h3 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+  color: #1e293b;
+}
+.grid-kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.kpi-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.kpi-title {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 8px 0 4px;
+}
+.kpi-desc {
+  font-size: 12px;
+  color: var(--muted);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: var(--ink);
+}
+tr:hover {
+  background: #f8fafc;
+}
+tr.highlight-row {
+  background: #f0fdf4;
+  font-weight: 600;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.tag-green { background: var(--green-light); color: var(--green); }
+.tag-red { background: var(--red-light); color: var(--red); }
+.tag-orange { background: var(--orange-light); color: var(--orange); }
+.tag-blue { background: var(--primary-light); color: var(--primary); }
+.callout {
+  border-left: 4px solid #3b82f6;
+  background: var(--primary-light);
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.callout-title {
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 4px;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 16px;
+}
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="badge">SCAMLENS RESEARCH MONOGRAPH · 2026-09-18</div>
+    <h1>문자를 읽는가, URL 표시를 보는가: KcBERT 대조군 15조건 실증</h1>
+    <p class="header-desc">지름길(Shortcut) 편향 차단을 위한 Matched Control 실험, 1,543개 그룹 불확실성, 4대 오류 전이 및 Two-track 동적 게이팅 실증 보고서</p>
+    <div class="meta-bar">
+      <div><strong>연구 역할</strong>: 보안 연구자 & 윤리적 레드팀 분석가</div>
+      <div><strong>평가 백본</strong>: KcBERT-Base (654 Updates 동일 통제)</div>
+      <div><strong>실험 규모</strong>: 5 Seeds × 3 Arms (15 조건 전수 검증)</div>
+      <div><strong>개인정보 격리</strong>: 29개 PII 그룹 (40행) 영구 폐쇄</div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Executive Summary -->
+  <div class="section-card">
+    <h2>Executive Summary</h2>
+    <p>이 보고서는 개발 리드아웃에서 읽은 탐색 결과입니다. 독립 테스트가 아닙니다. <strong>281개 URL 편집 쌍</strong>을 같은 라벨로 넣은 <strong>FLIP</strong>과 원문 복제 <strong>DUP</strong>를 비교했습니다. URL 지름길의 인과 교정이나 운영 효과를 입증한 결과는 아닙니다.</p>
+    <div class="grid-kpi">
+      <div class="kpi-card">
+        <div class="kpi-title">FLIP 평균 오탐률 (FPR)</div>
+        <div class="kpi-value" style="color: var(--green);">0.68%</div>
+        <div class="kpi-desc">DUP (0.89%) 대비 -0.21%p. 유의성 검정 없음. 보정셋 FPR 상한 1.0%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">정상 오탐 해소 (Hard Negative)</div>
+        <div class="kpi-value" style="color: var(--green);">25건</div>
+        <div class="kpi-desc">해소 건의 92.0%가 택배/공공 등 정상 URL 문자</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">최우수 Brier Score (확률 보정)</div>
+        <div class="kpi-value" style="color: var(--primary);">0.01158</div>
+        <div class="kpi-desc">FLIP (0.01158) &lt; DUP (0.01218) &lt; BASE (0.01273)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Two-track Gating F1</div>
+        <div class="kpi-value" style="color: var(--primary);">96.66%</div>
+        <div class="kpi-desc">같은 개발 리드아웃에서 세 비교 중 평균 F1이 가장 높음</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section-card">
+    <h2>01. 실험 설계 (Matched Control Protocol)</h2>
+    <p>엄격한 내적 타당성을 위해 모든 조건에서 사전학습 모델, 옵티마이저, 업데이트 횟수(654 updates)를 완전히 일치시켰습니다:</p>
+    <ul>
+      <li><strong>BASE (대조군)</strong>: 원본 6,680행으로 학습한 기본 모델.</li>
+      <li><strong>DUP (노출 통제군)</strong>: 원본 6,680행 + 원본 URL 포함 281행 복제 (표본 추가 노출 효과 통제).</li>
+      <li><strong>FLIP (교정 실험군)</strong>: 원본 6,680행 + URL 마스킹/변형 281행 라벨 보존 주입 (지름길 차단).</li>
+    </ul>
+    <p style="font-size: 13px; color: var(--muted);">※ 임계값은 개발 리드아웃셋(1,750행)을 일체 보지 않고, 별도 보정셋(1,703행)에서 FPR ≤ 1.0% 기준으로 사전 결정되었습니다.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section-card">
+    <h2>02. 15개 조건 종합 결과 및 기술통계 분석</h2>
+    <p>시드 42, 101, 202, 303, 404에서 보정셋(FPR ≤ 1.0%)으로 임계값을 고른 뒤, 개발 리드아웃 1,750행에서 한 번 읽은 결과입니다. 미사용 독립 테스트가 아닙니다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>조건 (Arm)</th>
+          <th>Recall (재현율)</th>
+          <th>FPR (오탐률)</th>
+          <th>F1-Score</th>
+          <th>Brier Score (확률오차)</th>
+          <th>해석 및 특성</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>DUP</strong></td>
+          <td>97.03% ± 0.70%p</td>
+          <td>0.89% ± 0.11%p</td>
+          <td>96.62% ± 0.46%p</td>
+          <td>0.01218</td>
+          <td>최고 재현율, 기준 오탐률 유지</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>FLIP</strong></td>
+          <td>96.18% ± 0.56%p</td>
+          <td><strong>0.68% ± 0.15%p</strong></td>
+          <td>96.62% ± 0.52%p</td>
+          <td><strong>0.01158</strong></td>
+          <td><strong>오탐률 -0.21%p 억제 및 최우수 확률 보정</strong></td>
+        </tr>
+        <tr>
+          <td><strong>BASE</strong></td>
+          <td>96.61% ± 1.40%p</td>
+          <td>0.94% ± 0.31%p</td>
+          <td>96.28% ± 0.44%p</td>
+          <td>0.01273</td>
+          <td>시드별 변동성이 가장 큼</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>상충 관계:</strong> FLIP 평균 FPR은 0.89%에서 0.68%로 낮아졌고 재현율은 97.03%에서 96.18%로 0.85%p 낮아졌습니다. 유의성 검정은 하지 않았습니다. Arm마다 임계값이 다릅니다.</p>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section-card">
+    <h2>03. 유사도 그룹 단위 불확실성 (Group-level Uncertainty)</h2>
+    <p>개발 리드아웃 1,750개 메시지는 유사도 클러스터링을 통해 <strong>총 1,543개 그룹</strong>으로 묶여 있습니다 (단일 그룹 1,460개, 다중 그룹 83개). 그룹 단위의 시드 간 예측 변동성을 전수 집계했습니다.</p>
+
+    <div class="two-col">
+      <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
+        <h3 style="margin-top: 0;">그룹 단위 평균 표준편차</h3>
+        <ul>
+          <li><strong>FLIP</strong>: <code>0.0058</code> (전체 최저 변동성)</li>
+          <li><strong>DUP</strong>: <code>0.0062</code></li>
+          <li><strong>BASE</strong>: <code>0.0077</code></li>
+        </ul>
+        <p style="font-size: 13px; color: var(--muted);">FLIP은 1,460개 단일 그룹에서도 0.0053으로 가장 일관된 결정을 유지했습니다.</p>
+      </div>
+      <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
+        <h3 style="margin-top: 0;">확률 보정 신뢰도 (Brier Score)</h3>
+        <ul>
+          <li><strong>FLIP</strong>: <code>0.01158 ± 0.00118</code> (최저 MSE 오차)</li>
+          <li><strong>DUP</strong>: <code>0.01218 ± 0.00156</code></li>
+          <li><strong>BASE</strong>: <code>0.01273 ± 0.00077</code></li>
+        </ul>
+        <p style="font-size: 13px; color: var(--muted);">FLIP 조건은 모델 출력 확률값 자체가 실제 정답(0/1)과 가장 밀접하게 보정되어 있음을 입증합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section-card">
+    <h2>04. 실패 사례 및 전이 심층 분석 (Failure Case Study)</h2>
+    <p>1,750개 샘플에 대해 DUP 대비 FLIP의 판정 전이를 전수 추적하여, 오탐 해소의 구체적 이점과 정탐 손실의 근본 원인을 규명했습니다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>전이 유형</th>
+          <th>판정 건수</th>
+          <th>고유 메시지</th>
+          <th>URL 있음 비율</th>
+          <th>대표적 텍스트 패턴 및 원인</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-green">오탐 해소 (Resolved FP)</span></td>
+          <td><strong>25건</strong></td>
+          <td>14개</td>
+          <td><strong>92.0% (23건)</strong></td>
+          <td>이번 자료의 택배·지자체·은행 안내처럼 URL이 있는 정상 문자. 현업 오탐 전부를 막았다는 뜻이 아님</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-red">정탐 손실 (Lost TP)</span></td>
+          <td><strong>22건</strong></td>
+          <td>9개</td>
+          <td>63.6% (14건)</td>
+          <td><strong>"박은주(백년요가) [url]"(15자)</strong> 등 스미싱 단서가 희박한 극단적 단문 및 정상과 유사한 쿠폰 문자</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-orange">신규 오탐 (New FP)</span></td>
+          <td><strong>10건</strong></td>
+          <td>7개</td>
+          <td>20.0% (2건)</td>
+          <td>URL 없는 정상 문자 중 <strong>"보안코드", "상담예약", "국제발신"</strong> 등 특정 키워드에 과민 반응</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">미탐 구제 (Rescued FN)</span></td>
+          <td><strong>8건</strong></td>
+          <td>6개</td>
+          <td>50.0% (4건)</td>
+          <td>URL 없는 <strong>청첩장 사칭 및 주식 리딩방</strong> 문자를 FLIP이 본문 문맥으로 정탐 구제</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section-card">
+    <h2>05. 이중 경로(Two-track) 동적 신뢰도 게이팅 실증 결과</h2>
+    <p>이미 학습된 <strong>FLIP 확률</strong>과 <strong>DUP 확률</strong>을 <code>len &lt; 35</code>이고 URL이 있는 행에서만 섞는 사후 시뮬레이션입니다. Track 2는 별도 구조 분류기가 아닙니다. 규칙은 실패 분석을 본 뒤 같은 개발 리드아웃에서 점수를 냈습니다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>모델 / 아키텍처</th>
+          <th>Recall (재현율)</th>
+          <th>FPR (오탐률)</th>
+          <th>F1-Score</th>
+          <th>Brier Score</th>
+          <th>평가</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Two-track Gated</strong></td>
+          <td><strong>96.55%</strong></td>
+          <td><strong>0.75%</strong></td>
+          <td><strong>96.66%</strong></td>
+          <td><strong>0.01136</strong></td>
+          <td>세 비교 중 평균 F1·Brier가 가장 좋음. 같은 개발 리드아웃</td>
+        </tr>
+        <tr>
+          <td>FLIP Baseline</td>
+          <td>96.18%</td>
+          <td>0.68%</td>
+          <td>96.62%</td>
+          <td>0.01158</td>
+          <td>오탐 억제 우수하나 단문 정탐 손실 존재</td>
+        </tr>
+        <tr>
+          <td>DUP Baseline</td>
+          <td>97.03%</td>
+          <td>0.89%</td>
+          <td>96.62%</td>
+          <td>0.01218</td>
+          <td>이 표의 임계값은 게이팅 스크립트가 보정셋을 다시 적용한 값</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>게이팅 평균은 FPR 0.75%, F1 96.66%, Brier 0.01136입니다. FLIP 대비 F1 차이는 약 0.12%p입니다. 독립 테스트가 아닙니다.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section-card">
+    <h2>06. 엔터프라이즈 거버넌스 및 SAS Visual Analytics 연동</h2>
+    <p>집계 지표를 SAS Studio와 Visual Analytics에서 그리도록 코드를 패키징했습니다. 실제 Viya 서버 실행과 CAS 적재는 아직 확인하지 않았습니다:</p>
+    <ul>
+      <li><strong>비식별 집계 데이터셋 (5종 CSV)</strong>: 15-Arm 지표, URL 하위집단, 4대 오류 전이, 상위 불확실 그룹 테이블.</li>
+      <li><strong>SAS Studio ODS 시각화 (<code>14_kcbert_visuals.sas</code>)</strong>: 15-Arm 트레이드오프 산점도 및 박스플롯 고해상도 생성.</li>
+      <li><strong>SAS Viya CAS 배포 (<code>15_publish_kcbert_to_cas.sas</code>)</strong>: CASUSER 메모리 적재 및 Visual Analytics 글로벌 승격 지원.</li>
+    </ul>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section-card">
+    <h2>07. 결론 및 향후 계획</h2>
+    <ol style="padding-left: 20px; line-height: 1.8;">
+      <li><strong>관찰</strong>: 이번 개발 리드아웃에서 FLIP 평균 FPR은 0.68%, Brier는 세 Arm 중 가장 낮았습니다. 유의성 검정과 독립 테스트는 없습니다.</li>
+      <li><strong>Two-track</strong>: DUP 확률을 단문 URL 행에만 섞은 사후 시뮬레이션에서 평균 F1 96.66%를 읽었습니다. 새 기본 모델이 아닙니다.</li>
+      <li><strong>패키지</strong>: 포스터, HTML, SAS 시각화 코드, 09-18 zip은 만들어 두었습니다. Viya 서버 실행은 대기입니다.</li>
+    </ol>
+  </div>
+
+</div>
+
+</body>
+</html>

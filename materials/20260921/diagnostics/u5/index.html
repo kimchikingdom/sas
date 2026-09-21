@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamLens KcBERT U5 심층 오류 진단 및 신뢰성 평가 해설서</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2b6cb0;
+            --accent: #d69e2e;
+            --danger: #e53e3e;
+            --success: #38a169;
+            --bg: #f7fafc;
+            --card-bg: #ffffff;
+            --text: #2d3748;
+            --text-muted: #718096;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0 0 60px 0;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+            color: white;
+            padding: 40px 20px;
+            border-bottom: 4px solid var(--accent);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .header-container { max-width: 1200px; margin: 0 auto; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { font-size: 1.05rem; color: #cbd5e1; max-width: 850px; }
+        .nav-summary { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .nav-pill {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+        .kpi-card {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+        .kpi-title { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+        .kpi-value { font-size: 1.9rem; font-weight: 800; color: var(--primary); margin: 6px 0; }
+        .kpi-sub { font-size: 0.84rem; color: var(--text-muted); }
+        
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            margin-bottom: 35px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        section h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 25px;
+            margin: 20px 0;
+            width: 100%;
+        }
+        .chart-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .chart-box img { max-width: 100%; height: auto; border-radius: 6px; }
+        .chart-caption { margin-top: 10px; font-size: 0.88rem; color: var(--text-muted); font-weight: 600; }
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 10px 0; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: #edf2f7; font-weight: 700; color: var(--primary); }
+        tr:hover { background-color: #f8fafc; }
+        .badge { display: inline-block; padding: 3px 8px; font-size: 0.75rem; font-weight: 700; color: white; border-radius: 4px; }
+        .alert-box {
+            background-color: #fffaf0;
+            border-left: 4px solid var(--accent);
+            padding: 18px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .alert-box.danger { background-color: #fff5f5; border-left-color: var(--danger); }
+        .alert-title { font-weight: 800; color: var(--text); margin-bottom: 6px; }
+        .case-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .case-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .case-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+        .case-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+        .synthetic-box {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 14px;
+            border-radius: 6px;
+            margin: 10px 0 15px 0;
+            font-family: Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9rem;
+            position: relative;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+        .synthetic-box code { white-space: pre-wrap; word-break: break-all; color: #e2e8f0; }
+        .synth-label { position: absolute; top: 4px; right: 8px; font-size: 0.7rem; color: #a0aec0; font-family: sans-serif; }
+        @media (max-width: 768px) {
+            header { padding: 25px 15px; }
+            header h1 { font-size: 1.45rem; }
+            .container { padding: 0 10px; margin: 15px auto; }
+            section { padding: 20px 14px; margin-bottom: 20px; }
+            .chart-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: 1fr; gap: 12px; }
+        }
+        footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.88rem; border-top: 1px solid var(--border); margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>ScamLens KcBERT U5 심층 오류 진단 및 모델 신뢰성 평가</h1>
+        <p>기존 U5 시험셋(N=2,317) 전수 15개 모델(BASE, DUP, FLIP x 5 Seeds)의 정밀 오탐(FP)·미탐(FN) 오류 조건 분석 및 SAS 9.4/Viya 패키지 안내서</p>
+        <div class="nav-summary">
+            <span class="nav-pill">평가 일자: 2026-09-20</span>
+            <span class="nav-pill">시험셋 규모: N=2,317 (정상 1,665 / 스미싱 652)</span>
+            <span class="nav-pill">검증 일치율: 15/15 전수 100% 일치</span>
+            <span class="nav-pill">시각화: Python 미리보기 (SAS 런타임 대기 중)</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- KPI Metrics -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-title">총 시험셋 규모</div>
+            <div class="kpi-value">2,317</div>
+            <div class="kpi-sub">정상 1,665건 / 스미싱 652건</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">DUP 가시 vs 절단 재현율</div>
+            <div class="kpi-value">99.3% vs 83.2%</div>
+            <div class="kpi-sub">가시(2954/2975) vs 절단(237/285) 이벤트 (코호트 상관관계)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">DUP 5/5 지속 오탐 (FP)</div>
+            <div class="kpi-value" style="color: var(--danger);">4건</div>
+            <div class="kpi-sub">고유 오탐 14건 중 4건이 5개 시드 전수 발생</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">DUP 5/5 지속 미탐 (FN)</div>
+            <div class="kpi-value" style="color: var(--primary-light);">7건</div>
+            <div class="kpi-sub">고유 미탐 30건 중 7건이 5개 시드 전수 발생 (전체 15모델 공통 미탐 6건)</div>
+        </div>
+    </div>
+
+    <!-- Executive Summary Section -->
+    <section>
+        <h2>1. 진단 총평 및 핵심 관찰 (Executive Summary)</h2>
+        <p>
+            본 진단은 기존에 평가한 KcBERT U5 시험셋(2,317건)을 바탕으로,
+            15개 모델의 혼동행렬을 정합 검증하고 텍스트 구조 및 토큰화 한계에 따른 오차 분포를 분석한 정밀 기술 감사 보고서입니다.
+        </p>
+
+        <div class="alert-box danger">
+            <div class="alert-title">⚠️ 중요 관찰 1: 토크나이저 128 토큰 절단 코호트의 탐지율 대조</div>
+            <p>
+                전체 2,317건 중 14.29%(331건: 정상 274건, 스미싱 57건)가 MAXLEN=128 한계로 절단되었습니다.
+                DUP 조건의 5개 시드 이벤트 합계 기준, <strong>128 토큰 내 가시 스미싱의 재현율은 99.29%(2,954/2,975)인 반면, 
+                절단된 스미싱의 재현율은 83.16%(237/285)로 현저히 낮게 관찰</strong>되었습니다 (미탐률 FNR: 0.71% vs 16.84%).
+                단, 이는 코호트 간 텍스트 길이, 레이블 불균형, 주제 차이 등 교란 요인이 공존하므로 '절단이 원인'이라고 단정할 수 없으며 상관적 관찰로 다루어야 합니다.
+            </p>
+        </div>
+
+        <div class="alert-box">
+            <div class="alert-title">ℹ️ 중요 관찰 2: 메타데이터 불일치 (원시 IPv4 주소 스미싱 미탐)</div>
+            <p>
+                단일 스미싱 샘플 중 <code>has_url = 0</code>(URL 미포함)으로 분류되었으나 본문에 점 표기 IPv4 주소가 포함된 사례가 확인되었습니다.
+                이 메시지는 DUP 조건의 5개 시드 모두에서 100% 미탐(FN)되었으며, 15개 모델 전수에서도 미탐(15-Model All Miss)되었습니다.
+                URL 메타데이터의 포착 범위 문제입니다. U5 모델은 has_url을 입력으로 쓰지 않으므로, 이 표식 누락이 미탐의 원인이라는 뜻은 아닙니다.
+            </p>
+        </div>
+
+        <div class="alert-box">
+            <div class="alert-title">🔍 중요 관찰 3: 시드별 임계값 변동성 (Seed 202 이상치)</div>
+            <p>
+                DUP 조건의 검증셋 선택 임계값은 타 시드가 <code>0.022 ~ 0.060</code> 수준인 반면, <strong>Seed 202는 <code>0.985776</code>으로 극단적으로 치솟았습니다.</strong>
+                이는 모델의 최종 로짓 분포가 시드별 초기화에 따라 크게 이동함을 나타내며, 시드 간 원시 확률 마진(Prob - Threshold)을 보정된 확신도나 인과적 증거로 직접 비교해서는 안 됩니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Visualizations Section -->
+    <section>
+        <h2>2. 정밀 시각화 분석 (6종 차트)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 15px;">※ 본 차트는 Python matplotlib 기반 미리보기 산출물이며, SAS 9.4/Viya 환경 실행은 대기 중(Pending)입니다.</p>
+        <div class="chart-grid">
+            <div class="chart-box">
+                <img src="charts/error_distribution_arm.png" alt="조건별 오류 발생 분포">
+                <div class="chart-caption">그림 1. 조건별(BASE, DUP, FLIP) 평균 FP/FN 및 5개 시드 산점도 (모표준편차)</div>
+            </div>
+            <div class="chart-box">
+                <img src="charts/fp_fn_breakdown_by_length.png" alt="길이 구간별 오차율">
+                <div class="chart-caption">그림 2. DUP 조건: 고정 길이 구간별 오탐률(FPR) 및 미탐률(FNR) 추이 (표본수 병기)</div>
+            </div>
+            <div class="chart-box">
+                <img src="charts/marker_presence_error_rates.png" alt="마커 유무별 미탐률">
+                <div class="chart-caption">그림 3. 주요 특성 마커 유무에 따른 스미싱 미탐률(FNR %) 및 대응 표본수</div>
+            </div>
+            <div class="chart-box">
+                <img src="charts/token_truncation_impact.png" alt="토큰 절단 대조">
+                <div class="chart-caption">그림 4. 128 토큰 절단 여부에 따른 미탐률(FNR %) 및 오탐률(FPR %) (0 베이스라인)</div>
+            </div>
+            <div class="chart-box">
+                <img src="charts/threshold_margin_distribution.png" alt="임계값 마진 분포">
+                <div class="chart-caption">그림 5. 시드별 결정 마진 분포 및 Seed 202 이상치 시각화</div>
+            </div>
+            <div class="chart-box">
+                <img src="charts/paired_transition_breakdown.png" alt="쌍별 전이 분석">
+                <div class="chart-caption">그림 6. DUP -> FLIP 시드별 쌍별 전이 (해소 vs 신규 vs 지속) 및 순변화</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Synthetic Illustrative Cards -->
+    <section>
+        <h2>3. 대표 오류 패턴 예시 해설 (가상 재구성 도시에)</h2>
+        <p style="margin-bottom: 20px; color: var(--text-muted);">
+            ※ 연구 윤리 및 보안 지침에 따라 실제 메시지 원문은 비공개 격리(`[비공개 격리 경로]`, 0o600) 보관됩니다.
+            아래 카드는 실제 관찰된 오류 테마를 설명하기 위한 <strong>순수 예시용 가상 합성 텍스트</strong>이며, 모델에 입력되거나 채점된 결과가 아닙니다.
+        </p>
+        
+        <div class="case-card">
+            <div class="case-header">
+                <span class="badge" style="background-color: #d9534f;">ILLUST-FP-01</span>
+                <span class="case-title">단문 배송 완료 알림 가상 예시 (Short Delivery Notice Reconstruction)</span>
+            </div>
+            <div class="case-meta">
+                <strong>성격:</strong> Explicitly illustrative synthetic text. Not scored by models. | 
+                <strong>측정 출력:</strong> none | 
+                <strong>실제 관찰 테마:</strong> Delivery-notice wording and URL marker; corpus label normal, real legitimacy unverified
+            </div>
+            <div class="synthetic-box">
+                <span class="synth-label">[예시용 가상 텍스트 - 모델 미채점]</span>
+                <code>[배송알림] 고객님의 물품이 경비실에 보관되었습니다. 확인: delivery.example.invalid/track</code>
+            </div>
+            <div class="case-body">
+                <p><strong>가설적 설명 (Hypothesis):</strong> 가설(Hypothesis): 단문 구조 내 배송/보관 어휘와 링크가 함께 등장할 때 모델이 위험 패턴으로 분류할 가능성이 관찰됨. 실제 어텐션 가중치나 인과는 측정되지 않았으며 모델 간 로짓 보정 상태에 따른 차이일 수 있음.</p>
+                <p><strong>방어적 고려사항:</strong> 출처가 확인된 정상 배송 자료를 별도 개발 자료에 보강하고 신규 평가 자료로 검증. 발신자·문구만으로 자동 허용하지 않음.</p>
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-header">
+                <span class="badge" style="background-color: #d9534f;">ILLUST-FP-02</span>
+                <span class="case-title">법적 고지 안내문 가상 예시 (Statutory Privacy Notice Reconstruction)</span>
+            </div>
+            <div class="case-meta">
+                <strong>성격:</strong> Explicitly illustrative synthetic text. Not scored by models. | 
+                <strong>측정 출력:</strong> none | 
+                <strong>실제 관찰 테마:</strong> Privacy-use notice wording with URL marker; corpus label normal
+            </div>
+            <div class="synthetic-box">
+                <span class="synth-label">[예시용 가상 텍스트 - 모델 미채점]</span>
+                <code>[고지] 정보통신망법에 따른 연간 개인정보 이용내역 안내. 세부사항: privacy.example.invalid/notice</code>
+            </div>
+            <div class="case-body">
+                <p><strong>가설적 설명 (Hypothesis):</strong> 가설(Hypothesis): 연례 법정 고지 문구와 URL 조합이 기관 사칭형 스미싱 데이터와 어휘적으로 중복되어 오탐이 발생할 수 있음.</p>
+                <p><strong>방어적 고려사항:</strong> 정기 법정 고지 양식의 사전 식별 및 기업 공인 알림 서비스 연동.</p>
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-header">
+                <span class="badge" style="background-color: #0275d8;">ILLUST-FN-01</span>
+                <span class="case-title">원시 IPv4 주소 사용 스미싱 가상 예시 (Bare IPv4 Discrepancy Reconstruction)</span>
+            </div>
+            <div class="case-meta">
+                <strong>성격:</strong> Explicitly illustrative synthetic text. Not scored by models. | 
+                <strong>측정 출력:</strong> none | 
+                <strong>실제 관찰 테마:</strong> Smishing containing dot-separated IPv4 address with metadata has_url=0 (label malicious)
+            </div>
+            <div class="synthetic-box">
+                <span class="synth-label">[예시용 가상 텍스트 - 모델 미채점]</span>
+                <code>[건강검진] 검진 결과 통지서 확인: 192.0.2.1/check</code>
+            </div>
+            <div class="case-body">
+                <p><strong>가설적 설명 (Hypothesis):</strong> 가설(Hypothesis): URL 파서가 도메인 접두사(http:// 등)가 없는 점 표기 IP를 감지하지 못해 has_url=0으로 플래그된 경우, 링크 탐지 특성에 의존하는 모델에서 미탐이 발생할 수 있음.</p>
+                <p><strong>방어적 고려사항:</strong> 새 개발 자료에서 IP 표기 추출 규칙의 적용 범위와 오탐을 검증. 기존 U5 입력·라벨·임계값은 수정하지 않음.</p>
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-header">
+                <span class="badge" style="background-color: #0275d8;">ILLUST-FN-02</span>
+                <span class="case-title">장문 공지 후미 링크 배치 가상 예시 (Long Text Truncation Cohort Reconstruction)</span>
+            </div>
+            <div class="case-meta">
+                <strong>성격:</strong> Explicitly illustrative synthetic text. Not scored by models. | 
+                <strong>측정 출력:</strong> none | 
+                <strong>실제 관찰 테마:</strong> Long policy/benefit-notice wording in corpus-malicious rows; payload position and actual legitimacy not established
+            </div>
+            <div class="synthetic-box">
+                <span class="synth-label">[예시용 가상 텍스트 - 모델 미채점]</span>
+                <code>[공지] 정부지원 저금리 대출 상품 상세 안내입니다. [공지] 정부지원 저금리 대출 상품 상세 안내입니다. [공지] 정부지원 저금리 대출 상품 상세 안내입니다. [공지] 정부지원 저금리 대출 상품 상세 안내입니다. [공지] 정부지원 저금리 대출 상품 상세 안내입니다. 신청링크: assist.example.invalid/apply</code>
+            </div>
+            <div class="case-body">
+                <p><strong>가설적 설명 (Hypothesis):</strong> 가설(Hypothesis): KcBERT의 최대 시퀀스 길이인 128 토큰을 초과하는 텍스트에서 악성 링크가 후미에 위치할 경우 토크나이저에 의해 절단되어 모델 가시 창 밖에 머물러 미탐이 발생할 수 있음 (코호트 교란 요인 고려 필요).</p>
+                <p><strong>방어적 고려사항:</strong> 특수 토큰 예산을 고려한 앞·뒤 구간 결합 또는 링크/연락처 보존을 개발셋에서 비교.</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- 15-Model Diagnostic Table -->
+    <section>
+        <h2>4. 15개 모델 전수 진단 데이터표 (Full Arm-Seed Metrics)</h2>
+        <p style="margin-bottom: 15px;">reports/generated/matched_kcbert_u5_unused_test_20260918_v1.json 과 전수 1:1 대조 검증 완료.</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Arm</th>
+                        <th>Seed</th>
+                        <th>Threshold (θ)</th>
+                        <th>TP</th>
+                        <th>TN</th>
+                        <th>FP</th>
+                        <th>FN</th>
+                        <th>Recall</th>
+                        <th>FPR</th>
+                        <th>F1</th>
+                        <th>Brier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr style="">
+                <td>BASE</td>
+                <td>42</td>
+                <td>0.0329</td>
+                <td>629</td>
+                <td>1650</td>
+                <td>15</td>
+                <td>23</td>
+                <td>96.47%</td>
+                <td>0.90%</td>
+                <td>97.07%</td>
+                <td>0.0142</td>
+            </tr>
+            
+            <tr style="">
+                <td>BASE</td>
+                <td>101</td>
+                <td>0.0439</td>
+                <td>644</td>
+                <td>1653</td>
+                <td>12</td>
+                <td>8</td>
+                <td>98.77%</td>
+                <td>0.72%</td>
+                <td>98.47%</td>
+                <td>0.0073</td>
+            </tr>
+            
+            <tr style="">
+                <td>BASE</td>
+                <td>202</td>
+                <td>0.3418</td>
+                <td>631</td>
+                <td>1664</td>
+                <td>1</td>
+                <td>21</td>
+                <td>96.78%</td>
+                <td>0.06%</td>
+                <td>98.29%</td>
+                <td>0.0088</td>
+            </tr>
+            
+            <tr style="">
+                <td>BASE</td>
+                <td>303</td>
+                <td>0.8012</td>
+                <td>642</td>
+                <td>1658</td>
+                <td>7</td>
+                <td>10</td>
+                <td>98.47%</td>
+                <td>0.42%</td>
+                <td>98.69%</td>
+                <td>0.0063</td>
+            </tr>
+            
+            <tr style="">
+                <td>BASE</td>
+                <td>404</td>
+                <td>0.0206</td>
+                <td>643</td>
+                <td>1650</td>
+                <td>15</td>
+                <td>9</td>
+                <td>98.62%</td>
+                <td>0.90%</td>
+                <td>98.17%</td>
+                <td>0.0089</td>
+            </tr>
+            
+            <tr style="">
+                <td>DUP</td>
+                <td>42</td>
+                <td>0.0251</td>
+                <td>642</td>
+                <td>1657</td>
+                <td>8</td>
+                <td>10</td>
+                <td>98.47%</td>
+                <td>0.48%</td>
+                <td>98.62%</td>
+                <td>0.0110</td>
+            </tr>
+            
+            <tr style="">
+                <td>DUP</td>
+                <td>101</td>
+                <td>0.0605</td>
+                <td>640</td>
+                <td>1658</td>
+                <td>7</td>
+                <td>12</td>
+                <td>98.16%</td>
+                <td>0.42%</td>
+                <td>98.54%</td>
+                <td>0.0079</td>
+            </tr>
+            
+            <tr style="background-color: #fff3e0; font-weight: bold;">
+                <td>DUP</td>
+                <td>202 <span class='badge' style='background:#e65100;'>임계값 이상치</span></td>
+                <td>0.9858</td>
+                <td>634</td>
+                <td>1661</td>
+                <td>4</td>
+                <td>18</td>
+                <td>97.24%</td>
+                <td>0.24%</td>
+                <td>98.29%</td>
+                <td>0.0068</td>
+            </tr>
+            
+            <tr style="">
+                <td>DUP</td>
+                <td>303</td>
+                <td>0.0221</td>
+                <td>635</td>
+                <td>1656</td>
+                <td>9</td>
+                <td>17</td>
+                <td>97.39%</td>
+                <td>0.54%</td>
+                <td>97.99%</td>
+                <td>0.0106</td>
+            </tr>
+            
+            <tr style="">
+                <td>DUP</td>
+                <td>404</td>
+                <td>0.0261</td>
+                <td>640</td>
+                <td>1656</td>
+                <td>9</td>
+                <td>12</td>
+                <td>98.16%</td>
+                <td>0.54%</td>
+                <td>98.39%</td>
+                <td>0.0086</td>
+            </tr>
+            
+            <tr style="">
+                <td>FLIP</td>
+                <td>42</td>
+                <td>0.2482</td>
+                <td>642</td>
+                <td>1656</td>
+                <td>9</td>
+                <td>10</td>
+                <td>98.47%</td>
+                <td>0.54%</td>
+                <td>98.54%</td>
+                <td>0.0069</td>
+            </tr>
+            
+            <tr style="">
+                <td>FLIP</td>
+                <td>101</td>
+                <td>0.0406</td>
+                <td>635</td>
+                <td>1658</td>
+                <td>7</td>
+                <td>17</td>
+                <td>97.39%</td>
+                <td>0.42%</td>
+                <td>98.15%</td>
+                <td>0.0146</td>
+            </tr>
+            
+            <tr style="">
+                <td>FLIP</td>
+                <td>202</td>
+                <td>0.3012</td>
+                <td>640</td>
+                <td>1662</td>
+                <td>3</td>
+                <td>12</td>
+                <td>98.16%</td>
+                <td>0.18%</td>
+                <td>98.84%</td>
+                <td>0.0071</td>
+            </tr>
+            
+            <tr style="">
+                <td>FLIP</td>
+                <td>303</td>
+                <td>0.0574</td>
+                <td>626</td>
+                <td>1658</td>
+                <td>7</td>
+                <td>26</td>
+                <td>96.01%</td>
+                <td>0.42%</td>
+                <td>97.43%</td>
+                <td>0.0149</td>
+            </tr>
+            
+            <tr style="">
+                <td>FLIP</td>
+                <td>404</td>
+                <td>0.0403</td>
+                <td>637</td>
+                <td>1653</td>
+                <td>12</td>
+                <td>15</td>
+                <td>97.70%</td>
+                <td>0.72%</td>
+                <td>97.92%</td>
+                <td>0.0147</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Paired Transitions Table -->
+    <section>
+        <h2>5. DUP -> FLIP 시드별 쌍별 전이 집계표 (Paired Transition Accounting)</h2>
+        <p style="margin-bottom: 15px;">순 전이 이벤트: FP 순증가 +1 (DUP 37 -> FLIP 38), FN 순증가 +11 (DUP 69 -> FLIP 80)</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Seed</th>
+                        <th>Type</th>
+                        <th>Denominator</th>
+                        <th>DUP Count</th>
+                        <th>FLIP Count</th>
+                        <th>Net Change</th>
+                        <th>Resolved</th>
+                        <th>New</th>
+                        <th>Persistent</th>
+                        <th>Neither</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td>42</td>
+            <td>FP</td>
+            <td>1665</td>
+            <td>8</td>
+            <td>9</td>
+            <td>+1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>8</td>
+            <td>1656</td>
+        </tr>
+        
+        <tr>
+            <td>42</td>
+            <td>FN</td>
+            <td>652</td>
+            <td>10</td>
+            <td>10</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>8</td>
+            <td>640</td>
+        </tr>
+        
+        <tr>
+            <td>101</td>
+            <td>FP</td>
+            <td>1665</td>
+            <td>7</td>
+            <td>7</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>5</td>
+            <td>1656</td>
+        </tr>
+        
+        <tr>
+            <td>101</td>
+            <td>FN</td>
+            <td>652</td>
+            <td>12</td>
+            <td>17</td>
+            <td>+5</td>
+            <td>1</td>
+            <td>6</td>
+            <td>11</td>
+            <td>634</td>
+        </tr>
+        
+        <tr>
+            <td>202</td>
+            <td>FP</td>
+            <td>1665</td>
+            <td>4</td>
+            <td>3</td>
+            <td>-1</td>
+            <td>2</td>
+            <td>1</td>
+            <td>2</td>
+            <td>1660</td>
+        </tr>
+        
+        <tr>
+            <td>202</td>
+            <td>FN</td>
+            <td>652</td>
+            <td>18</td>
+            <td>12</td>
+            <td>-6</td>
+            <td>7</td>
+            <td>1</td>
+            <td>11</td>
+            <td>633</td>
+        </tr>
+        
+        <tr>
+            <td>303</td>
+            <td>FP</td>
+            <td>1665</td>
+            <td>9</td>
+            <td>7</td>
+            <td>-2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>7</td>
+            <td>1656</td>
+        </tr>
+        
+        <tr>
+            <td>303</td>
+            <td>FN</td>
+            <td>652</td>
+            <td>17</td>
+            <td>26</td>
+            <td>+9</td>
+            <td>3</td>
+            <td>12</td>
+            <td>14</td>
+            <td>623</td>
+        </tr>
+        
+        <tr>
+            <td>404</td>
+            <td>FP</td>
+            <td>1665</td>
+            <td>9</td>
+            <td>12</td>
+            <td>+3</td>
+            <td>3</td>
+            <td>6</td>
+            <td>6</td>
+            <td>1650</td>
+        </tr>
+        
+        <tr>
+            <td>404</td>
+            <td>FN</td>
+            <td>652</td>
+            <td>12</td>
+            <td>15</td>
+            <td>+3</td>
+            <td>1</td>
+            <td>4</td>
+            <td>11</td>
+            <td>636</td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SAS Kit Guide -->
+    <section>
+        <h2>6. 엔터프라이즈 SAS 9.4 / Viya 분석 킷 (SAS Kit)</h2>
+        <p>
+            엔터프라이즈 통계 환경 재현을 위해 Mac 의존성 및 하드코딩된 경로를 일체 배제하고,
+            <code>INFILE ... DSD DLM=',' FIRSTOBS=2</code>, 명시적 스키마, <code>PROC MEANS VARDEF=N</code>,
+            관측치 가드 검증을 포함한 독립형 SAS 프로그램(<code>sas/16_u5_error_diagnostics.sas</code>)과 6종 CSV를 패키징하였습니다.
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">
+            ※ 개발 환경(macOS) 특성상 로컬 SAS 라이선스가 없어 코드 준비 및 정적 검토(Prepared & Statically Reviewed)를 거쳤으며, SAS 서버 환경에서 즉시 실행 가능합니다.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    ScamLens Research Project • U5 Error Diagnostics Package • 2026-09-20 • Aggregate checks passed · SAS runtime pending
+</footer>
+
+</body>
+</html>

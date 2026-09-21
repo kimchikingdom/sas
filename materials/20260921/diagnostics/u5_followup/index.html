@@ -1,0 +1,16 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ScamLens 오류 진단 후속 결과</title><style>
+*{box-sizing:border-box}body{font:16px/1.8 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;color:#203544;background:#f3f5f7;margin:0}main{max-width:1100px;margin:24px auto;background:white;padding:32px}h1{font-size:30px}h2{margin-top:36px;font-size:22px;border-bottom:1px solid #d8dfe4;padding-bottom:8px}.notice{padding:18px;background:#fff4dd}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}td,th{border-bottom:1px solid #d8dfe4;padding:12px;text-align:left}th{background:#edf2f5}img{width:100%;height:auto;margin-top:24px}a{color:#1d5c81}@media(max-width:650px){main{padding:20px;margin:0}h1{font-size:25px}}
+</style><main><h1>오류 44건 검토와 입력 변경 실험</h1><p>남은 33건 직접 검토 · 원본 50행 추적 · 기존 시험 문자 2,317건 × DUP 5시드</p>
+<p class="notice">기존 모델·임계값·정답은 그대로 유지했습니다. 기존 시험셋을 다시 사용한 사후 진단이며 새 독립 성능 검증이 아닙니다. 본문 라벨은 AI 잠정 판단이고 실제 사기 여부는 여전히 미확인입니다.</p>
+<h2>본문 라벨링 결과</h2><ul><li>정상 안내로도 해석 가능: <b>19건</b></li><li>홍보·광고 / 명확한 사기 요구 미관찰: <b>20건</b></li><li>판단에 필요한 문맥 부족: <b>2건</b></li><li>위험 요구가 본문에 보임: <b>3건</b></li></ul>
+<p>총 34개 유사도 그룹입니다. 서로 비슷한 문자와 5개 시드의 반복을 독립 사례로 세지 않습니다.</p>
+<h2>라벨의 출처에서 확인한 것</h2><p>44건 모두 로컬 원본 CSV로 연결했고, 라벨과 설명이 정제 과정에서 이어졌음을 확인했습니다. 하지만 원본 설명은 발신자 인증·사건 번호·목적지 분석 결과를 첨부한 독립 판정 증거가 아닙니다.</p>
+<p>일부 설명은 금융기관·기관의 문자 안내를 일률적으로 부정하거나 브랜드·심의 번호만으로 정상성을 추정합니다. 채용 공고를 대출 권유로 설명한 사례도 있습니다. 이런 한계를 표시했으며 실제 정답 오류라고 단정해 라벨을 바꾸지는 않았습니다.</p>
+<h2>실험: 해결한 오류와 새로 만든 오류</h2><p>아래 수치는 5개 시드의 <b>문자–시드 판정 합계</b>입니다. 기존 FP 37건, FN 69건. FP 분모 8,325 / FN 분모 3,260. 고유 문자 수와 다릅니다.</p>
+<div class="scroll"><table><tr><th>조건</th><th>FP 해결</th><th>FP 신규</th><th>FN 해결</th><th>FN 신규</th><th>변경 후 FP</th><th>변경 후 FN</th></tr><tr><td>앞 63 + 뒤 63토큰</td><td>7</td><td>11</td><td>13</td><td>8</td><td>41</td><td>64</td></tr><tr><td>[url] 삭제</td><td>25</td><td>0</td><td>0</td><td>716</td><td>12</td><td>785</td></tr><tr><td>URL 토큰을 UNK로 치환·위치 유지</td><td>22</td><td>1</td><td>0</td><td>670</td><td>16</td><td>739</td></tr></table></div>
+<img src="transitions.svg" alt="조건별 해결 오류와 신규 오류의 비교">
+<h2>지속 오류 사례에서 확인한 것</h2><p>지속 오탐 4건 중 4건은 URL 삭제와 위치 유지 UNK 두 조건 모두에서 5개 시드의 오탐이 사라졌습니다. 이 사례의 판정이 URL 표식 정보에 민감함을 확인했지만, 표식 삭제를 일반 해결책으로 적용하면 새 미탐이 크게 늘어납니다. 지속 미탐 7건 중 앞뒤 입력으로 일부 해결된 것은 1건(2개 시드 판정)입니다. 따라서 모든 미탐을 입력 절단 탓으로 설명할 수 없습니다.</p><h2>해석 범위</h2><ul><li>앞뒤 입력은 길이를 늘리지 않고 본문 앞 63토큰·뒤 63토큰을 연결했습니다. 보이는 내용과 문맥 인접성이 함께 바뀝니다.</li>
+<li>URL 삭제는 뒤의 토큰을 앞당길 수 있습니다. 위치 유지 UNK 대조도 함께 봐야 하며, UNK 자체도 인위적인 입력입니다.</li>
+<li>입력 변경으로 판정이 바뀌었다는 사실은 확인할 수 있지만, 특정 단어가 유일한 오분류 원인이었다거나 실제 사기 탐지가 개선됐다고 단정할 수 없습니다.</li>
+<li>모든 기존 모델 점수·판정의 재현을 통과한 뒤 실험했습니다. 모델 가중치·입력·임계값의 해시와 시드별 결과를 보존했습니다.</li></ul>
+<p><a href="label_review.html">44건의 본문 판단과 원자료 감사 메모 보기</a> · <a href="REPORT.md">검토 보고서</a></p></main></html>

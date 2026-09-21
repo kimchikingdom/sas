@@ -1,0 +1,7 @@
+error_type,transition,_TYPE_,_FREQ_,events
+FN,New,3,5,25
+FN,Persistent,3,5,55
+FN,Resolved,3,5,14
+FP,New,3,5,10
+FP,Persistent,3,5,28
+FP,Resolved,3,5,9

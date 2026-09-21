@@ -2,3 +2,19 @@
 
 # User-side SAS follow-up evidence stays local.
 /followup_20260921_v1/outputs/
+
+# Raw inputs and fresh runtime evidence are local only. Existing allowlisted
+# aggregate CSVs remain tracked; review any new aggregate before force-adding.
+/data/**
+!/data/README.md
+/outputs/
+/archive/bank_csv/
+/archive/shop_csv/
+/archive/shop_db/
+*.log
+*.sas7bdat
+__pycache__/
+.env
+.env.*
+*.pem
+*.key

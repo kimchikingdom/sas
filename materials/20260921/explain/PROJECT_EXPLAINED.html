@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScamLens 쉬운 해설서: 머신러닝 지식 없이 차근차근 이해하는 스미싱 탐지 연구의 전 과정</title>
+<style>
+  :root {
+    --primary: #0F2E59;
+    --primary-light: #1E56A0;
+    --accent: #0F766E;
+    --warning: #B45309;
+    --danger: #B91C1C;
+    --bg: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --text-main: #0F1E36;
+    --text-sub: #334155;
+    --text-muted: #64748B;
+    --border: #E2E8F0;
+    --border-highlight: #CBD5E1;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: "Apple SD Gothic Neo", "NanumGothic", "Malgun Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+    padding: 24px 16px;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(15, 30, 54, 0.06);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .guide-header {
+    background: linear-gradient(135deg, #0A192F 0%, #0F2E59 60%, #1E56A0 100%);
+    color: #FFFFFF;
+    padding: 48px 36px 40px;
+  }
+  .guide-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    color: #93C5FD;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .guide-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .guide-subtitle {
+    font-size: 18px;
+    color: #E2E8F0;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .guide-meta {
+    font-size: 13px;
+    color: #94A3B8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 16px;
+  }
+
+  /* Table of Contents */
+  .toc-wrapper {
+    background: #F1F5F9;
+    border-bottom: 1px solid var(--border);
+    padding: 24px 36px;
+  }
+  .toc-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .toc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 8px 24px;
+    list-style: none;
+  }
+  .toc-list li a {
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.15s;
+  }
+  .toc-list li a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+  }
+
+  /* Main Content */
+  .content-area {
+    padding: 40px 36px;
+  }
+
+  .chapter {
+    margin-bottom: 56px;
+    scroll-margin-top: 24px;
+  }
+  .chapter-header {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .chapter-num {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-light);
+  }
+  .chapter-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--text-sub);
+  }
+  p strong {
+    color: var(--text-main);
+  }
+
+  /* Analogy Box */
+  .analogy-box {
+    background: #EFF6FF;
+    border-left: 4px solid var(--primary-light);
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+  }
+  .analogy-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--primary-light);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Important Note Box */
+  .note-box {
+    background: #FEF3C7;
+    border-left: 4px solid var(--warning);
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+  }
+  .note-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--warning);
+    margin-bottom: 6px;
+  }
+
+  /* Diagram Wrapper */
+  .diagram-wrapper {
+    margin: 28px 0;
+    background: #FFFFFF;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .diagram-caption {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  /* Tables */
+  .table-wrapper table { min-width: 640px; }
+  .table-wrapper::before { content: "좁은 화면에서는 표를 좌우로 스크롤해 읽을 수 있습니다."; display: block; font-size: 12px; color: #64748b; margin-bottom: 8px; }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    text-align: left;
+  }
+  th, td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    background: #F1F5F9;
+    font-weight: 700;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--border-highlight);
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  .highlight-row {
+    background: #F8FAFC;
+    font-weight: 700;
+  }
+
+  /* 60-Second Summary Section */
+  .summary-banner {
+    background: linear-gradient(135deg, #0F766E 0%, #0D9488 100%);
+    color: #FFFFFF;
+    padding: 32px;
+    border-radius: 8px;
+    margin: 40px 0;
+  }
+  .summary-banner h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .summary-banner p {
+    color: #F0FDFA;
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .summary-banner p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Glossary */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .glossary-item {
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    border-radius: 6px;
+  }
+  .glossary-term {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .glossary-def {
+    font-size: 13.5px;
+    color: var(--text-sub);
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .guide-footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 36px;
+    background: #F8FAFC;
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 640px) {
+    body {
+      padding: 8px;
+    }
+    .guide-header {
+      padding: 32px 20px;
+    }
+    .guide-title {
+      font-size: 24px;
+    }
+    .content-area {
+      padding: 24px 16px;
+    }
+    .toc-wrapper {
+      padding: 20px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="guide-header">
+    <div class="guide-badge">ScamLens Research Project • ELI5 비전문가 종합 안내서</div>
+    <h1 class="guide-title">우체부 인공지능과 안전한 편지함 이야기</h1>
+    <h2 class="guide-subtitle">스미싱 사기 문자를 똑똑하게 골라내면서 평범한 일상 문자는 안전하게 지키는 법</h2>
+    <div class="guide-meta">
+      <div>작성 기준일: 2026-09-20</div>
+      <div>대상: 머신러닝 지식이 없는 모든 분 (성인을 위한 친절하고 깊이 있는 해설)</div>
+      <div>근거 데이터: 정본 JSON 지표 및 프로젝트 문서 기반</div>
+    </div>
+  </header>
+
+  <!-- Table of Contents -->
+  <nav class="toc-wrapper">
+    <div class="toc-title">목차 (전체 13개 챕터 안내)</div>
+    <ul class="toc-list">
+      <li><a href="#ch1">1장. 연구의 출발점: 정상 문자를 지키는 일</a></li>
+      <li><a href="#ch2">2장. 전체 파이프라인: 7단계 여정</a></li>
+      <li><a href="#ch3">3장. 데이터의 세계: 표본의 규모와 진실</a></li>
+      <li><a href="#ch4">4장. 데이터 다듬기와 시험 문제 유출 방지</a></li>
+      <li><a href="#ch5">5장. 두 명의 탐정: 텍스트 모형과 URL 모형</a></li>
+      <li><a href="#ch6">6장. 두 탐정의 결합과 OOF 스태킹</a></li>
+      <li><a href="#ch7">7장. 의사결정의 저울: 확률 보정과 임계값</a></li>
+      <li><a href="#ch8">8장. 통계 도구의 객관적 검증: SAS 분석</a></li>
+      <li><a href="#ch9">9장. 고난도 문제와 방어력: Hard Negative와 FAGE</a></li>
+      <li><a href="#ch10">10장. 최신 통제 대조 실험: 3가지 공부 방법</a></li>
+      <li><a href="#ch11">11장. 실험 결과: 기대와 냉정한 후속 평가</a></li>
+      <li><a href="#ch12">12장. 정상 문자에 URL이 붙으면 왜 위험할까?</a></li>
+      <li><a href="#ch13">13장. 남겨진 숙제, 60초 요약 및 용어집</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content Area -->
+  <main class="content-area">
+
+    <!-- Chapter 1 -->
+    <section class="chapter" id="ch1">
+      <div class="chapter-header">
+        <span class="chapter-num">01</span>
+        <h3 class="chapter-title">연구의 출발점: "진짜 중요한 것은 정상 문자를 지키는 일입니다"</h3>
+      </div>
+      <p>
+        휴대전화로 쏟아지는 문자 메시지 중에는 택배 알림이나 모바일 청첩장처럼 반가운 소식도 있지만, 개인정보를 빼앗아가려는 무서운 <strong>스미싱(Smishing, 문자 사기)</strong>도 숨어 있습니다. 사람들은 흔히 인공지능이 사기 문자를 100% 잡아내기만 하면 안전한 세상이 올 것이라 생각합니다.
+      </p>
+      <p>
+        하지만 인공지능을 만들 때 정말로 무서운 복병은 따로 있습니다. 바로 <strong>"정상적인 편지를 사기로 오해해서 가로채 버리는 실수(오탐, False Alarm)"</strong>입니다. 친한 친구의 모바일 청첩장이나 주민센터의 지원금 안내 문자가 인공지능에 의해 "사기 위험!"이라며 차단되어 버린다면, 사용자는 큰 불편을 겪고 인공지능 시스템 자체를 불신하여 꺼버리게 됩니다.
+      </p>
+      <div class="analogy-box">
+        <div class="analogy-title">💡 공항 검색대 비유</div>
+        <p style="margin-bottom: 0;">
+          공항 보안 검색대는 위험한 무기(스미싱)를 철저히 잡아내야 합니다. 하지만 만약 검색대가 조금이라도 의심스럽다는 이유로 평범한 승객들의 옷가방, 아이 장난감, 가족 선물(정상 문자)까지 닥치는 대로 압수해 버린다면 어떻게 될까요? 비행기는 출발조차 못 하고 공항은 아수라장이 될 것입니다. 방어 시스템의 진짜 실력은 위험물을 잡는 것만큼이나 <strong>무고한 승객을 방해하지 않는 정밀함</strong>에 있습니다.
+        </p>
+      </div>
+      <p>
+        ScamLens 프로젝트는 바로 이 질문에서 출발했습니다. 우리는 이미 상용화되어 완벽하게 작동하는 완성형 앱을 자랑하려는 것이 아닙니다. 현대 인공지능 탐지 모형들이 <strong>어디서 어떤 이유로 오작동하는지</strong>를 과학적으로 측정하고 진단하는 투명한 연구 진단 파이프라인을 만드는 것이 본 프로젝트의 진짜 목표입니다.
+      </p>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="chapter" id="ch2">
+      <div class="chapter-header">
+        <span class="chapter-num">02</span>
+        <h3 class="chapter-title">한눈에 보는 프로젝트의 전체 여정: 7단계 파이프라인</h3>
+      </div>
+      <p>
+        인공지능 모델을 구축하는 작업은 마법 지팡이를 휘두르는 것이 아닙니다. 엄격한 법적·공학적 규칙에 따라 데이터를 수집하고, 안전하게 가공하며, 냉정하게 평가하는 일련의 공정이 필수적입니다. ScamLens는 다음과 같은 7단계를 거쳐 진행되었습니다.
+      </p>
+      <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 230" width="100%" height="auto" class="inline-svg">
+  <defs>
+    <filter id="shadow" x="-5%" y="-10%" width="110%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F1E36" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#0F4C81"/>
+    </marker>
+  </defs>
+
+  <rect width="880" height="230" fill="#F8FAFC" rx="10" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="32" font-size="14" font-weight="800" fill="#0F2E59">전체 연구 진단 파이프라인 흐름도 (7단계)</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(30, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="96" height="24" rx="6" fill="#E2E8F0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">1. 출처·권리</text>
+    <text x="48" y="48" font-size="11" fill="#475569" text-anchor="middle">라이선스 검토</text>
+    <text x="48" y="66" font-size="11" fill="#475569" text-anchor="middle">데이터 계보</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">사용 범위 확정</text>
+    <text x="48" y="104" font-size="10" font-weight="600" fill="#0F766E" text-anchor="middle">합법적 활용</text>
+  </g>
+  <line x1="126" y1="120" x2="148" y2="120" stroke="#0F4C81" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <g transform="translate(150, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="96" height="24" rx="6" fill="#E2E8F0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">2. 마스킹·분할</text>
+    <text x="48" y="48" font-size="11" fill="#475569" text-anchor="middle">개인정보 비식별</text>
+    <text x="48" y="66" font-size="11" fill="#475569" text-anchor="middle">유사도 그룹화</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">문제 유출 방지</text>
+    <text x="48" y="104" font-size="10" font-weight="600" fill="#0F766E" text-anchor="middle">오프라인 원칙</text>
+  </g>
+  <line x1="246" y1="120" x2="268" y2="120" stroke="#0F4C81" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 -->
+  <g transform="translate(270, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="96" height="24" rx="6" fill="#E2E8F0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">3. 두 탐정 모형</text>
+    <text x="48" y="48" font-size="11" fill="#475569" text-anchor="middle">본문: KcBERT</text>
+    <text x="48" y="66" font-size="11" fill="#475569" text-anchor="middle">링크: URL 외형</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">TF-IDF 기준선</text>
+    <text x="48" y="104" font-size="10" font-weight="600" fill="#1E56A0" text-anchor="middle">문맥 vs 형태</text>
+  </g>
+  <line x1="366" y1="120" x2="388" y2="120" stroke="#0F4C81" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <g transform="translate(390, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="96" height="24" rx="6" fill="#E2E8F0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">4. 보정·임계값</text>
+    <text x="48" y="48" font-size="11" fill="#475569" text-anchor="middle">1,703건 검증셋</text>
+    <text x="48" y="66" font-size="11" fill="#475569" text-anchor="middle">확률 캘리브레이션</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">임계값(1%) 분리</text>
+    <text x="48" y="104" font-size="10" font-weight="600" fill="#B45309" text-anchor="middle">두 개념 구별</text>
+  </g>
+  <line x1="486" y1="120" x2="508" y2="120" stroke="#0F4C81" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 5 -->
+  <g transform="translate(510, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="96" height="24" rx="6" fill="#E2E8F0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">5. 원래 test 평가</text>
+    <text x="48" y="48" font-size="11" fill="#475569" text-anchor="middle">2,317건 시험셋</text>
+    <text x="48" y="66" font-size="11" fill="#475569" text-anchor="middle">과거 평가 이력</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">외부독립 아닌 셋</text>
+    <text x="48" y="104" font-size="10" font-weight="600" fill="#1E56A0" text-anchor="middle">5개 난수 시드</text>
+  </g>
+  <line x1="606" y1="120" x2="628" y2="120" stroke="#0F4C81" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 6 -->
+  <g transform="translate(630, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="96" height="24" rx="6" fill="#E2E8F0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">6. SAS 통계 검증</text>
+    <text x="48" y="48" font-size="11" fill="#475569" text-anchor="middle">ROC·OOF 검정</text>
+    <text x="48" y="66" font-size="11" fill="#475569" text-anchor="middle">과거 앙상블 분석</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">최신 U5와 분리</text>
+    <text x="48" y="104" font-size="10" font-weight="600" fill="#0F766E" text-anchor="middle">도구 기반 검증</text>
+  </g>
+  <line x1="726" y1="120" x2="748" y2="120" stroke="#0F4C81" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 7 -->
+  <g transform="translate(750, 60)" filter="url(#shadow)">
+    <rect width="96" height="120" rx="6" fill="#EFF6FF" stroke="#1E56A0" stroke-width="2"/>
+    <rect width="96" height="24" rx="6" fill="#1E56A0"/>
+    <text x="48" y="16" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">7. 정책 결정</text>
+    <text x="48" y="48" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">FLIP 채택 보류</text>
+    <text x="48" y="66" font-size="11" fill="#334155" text-anchor="middle">DUP 통제군 유지</text>
+    <text x="48" y="84" font-size="11" fill="#475569" text-anchor="middle">과장 없는 판정</text>
+    <text x="48" y="104" font-size="10" font-weight="700" fill="#B91C1C" text-anchor="middle">한계점 투명 공개</text>
+  </g>
+</svg>
+<div class="diagram-caption">그림 1: 데이터 출처 검토부터 냉정한 정책 의사결정까지 이어지는 ScamLens 7단계 연구 진단 파이프라인</div>
+</div>
+      <p>
+        첫째, 인터넷에 공개된 데이터라 하더라도 무작정 수집해서는 안 됩니다. 저작권 라이선스와 개인정보 처리 적법성을 사전에 검토하는 <strong>후보 데이터 출처·권리 검토(Candidate-data Review)</strong>가 선행되어야 합니다. 둘째, 문자에 포함된 전화번호나 계좌번호를 안전하게 기호로 치환하는 <strong>비식별 마스킹</strong>과, 쌍둥이 문제가 평가셋에 흘러 들어가지 않도록 통제하는 <strong>유사도 그룹 분할(Group Split)</strong>을 거칩니다.
+      </p>
+      <p>
+        셋째, 문맥을 읽는 텍스트 모형(단어/문자 n-gram TF-IDF 로지스틱 회귀 기준선 및 KcBERT 언어 모델)과 주소 외형 통계를 분석하는 URL 모형(히스토그램 그래디언트 부스팅)을 준비합니다. 넷째, 1,703건의 검증 코호트에서 모델의 예측 점수를 현실 확률에 맞추는 <strong>확률 캘리브레이션(Probability Calibration)</strong>과, 정상 문자 오탐을 1% 상한으로 통제하는 <strong>임계값 선택(Threshold Selection)</strong>을 엄격히 구분하여 수행합니다.
+      </p>
+      <p>
+        다섯째, 과거 연구 이력이 있는 <strong>원래 test 분할(2,317건)</strong>에 5개 난수 시드로 단 1회 평가를 적용합니다. 이 시험셋은 과거 프로젝트에서도 사용된 적이 있는 데이터셋(prior-use)이며, 완전히 새로운 외부 독립 데이터가 아님을 투명하게 밝힙니다. 여섯째, 세계 금융권에서 널리 쓰이는 전문 통계 분석 소프트웨어 도구인 <strong>SAS Analytics</strong>를 통해 과거 앙상블 및 OOF 데이터의 ROC 곡선과 결합 효과를 검증했습니다(이는 최신 파이썬 U5 후속평가와는 별도로 수행된 선행 분석입니다). 마지막 일곱째, 평가 수치를 있는 그대로 수용하여 복잡한 기법의 채택을 보류하고 단순 통제군을 유지하는 <strong>공학적 정책 결정</strong>을 내립니다.
+      </p>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="chapter" id="ch3">
+      <div class="chapter-header">
+        <span class="chapter-num">03</span>
+        <h3 class="chapter-title">데이터의 세계: "우리가 가진 문자는 전부 몇 개이며, 어떻게 쓰였을까?"</h3>
+      </div>
+      <p>
+        머신러닝 연구를 처음 접할 때 가장 헷갈리기 쉬운 부분이 데이터의 숫자입니다. 흔히 "1만 개의 데이터가 있으면 8천 개로 공부하고 2천 개로 시험 보면 끝나는 것 아닌가?"라고 생각하기 쉽습니다. 하지만 실제 연구에서는 그렇게 단순하지 않습니다.
+      </p>
+      <p>
+        본 연구가 다룬 공개 한국어 스미싱 코퍼스의 원본은 총 <strong>16,773건</strong>(정상 11,812건, 스미싱 4,961건)입니다. 그러나 컴퓨터 하드디스크에 16,773건이 저장되어 있다고 해서 이를 전부 모형 훈련에 쏟아부어서는 절대로 안 됩니다. 데이터마다 저작권 라이선스가 다르고, 과거에 다른 실험에서 이미 시험용으로 사용했던 문자들이 섞여 있기 때문입니다.
+      </p>
+      <div class="note-box">
+        <div class="note-title">⚠️ 데이터 숫자를 볼 때 주의할 점!</div>
+        <p style="margin-bottom: 0;">
+          본 프로젝트에 등장하는 훈련 코호트(6,680건), 캘리브레이션셋(1,703건), 개발 탐색셋(1,750건), U5 후속평가셋(2,317건)은 <strong>서로 다른 연구 단계에서 설계된 표본 집단</strong>입니다. 이 숫자들을 단순하게 더해서 하나의 마스터 데이터셋으로 취급하거나 원본 코퍼스(16,773건)와 일치할 것이라고 오해해서는 안 됩니다.
+        </p>
+      </div>
+      <p>
+        또한 사람이 문자를 보고 "이것은 사기다, 정상이다"라고 라벨을 붙이는 과정(Human Annotation)에도 언제나 불확실성이 존재합니다. 본 검수 체계에서는 <strong>검수자 A(Reviewer A)가 AI 보조(AI-assisted)</strong>를 받았으며, <strong>검수자 B(Reviewer B)는 검수자 A의 판단과 기존 라벨, 모델 예측값 일체에 대해 블라인드(Blinded)</strong> 처리되어 독립적으로 참여했습니다. 검수자 간 <strong>사전 합의 전(Pre-consensus)에는 판정이 엇갈리는 사례</strong>들이 분명히 존재했으며, 사후 정제(Post-consensus)를 통해 최종 합의 라벨을 정리했습니다. 두 사람의 합의(Consensus) 역시 연구 운영상의 합의 라벨일 뿐, 현실 세계의 확인된 절대 진리(Confirmed Real Truth)를 의미하는 것은 아니라는 사실을 명확히 인식해야 합니다.
+      </p>
+      <p>
+        아울러 사기 문자의 개인정보와 공격 수법 노출을 방지하기 위해, 실제 학습 코퍼스는 <strong>비공개 보안 환경에서 재학습(Private Retraining)</strong>되도록 통제했습니다. 대신 외부 연구자와 독자는 <strong>공개 집계 검증기(Public Aggregate Verifier, <code>--check</code>)</strong>를 통해 공개된 요약 통계와 매니페스트 해시 간의 산술 연산 및 수치 일관성(Arithmetic and Consistency)을 투명하게 사후 검증할 수 있습니다(비공개 원본 데이터 자체의 진실성이나 전체 재학습 과정 전체를 직접 입증하는 것은 아님).
+      </p>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section class="chapter" id="ch4">
+      <div class="chapter-header">
+        <span class="chapter-num">04</span>
+        <h3 class="chapter-title">데이터 다듬기와 시험 문제 유출 방지: "유사도 그룹 분할과 오프라인 원칙"</h3>
+      </div>
+      <p>
+        문자 데이터를 학습시키기 전에는 반드시 <strong>비식별화</strong>를 거쳐야 합니다. 실제 사람의 전화번호, 은행 계좌번호, 6자리 인증번호는 인공지능이 기억해서는 안 되는 민감한 정보입니다. 우리는 정규표현식 규칙을 사용해 이를 <code>[전화번호]</code>, <code>[계좌번호]</code>처럼 일반적인 기호로 치환했습니다. 이때 원본 데이터와 정규화된 가공본은 별도의 보관함에 분리 보존됩니다.
+      </p>
+      <p>
+        그다음으로 중요한 공학적 기법이 바로 <strong>"유사도 그룹 분할(Group Split)"</strong>입니다. 시험 문제를 출제할 때 가장 피해야 할 일은 무엇일까요? 바로 시험 문제 유출입니다.
+      </p>
+      <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" width="100%" height="auto" class="inline-svg">
+  <rect width="880" height="240" fill="#F8FAFC" rx="10" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="32" font-size="14" font-weight="800" fill="#0F2E59">데이터 분할의 함정과 유사도 그룹 분할 (시험 문제 유출 방지 비유)</text>
+
+  <!-- Left: Bad Random Split -->
+  <g transform="translate(30, 55)">
+    <rect width="395" height="165" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+    <text x="20" y="25" font-size="13" font-weight="800" fill="#991B1B">❌ 단순 무작위 분할 (시험 문제 유출 발생)</text>
+    
+    <!-- Train Box -->
+    <rect x="20" y="40" width="170" height="85" rx="5" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="30" y="58" font-size="11" font-weight="700" fill="#1E293B">공부용 교재 (훈련셋)</text>
+    <text x="30" y="78" font-size="10.5" fill="#475569">"[CJ대한통운] 배송조회"</text>
+    <text x="30" y="94" font-size="10" fill="#64748B">주소: cj-track.xyz</text>
+    <text x="30" y="112" font-size="9.5" font-weight="600" fill="#059669">라벨: 스미싱</text>
+
+    <!-- Test Box -->
+    <rect x="205" y="40" width="170" height="85" rx="5" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="215" y="58" font-size="11" font-weight="700" fill="#1E293B">실제 시험 (평가셋)</text>
+    <text x="215" y="78" font-size="10.5" fill="#DC2626" font-weight="700">"[CJ대한통운] 배송확인"</text>
+    <text x="215" y="94" font-size="10" fill="#64748B">주소: cj-check.xyz</text>
+    <text x="215" y="112" font-size="9.5" font-weight="600" fill="#059669">라벨: 스미싱</text>
+
+    <!-- Warning comment -->
+    <text x="20" y="145" font-size="11" font-weight="700" fill="#B91C1C">단어 한 글자만 바뀐 쌍둥이 문제가 시험에 그대로 나옴!</text>
+    <text x="20" y="159" font-size="10" fill="#475569">→ 모델이 패턴을 암기하여 100점을 맞아도 실제 실력이 아님 (거짓 만점)</text>
+  </g>
+
+  <!-- Right: Good Group Split -->
+  <g transform="translate(455, 55)">
+    <rect width="395" height="165" rx="8" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+    <text x="20" y="25" font-size="13" font-weight="800" fill="#166534">✅ 유사도 그룹 분할 (ScamLens 적용 원칙)</text>
+    
+    <!-- Train Box -->
+    <rect x="20" y="40" width="170" height="85" rx="5" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="30" y="58" font-size="11" font-weight="700" fill="#1E293B">공부용 교재 (그룹 A 전체)</text>
+    <text x="30" y="78" font-size="10.5" fill="#475569">"[CJ대한통운] 배송조회"</text>
+    <text x="30" y="94" font-size="10.5" fill="#475569">"[CJ대한통운] 배송확인"</text>
+    <text x="30" y="112" font-size="9.5" font-weight="600" fill="#0F766E">유사 템플릿 전량을 한곳에 몰아서 배정</text>
+
+    <!-- Test Box -->
+    <rect x="205" y="40" width="170" height="85" rx="5" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="215" y="58" font-size="11" font-weight="700" fill="#1E293B">실제 시험 (그룹 B 전체)</text>
+    <text x="215" y="78" font-size="10.5" font-weight="700" fill="#0F1E36">"[교통민원] 과태료 고지서"</text>
+    <text x="215" y="94" font-size="10" fill="#64748B">주소: police-efine.xyz</text>
+    <text x="215" y="112" font-size="9.5" font-weight="600" fill="#1E56A0">학습에 없던 완전히 새로운 템플릿</text>
+
+    <!-- Success comment -->
+    <text x="20" y="145" font-size="11" font-weight="700" fill="#15803D">시험 문제 유출 차단: 낯선 문제를 푸는 진짜 응용력 측정</text>
+    <text x="20" y="159" font-size="10" fill="#475569">→ 원본과 정규화문을 엄격히 분리하고 쌍둥이 변형의 교차 침투 차단</text>
+  </g>
+</svg>
+<div class="diagram-caption">그림 2: 시험 문제 유출(데이터 누출)을 막기 위해 쌍둥이 문자를 통째로 묶어 분할하는 유사도 그룹 분할 원리</div>
+</div>
+      <p>
+        사기범들은 같은 문구에서 단어 한두 개만 살짝 바꾸어 대량으로 문자를 뿌립니다. 만약 컴퓨터가 무작위(Random)로 데이터를 쪼개면, "[CJ대한통운] 배송조회"는 공부 책에 들어가고, 글자 하나만 바꾼 "[CJ대한통운] 배송확인"은 시험지에 들어가게 됩니다.
+      </p>
+      <p>
+        이런 상태에서 시험을 보면 모델은 높은 점수를 받지만, 그것은 새로운 사기 문자를 감별해 내는 일반화 지능이 생긴 것이 아니라, <strong>이미 본 쌍둥이 문제의 답안을 외운 것(데이터 누출, Data Leakage)</strong>에 불과합니다. 이를 방지하기 위해 우리는 비슷한 템플릿의 문자들을 코사인 유사도 기반으로 하나의 그룹으로 묶은 뒤, 그룹 단위로 통째로 떼어내어 훈련셋과 시험셋으로 엄격히 격리했습니다.
+      </p>
+      <p>
+        마지막으로 지킨 원칙은 <strong>오프라인 분석 원칙</strong>입니다. 문자 속에 수상한 인터넷 주소(URL)가 들어있더라도, 인공지능이나 분석가가 해당 링크를 웹 브라우저로 직접 클릭하거나 외부 서버에 접속하지 않습니다. 악성 APK 파일이 다운로드되거나 공격자 서버에 접속 신호가 가는 위험을 원천 차단하고, 순수하게 글자 모양(문자열 구문)만 떼어내어 오프라인에서 안전하게 분석했습니다.
+      </p>
+    </section>
+
+    <!-- Chapter 5 -->
+    <section class="chapter" id="ch5">
+      <div class="chapter-header">
+        <span class="chapter-num">05</span>
+        <h3 class="chapter-title">두 명의 탐정: "문장을 읽는 탐정과 주소를 뜯어보는 탐정"</h3>
+      </div>
+      <p>
+        ScamLens는 스미싱 문자를 감시하기 위해 서로 전문 분야가 다른 <strong>두 명의 디지털 탐정(모델)</strong>을 고용했습니다.
+      </p>
+      <p>
+        <strong>첫 번째 탐정은 '본문 문맥 탐정(텍스트 모형)'</strong>입니다. 가벼운 베이스라인 탐정은 단어 및 문자 단위의 특징을 추출해 <strong>로지스틱 회귀(Logistic Regression)</strong>로 빠르게 분류했습니다(<code>train_text_baselines.py</code>). 여기서 쓰인 핵심 기술은 비전문가도 쉽게 이해할 수 있습니다:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 12px; color: var(--text-sub);">
+        <li><strong>문자 n-gram(연속 글자 토막)</strong>: 문장을 1글자, 2글자 또는 3~5글자의 연속된 글자 조각으로 잘라내어 보는 방식입니다. 문자를 연속된 글자 조각으로 잘라내어 분석함으로써 오탈자나 부분적 변형에 대해 탐지 강건성을 높일 가능성(Robustness possible)을 제공하지만, 변형된 문구가 항상 원래의 사기 의도와 동일하게 인식된다고 보장(Not guaranteed same intent)할 수는 없습니다.</li>
+        <li><strong>TF-IDF(단어 중요도 가중치)</strong>: 어떤 단어가 해당 문자에서 얼마나 자주 나오는가(TF)와, 학습 데이터셋의 전체 학습 문서에서 그 단어가 등장하는 문서의 비율을 로그로 역가중한 값(IDF)을 곱하여 점수를 매깁니다. 일상 문자뿐만 아니라 학습 코퍼스 전체에서 흔히 쓰이는 일반적인 단어는 가중치가 낮아지고, 특정 상황에 집중적으로 나타나는 변별력 있는 핵심 키워드에 높은 점수가 부여됩니다.</li>
+      </ul>
+      <p>
+        반면 현대적인 고도화 탐정은 대규모 한국어 뉴스 댓글 및 일상 구어체 코퍼스를 읽으며 문맥을 깨우친 사전학습 언어 모델 <strong>KcBERT(<code>beomi/kcbert-base</code>)</strong>를 가져와 스미싱 데이터셋으로 미세조정(파인튜닝)한 딥러닝 모델입니다.
+      </p>
+      <p>
+        <strong>두 번째 탐정은 '인터넷 주소 탐정(URL 외형 모형)'</strong>입니다. 이 탐정은 본문 내용은 일절 보지 않고 오직 링크 주소의 생김새만 뜯어봅니다. 주소의 전체 길이, 숫자 비율, 서브도메인 개수, 하이픈이나 특수문자 빈도, <code>login</code>, <code>secure</code>, <code>verify</code> 같은 금융·인증 사칭 키워드 유무 등 URL 외형 피처를 추출한 뒤, 결측치와 비선형 패턴을 유연하게 다루는 <strong>히스토그램 기반 그래디언트 부스팅(<code>HistGradientBoostingClassifier</code>)</strong> 알고리즘을 사용해 악성 여부를 판단합니다(<code>train_url_baseline.py</code>).
+      </p>
+      <div class="note-box">
+        <div class="note-title">💡 인공지능은 문장의 뜻을 정말로 '이해'할까요?</div>
+        <p style="margin-bottom: 0;">
+          인공지능이 사람처럼 문장의 진정한 의도를 마음에 새기는 것은 아닙니다. 어디까지나 글자들의 배열 순서와 통계적 상관관계를 계산하는 계산기입니다. 따라서 "사기 문자는 보통 URL을 갖고 있다"는 <strong>관측된 통계 패턴(상관관계)</strong>에 과도하게 의존하면, 정상적인 알림톡에 링크가 걸려 있는 것만 보아도 사기로 의심하는 <strong>지름길 편향(Shortcut Learning)</strong>에 쉽게 빠집니다. 이는 인과관계가 아니므로 주의 깊은 통제가 필요합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 6 -->
+    <section class="chapter" id="ch6">
+      <div class="chapter-header">
+        <span class="chapter-num">06</span>
+        <h3 class="chapter-title">두 탐정의 지혜를 모으는 방법: "단순 결합과 OOF 스태킹"</h3>
+      </div>
+      <p>
+        두 탐정이 각각 수사를 마쳤다면, 최종 판결을 내리기 위해 둘의 의견을 합쳐야 합니다. 가장 원초적인 방법은 <strong>고정 가중치 결합(Fixed Blend)</strong>입니다. 예를 들어 "본문 탐정 의견 70% + URL 탐정 의견 30%"처럼 사람이 미리 정해둔 일정한 비율로 점수를 더하는 방식입니다.
+      </p>
+      <p>
+        하지만 더 체계적인 방법은 머신러닝 판사(메타 모형)를 세워서, 어떤 상황에서 누구의 말을 더 신뢰할지 스스로 학습하게 만드는 것입니다. 이를 <strong>스태킹(Stacking)</strong>이라고 부릅니다. 그런데 여기서 아주 위험한 함정이 도사리고 있습니다. 바로 <strong>"자기 채점의 함정(Self-scoring bias)"</strong>입니다.
+      </p>
+      <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" width="100%" height="auto" class="inline-svg">
+  <rect width="880" height="220" fill="#F8FAFC" rx="10" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="32" font-size="14" font-weight="800" fill="#0F2E59">두 탐정의 결합과 OOF(Out-of-Fold) 스태킹: "자기 채점의 함정"을 피하는 법</text>
+
+  <!-- Left: Naive in-sample scoring -->
+  <g transform="translate(30, 50)">
+    <rect width="395" height="150" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+    <text x="20" y="24" font-size="12.5" font-weight="800" fill="#991B1B">❌ 자기 답안지 스스로 채점하기 (학습 데이터 재예측)</text>
+    <text x="20" y="48" font-size="11" fill="#334155">1. 본문 탐정과 URL 탐정이 자기가 공부한 데이터로 예측값을 냄.</text>
+    <text x="20" y="68" font-size="11" fill="#334155">2. 학습에 쓴 문제의 예측 점수는 지나치게 낙관적일 수 있음.</text>
+    <text x="20" y="88" font-size="11" fill="#334155">3. 메타 판사가 "두 탐정 모두 천재구나!" 착각하여 과도하게 신뢰함.</text>
+    <rect x="20" y="105" width="355" height="32" rx="4" fill="#FEE2E2"/>
+    <text x="30" y="125" font-size="11" font-weight="700" fill="#B91C1C">결과: 실제 새로운 문자가 오면 두 탐정이 동시에 엉뚱한 오판을 내림</text>
+  </g>
+
+  <!-- Right: Honest OOF Stacking -->
+  <g transform="translate(455, 50)">
+    <rect width="395" height="150" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+    <text x="20" y="24" font-size="12.5" font-weight="800" fill="#1E40AF">✅ 정직한 OOF 스태킹 (Out-of-Fold 분할 예측)</text>
+    <text x="20" y="48" font-size="11" fill="#334155">1. 5개 조로 나누어, <tspan font-weight="700" fill="#1E40AF">자신이 공부하지 않은 1개 조</tspan>만 시험을 봄.</text>
+    <text x="20" y="68" font-size="11" fill="#334155">2. 탐정이 어디서 헷갈리고 실수하는지 맞고 틀린 예측을 함께 모음.</text>
+    <text x="20" y="88" font-size="11" fill="#334155">3. 메타 판사가 "이 탐정은 URL만 보면 흥분해서 실수하는군" 정밀 파악.</text>
+    <rect x="20" y="105" width="355" height="32" rx="4" fill="#DBEAFE"/>
+    <text x="30" y="125" font-size="11" font-weight="700" fill="#1E40AF">결과: 학습 행 재예측 편향을 줄여 결합 가중치를 학습</text>
+  </g>
+</svg>
+<div class="diagram-caption">그림 3: 훈련 단계에서 결합 모델(메타 모델)을 학습한 행을 다시 예측하는 편향을 줄여 학습시키기 위해 미학습 분할(Out-of-Fold) 예측 성적표를 만드는 OOF 스태킹의 기본 원리 (최종 시험셋의 ROC 평가와 엄격히 구분됨)</div>
+</div>
+      <p>
+        자신이 이미 달달 외운 문제집을 스스로 채점해서 상급 판사에게 보여주면, 두 탐정 모두 만점에 가까운 높은 점수를 제출할 것입니다. 상급 판사는 두 탐정이 완벽하다고 믿고 무비판적으로 의존하게 되며, 결국 새로운 문제가 닥쳤을 때 참담한 실패를 겪게 됩니다.
+      </p>
+      <p>
+        이를 방지하는 정직한 방법이 바로 <strong>OOF(Out-of-Fold) 분할 기법</strong>입니다. 데이터를 5개 조로 나눈 뒤, 자신이 훈련할 때 보지 않았던 나머지 1개 조의 문제에 대해 예측을 수행합니다. 이렇게 하면 각 탐정 모형이 낸 맞은 예측과 틀린 예측(Both correct and incorrect out-of-fold predictions) 전체가 학습한 행을 다시 예측하는 편향을 줄여 모이며, 결합 판사(메타 모형)는 이 전체 예측 패턴을 보고 최종 결합 방식을 학습합니다.
+      </p>
+      <p>
+        여기서 꼭 짚고 넘어가야 할 사실은, <strong>OOF는 '훈련 단계에서 메타 모형을 학습한 행을 다시 예측하는 편향을 줄여 학습시키기 위한 데이터 분할 기법'</strong>이라는 점입니다. 최종 모델의 일반화 성능을 독립적으로 측정하는 시험셋(U5 등)에서의 ROC 곡선 평가와는 엄격히 구별되는 훈련 공정의 일부입니다.
+      </p>
+    </section>
+    <!-- Chapter 7 -->
+    <section class="chapter" id="ch7">
+      <div class="chapter-header">
+        <span class="chapter-num">07</span>
+        <h3 class="chapter-title">의사결정의 저울: "확률 캘리브레이션, 임계값 선택, 그리고 지표 읽는 법"</h3>
+      </div>
+      <p>
+        인공지능은 판결을 내릴 때 "사기다", "아니다"라고 단정적으로 말하지 않습니다. 대신 "이 문자가 사기일 확률은 78.4%입니다"라는 연속된 점수(확률값)를 뱉어냅니다. 그렇다면 우체부 로봇은 이 편지를 배달해야 할까요, 버려야 할까요?
+      </p>
+      <p>
+        여기서 엔지니어링상 가장 중요한 두 가지 공정이 등장하며, 둘은 반드시 엄격히 구별되어야 합니다:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 16px; color: var(--text-sub);">
+        <li><strong>1. 확률 캘리브레이션 (Probability Calibration, 확률 보정)</strong>: 인공지능이 "사기 확률 80%"라고 예측했을 때, 실제로 그중 약 80%가 사기 문자가 되도록 모델의 출력 눈금을 현실 확률과 일치시키는 통계적 보정 작업입니다(예: 플랫 스케일링, 아이소토닉 회귀). 이때 모델의 총 확률 오차를 측정하는 <strong>Brier 점수(Brier Score)</strong>는 예측 확률과 실제 라벨 간의 확률 예측의 평균제곱오차(Mean Squared Probability Error)를 나타내며, 캘리브레이션 전용 지표가 아니므로 낮은 Brier 점수만으로 확률 보정이 완벽히 입증되었다고 추론할 수는 없습니다.</li>
+        <li><strong>2. 임계값 선택 (Threshold Selection, 판정선 결정)</strong>: 확률 눈금이 보정된 것과 별개로, 실제 서비스 정책(예: "무고한 시민의 정상 문자 오탐률을 1% 이하로 묶는다")을 달성하기 위해 차단과 통과를 가르는 기준선(컷오프 점수)을 1,703건의 검증셋에서 최종 결정하는 공학적 의사결정입니다.</li>
+      </ul>
+      <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 250" width="100%" height="auto" class="inline-svg">
+  <rect width="880" height="250" fill="#F8FAFC" rx="10" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="32" font-size="14" font-weight="800" fill="#0F2E59">의사결정의 2×2 혼동행렬 (우체부 편지 10통 가상 예시)</text>
+
+  <!-- Left: 2x2 Grid -->
+  <g transform="translate(30, 50)">
+    <!-- Header row -->
+    <rect x="90" y="0" width="150" height="28" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="165" y="18" font-size="11.5" font-weight="700" fill="#334155" text-anchor="middle">실제 정상 편지 (7통)</text>
+    <rect x="240" y="0" width="150" height="28" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="315" y="18" font-size="11.5" font-weight="700" fill="#334155" text-anchor="middle">실제 사기 편지 (3통)</text>
+
+    <!-- Row 1: Predicted Normal -->
+    <rect x="0" y="28" width="90" height="65" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="45" y="58" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">AI 판정:</text>
+    <text x="45" y="74" font-size="11" font-weight="700" fill="#059669" text-anchor="middle">정상 통과</text>
+
+    <rect x="90" y="28" width="150" height="65" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="165" y="52" font-size="12" font-weight="800" fill="#166534" text-anchor="middle">진짜 정상 (TN, 6통)</text>
+    <text x="165" y="70" font-size="10.5" fill="#15803D" text-anchor="middle">소중한 안부 편지 무사 배달</text>
+    <text x="165" y="85" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">안심 배달 성공!</text>
+
+    <rect x="240" y="28" width="150" height="65" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="315" y="52" font-size="12" font-weight="800" fill="#991B1B" text-anchor="middle">놓친 사기 (FN, 1통)</text>
+    <text x="315" y="70" font-size="10.5" fill="#DC2626" text-anchor="middle">사기 문자를 못 잡고 통과</text>
+    <text x="315" y="85" font-size="10" font-weight="600" fill="#991B1B" text-anchor="middle">미탐 위험 (재현율 누수)</text>
+
+    <!-- Row 2: Predicted Smishing -->
+    <rect x="0" y="93" width="90" height="65" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="45" y="123" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">AI 판정:</text>
+    <text x="45" y="139" font-size="11" font-weight="700" fill="#DC2626" text-anchor="middle">사기 차단</text>
+
+    <rect x="90" y="93" width="150" height="65" fill="#FEF2F2" stroke="#FCA5A5"/>
+    <text x="165" y="117" font-size="12" font-weight="800" fill="#991B1B" text-anchor="middle">억울한 차단 (FP, 1통)</text>
+    <text x="165" y="135" font-size="10.5" fill="#DC2626" text-anchor="middle">청첩장·알림을 사기로 오해</text>
+    <text x="165" y="150" font-size="10" font-weight="700" fill="#B91C1C" text-anchor="middle">오탐 (False Positive!)</text>
+
+    <rect x="240" y="93" width="150" height="65" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="315" y="117" font-size="12" font-weight="800" fill="#166534" text-anchor="middle">잡아낸 사기 (TP, 2통)</text>
+    <text x="315" y="135" font-size="10.5" fill="#15803D" text-anchor="middle">가짜 청구서 차단 완료</text>
+    <text x="315" y="150" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">방어 성공!</text>
+  </g>
+
+  <!-- Right: Metrics Explained Simply -->
+  <g transform="translate(450, 50)">
+    <rect width="400" height="158" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="20" y="24" font-size="12" font-weight="800" fill="#0F2E59">핵심 지표들의 일상 언어 공식</text>
+    
+    <text x="20" y="48" font-size="11" font-weight="700" fill="#1E56A0">• 오탐률 (FPR, False Positive Rate)</text>
+    <text x="30" y="65" font-size="10.5" fill="#475569">= 억울하게 차단된 정상 편지 ÷ 전체 정상 편지 = 1/7 (약 14.3%)</text>
+
+    <text x="20" y="88" font-size="11" font-weight="700" fill="#0F766E">• 사기 탐지율 (재현율, Recall)</text>
+    <text x="30" y="105" font-size="10.5" fill="#475569">= 성공적으로 차단한 사기 편지 ÷ 전체 사기 편지 = 2/3 (약 66.7%)</text>
+
+    <text x="20" y="128" font-size="11" font-weight="700" fill="#B45309">• 임계값(Threshold) 조절의 시소 게임</text>
+    <text x="30" y="145" font-size="10.5" fill="#334155">의심 기준을 높이면 오탐은 줄지만 사기를 놓치고, 낮추면 사기는 잡지만 정상 문자가 막힙니다.</text>
+  </g>
+</svg>
+<div class="diagram-caption">그림 4: 정상 편지 7통과 사기 편지 3통으로 쉽게 이해하는 혼동행렬과 오탐률(FPR)·재현율(Recall)의 트레이드오프</div>
+</div>
+      <p>
+        위 혼동행렬 그림에서 볼 수 있듯이, 10통의 편지를 판정할 때 4가지 운명이 결정됩니다:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 16px; color: var(--text-sub);">
+        <li><strong>진짜 정상(TN, True Negative)</strong>: 정상 편지를 정상으로 알아보고 안전하게 배달함.</li>
+        <li><strong>잡아낸 사기(TP, True Positive)</strong>: 사기 편지를 정확히 포착하여 성공적으로 차단함.</li>
+        <li><strong>놓친 사기(FN, False Negative)</strong>: 사기 편지인데 정상을 가장하여 감시망을 뚫고 지나감 (미탐 위험).</li>
+        <li><strong>억울한 차단(FP, False Positive)</strong>: 멀쩡한 정상 편지인데 사기로 오인되어 쓰레기통에 들어감 (오탐 위험).</li>
+      </ul>
+      <p>
+        이 4가지 결과를 바탕으로 머신러닝의 핵심 평가 지표들이 계산됩니다:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>지표 명칭</th>
+              <th>일상 언어로 푼 뜻</th>
+              <th>이 지표가 중요한 이유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>오탐률 (FPR)</strong></td>
+              <td>전체 정상 문자 중에서 억울하게 차단당한 비율</td>
+              <td>정상 사용자의 일상을 방해하지 않고 서비스 불신을 막는 핵심 방어 지표</td>
+            </tr>
+            <tr>
+              <td><strong>재현율 (Recall)</strong></td>
+              <td>라벨링된 평가 데이터셋의 사기 문자 중 모델이 탐지해낸 비율</td>
+              <td>주어진 평가 라벨 내에서 사기 문자를 얼마나 놓치지 않고 잡아냈는지 측정하는 탐지율 지표 (현실 세계에서 실제로 예방된 피해를 의미하는 것은 아님)</td>
+            </tr>
+            <tr>
+              <td><strong>정밀도 (Precision)</strong></td>
+              <td>인공지능이 "사기다!"라고 외친 것 중 진짜 사기였던 비율</td>
+              <td>인공지능의 경고 알림이 얼마나 신빙성 있는지 측정하는 신뢰도 지표</td>
+            </tr>
+            <tr>
+              <td><strong>F1 Score</strong></td>
+              <td>정밀도(Precision)와 재현율(Recall)의 조화평균 (Harmonic Mean)</td>
+              <td>정상 문자가 사기보다 압도적으로 많은 불균형 환경에서 오탐과 미탐 방지의 균형을 종합 평가</td>
+            </tr>
+            <tr>
+              <td><strong>Brier Score</strong></td>
+              <td>예측 확률 점수와 실제 정답 라벨 사이의 확률 예측의 평균제곱오차</td>
+              <td>0에 가까울수록 총 오차가 작음을 뜻하나, 캘리브레이션 전용 지표가 아니므로 낮은 점수만으로 확률 보정이 입증되었다고 볼 수는 없음</td>
+            </tr>
+            <tr>
+              <td><strong>AUC</strong></td>
+              <td>사기와 정상을 줄 세웠을 때 사기를 더 높은 순위에 둘 확률</td>
+              <td>임계값을 바꾸어도 변하지 않는 모델 고유의 순위 변별력 (1.0이 만점)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        여기서 주의해야 할 과학적 상식이 있습니다. <strong>AUC가 높다는 것이 모델이 실전에 즉시 투입되어 완벽하게 작동한다는 뜻은 아닙니다.</strong> AUC는 단순히 사기를 정상보다 위쪽에 줄 세우는 능력일 뿐, 실제 현장에 배치할 때는 서비스 환경에 맞는 특정 임계값을 골라야 합니다.
+      </p>
+      <p>
+        또한 우리가 검증셋에서 "오탐률 1% 이하"를 만족하는 임계값을 골랐다고 해서, 실 서비스에서도 영원히 오탐이 1% 이하로 유지된다는 뜻은 결코 아닙니다. 본 연구에서 측정한 모든 지표는 통제된 평가셋에서 관측된 수치(Observed metrics)이며, 실제 운영 환경에서의 피해 방지(Operational prevention)를 직접 증명하는 것은 아닙니다.
+      </p>
+    </section>
+
+    <!-- Chapter 8 -->
+    <section class="chapter" id="ch8">
+      <div class="chapter-header">
+        <span class="chapter-num">08</span>
+        <h3 class="chapter-title">통계 도구의 객관적 검증: "SAS 분석이 밝혀낸 뜻밖의 진실"</h3>
+      </div>
+      <p>
+        ScamLens 연구팀은 자신들이 작성한 파이썬 코드에 과도한 확증 편향을 갖지 않기 위해, 대규모 금융 데이터 분석에서 널리 활용되는 전문 통계 소프트웨어 도구인 <strong>SAS(Statistical Analysis System) Analytics</strong>를 활용해 객관적인 통계 가설 검정을 수행했습니다.
+      </p>
+      <p>
+        여기서 꼭 구분해야 할 사실은, 이 SAS 분석(2026-09-08)은 과거 텍스트/URL 앙상블 및 OOF 데이터에 대해 SAS 엔터프라이즈 환경에서 수행된 선행 통계 검증이며, 후속 단계에서 수행된 파이썬 기반 최신 KcBERT U5 평가와는 별개로 진행된 분석이라는 점입니다(2026-09-17 로컬 사전점검 파일은 파이썬 준비 스크립트일 뿐 실행된 SAS 분석 결과가 아님). 과거 SAS 서버 환경에서 일괄 분석(Batch Run)을 통해 텍스트 모형과 URL 모형의 결합 효과를 검증한 결과는 다음과 같았습니다:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>모형 구성 방식</th>
+              <th>SAS 측정 AUC</th>
+              <th>차이 [문자 단독 - 비교 모형 (Text minus Comparator)]</th>
+              <th>통계적 p-value</th>
+              <th>통계적 판정</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>본문 문자 모형 단독 (기준)</strong></td>
+              <td><strong>0.9987</strong></td>
+              <td>- (기준선)</td>
+              <td>-</td>
+              <td>기준선</td>
+            </tr>
+            <tr>
+              <td><strong>고정 가중치 결합 모형 (0.7 + 0.3)</strong></td>
+              <td>0.9950</td>
+              <td>+0.0037 (95% CI: 0.0020~0.0054)</td>
+              <td>p &lt; 0.0001</td>
+              <td>❌ 결합 시 성능이 유의미하게 악화됨</td>
+            </tr>
+            <tr>
+              <td><strong>SAS OOF 메타 결합 모형</strong></td>
+              <td>0.9988</td>
+              <td>-0.00006 (95% CI: -0.00039~0.00027)</td>
+              <td>p = 0.7233</td>
+              <td>⚠️ 통계적 차이가 검출되지 않음</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        여기서 차이의 부호는 <strong>(문자 단독 AUC - 비교 모형 AUC)</strong>로 정의됩니다. 양수(+)는 문자 단독 모형이 더 우수하여 결합 시 성능이 하락했음을 뜻하고, 음수(-)는 비교 모형이 더 우수함을 뜻합니다. 사람이 임의로 정한 고정 가중치(0.70/0.30) 결합은 차이가 +0.0037(p &lt; 0.0001)로 문자 단독보다 순위 판별력(AUC)을 유의미하게 떨어뜨렸습니다.
+      </p>
+      <p>
+        정교한 머신러닝 메타 모형(OOF 스태킹)을 썼을 때도, 문자 단독 모형과의 유의미한 차이는 검출되지 않았습니다(<code>p = 0.7233</code>). 여기서 <code>p = 0.7233</code>이라는 수치는 "두 모델이 완전히 똑같다"는 동등성 증명이 아니라, "현재 확보된 표본 데이터로는 둘 사이의 통계적 차이를 발견할 수 없었다"는 정직한 결론입니다. 이 비교에서는 URL 결합의 추가 성능 이득을 확인하지 못했습니다. URL 정보가 항상 쓸모없다는 뜻은 아닙니다.
+      </p>
+      <p>
+        이 객관적 통계 분석 결과에 따라, 연구팀은 무리하게 복잡한 다중 모형 결합을 고집하지 않고 본문 언어 모델(KcBERT)의 문맥 이해와 한계 진단에 집중하기로 연구 방향을 결정했습니다.
+      </p>
+    </section>
+
+    <!-- Chapter 9 -->
+    <section class="chapter" id="ch9">
+      <div class="chapter-header">
+        <span class="chapter-num">09</span>
+        <h3 class="chapter-title">고난도 문제와 방어력: "Hard Negative, 난독화, 그리고 FAGE"</h3>
+      </div>
+      <p>
+        스미싱 탐지기를 실전에 내보내기 전에 반드시 치러야 하는 혹독한 관문이 있습니다. 바로 <strong>'어려운 정상(Hard Negative)'</strong> 문제와 <strong>'난독화(Obfuscation)'</strong> 공격입니다.
+      </p>
+      <p>
+        "엄마 나 폰 고장 났어"처럼 전형적인 사기 문자는 인공지능이 쉽게 맞춥니다. 하지만 "고객님, 해외 결제 승인 확인 링크"처럼 불안감을 조성하는 문구와 인터넷 주소가 포함된 정상 결제 안내 문자는 어떨까요? 인공지능 분야에서는 이처럼 정상 문자임에도 사기 문자의 외형적 특징을 닮아 오탐을 유발하기 쉬운 고난도 표본을 <strong>Hard Negative</strong>라고 부릅니다.
+      </p>
+      <div class="note-box">
+        <div class="note-title">⚠️ 설명용 가상 예시와 실제 검증의 차이</div>
+        <p style="margin-bottom: 0;">
+          본문에 언급된 결제 알림 문구는 비전문가 독자의 이해를 돕기 위한 <strong>가상의 설명용 예시(Invented Illustrative Example)</strong>입니다. 실제 환경에서 특정 문자가 진정한 정상인지 사기인지를 확정하기 위해서는, 단순 문구 확인을 넘어 통신사 발신 번호 진위 확인 및 금융회사의 실제 거래 맥락 조회가 반드시 수반되어야 합니다.
+        </p>
+      </div>
+      <p>
+        이러한 고난도 문장들을 검증하기 위해 독립된 두 명의 검수자가 참여하는 체계를 갖추었습니다. 이때 <strong>검수자 A(Reviewer A)는 AI 보조(AI-assisted)</strong>를 받았으며, <strong>검수자 B(Reviewer B)는 검수자 A의 판정, 기존 라벨, 모델 예측값 일체에 대해 블라인드(Blinded)</strong> 처리되어 독립적으로 평가했습니다.
+      </p>
+      <p>
+        이후 SAS 통계 분석에서 <strong>SAS11 프로그램을 통해 원본 사전 합의 전 일치도(Original Pre-consensus Agreement)</strong>를 정량화하였고, <strong>SAS12 프로그램을 통해 최종 합의-계층(Final Consensus-Strata) 예측 분석</strong>을 수행했습니다. 중요한 점은 두 검수자의 최종 합의(Consensus) 역시 연구 운영상의 합의 라벨일 뿐, 현실 세계의 확인된 절대 진리(Confirmed Real Truth)를 의미하는 것은 아니라는 사실입니다.
+      </p>
+      <p>
+        또한 공격자들은 필터링을 피하기 위해 글자 사이에 점을 찍거나(<code>국.민.은.행</code>), 자모를 분리(<code>ㄱㅜㄱㅁㅣㄴ</code>)하고 투명 공백을 넣는 <strong>난독화(Obfuscation)</strong> 기법을 씁니다. 이러한 방어 취약점을 극복하기 위해 연구팀은 <strong>FAGE(실패조건 게이트 앙상블, Failure-Aware Gated Ensemble)</strong>라는 정교한 아키텍처를 시도했습니다.
+      </p>
+      <p>
+        FAGE는 전문가 모형들의 단순 예측 확률뿐만 아니라, 오탐/미탐 실패와 직결되는 <strong>'실패조건 피처'</strong>(URL 유무 <code>has_url</code>, 훈련 데이터와의 유사도 <code>similarity_to_train</code>, 전문가 간 의견 불일치도 <code>model_disagreement</code>, 예측 불확실성 <code>uncertainty</code>)를 게이트에 입력하여 어려운 경계 사례를 지능적으로 판정하려 했던 시도였습니다. 그러나 FAGE 역시 사전 설정된 엄격한 기준(오탐률 1% 상한 하 탐지 성능 유지)을 충족하지 못하여 공식 채택은 보류되었습니다.
+      </p>
+      <p>
+        <strong>Two-track 사후 분석</strong>은 이미 학습한 FLIP/DUP 예측을 URL 포함·문자 길이 35 미만 등의 조건으로 선택하는 개발셋 사후 분석입니다. 같은 개발셋을 본 뒤 만든 규칙이므로 독립 성능 증거가 아니며 U5에는 적용하지 않았습니다.
+      </p>
+    </section>
+
+    <!-- Chapter 10 -->
+    <section class="chapter" id="ch10">
+      <div class="chapter-header">
+        <span class="chapter-num">10</span>
+        <h3 class="chapter-title">최신 통제 대조 실험: "KcBERT를 둘러싼 3가지 공부 방법"</h3>
+      </div>
+      <p>
+        프로젝트의 가장 최신 단계에서 연구팀은 풀리지 않는 숙제 하나에 도전했습니다: <strong>"정상 문자에 웹 링크(URL)가 붙어 있을 때 생기는 오탐을 인공지능 학습 단계에서 교정할 수 없을까?"</strong>
+      </p>
+      <p>
+        우리는 인공지능이 "URL이 있으면 무조건 사기다"라는 편견(지름길 학습)에 빠지지 않도록, 정답 라벨은 그대로 둔 채 문자 속 URL 유무만 인위적으로 반전시키는 <strong>URL 교란 학습(FLIP)</strong>을 고안했습니다. 그리고 이 아이디어가 진짜 효과가 있는지 확인하기 위해, 의학 임상시험처럼 엄격한 <strong>3군 대조 실험</strong>을 설계했습니다.
+      </p>
+      <div class="diagram-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" width="100%" height="auto" class="inline-svg">
+  <rect width="880" height="220" fill="#F8FAFC" rx="10" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="32" font-size="14" font-weight="800" fill="#0F2E59">엄격한 3군 통제 대조실험 설계 (BASE vs DUP vs FLIP)</text>
+
+  <!-- Arm 1: BASE -->
+  <g transform="translate(30, 55)">
+    <rect width="250" height="145" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="250" height="28" rx="8" fill="#64748B"/>
+    <text x="125" y="19" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">1. BASE (증강 없는 기준)</text>
+    <text x="20" y="52" font-size="12" font-weight="800" fill="#1E293B">훈련 데이터: 6,680건</text>
+    <text x="20" y="74" font-size="11" fill="#475569">• 기본 정제 코퍼스 원형 그대로 학습</text>
+    <text x="20" y="92" font-size="11" fill="#475569">• 추가 데이터나 변형을 전혀 넣지 않음</text>
+    <text x="20" y="112" font-size="10.5" font-weight="700" fill="#0F766E">통제: 공통 654 steps 가중치 갱신</text>
+    <text x="20" y="130" font-size="10" fill="#64748B">성능 비교의 원천 기준점</text>
+  </g>
+
+  <!-- Arm 2: DUP -->
+  <g transform="translate(315, 55)">
+    <rect width="250" height="145" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="250" height="28" rx="8" fill="#475569"/>
+    <text x="125" y="19" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">2. DUP (데이터 증분 통제군)</text>
+    <text x="20" y="52" font-size="12" font-weight="800" fill="#1E293B">훈련 데이터: 6,961건</text>
+    <text x="20" y="74" font-size="11" fill="#475569">• 기본 6,680건 + 281건 단순 복제</text>
+    <text x="20" y="92" font-size="11" fill="#475569">• FLIP과 총 문자 수를 동일하게 맞춤</text>
+    <text x="20" y="112" font-size="10.5" font-weight="700" fill="#0F766E">통제: 데이터 증가 효과를 분리</text>
+    <text x="20" y="130" font-size="10" fill="#64748B">"단순히 데이터가 늘어서 좋아진 건가?" 검증</text>
+  </g>
+
+  <!-- Arm 3: FLIP -->
+  <g transform="translate(600, 55)">
+    <rect width="250" height="145" rx="8" fill="#EFF6FF" stroke="#1E56A0" stroke-width="2"/>
+    <rect width="250" height="28" rx="8" fill="#1E56A0"/>
+    <text x="125" y="19" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">3. FLIP (URL 교란 실험군)</text>
+    <text x="20" y="52" font-size="12" font-weight="800" fill="#1E293B">훈련 데이터: 6,961건</text>
+    <text x="20" y="74" font-size="11" fill="#1E56A0" font-weight="700">• 281건의 URL 유무만 반전 주입</text>
+    <text x="20" y="92" font-size="11" fill="#1E293B">• 원본 정답 라벨(정상/스미싱) 보존</text>
+    <text x="20" y="112" font-size="10.5" font-weight="700" fill="#B91C1C">목적: 정상 URL 문자의 오탐 완화</text>
+    <text x="20" y="130" font-size="10" fill="#475569">"URL 지름길 학습을 차단할 수 있을까?"</text>
+  </g>
+</svg>
+<div class="diagram-caption">그림 5: 데이터 양 증가 효과(DUP)와 URL 교란 증강 효과(FLIP)를 엄밀히 분리하기 위한 3군 대조 실험 설계</div>
+</div>
+      <p>
+        세 그룹의 차이는 매우 명확합니다:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 16px; color: var(--text-sub);">
+        <li><strong>1. BASE (6,680건)</strong>: 아무런 증강이나 복제를 하지 않은 순수한 원본 데이터셋입니다.</li>
+        <li><strong>2. DUP (6,961건)</strong>: 281건의 문장을 토씨 하나 안 바꾸고 그대로 한 번 더 복제해 넣은 통제군입니다.</li>
+        <li><strong>3. FLIP (6,961건)</strong>: 281건의 문장에서 URL 유무만 반전(있던 링크는 빼고, 없던 문장엔 정상 링크를 추가)하여 주입한 실험군입니다. 이때 원본이 정상 문자인지 사기 문자인지 나타내는 정답 라벨은 완벽히 보존됩니다.</li>
+      </ul>
+      <p>
+        여기서 과학적 엄밀함을 지키기 위해 두 가지 철칙을 세웠습니다. 첫째, 세 모델 모두 <strong>동일한 654회의 가중치 갱신(updates) 예산</strong>을 정확히 똑같이 소모했습니다. (데이터 건수는 DUP와 FLIP이 6,961건으로 같지만, BASE는 6,680건이므로 '완전히 동일한 표본 수'라고 말해서는 안 됩니다.)
+      </p>
+      <p>
+        둘째, <strong>5개의 난수 시드(42, 101, 202, 303, 404)</strong>를 돌려 반복 검증했습니다. 이것은 같은 2,317건의 시험 문제를 난수를 바꾸어가며 5번 채점한 것이지, 시험 문제가 5배(11,585건)로 늘어난 독립 표본이 아니라는 점을 분명히 밝힙니다.
+      </p>
+    </section>
+
+    <!-- Chapter 11 -->
+    <section class="chapter" id="ch11">
+      <div class="chapter-header">
+        <span class="chapter-num">11</span>
+        <h3 class="chapter-title">실험 결과: "개발 연습의 기대 vs 냉정한 후속 평가"</h3>
+      </div>
+      <p>
+        이 실험의 결과는 과학 연구에서 왜 정직한 대조군 통제와 사후 검증이 중요한지를 명확히 보여주었습니다.
+      </p>
+      <p>
+        먼저 <strong>개발 탐색 단계(1,750건)</strong>에서 모델들을 테스트했을 때, 단순 복제군인 DUP의 오탐률이 0.89%였던 반면, URL을 반전시켜 학습한 FLIP의 오탐률은 <strong>0.68%</strong>로 약 <strong>~0.21%p 낮게 관측</strong>되었습니다. 5개 시드에 걸친 예측 이벤트를 합산했을 때 해소된 오탐 25건 대비 신규 발생 오탐이 10건으로, 순 오탐 예측 이벤트가 15건 감소하는 양상을 보였습니다(이는 15개의 고유 메시지가 줄어든 것이 아니라 5개 난수 시드의 예측 판정 이벤트 합산입니다).
+      </p>
+      <p>
+        그러나 여기에는 중요한 성능 트레이드오프가 존재했습니다. 오탐률이 0.21%p 개선되는 대신, <strong>사기 문자 탐지 재현율(Recall)은 DUP의 97.03%에서 FLIP의 96.18%로 0.85%p 하락</strong>했습니다. 즉, 정상 문자에 대한 의심을 줄이는 대가로 실제 사기 문자를 놓칠 위험(미탐)이 커진 것입니다.
+      </p>
+      <p>
+        더 결정적인 평가는 그 뒤에 이루어졌습니다. 과거 프로젝트 평가 이력이 있는 <strong>원래 test 분할(U5 후속평가, 2,317건)</strong>에 세 모델을 올려 5개 난수 시드로 최종 평가를 수행한 결과는 다음과 같았습니다:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>실험군 (Arm)</th>
+              <th>훈련 규모</th>
+              <th>오탐률 (FPR, 낮을수록 우수)</th>
+              <th>사기 재현율 (Recall, 높을수록 우수)</th>
+              <th>Brier 점수 (낮을수록 우수)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BASE</strong></td>
+              <td>6,680건</td>
+              <td>0.60% ± 0.32%p</td>
+              <td>97.82% ± 0.99%p</td>
+              <td>0.0091 ± 0.0027</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>DUP (대조군)</strong></td>
+              <td>6,961건</td>
+              <td><strong>0.44% ± 0.11%p</strong></td>
+              <td><strong>97.88% ± 0.48%p</strong></td>
+              <td><strong>0.0090 ± 0.0016</strong></td>
+            </tr>
+            <tr>
+              <td><strong>FLIP (실험군)</strong></td>
+              <td>6,961건</td>
+              <td>0.46% ± 0.18%p</td>
+              <td>97.55% ± 0.85%p</td>
+              <td>0.0117 ± 0.0038</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        개발 단계에서 관측되었던 FLIP의 오탐 개선 효과는 <strong>원래 test 후속평가에서 전혀 재현되지 않았습니다.</strong> DUP의 오탐률이 0.44%인 반면 FLIP은 0.46%로 오히려 소폭 높았으며, 사기 탐지율(Recall)과 총 확률 오차(Brier Score) 모두 단순 복제군인 DUP가 근소하게 우세했습니다.
+      </p>
+      <div class="analogy-box">
+        <div class="analogy-title">💡 모의고사와 수능 시험의 차이</div>
+        <p style="margin-bottom: 0;">
+          사설 모의고사(개발셋)에서 신기술 공부법(FLIP)이 일시적인 효과를 보였다고 해서, 실제 수능 시험장(원래 test 평가)에서도 반드시 성적이 오른다는 보장은 없습니다. 모의고사 성적표만 보고 성급히 성공을 선언하지 않고, 본 시험의 냉정한 결과를 그대로 기록하는 것이 과학적 연구의 기본자세입니다.
+        </p>
+      </div>
+      <p>
+        여기서 또 하나의 통계적 주의점이 있습니다. 개발셋의 오탐률(0.89%)보다 시험셋의 오탐률(0.44%)이 낮게 나왔다고 해서 "시험장에 가니 모델이 2배 더 똑똑해졌다"고 해석해서는 안 됩니다. 두 데이터셋의 문장 분포와 난이도가 다르기 때문입니다. 본 연구에서 중요한 것은 <strong>동일한 시험 조건 안에서 통제군(DUP) 대비 실험군(FLIP)의 개선 효과가 유지되지 못했다는 관측 사실</strong>입니다.
+      </p>
+      <p>
+        표에 표기된 <code>± 0.11%p</code> 같은 오차 수치는 5개 시드 간의 모표준편차(Population SD, ddof=0)를 나타내며, 학술적 신뢰구간(CI)과는 구분됩니다.
+      </p>
+    </section>
+
+    <!-- Chapter 12 -->
+    <section class="chapter" id="ch12">
+      <div class="chapter-header">
+        <span class="chapter-num">12</span>
+        <h3 class="chapter-title">정상 문자에 URL이 붙으면 왜 위험할까? (서브그룹 분석)</h3>
+      </div>
+      <p>
+        그렇다면 왜 인공지능은 URL이 포함된 정상 문자를 판별할 때 더 많은 오류를 범할까요? U5 후속평가셋(2,317건)을 <strong>URL 유무에 따라 서브그룹으로 분해</strong>하여 심층 진단했습니다.
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>문자 유형</th>
+              <th>평가 표본 분모</th>
+              <th>DUP 기준 오탐률 (FPR)</th>
+              <th>DUP 기준 탐지율 (Recall)</th>
+              <th>시드별 오탐 현황 및 진단</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>URL 없는 정상 문자</strong></td>
+              <td><strong>1,367건</strong></td>
+              <td><strong>0.10%</strong></td>
+              <td>-</td>
+              <td>시드당 평균 오탐 약 1.4건 (0~3건 범위)로 낮게 억제됨</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>URL 있는 정상 문자</strong></td>
+              <td><strong>298건</strong></td>
+              <td><strong>2.01%</strong></td>
+              <td>-</td>
+              <td>시드당 평균 오탐 약 6.0건 (4~8건 범위)로 상대적 증가</td>
+            </tr>
+            <tr>
+              <td><strong>URL 있는 사기 문자</strong></td>
+              <td>598건</td>
+              <td>-</td>
+              <td>98.29%</td>
+              <td>링크 특징이 결합되어 안정적으로 높은 탐지율 유지</td>
+            </tr>
+            <tr>
+              <td><strong>URL 없는 사기 문자</strong></td>
+              <td><strong>54건</strong></td>
+              <td>-</td>
+              <td><strong>93.33%</strong></td>
+              <td>⚠️ 표본 수가 54건으로 적어 통계적 불확실성이 큼</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        결과는 명확했습니다. URL이 없는 평범한 정상 문자(1,367건)에서는 오탐률이 0.10%(시드당 약 1.4건)에 불과했으나, <strong>정상 문자임에도 인터넷 주소가 포함된 경우(298건)에는 오탐률이 2.01%(시드당 약 6.0건)로 상대적으로 높게 관측</strong>되었습니다.
+      </p>
+      <p>
+        하지만 연구팀은 이를 두고 "URL이 오탐률을 수십 배 치솟게 만든다"라거나 "지름길 학습의 인과관계가 증명되었다"고 단정하지 않습니다. 왜냐하면 이는 통제된 시험셋에서 <strong>관측된 통계적 상관관계(Observed Correlation)</strong>일 뿐 인과관계를 입증한 것은 아니며, URL 포함 정상 표본(298건)과 URL 미포함 사기 표본(54건)의 규모가 비교적 작아 통계적 변동성이 존재하기 때문입니다.
+      </p>
+      <p>
+        이러한 서브그룹 분석과 후속평가 결과를 종합하여 우리는 최종 정책 결정을 내렸습니다:
+      </p>
+      <div class="note-box" style="background: #F0FDF4; border-left-color: #166534;">
+        <div class="note-title" style="color: #166534;">📋 ScamLens의 최종 연구 의사결정</div>
+        <p style="margin-bottom: 6px; color: #14532D;">
+          <strong>1. FLIP 기법의 공식 채택을 보류한다</strong>: 개발셋에서 보였던 미세한 개선이 시험셋에서 재현되지 않았으며, 사기 탐지율(Recall) 하락이라는 트레이드오프가 존재하므로 실 서비스에 성급히 도입하지 않습니다.
+        </p>
+        <p style="margin-bottom: 0; color: #14532D;">
+          <strong>2. DUP 모델을 차기 연구의 대조 통제군으로 유지한다</strong>: DUP 모델이 현재로서는 가장 안정적인 지표를 보였지만, 이것이 "즉시 상용화할 최종 완성형 모델"이라는 뜻은 아닙니다. 어디까지나 미래 연구에서 뛰어넘어야 할 기준 대조군(Baseline Control)으로 남겨둡니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 13 -->
+    <section class="chapter" id="ch13">
+      <div class="chapter-header">
+        <span class="chapter-num">13</span>
+        <h3 class="chapter-title">우리가 이룬 것, 남겨진 숙제, 그리고 60초 요약</h3>
+      </div>
+      <p>
+        ScamLens 프로젝트는 "인공지능 만능주의"라는 환상을 경계하고, 철저한 통계적 검증과 과학적 정직성을 바탕으로 완주한 엔지니어링 여정이었습니다.
+      </p>
+      <p>
+        우리가 이룩한 구체적인 산출물은 다음과 같습니다:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 16px; color: var(--text-sub);">
+        <li>공개된 수치의 일관성을 확인할 수 있는 재현 자동화 파이프라인(<code>--check</code>) 구축.</li>
+        <li>SAS Analytics 소프트웨어를 통한 선행 ROC 통계 검증 및 가설 검정 보고서.</li>
+        <li>오프라인 환경에서도 100% 자립 구동되는 종합 해설서 및 측정된 전체 높이(Full-height) 무절단 스크린샷.</li>
+        <li>모든 원시 지표와 해시를 누락 없이 보존한 매니페스트 및 정본 JSON 파일들.</li>
+      </ul>
+      <p>
+        하지만 솔직하게 인정해야 할 <strong>남겨진 숙제(공학적 한계점)</strong>도 명확히 존재합니다:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 24px; color: var(--text-sub);">
+        <li><strong>새로운 외부 독립 데이터의 필요성 및 U5 과거 이력</strong>: 본 연구의 원래 test 세트(2,317건)는 과거 프로젝트에서도 평가에 사용된 이력이 있습니다(prior-use). 또한 최신 U5 후속평가에 대해서는 SAS/CAS/VA 분석이 실행되지 않았습니다. 실전 환경의 성능을 추가 검증하려면 과거 이력이 전혀 없는 완전히 새로운 외부 독립 데이터셋이 확보되어야 합니다.</li>
+        <li><strong>2026-09-17 원본 가중치 미보존 및 새로운 재학습</strong>: 2026-09-17 시점의 원본 모델 가중치가 그대로 보존되지 않아 새로운 재학습(retraining)을 수행해야 했습니다.</li>
+        <li><strong>하드웨어 비트 재현성 한계 (Apple Silicon MPS)</strong>: 로컬 Apple Silicon(MPS) 하드웨어 환경의 연산은 CPU나 표준 CUDA 환경과 비트 단위(bit-identical)로 100% 동일한 수치 결과를 보장하지 않습니다.</li>
+        <li><strong>훈련과 시험 단계의 마스킹 처리 차이</strong>: 훈련(fit) 단계와 평가(test) 단계 사이에 개인정보 및 패턴 마스킹 처리상의 차이가 존재합니다.</li>
+        <li><strong>공개 집계 검증자의 한계</strong>: 공개 집계 검증기(<code>--check</code>)는 공개된 산출물 간의 산술 연산과 수치 일관성(arithmetic and consistency)을 검증하는 도구이며, 비공개 원본 데이터 자체의 진실성이나 전체 재학습 과정 전체를 직접 검증하는 것은 아닙니다.</li>
+      </ul>
+
+      <!-- 60-Second Summary -->
+      <p>ScamJourney·EmotionLens·ActionGuard는 사기 진행 과정, 감정적 압박, 위험 행동 경고를 다루는 확장 구상입니다. 현재 검증된 탐지 성능이나 실제 피해 예방 성과로 해석해서는 안 됩니다. 추가 정상 데이터의 사람 검수도 남아 있습니다.</p>
+      <div class="summary-banner">
+        <h3>⏱️ 60초 핵심 요약: 바쁜 분들을 위한 프로젝트 총정리</h3>
+        <p>
+          <strong>1. 무엇을 했는가?</strong> 평범한 정상 문자를 억울하게 차단하지 않으면서 스미싱을 골라내는 한국어 언어 모델(KcBERT)의 방어 성능과 오작동 한계를 엄격한 통제 실험으로 측정했습니다.
+        </p>
+        <p>
+          <strong>2. 무엇을 발견했는가?</strong> URL 유무를 인위적으로 반전시켜 학습시키는 기법(FLIP)이 초기 개발셋에서는 오탐을 줄여주는 듯 보였으나, 시험셋 후속평가에서는 재현되지 않았으며 탐지율(Recall) 하락 트레이드오프가 확인되었습니다. 또한 정상 문자라도 URL이 포함되면 오탐률이 0.10%에서 2.01%로 상대적으로 증가하는 취약점이 관측되었습니다.
+        </p>
+        <p>
+          <strong>3. 어떤 결정을 내렸는가?</strong> 과장된 성공을 주장하지 않고 FLIP 채택을 보류했습니다. 대신 단순 복제 모델(DUP)을 차기 연구의 대조 기준선으로 남겨두고, 통계적 불확실성과 데이터 한계를 투명하게 공개했습니다.
+        </p>
+      </div>
+
+      <!-- Glossary -->
+      <h4 style="font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 36px; margin-bottom: 12px;">📚 프로젝트 핵심 용어집 (Glossary)</h4>
+      <div class="glossary-grid">
+        <div class="glossary-item">
+          <div class="glossary-term">스미싱 (Smishing)</div>
+          <div class="glossary-def">문자메시지(SMS)와 피싱(Phishing)의 합성어로, 문자에 악성 링크나 속임수를 넣어 금융 피해를 유도하는 사기 범죄.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">오탐 (False Positive, FP)</div>
+          <div class="glossary-def">정상적인 문자를 인공지능이 사기 문자라고 잘못 판단하여 억울하게 차단해 버리는 오류.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">미탐 (False Negative, FN)</div>
+          <div class="glossary-def">실제 사기 문자인데 인공지능이 정상 문자로 오해하여 놓치고 통과시켜 버리는 오류.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">재현율 (Recall)</div>
+          <div class="glossary-def">라벨링된 평가 데이터셋에서 모델이 실제 사기 문자를 놓치지 않고 탐지해낸 비율 (현실 세계의 실제 예방 피해를 뜻하는 것은 아님).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">정밀도 (Precision)</div>
+          <div class="glossary-def">인공지능이 "사기다!"라고 경고한 문자들 중에서 실제로 사기였던 문자의 비율.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">F1 Score</div>
+          <div class="glossary-def">정밀도와 재현율의 조화평균(Harmonic Mean)으로, 클래스 불균형 환경에서 오탐과 미탐 방지의 균형을 종합 평가하는 지표.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">임계값 (Threshold)</div>
+          <div class="glossary-def">인공지능의 확률 점수를 바탕으로 "이 점수 이상이면 차단한다"라고 가르는 최종 운영 판정 기준선(컷오프).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">확률 캘리브레이션 (Calibration)</div>
+          <div class="glossary-def">모델의 예측 점수가 실제 참일 확률과 일치하도록 눈금을 현실 확률에 맞추는 통계적 확률 보정 공정 (임계값 선택과 구별됨).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Brier Score</div>
+          <div class="glossary-def">예측 확률 점수와 실제 정답 라벨 사이의 확률 예측의 평균제곱오차(Mean Squared Probability Error)를 측정하는 지표 (캘리브레이션 전용 지표가 아니며 낮은 점수만으로 보정이 입증되지는 않음).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">AUC (Area Under ROC)</div>
+          <div class="glossary-def">사기 문자를 정상 문자보다 더 높은 위험 순위로 매겨줄 수 있는 모델 고유의 순위 변별 능력 (1.0이 만점).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">문자 n-gram</div>
+          <div class="glossary-def">문장을 1글자, 2글자, 3~5글자 등의 연속된 글자 토막으로 잘라내어 오탈자나 변형에 대한 탐지 강건성을 높일 가능성을 제공하는 기법 (동일 의도 인식을 보장하지는 않음).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">TF-IDF</div>
+          <div class="glossary-def">단어의 문서 내 출현 빈도(TF)와 전체 학습 문서(All Training Documents)에서의 흔한 정도(IDF)를 고려하여 핵심 단어에 가중치를 부여하는 통계 기법.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">KcBERT</div>
+          <div class="glossary-def">대규모 한국어 포털 뉴스 댓글 및 일상 구어체 텍스트로 문맥을 사전학습한 한국어 특화 딥러닝 언어 모델.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">지름길 학습 (Shortcut Learning)</div>
+          <div class="glossary-def">문맥의 본질 대신 "URL이 있으면 사기다"처럼 표면적으로 관측된 상관관계에만 의존하여 섣부른 결론을 내리는 편향.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">유사도 그룹 분할 (Group Split)</div>
+          <div class="glossary-def">단어 몇 개만 바꾼 템플릿 문장이 훈련셋과 시험셋에 쪼개져 들어가 시험 문제가 유출(암기)되는 것을 막는 분할법.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">OOF 스태킹 (Out-of-Fold)</div>
+          <div class="glossary-def">훈련 단계에서 자신이 학습하지 않은 분할에 대한 맞고 틀린 예측 전체(both correct and incorrect predictions)를 학습한 행을 다시 예측하는 편향을 줄여 모아 메타 모델을 훈련시키는 기법 (독립 시험셋 ROC와 구별됨).</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Hard Negative</div>
+          <div class="glossary-def">결제 알림이나 URL이 포함되어 있어 겉보기에 사기처럼 오해하기 쉽지만 실제로는 안전한 고난도 정상 문자.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">난독화 (Obfuscation)</div>
+          <div class="glossary-def">사기범들이 탐지 필터를 피하기 위해 특수문자를 넣거나 자모를 분리하여 단어를 인위적으로 비틀어놓는 위장 수법.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">FAGE (실패조건 게이트 앙상블)</div>
+          <div class="glossary-def">전문가 점수 외에 URL 유무, 유사도, 의견 불일치 등 실패 위험 신호를 게이트에 입력받아 경계 사례를 조절하려 했던 고도화 앙상블.</div>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">통제 대조군 (Control Arm)</div>
+          <div class="glossary-def">새로운 실험 기법(FLIP)의 진짜 효과를 격리 검증하기 위해 데이터 표본 수와 가중치 갱신 횟수를 동일하게 통제한 비교 기준(DUP).</div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="guide-footer">
+    <div>
+      프로젝트 출처: <a href="../README.md" style="color: var(--primary-light);">ScamLens Repository</a> • 
+      <a href="../presentation/RESEARCH_REPORT.md" style="color: var(--primary-light);">공식 연구 보고서</a> • 
+      <a href="../evidence/matched_kcbert_u5_unused_test_20260918_v1.json" style="color: var(--primary-light);">정본 지표 JSON</a>
+    </div>
+    <div>
+      실험 지표는 정본 JSON 파일에서 파생되었으며, 연구 프로토콜과 감사 맥락은 공식 연구 문서에 근거함 (외부 네트워크 통신 없는 오프라인 단독 구동 가이드) • 2026-09-20
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

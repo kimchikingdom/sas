@@ -1,0 +1,313 @@
+{
+  "passed": true,
+  "verified_at_utc": "2026-09-21T02:50:14.547942+00:00",
+  "prediction_rows": 9520,
+  "aggregate_rows": 105,
+  "replay_seed": 42,
+  "replay_kisa_messages": 22,
+  "replay_normal_messages": 12,
+  "replay_predictions": 238,
+  "max_replay_probability_abs_difference": 0.0,
+  "candidate_by_seed": {
+    "42": {
+      "passed": false,
+      "recovered_fn": 0,
+      "new_fn": 0,
+      "new_fp": 6
+    },
+    "101": {
+      "passed": false,
+      "recovered_fn": 0,
+      "new_fn": 0,
+      "new_fp": 4
+    },
+    "202": {
+      "passed": false,
+      "recovered_fn": 0,
+      "new_fn": 0,
+      "new_fp": 1
+    },
+    "303": {
+      "passed": false,
+      "recovered_fn": 0,
+      "new_fn": 0,
+      "new_fp": 5
+    },
+    "404": {
+      "passed": false,
+      "recovered_fn": 0,
+      "new_fn": 0,
+      "new_fp": 7
+    }
+  },
+  "protected_source_hashes_unchanged": true,
+  "receipt_bindings_verified": true,
+  "runner_sha256": "2fa00218c302d907c4ae04c9e5345594618b22d08d8c52fd881deb9bb071701d",
+  "scope": "Local diagnostic audit and received four-stage aggregate SAS execution verified; no CAS/VA or independent evaluation claim",
+  "sas_runtime_verified": true,
+  "sas_package_status": "aggregate_package_ready",
+  "sas_manifest_sha256": "20b60ea79ccd1481f9ce8a5938db721e219f546a6d59cce2f12f573cef91cdad",
+  "sas_commit": "545c0e315e9abe62bdace2fff62fde6d017f02c8",
+  "sas_remote": "https://github.com/kimchikingdom/sas",
+  "remote_head_verified": true,
+  "sas_staged_allowlist_file_count": 22,
+  "checks": {
+    "input_tests": "19 passed before C2",
+    "sas_package_tests": "22 passed including both observed ERROR180-322 regressions",
+    "u5_aggregate_recomputation": "passed after SAS whitespace normalization and canonical manifest refresh",
+    "fusion_integrity": "passed",
+    "jev_comparison_integrity": "passed",
+    "git_diff_check": "passed; CSV canonical CRLF preserved by scoped attributes",
+    "interpretation_generator_check": "passed",
+    "web_desktop_and_mobile": "rendered and inspected; three tables, no scripts, no body overflow at 390px",
+    "sas_portability_package_check": "passed; canonical U5 manifest and followup package source/schema parity verified"
+  },
+  "limitations": [
+    "Previously evaluated KISA diagnostic reuse",
+    "Source-normal development candidates are not independently verified normal messages",
+    "Candidate rejected; detector and thresholds unchanged",
+    "Verified runtime scope is the received aggregate followup only; CAS/VA and new independent evaluation are outside this verification"
+  ],
+  "sas_runtime_status": "received_four_stage_run_verified",
+  "sas_retest_required": false,
+  "sas_first_run_observed_errors": [
+    "U5 final NOTE terminator caused stray inspect statement, ERROR 180-322",
+    "Runner error NOTE terminator caused stray see statement, ERROR 180-322"
+  ],
+  "sas_initial_commit": "5621b300eee0e493be04892b84d372da2be21a04",
+  "sas_runtime_patch_status": "verified_in_received_run",
+  "sas_runtime_patch_changed_files": 4,
+  "sas_runtime_patch_csv_changes": 0,
+  "sas_initial_partial_return_audit": {
+    "inspected_at_utc": "2026-09-21T05:40:25.165544+00:00",
+    "scope": "received_stage_logs_and_fusion_html",
+    "files": {
+      "stage_u5.log": {
+        "sha256": "5d301526fc9ce8e9f1e9518d97f1389e098a6160a99b6f03e0e43050592175c7",
+        "bytes": 56638
+      },
+      "stage_cmp.log": {
+        "sha256": "c7ab0fba7e16287b56cf6d6400ac388a6845bd648bc3cb29064c145413528f9a",
+        "bytes": 17170
+      },
+      "stage_fus.log": {
+        "sha256": "9d1f18d9aff6b31d2e4f7820820258ce7f0d32c81eecc25430ca1d4d0ea6ead3",
+        "bytes": 18915
+      },
+      "stage_kisa.log": {
+        "sha256": "656f82c1766535349a1a3c924116669252bb353bfef168e3662f3b254d1672a4",
+        "bytes": 27823
+      },
+      "stage_fus.html": {
+        "sha256": "1296f8ee76936630124b52a1d52753c3f4633d7f5eddad79dc085012981ea1f0",
+        "bytes": 40450
+      }
+    },
+    "logs": {
+      "stage_u5.log": {
+        "error_count": 0,
+        "warning_count": 0,
+        "evidence": {
+          "NOTE: [ScamLens 16] SCAMLENS_U5_DIAGNOSTICS_COMPLETE: SAS execution finished. Inspect": true
+        },
+        "run_ids": [
+          "run_da5c44c3-0b3d-b342-903c-29f4cbfd619a"
+        ]
+      },
+      "stage_cmp.log": {
+        "error_count": 0,
+        "warning_count": 0,
+        "evidence": {
+          "NOTE: Aggregate guard checks passed.": true
+        },
+        "run_ids": [
+          "run_da5c44c3-0b3d-b342-903c-29f4cbfd619a"
+        ]
+      },
+      "stage_fus.log": {
+        "error_count": 0,
+        "warning_count": 0,
+        "evidence": {
+          "NOTE: aggregate arithmetic checks passed; no model fit was executed.": true,
+          "NOTE: cross-arm stability checks passed.": true
+        },
+        "run_ids": []
+      },
+      "stage_kisa.log": {
+        "error_count": 0,
+        "warning_count": 0,
+        "evidence": {
+          "NOTE: kisa grid and threshold checks passed.": true,
+          "NOTE: kisa cohort sizes and baseline pools passed.": true,
+          "NOTE: kisa arithmetic and cohort-role checks passed.": true,
+          "105 records created in": true
+        },
+        "run_ids": [
+          "run_da5c44c3-0b3d-b342-903c-29f4cbfd619a"
+        ]
+      }
+    },
+    "u5_export_row_counts_from_log": [
+      15,
+      3,
+      6
+    ],
+    "kisa_export_rows_from_log": 105,
+    "run_id_observed_in_u5_cmp_kisa": "run_da5c44c3-0b3d-b342-903c-29f4cbfd619a",
+    "fusion_run_id_binding": "not_embedded_in_received_fusion_files",
+    "fusion_html_comparison": {
+      "rows": 15,
+      "exact_count_fields_checked": 75,
+      "thresholds_checked": 15,
+      "max_threshold_display_rounding_error": 4.4217518535560885e-11,
+      "canonical_sha256": "d73c9ffc6f1b8f785ec6deb0bb6c2a55a9895a6aae620ef49c5bcd6ea8759eb1",
+      "passed": true
+    },
+    "overall_runner_completion_verified": false,
+    "returned_csv_values_verified": false,
+    "missing_return_files": [
+      "run_status.txt",
+      "followup_summary.html",
+      "kisa_verified_readback.csv",
+      "stage_u5/outputs/sas_model_readback.csv",
+      "stage_u5/outputs/sas_arm_readback.csv",
+      "stage_u5/outputs/sas_transition_readback.csv"
+    ],
+    "chart_visual_review": "pending; chart reports and images not supplied"
+  },
+  "sas_return_audit": {
+    "verified_at_utc": "2026-09-21T06:20:29.990381+00:00",
+    "archive_sha256": "21bcfcc5c4788975424d18913a92a75df0777c7385872a755dadd00072d85e82",
+    "zip_members": 55,
+    "zip_crc_passed": true,
+    "extracted_bytes_match_archive": true,
+    "run_status": "status=ok stages=4 runid=run_da5c44c3-0b3d-b342-903c-29f4cbfd619a",
+    "logs": {
+      "stage_u5.log": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "stage_kisa.log": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "stage_fus.log": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "stage_cmp.log": {
+        "errors": 0,
+        "warnings": 0
+      }
+    },
+    "summary_stages_ok": 4,
+    "csv_schemas_verified": 4,
+    "kisa_csv_column_reordering": "matches SAS LENGTH declaration; verified by column names",
+    "tampered_count_stddev_transition_rejected": true,
+    "comparison_html_rows_verified": 15,
+    "fusion_html_matches_previously_verified_report": true,
+    "portable_images_resolve": 35,
+    "image_bytes_unchanged": true,
+    "raw_evidence_unchanged": true,
+    "numeric_readback": {
+      "audit_timestamp_utc": "2026-09-21T06:18:52.253387+00:00",
+      "scope": "read_only_numeric_readback_and_input_data_audit",
+      "tolerance": 1e-08,
+      "overall_status": "PASSED",
+      "max_overall_float_difference": 4.9693138493012157e-11,
+      "modules": {
+        "kisa_ocr_diagnostics": {
+          "passed": true,
+          "row_count": 105,
+          "exact_integer_fields_checked": 1365,
+          "float_fields_checked": 210,
+          "missing_fields_checked": 105,
+          "max_float_difference": 4.4444448121794267e-11,
+          "tolerance": 1e-08
+        },
+        "u5_model_seed_diagnostics": {
+          "passed": true,
+          "row_count": 15,
+          "source_fields_checked": 195,
+          "recalc_fields_checked": 75,
+          "max_source_float_difference": 0.0,
+          "max_recalc_percentage_difference": 4.9693138493012157e-11,
+          "tolerance": 1e-08
+        },
+        "u5_arm_readback_pstdev": {
+          "passed": true,
+          "row_count": 3,
+          "expected_type": 1,
+          "expected_freq": 5,
+          "stat_checks_count": 30,
+          "max_mean_difference": 8.673617379884035e-19,
+          "max_pstdev_difference": 3.9813929930687664e-11,
+          "tolerance": 1e-08
+        },
+        "u5_transition_readback": {
+          "passed": true,
+          "row_count": 6,
+          "expected_type": 3,
+          "expected_freq": 5,
+          "transition_sum_checks": 6
+        },
+        "stage_u5_input_data_parity": {
+          "passed": true,
+          "files_checked": 6,
+          "total_parsed_rows": 94,
+          "details": {
+            "error_breakdown_by_feature.csv": {
+              "rows": 18,
+              "match": true
+            },
+            "eval_metadata_summary.csv": {
+              "rows": 11,
+              "match": true
+            },
+            "model_seed_diagnostics.csv": {
+              "rows": 16,
+              "match": true
+            },
+            "paired_transition_summary.csv": {
+              "rows": 11,
+              "match": true
+            },
+            "persistent_error_summary.csv": {
+              "rows": 31,
+              "match": true
+            },
+            "truncation_audit_summary.csv": {
+              "rows": 7,
+              "match": true
+            }
+          }
+        }
+      }
+    },
+    "visual_review": {
+      "pngs_inspected": 35,
+      "korean_labels_readable": true,
+      "original_u5_absolute_image_links": 5,
+      "portable_copy_repaired": true,
+      "all_zero_bars_are_zero_results": true
+    },
+    "browser_reports_verified": [
+      "index.html",
+      "followup_summary.html",
+      "stage_fus.html",
+      "stage_cmp/outputs/jev_kcbert_comparison_summary.html",
+      "kisa_stage.html",
+      "stage_u5/outputs/u5_error_diagnostics_report.html"
+    ],
+    "browser_broken_images": 0
+  },
+  "sas_runtime_verified_for_run": "run_da5c44c3-0b3d-b342-903c-29f4cbfd619a",
+  "sas_portability_patch": {
+    "change": "U5 GPATH URL=NONE for portable image links",
+    "received_results_recomputed": false,
+    "portable_view_copy_verified": true,
+    "new_sas_source_runtime_executed": false,
+    "commit": "545c0e315e9abe62bdace2fff62fde6d017f02c8",
+    "remote_head_verified": true
+  }
+}

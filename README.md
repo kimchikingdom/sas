@@ -1,30 +1,71 @@
-# sas
+# ScamLens · SAS 분석과 발표 자료
 
-최신 후속 실행은 [집계 전용 패키지](followup_20260921_v1/README.md)로 진행한다.
-U5 오류 진단 → Jev 비교 → Jev 결합 → KISA OCR·길이 진단을 실행한다.
-[자세한 실행·반환 안내](docs/SAS_FOLLOWUP_RUN_GUIDE_20260921.md)를 따른다.
+한국어 스미싱 탐지의 오탐·미탐과 입력 변화에 따른 한계를 분석한 프로젝트입니다.
+Python 모델의 평가 집계를 SAS로 검산하고, 결과를 발표 자료와 설명 페이지로 정리했습니다.
 
-SAS 서버에서 이 저장소를 최신 main으로 갱신한 후 새 SAS 세션에서 실행한다.
-projroot은 followup_20260921_v1 폴더가 있는 서버 경로로 맞춘다.
+## 자료 보기
+
+**[발표·설명 자료 전체 안내](materials/20260921/README.md)**부터 확인하세요.
+내려받은 폴더에서는 **[자료 모음 화면](materials/20260921/index.html)**을 열면 됩니다.
+
+| 찾는 자료 | 위치 |
+|---|---|
+| 최신 결과를 쉽게 설명한 HTML | [결과·그림·해석](materials/20260921/explain/scamlens_results_explained_20260921.html) |
+| 프로젝트 전체 설명 | [프로젝트 설명 HTML](materials/20260921/explain/PROJECT_EXPLAINED.html) |
+| 발표 슬라이드와 대본·문답 | [발표 폴더](materials/20260921/presentation/) |
+| 포스터와 설명 | [포스터 폴더](materials/20260921/poster/) |
+| U5·JEV 후속 분석 | [진단 자료](materials/20260921/diagnostics/) |
+| 실제 SAS 실행 결과·그래프 | [SAS 결과 폴더](materials/20260921/sas-results/) |
+| 수치의 근거와 해석 문서 | [공개 집계·문서](materials/20260921/evidence/) |
+
+GitHub 파일 화면은 HTML을 웹페이지처럼 실행하지 않습니다. **Code → Download ZIP**으로
+저장소를 내려받아 압축을 풀고 `materials/20260921/index.html`을 여세요.
+상대경로로 연결된 그림과 자료가 있으므로 폴더 구조를 유지하세요. PDF는 GitHub에서도 볼 수 있습니다.
+
+기존 발표 디자인판·포스터·대본은 작성 당시 버전을 보존했습니다. 최신 외부 자료 진단과
+SAS 반환 검증 상태는 최신 결과 HTML을 함께 확인하세요. 이전 발표본에 후속 결과가 자동으로
+추가된 것은 아닙니다.
+
+내려받은 파일의 무결성은 저장소 폴더에서 `python3 scripts/verify_materials.py`로 확인할 수 있습니다.
+이는 파일 목록·해시 검사이며 새로운 모델 평가나 SAS 실행 검증을 수행하는 명령은 아닙니다.
+
+## SAS 실행
+
+최신 실행은 [집계 전용 패키지](followup_20260921_v1/README.md)입니다.
+U5 오류 진단 → JEV 비교 → JEV 결합 → KISA OCR·길이 진단을 실행합니다.
+사용자가 반환한 실제 SAS 실행 결과는 검산을 마쳤으며 위 SAS 결과 폴더에서 볼 수 있습니다.
+이는 새 모델 학습이나 CAS·Visual Analytics 게시를 완료했다는 의미는 아닙니다.
+
+SAS 서버에서 저장소를 갱신한 뒤, 새 세션에서 실행하세요.
 
 ```sas
 %let projroot = /home/student/github;
 %include "&projroot./followup_20260921_v1/sas/00_RUN_FOLLOWUP_20260921.sas";
 ```
 
-실행 결과는 followup_20260921_v1/outputs/run_<UUID>/에 생긴다.
-해당 폴더의 로그·HTML·PNG·CSV와 run_status.txt를 함께 보관한다.
-코드·집계 검사는 완료했으며 실제 SAS 실행은 사용자 로그를 받아 확인한다.
-새 모델 학습이나 CAS/VA 게시를 수행하는 실행기는 아니다.
+`projroot`는 서버의 저장소 경로입니다. 실행마다
+`followup_20260921_v1/outputs/run_<UUID>/`에 결과를 생성합니다.
+[실행·ZIP 반환 안내](docs/SAS_FOLLOWUP_RUN_GUIDE_20260921.md)를 참고하세요.
 
-폴더 다운로드가 어려우면 [ZIP 반환 도우미](sas/99_ZIP_FOLLOWUP_OUTPUTS.sas)를
-실행해 결과를 ZIP 하나로 묶는다. 받을 실행 폴더를 `zip_run`으로 지정한다.
-실행 코드는 [반환 안내](docs/SAS_FOLLOWUP_RUN_GUIDE_20260921.md#zip-하나로-받기)에 있다.
-ZIP은 Git에서 제외된 outputs/ 안에 생성되며, SAS 파일 목록에서 하나만 내려받으면 된다.
+기존 분석 코드는 [SAS 코드 안내](sas/README.md)와 [런북](sas/RUNBOOK.md)을 따릅니다.
+과거 분석의 원문·행별 입력은 공개본에서 제외했으므로 별도 승인된 로컬 입력이 필요합니다.
+최신 집계 전용 패키지는 포함된 집계 CSV를 사용합니다.
 
-기존 A/B 검수 분석은 sas/00_RUN_AB.sas에서 11 → 12 순서로 재현한다.
-기존 실행 범위와 검수 기준은 sas/README.md와 sas/RUNBOOK.md를 따른다.
+## 폴더와 공개 범위
 
-루트 `MANIFEST.json`과 `CHECKSUMS_SHA256.txt`는 2026-09-14 개인 전달본의 고정
-스냅샷이다. 이후 추가된 11~13 및 저장소 정리를 반영한 현재 트리 manifest가 아니므로
-파일을 덮어쓰지 않는다. 최신 CAS 전달 계보는 `manifests/ab_cas_20260915_v1.json`에 있다.
+| 폴더 | 용도 |
+|---|---|
+| `materials/20260921/` | 발표·설명·검증 결과를 모은 날짜별 열람본 |
+| `followup_20260921_v1/` | 최신 집계 전용 SAS 실행 코드와 입력 |
+| `sas/` | 기존 SAS 분석·CAS 선택 실행 코드와 런북 |
+| `docs/` | 실행 안내·설계·저장소 정리 기록 |
+| `data/`, `reports/` | 공개 가능한 기존 집계와 안내 |
+| `archive/` | 과거 코드·집계 결과와 전달 이력 |
+| `manifests/` | 전달본 구성·검증 기록 |
+
+공개본에는 원문 문자, 실제 URL·개인정보, 행별 예측, 모델 가중치, 인증정보를 새로 넣지 않습니다.
+기존 추적 파일의 정리와 보존 범위는 [정리 기록](docs/REPOSITORY_ORGANIZATION_20260921.md)을 따릅니다.
+이번 정리는 현재 파일 트리를 대상으로 하며 과거 Git 커밋을 재작성하지 않았습니다.
+
+U5는 과거 평가 이력이 있는 자료이고, KISA 외부 스미싱만으로 정상 문자 오탐률을 계산할 수 없습니다.
+기존 정상 후보의 회귀 검사와 JEV 결합 탐색도 새로운 독립 성능 검증과 구분합니다.

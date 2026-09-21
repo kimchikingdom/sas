@@ -1,2 +1,5 @@
 # Preserve canonical aggregate CSV bytes and their SHA256 values.
 followup_20260921_v1/data/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Date-stamped source artifacts preserve original bytes and ODS/SVG whitespace.
+materials/20260921/** -text -whitespace

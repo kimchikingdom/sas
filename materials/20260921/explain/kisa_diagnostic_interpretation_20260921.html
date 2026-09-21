@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KISA OCR 잔재 진단 및 정상 후보 회귀 분석 실측 해석서</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #24292e;
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 16px;
+    background: #fafbfc;
+  }
+  .container {
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 32px;
+  }
+  h1 {
+    font-size: 24px;
+    border-bottom: 2px solid #eaecef;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: #1b1f23;
+  }
+  h2 {
+    font-size: 18px;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    color: #1b1f23;
+  }
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 16px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  th, td {
+    border: 1px solid #dfe2e5;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+  }
+  tr:nth-child(even) {
+    background-color: #fcfcfc;
+  }
+  code {
+    background-color: rgba(27,31,35,0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-size: 85%;
+  }
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e1e4e8;
+    margin: 24px 0;
+  }
+  ul, ol {
+    padding-left: 20px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+  li {
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>KISA OCR 잔재 진단 및 정상 후보 회귀 분석 실측 해석서</h1>
+<p>본 문서는 Task C1 입력 패키지와 Task C2 추론 결과(5개 시드 × 7개 조건, 총 9,520개 예측)에 기반한 실측 결과 해석서입니다. 메인의 독립 검증(재계산 및 재생 일치)을 통과한 수치만으로 작성되었습니다.</p>
+<hr />
+<h2>1. 실험 설계 및 표본 절단 현황</h2>
+<ul>
+<li><strong>시험 목적</strong>: 기준선(<code>original128</code>)에서 미탐된 OCR 입력의 실패 조건을 조사하기 위해 전체 KISA 자료와 정상 후보를 사용해 (1) 수동 UI 구간 삭제(<code>ocr_delete</code>), (2) 위치 보존 UNK 치환(<code>ocr_unk</code>), (3) 128 vs 300 길이 확장의 효과를 교차 진단.</li>
+<li><strong>절단 현황 (Provenance)</strong>:</li>
+<li>KISA 고유 표본 (22건): 128 절단 9건, 300 절단 0건.</li>
+<li>정상 후보군 (250건): 128 절단 138건, 300 절단 59건.</li>
+</ul>
+<hr />
+<h2>2. 연구 기준 주 모델(Seed 42) 7개 조건 실측 성적</h2>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: left;">변형 조건명</th>
+<th style="text-align: center;">KISA 고유 TP / FN (재현율)</th>
+<th style="text-align: center;">그룹 대표 TP / FN (재현율)</th>
+<th style="text-align: center;">정상 후보 FP / 새 FP (출처 라벨 기준 비율)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>original128</code></strong></td>
+<td style="text-align: center;">13 / 9 (59.09%)</td>
+<td style="text-align: center;">9 / 9 (50.00%)</td>
+<td style="text-align: center;">11건 (+0) (4.40%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_delete128</code></strong></td>
+<td style="text-align: center;">13 / 9 (59.09%)</td>
+<td style="text-align: center;">9 / 9 (50.00%)</td>
+<td style="text-align: center;">11건 (+0) (4.40%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>cap300</code></strong></td>
+<td style="text-align: center;">13 / 9 (59.09%)</td>
+<td style="text-align: center;">9 / 9 (50.00%)</td>
+<td style="text-align: center;">24건 (+13) (9.60%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_delete300</code></strong></td>
+<td style="text-align: center;">14 / 8 (63.64%)</td>
+<td style="text-align: center;">10 / 8 (55.56%)</td>
+<td style="text-align: center;">24건 (+13) (9.60%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_unk128</code></strong></td>
+<td style="text-align: center;">13 / 9 (59.09%)</td>
+<td style="text-align: center;">9 / 9 (50.00%)</td>
+<td style="text-align: center;">11건 (+0) (4.40%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_unk300</code></strong></td>
+<td style="text-align: center;">16 / 6 (72.73%)</td>
+<td style="text-align: center;">12 / 6 (66.67%)</td>
+<td style="text-align: center;">24건 (+13) (9.60%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>head_tail128</code></strong></td>
+<td style="text-align: center;">13 / 9 (59.09%)</td>
+<td style="text-align: center;">9 / 9 (50.00%)</td>
+<td style="text-align: center;">17건 (+6) (6.80%)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><code>ocr_delete128</code>: KISA 미탐 복구 0건, 신규 미탐 0건; 정상 후보 오탐 11건, 그중 새 오탐 0건.</li>
+<li><code>cap300</code>: KISA 미탐 복구 0건, 신규 미탐 0건; 정상 후보 오탐 24건, 그중 새 오탐 13건.</li>
+<li><code>ocr_delete300</code>: KISA 미탐 복구 1건, 신규 미탐 0건; 정상 후보 오탐 24건, 그중 새 오탐 13건.</li>
+<li><code>ocr_unk128</code>: KISA 미탐 복구 0건, 신규 미탐 0건; 정상 후보 오탐 11건, 그중 새 오탐 0건.</li>
+<li><code>ocr_unk300</code>: KISA 미탐 복구 3건, 신규 미탐 0건; 정상 후보 오탐 24건, 그중 새 오탐 13건.</li>
+<li><code>head_tail128</code>: KISA 미탐 복구 0건, 신규 미탐 0건; 정상 후보 오탐 17건, 그중 새 오탐 6건.</li>
+</ul>
+<hr />
+<h2>3. 5개 시드 전수 대조 매트릭스 (KISA 미탐 복구 / 정상 신규 오탐)</h2>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: left;">조건명</th>
+<th style="text-align: center;">Seed 42</th>
+<th style="text-align: center;">Seed 101</th>
+<th style="text-align: center;">Seed 202</th>
+<th style="text-align: center;">Seed 303</th>
+<th style="text-align: center;">Seed 404</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>original128</code></strong></td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_delete128</code></strong></td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>cap300</code></strong></td>
+<td style="text-align: center;">0 / +13</td>
+<td style="text-align: center;">0 / +3</td>
+<td style="text-align: center;">1 / +1</td>
+<td style="text-align: center;">1 / +10</td>
+<td style="text-align: center;">0 / +7</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_delete300</code></strong></td>
+<td style="text-align: center;">1 / +13</td>
+<td style="text-align: center;">0 / +3</td>
+<td style="text-align: center;">0 / +1</td>
+<td style="text-align: center;">1 / +10</td>
+<td style="text-align: center;">0 / +7</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_unk128</code></strong></td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+<td style="text-align: center;">0 / +0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ocr_unk300</code></strong></td>
+<td style="text-align: center;">3 / +13</td>
+<td style="text-align: center;">0 / +3</td>
+<td style="text-align: center;">2 / +1</td>
+<td style="text-align: center;">2 / +10</td>
+<td style="text-align: center;">0 / +7</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>head_tail128</code></strong></td>
+<td style="text-align: center;">0 / +6</td>
+<td style="text-align: center;">0 / +4</td>
+<td style="text-align: center;">0 / +1</td>
+<td style="text-align: center;">0 / +5</td>
+<td style="text-align: center;">0 / +7</td>
+</tr>
+</tbody>
+</table></div>
+<p>시드 순서는 표의 열 순서와 같습니다. 각 시드를 합산하지 않습니다.</p>
+<ul>
+<li><code>ocr_delete128</code>의 시드별 미탐 복구: 0, 0, 0, 0, 0건.</li>
+<li><code>cap300</code>의 시드별 미탐 복구: 0, 0, 1, 1, 0건.</li>
+<li><code>ocr_delete300</code>의 시드별 미탐 복구: 1, 0, 0, 1, 0건.</li>
+<li><code>ocr_unk128</code>의 시드별 미탐 복구: 0, 0, 0, 0, 0건.</li>
+<li><code>ocr_unk300</code>의 시드별 미탐 복구: 3, 0, 2, 2, 0건.</li>
+<li><code>head_tail128</code>의 시드별 미탐 복구: 0, 0, 0, 0, 0건.</li>
+</ul>
+<hr />
+<h2>4. 개입 기전 비교 및 한계</h2>
+<ol>
+<li><strong>문자 삭제 (<code>ocr_delete</code>)</strong>: 상태바와 작성창 UI로 확인한 문자 구간을 제거하므로 뒤쪽 토큰 위치와 모델이 읽는 범위가 바뀔 수 있음. 본문 의미·연락처 표기·경고문은 보존했으며 배포용 자동 정제 규칙은 아님.</li>
+<li><strong>위치 보존 UNK (<code>ocr_unk</code>)</strong>: 토큰 위치와 시퀀스 길이를 유지하면서 해당 토큰 ID만 <code>[UNK]</code>로 치환. 내용 대체 자체의 효과가 있으므로 완벽한 원인 분리나 자연스러운 정제문으로 해석할 수 없음.</li>
+<li><strong>길이 확장 (300토큰)</strong>: 128토큰으로 학습된 모델의 입력 범위를 확장하여 일부 미탐을 구제하지만, 정상 후보 텍스트에서 신규 오탐을 수반.</li>
+<li><strong>인과 추론 불가</strong>: 개입 실험은 모델의 민감도와 조건부 반응을 보여줄 뿐, OCR 잔재나 절단이 미탐의 단일 원인임을 입증하지 않음. 마스킹을 늘린다고 해서 탐지 성능이 단조적으로 개선되지 않음.</li>
+</ol>
+<hr />
+<h2>5. 교란 요인 및 표본 제약</h2>
+<ol>
+<li><strong>출처 특성 교란</strong>: 기준선에서 미탐된 OCR 입력과 탐지된 일반 SMS 사이에는 문체, 메시지 유형, 텍스트 길이 등 출처 특성이 교란 변수로 작용할 수 있으며, 특정 플랫폼만의 효과로 단정할 수 없음.</li>
+<li><strong>사후 재사용</strong>: KISA 22건은 기존 평가셋의 사후 재사용이며, 신규 표본에 대한 일반화 성능을 대변하지 않음.</li>
+<li><strong>정상 후보군 성격</strong>: 정상 후보 250건은 개발용 풀(학습 및 검증 풀)에서 추출된 후보군이며, 인증된 무결점 정상이나 실서비스 독립 FPR이 아님. 또한 250건 중 59건은 300토큰에서도 여전히 절단됨.</li>
+</ol>
+<hr />
+<h2>6. 사전 선언 개선 후보(<code>head_tail128</code>) 판정 및 기각</h2>
+<p>사후적 가설 설정(HARKing)을 배제하기 위해 유일한 개선 후보로 <code>head_tail128</code>을 사전에 고정하고 평가함.</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th style="text-align: center;">대상 시드</th>
+<th style="text-align: center;">임계값</th>
+<th style="text-align: center;">조건 (a): 복구 ≥ 1</th>
+<th style="text-align: center;">조건 (b): 신규 미탐 = 0</th>
+<th style="text-align: center;">조건 (c): 신규 오탐 = 0</th>
+<th style="text-align: center;">판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Seed 42</td>
+<td style="text-align: center;"><code>0.025057</code></td>
+<td style="text-align: center;">0건 (≥ 1: X)</td>
+<td style="text-align: center;">0건 (= 0: O)</td>
+<td style="text-align: center;">6건 (= 0: X)</td>
+<td style="text-align: center;"><strong>FAIL</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Seed 101</td>
+<td style="text-align: center;"><code>0.060474</code></td>
+<td style="text-align: center;">0건 (≥ 1: X)</td>
+<td style="text-align: center;">0건 (= 0: O)</td>
+<td style="text-align: center;">4건 (= 0: X)</td>
+<td style="text-align: center;"><strong>FAIL</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Seed 202</td>
+<td style="text-align: center;"><code>0.985776</code></td>
+<td style="text-align: center;">0건 (≥ 1: X)</td>
+<td style="text-align: center;">0건 (= 0: O)</td>
+<td style="text-align: center;">1건 (= 0: X)</td>
+<td style="text-align: center;"><strong>FAIL</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Seed 303</td>
+<td style="text-align: center;"><code>0.022120</code></td>
+<td style="text-align: center;">0건 (≥ 1: X)</td>
+<td style="text-align: center;">0건 (= 0: O)</td>
+<td style="text-align: center;">5건 (= 0: X)</td>
+<td style="text-align: center;"><strong>FAIL</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Seed 404</td>
+<td style="text-align: center;"><code>0.026119</code></td>
+<td style="text-align: center;">0건 (≥ 1: X)</td>
+<td style="text-align: center;">0건 (= 0: O)</td>
+<td style="text-align: center;">7건 (= 0: X)</td>
+<td style="text-align: center;"><strong>FAIL</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>기각 결정</strong>: <code>head_tail128</code>은 모든 시드에서 미탐을 복구하지 못했고, 신규 오탐 1~7건 발생으로 기준 미충족(FAIL).</li>
+<li><strong>사후 승자 선택 금지</strong>: 실측 후 <code>ocr_unk300</code>의 수치가 높다고 하여 이를 사후적으로 승자로 채택하지 않음.</li>
+<li><strong>기준선 유지</strong>: 기본 모델은 기존 <strong><code>original128</code></strong> 및 <strong>공식 매칭 임계값</strong>을 유지.</li>
+</ul>
+<hr />
+<h2>7. 후속 과제 및 보고 방침</h2>
+<ol>
+<li><strong>신규 4단계 SAS 패키지 실행</strong>: 기존 회귀 검증 및 통계 파이프라인 재현 검산.</li>
+<li><strong>독립 평가셋 필요성</strong>: 향후 모델 개선이나 일반화 성능을 주장하기 전, 독립적으로 수집된 신규 정상 및 스미싱 평가셋 구축 필수.</li>
+<li><strong>보고 방침</strong>: 본 진단의 부정적 관찰 결과(개선 실패 및 오탐 증가)는 대외 발표 및 원고에 즉시 정직하게 반영 가능함.</li>
+<li><strong>보안 확인</strong>: 원문·개별 예측·OCR 인용 구간은 비공개로 보존하며, 이 보고서는 집계만 사용함.</li>
+</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>정상 문자를 지키는 스미싱 탐지: 문자·URL 결합과 URL 교란 학습의 효과 검증</title>
+<style>
+@page {
+  size: 420mm 297mm;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+html, body {
+  width: 420mm;
+  height: 297mm;
+  max-height: 297mm;
+  margin: 0;
+  padding: 7.5mm 14mm 5.5mm 14mm;
+  background: #FFFFFF;
+  color: #0F1E36;
+  font-family: "Arial Unicode MS", "Apple SD Gothic Neo", "NanumGothic", -apple-system, sans-serif;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Header Area (Large Typography) */
+.poster-header {
+  border-bottom: 2px solid #0F2E59;
+  padding-bottom: 2.2mm;
+  margin-bottom: 2.2mm;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.poster-title {
+  font-size: 34pt;
+  font-weight: 800;
+  color: #0A192F;
+  margin: 0 0 1.5mm 0;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+.poster-subtitle {
+  font-size: 17.5pt;
+  font-weight: 600;
+  color: #1E56A0;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+.meta-info {
+  font-size: 10.5pt;
+  color: #475569;
+  font-weight: 600;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* Executive Summary (Exactly 2 Sentences, 14pt) */
+.executive-summary {
+  margin-top: 2.2mm;
+  background: #F8FAFC;
+  border-left: 4.5px solid #1E56A0;
+  padding: 2mm 3.5mm;
+  font-size: 14pt;
+  color: #1E293B;
+  line-height: 1.4;
+}
+
+/* 3-Column Editorial Grid */
+.poster-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10mm;
+  flex: 1;
+  min-height: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2mm;
+}
+
+/* Content Sections */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6mm;
+}
+.section-heading {
+  font-size: 18pt;
+  font-weight: 800;
+  color: #0A192F;
+  margin: 0;
+  padding-bottom: 1mm;
+  border-bottom: 1.5px solid #CBD5E1;
+}
+
+.body-p {
+  font-size: 14pt;
+  line-height: 1.4;
+  color: #334155;
+  margin: 0;
+}
+.body-p strong {
+  color: #0F1E36;
+}
+
+/* Setup List */
+.setup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+  background: #F8FAFC;
+  padding: 2mm 3mm;
+  border-radius: 3px;
+}
+.setup-item {
+  font-size: 12.5pt;
+  line-height: 1.35;
+  color: #334155;
+}
+.setup-item strong {
+  color: #1E56A0;
+}
+
+/* Stat Row */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  background: #F1F5F9;
+  padding: 1.8mm 3mm;
+  border-radius: 3px;
+}
+.stat-cell {
+  text-align: center;
+  flex: 1;
+}
+.stat-num {
+  font-size: 14pt;
+  font-weight: 800;
+  color: #0F1E36;
+}
+.stat-desc {
+  font-size: 9.5pt;
+  color: #64748B;
+  font-weight: 600;
+}
+
+/* Clean Table (FPR & Recall only, 13pt) */
+.metric-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5pt;
+  text-align: right;
+}
+.metric-table th, .metric-table td {
+  padding: 1.5mm 2mm;
+  border-bottom: 1px solid #E2E8F0;
+}
+.metric-table th {
+  background: #F8FAFC;
+  font-weight: 700;
+  color: #334155;
+  border-top: 1.5px solid #0F2E59;
+  border-bottom: 1.5px solid #CBD5E1;
+}
+.metric-table th:first-child, .metric-table td:first-child {
+  text-align: left;
+  font-weight: 700;
+}
+.metric-table tr.highlight-row {
+  background: #EFF6FF;
+}
+.table-footnote {
+  font-size: 9pt;
+  color: #64748B;
+  margin-top: 1mm;
+  line-height: 1.3;
+}
+
+/* Conclusion Box */
+.policy-box {
+  background: #EFF6FF;
+  border-left: 4px solid #1E56A0;
+  padding: 2mm 3mm;
+  border-radius: 2px;
+}
+.policy-title {
+  font-size: 13pt;
+  font-weight: 800;
+  color: #1E56A0;
+  margin: 0 0 1mm 0;
+}
+.policy-desc {
+  font-size: 12pt;
+  line-height: 1.35;
+  color: #334155;
+  margin: 0;
+}
+
+/* Footer (9.5pt) */
+.poster-footer {
+  border-top: 1.5px solid #CBD5E1;
+  padding-top: 1.5mm;
+  margin-top: 1.5mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9.5pt;
+  color: #64748B;
+}
+</style>
+</head>
+<body>
+
+<!-- Header Area -->
+<header class="poster-header">
+  <div class="header-top">
+    <div class="title-group">
+      <h1 class="poster-title">정상 문자를 지키는 스미싱 탐지</h1>
+      <h2 class="poster-subtitle">문자·URL 결합과 URL 교란 학습의 효과 검증</h2>
+    </div>
+    <div class="meta-info">
+      <div>ScamLens Research Project • 통제 대조실험 및 후속평가 분석</div>
+      <div>규격: A3 Landscape (420 × 297 mm) • 2026-09</div>
+    </div>
+  </div>
+
+  <div class="executive-summary">
+    <strong>핵심 요약</strong>: 개발 단계에서 관측된 URL 교란(FLIP)의 오탐률 개선(~0.21%p)은 과거 평가 이력이 있는 원래 test 세트의 후속평가(U5)에서 재현되지 않았습니다.
+    URL 보유 정상 문자의 오탐률은 2.01~2.35% 수준을 보여 FLIP 채택을 보류하고 DUP를 차기 연구의 통제군으로 유지합니다.
+  </div>
+</header>
+
+<!-- 3-Column Main Body -->
+<main class="poster-body">
+
+  <!-- Column 1: Core Question & Controlled Setup -->
+  <section class="column">
+    
+    <!-- Area 1: Question & Setup -->
+    <div class="content-section">
+      <h3 class="section-heading">1. 연구 가설 및 배경</h3>
+      <p class="body-p">
+        정상 문자에도 웹 URL이 빈번히 포함됩니다. 본 연구는 문자 라벨을 보존한 채 <strong>URL 유무를 반전(FLIP)</strong>하는 학습이 정상 URL 문자의 오탐을 완화하는지 검증했습니다.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-heading">2. 대조 실험 설계</h3>
+      <div class="setup-list">
+        <div class="setup-item"><strong>BASE (6,680건)</strong>: 증강 없는 기준 KcBERT 모형</div>
+        <div class="setup-item"><strong>DUP (6,961건)</strong>: 281건 단순 복제 추가로 데이터 증분 통제</div>
+        <div class="setup-item"><strong>FLIP (6,961건)</strong>: 281건 URL 유무 반전 증강, 원본 라벨 보존</div>
+      </div>
+      <p class="body-p">
+        <strong>통제 조건</strong>: 배치 32, 3 에폭, <strong>공통 654 updates</strong> 예산, <strong>5개 난수 시드</strong>(42, 101, 202, 303, 404) 반복.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-heading">3. 평가 코호트 분할</h3>
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-num">1,703건</div>
+          <div class="stat-desc">임계값 캘리브레이션</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">2,317건</div>
+          <div class="stat-desc">원래 test 후속평가 (U5)</div>
+        </div>
+      </div>
+      <p class="body-p">
+        • <strong>U5 코호트 구성</strong>: 정상 1,665건, 악성 652건. 과거 평가 이력이 있는 원래 test 세트임.<br/>
+        • <strong>표본 독립성 주의</strong>: 5개 시드는 동일한 2,317건을 반복 평가한 것임.<br/>
+        • <strong>표기 규약</strong>: 5개 시드 평균 ± <strong>모표준편차(Population SD, ddof=0)</strong> 표기.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- Column 2: Main Results Chart & U5 Table -->
+  <section class="column">
+    
+    <!-- Area 2: Main Results Chart & Table -->
+    <div class="content-section">
+      <h3 class="section-heading">4. 주요 결과: 개발셋 vs U5 후속평가 FPR</h3>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 170" width="100%" height="170" style="font-family: 'Arial Unicode MS', 'Apple SD Gothic Neo', sans-serif;">
+  <rect width="460" height="170" fill="#FFFFFF" />
+  
+  <!-- Y Grid Lines (Honest Zero Axis) -->
+  <line x1="50" y1="134.0" x2="435" y2="134.0" stroke="#CBD5E1" stroke-width="1.5" />
+  <text x="44" y="138.0" font-size="11" text-anchor="end" fill="#64748B" font-weight="600">0.0%</text>
+
+  <line x1="50" y1="97.3" x2="435" y2="97.3" stroke="#F1F5F9" stroke-dasharray="3,3" stroke-width="1" />
+  <text x="44" y="101.3" font-size="11" text-anchor="end" fill="#64748B">0.4%</text>
+
+  <line x1="50" y1="60.7" x2="435" y2="60.7" stroke="#F1F5F9" stroke-dasharray="3,3" stroke-width="1" />
+  <text x="44" y="64.7" font-size="11" text-anchor="end" fill="#64748B">0.8%</text>
+
+  <line x1="50" y1="24.0" x2="435" y2="24.0" stroke="#F1F5F9" stroke-dasharray="3,3" stroke-width="1" />
+  <text x="44" y="28.0" font-size="11" text-anchor="end" fill="#64748B">1.2%</text>
+
+  <!-- Y Axis Label -->
+  <text x="14" y="14" font-size="12" fill="#475569" font-weight="700">오탐률 (FPR, %)</text>
+
+  <!-- Legend -->
+  <rect x="245" y="4" width="14" height="9" fill="#64748B" rx="2" />
+  <text x="264" y="12.5" font-size="11" fill="#334155">DUP (통제군)</text>
+  <rect x="345" y="4" width="14" height="9" fill="#1E56A0" rx="2" />
+  <text x="364" y="12.5" font-size="11" fill="#1E56A0" font-weight="700">FLIP (URL교란)</text>
+
+  <!-- Cohort 1: Development Readout (n=1,750) -->
+  <!-- Delta Box Dev -->
+  <rect x="75" y="14" width="98" height="18" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" rx="3" />
+  <text x="124" y="27" font-size="10.5" font-weight="700" fill="#0F766E" text-anchor="middle">Δ -0.21%p 개선</text>
+
+  <!-- DUP Bar -->
+  <rect x="78" y="52.7" width="42" height="81.3" fill="#64748B" rx="3" />
+  <text x="99" y="47.7" font-size="12.5" font-weight="700" text-anchor="middle" fill="#1E293B">0.89%</text>
+
+  <!-- FLIP Bar -->
+  <rect x="128" y="72.0" width="42" height="62.0" fill="#1E56A0" rx="3" />
+  <text x="149" y="67.0" font-size="12.5" font-weight="700" text-anchor="middle" fill="#1E56A0">0.68%</text>
+
+  <!-- X Label Cohort 1 -->
+  <text x="124" y="148" font-size="12" font-weight="700" text-anchor="middle" fill="#0F1E36">개발 단계</text>
+  <text x="124" y="162" font-size="10.5" text-anchor="middle" fill="#64748B">n=1,750 (5 seeds)</text>
+
+  <!-- Divider Line -->
+  <line x1="225" y1="18" x2="225" y2="145" stroke="#E2E8F0" stroke-width="1.2" stroke-dasharray="4,4" />
+
+  <!-- Cohort 2: U5 Original Test (n=2,317) -->
+  <!-- Delta Box U5 -->
+  <rect x="270" y="45" width="102" height="18" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1" rx="3" />
+  <text x="321" y="58" font-size="10.5" font-weight="700" fill="#B91C1C" text-anchor="middle">Δ +0.01%p (미재현)</text>
+
+  <!-- DUP Bar -->
+  <rect x="273" y="93.3" width="42" height="40.7" fill="#64748B" rx="3" />
+  <text x="294" y="88.3" font-size="12.5" font-weight="700" text-anchor="middle" fill="#1E293B">0.44%</text>
+
+  <!-- FLIP Bar -->
+  <rect x="323" y="92.2" width="42" height="41.8" fill="#1E56A0" rx="3" />
+  <text x="344" y="87.2" font-size="12.5" font-weight="700" text-anchor="middle" fill="#1E56A0">0.46%</text>
+
+  <!-- X Label Cohort 2 -->
+  <text x="319" y="148" font-size="12" font-weight="700" text-anchor="middle" fill="#0F1E36">원래 test 후속평가</text>
+  <text x="319" y="162" font-size="10.5" text-anchor="middle" fill="#64748B">n=2,317 (과거 평가이력 보유)</text>
+</svg>
+      <p class="body-p">
+        개발 단계의 FPR 개선(~0.21%p)은 U5 후속평가에서 재현되지 않았습니다 (관측 FPR: DUP 0.44% vs FLIP 0.46%, 원시 차이 +0.0120%p, 유의성 검정 없음).
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-heading">5. U5 성능 지표 비교 (5 Seeds)</h3>
+      <table class="metric-table">
+        <thead>
+          <tr>
+            <th>실험군</th>
+            <th>오탐률 (FPR, %)</th>
+            <th>재현율 (Recall, %)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BASE</td>
+            <td>0.60 ± 0.32</td>
+            <td>97.82 ± 0.99</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>DUP</strong></td>
+            <td><strong>0.44 ± 0.11</strong></td>
+            <td><strong>97.88 ± 0.48</strong></td>
+          </tr>
+          <tr>
+            <td>FLIP</td>
+            <td>0.46 ± 0.18</td>
+            <td>97.55 ± 0.85</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-footnote">
+        * 값: 평균 ± 모표준편차(Population SD, ddof=0). 분모: 정상 1,665건 / 악성 652건.<br/>
+        * U5 평가셋에 대한 사후 유의성 검정은 실시하지 않음.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Column 3: Subgroup Risk, SAS Evidence & Policy -->
+  <section class="column">
+    
+    <!-- Area 3: Subgroup Risk -->
+    <div class="content-section">
+      <h3 class="section-heading">6. 서브그룹: URL 유무별 정상 문자 오탐률</h3>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 155" width="100%" height="155" style="font-family: 'Arial Unicode MS', 'Apple SD Gothic Neo', sans-serif;">
+  <rect width="460" height="155" fill="#FFFFFF" />
+
+  <!-- Y Grid Lines (Honest Zero Axis) -->
+  <line x1="50" y1="122.0" x2="435" y2="122.0" stroke="#CBD5E1" stroke-width="1.5" />
+  <text x="44" y="126.0" font-size="11" text-anchor="end" fill="#64748B" font-weight="600">0.0%</text>
+
+  <line x1="50" y1="87.3" x2="435" y2="87.3" stroke="#F1F5F9" stroke-dasharray="3,3" stroke-width="1" />
+  <text x="44" y="91.3" font-size="11" text-anchor="end" fill="#64748B">1.0%</text>
+
+  <line x1="50" y1="52.7" x2="435" y2="52.7" stroke="#F1F5F9" stroke-dasharray="3,3" stroke-width="1" />
+  <text x="44" y="56.7" font-size="11" text-anchor="end" fill="#64748B">2.0%</text>
+
+  <line x1="50" y1="18.0" x2="435" y2="18.0" stroke="#F1F5F9" stroke-dasharray="3,3" stroke-width="1" />
+  <text x="44" y="22.0" font-size="11" text-anchor="end" fill="#64748B">3.0%</text>
+
+  <!-- Y Axis Label -->
+  <text x="14" y="14" font-size="12" fill="#475569" font-weight="700">정상 오탐률 (FPR, %)</text>
+
+  <!-- Legend -->
+  <rect x="235" y="4" width="12" height="8" fill="#94A3B8" rx="2" />
+  <text x="251" y="11.5" font-size="10.5" fill="#334155">BASE</text>
+  <rect x="290" y="4" width="12" height="8" fill="#64748B" rx="2" />
+  <text x="306" y="11.5" font-size="10.5" fill="#334155">DUP</text>
+  <rect x="345" y="4" width="12" height="8" fill="#1E56A0" rx="2" />
+  <text x="361" y="11.5" font-size="10.5" fill="#1E56A0" font-weight="700">FLIP</text>
+
+  <!-- Group 1: URL Absent (0) -->
+  <rect x="75" y="114.4" width="28" height="7.6" fill="#94A3B8" rx="2" />
+  <text x="89" y="109.4" font-size="11" text-anchor="middle" fill="#475569">0.22%</text>
+
+  <rect x="110" y="118.4" width="28" height="3.6" fill="#64748B" rx="2" />
+  <text x="124" y="113.4" font-size="11" text-anchor="middle" fill="#334155">0.10%</text>
+
+  <rect x="145" y="119.0" width="28" height="3.0" fill="#1E56A0" rx="2" />
+  <text x="159" y="114.0" font-size="11" font-weight="700" text-anchor="middle" fill="#1E56A0">0.09%</text>
+
+  <text x="124" y="137" font-size="12" font-weight="700" text-anchor="middle" fill="#0F1E36">URL 미포함 정상</text>
+  <text x="124" y="149" font-size="10" text-anchor="middle" fill="#64748B">정상 분모 n=1,367</text>
+
+  <!-- Group 2: URL Present (1) -->
+  <rect x="270" y="40.6" width="28" height="81.4" fill="#94A3B8" rx="2" />
+  <text x="284" y="35.6" font-size="11" text-anchor="middle" fill="#475569">2.35%</text>
+
+  <rect x="305" y="52.2" width="28" height="69.8" fill="#64748B" rx="2" />
+  <text x="319" y="47.2" font-size="11" text-anchor="middle" fill="#334155">2.01%</text>
+
+  <rect x="340" y="47.5" width="28" height="74.5" fill="#1E56A0" rx="2" />
+  <text x="354" y="42.5" font-size="11" font-weight="700" text-anchor="middle" fill="#1E56A0">2.15%</text>
+
+  <text x="319" y="137" font-size="12" font-weight="700" text-anchor="middle" fill="#0F1E36">URL 포함 정상</text>
+  <text x="319" y="149" font-size="10" text-anchor="middle" fill="#64748B">정상 분모 n=298 (상대적 고오탐)</text>
+</svg>
+      <p class="body-p">
+        URL 미포함 정상(분모 1,367건)은 0.09~0.22%인 반면, URL 포함 정상(분모 298건)은 2.01~2.35%로 상대적으로 높은 오탐 수준을 보였습니다.
+      </p>
+    </div>
+
+    <!-- Area 4: SAS Evidence (2 Sentences) -->
+    <div class="content-section">
+      <h3 class="section-heading">7. SAS 통계 검증 근거</h3>
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-num">0.9987</div>
+          <div class="stat-desc">문자 단독 AUC</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">0.9950</div>
+          <div class="stat-desc">고정가중 결합</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">0.9988</div>
+          <div class="stat-desc">SAS OOF 메타</div>
+        </div>
+      </div>
+      <p class="body-p">
+        SAS 서버 배치 환경 ROC 분석 결과 문자 단독과 SAS OOF 메타 모형의 차이는 검출되지 않았습니다 (p=0.7233).
+        이는 통계적 동등성 증명이 아니며, 서버 배치 기준의 사전 분석으로 로컬 U5 KcBERT 실험과 분리됩니다.
+      </p>
+    </div>
+
+    <!-- Area 5: Conclusion & Limitations (2 lines each) -->
+    <div class="content-section">
+      <h3 class="section-heading">8. 연구 판정 및 한계</h3>
+      <div class="policy-box">
+        <div class="policy-title">연구 의사결정</div>
+        <div class="policy-desc">
+          1. U5 후속평가에서 개선이 미재현됨에 따라 FLIP 채택을 보류합니다.<br/>
+          2. DUP를 차기 연구의 대조 통제군으로 유지합니다 (배포 승자 모델 아님).
+        </div>
+      </div>
+      <p class="body-p" style="font-size: 11pt; color: #64748B; line-height: 1.4; margin-top: 1mm;">
+        <strong>한계점</strong>: U5 원본 test는 과거 평가 이력이 존재하며, MPS 환경 비결정성 및 마스킹 미세 차이가 있습니다. 완전한 PII 차단이나 인간 검토 자동 대체 보장은 불가합니다.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="poster-footer">
+  <div>
+    데이터 출처: reports/generated/matched_kcbert_u5_unused_test_20260918_v1.json • 검증: scripts/build_poster_explainer_20260920.py (--check)
+  </div>
+  <div>
+    모든 수치는 JSON 데이터에서 직접 계산됨 (하드코딩 상수 없음) • 2026-09-20
+  </div>
+</footer>
+
+</body>
+</html>

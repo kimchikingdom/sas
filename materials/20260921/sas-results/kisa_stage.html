@@ -1,0 +1,4416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="Generator" content="SAS Software Version V.04.00, see www.sas.com">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>SAS Output</title>
+<style type="text/css">
+<!--
+.accessiblecaption
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.activelink
+{
+  color: #800080;
+}
+.aftercaption
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 4pt;
+}
+.batch
+{
+  background-color: #FAFBFE;
+  border: 1px solid #C1C1C1;
+  border-collapse: separate;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  padding: 7px;
+}
+.beforecaption
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.body
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.bodydate
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  text-align: right;
+  vertical-align: top;
+  width: 100%;
+}
+.bycontentfolder
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.byline
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.bylinecontainer
+{
+  background-color: #FAFBFE;
+  border: 0px solid #000000;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.caption
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.cell
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.container
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.contentfolder
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.contentitem
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.contentproclabel
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.contentprocname
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.contents
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: decimal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.contentsdate
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.contenttitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: bold;
+}
+.continued
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+  width: 100%;
+}
+.data
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.dataemphasis
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.dataemphasisfixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.dataempty
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.datafixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.datastrong
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.datastrongfixed
+{
+  background-color: #FFFFFF;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.date
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.document
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+a:link {
+color:#0000FF
+}
+a:visited {
+color:#800080
+}
+a:active {
+color:#800080
+}
+.errorbanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.errorcontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.errorcontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.extendedpage
+{
+  background-color: #FAFBFE;
+  border: 1pt solid #000000;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+}
+.fatalbanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.fatalcontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.fatalcontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.folderaction
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.footer
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.footeremphasis
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.footeremphasisfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.footerempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.footerfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.footerstrong
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.footerstrongfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.frame
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.graph
+{
+  background-color: #FAFBFE;
+  border: 1px solid #C1C1C1;
+  border-collapse: separate;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.header
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headeremphasis
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.headeremphasisfixed
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.headerempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headerfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.headersandfooters
+{
+  background-color: #EDF2F9;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headerstrong
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.headerstrongfixed
+{
+  background-color: #D8DBD3;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #000000;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.heading1
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading2
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading3
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading4
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading5
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.heading6
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.index
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.indexaction
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.indexitem
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.indexprocname
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.indextitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: bold;
+}
+.layoutcontainer
+{
+  border: 0px solid #000000;
+  border-spacing: 30px;
+}
+.layoutregion
+{
+  border: 0px solid #000000;
+  border-spacing: 30px;
+}
+.linecontent
+{
+  background-color: #FAFBFE;
+  border-bottom-width: 1px;
+  border-color: #C1C1C1;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.link
+{
+  color: #0000FF;
+}
+.list
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: disc;
+}
+.list10
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list2
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: circle;
+}
+.list3
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list4
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list5
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list6
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list7
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list8
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.list9
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: disc;
+}
+.listitem10
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem2
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: circle;
+}
+.listitem3
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem4
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem5
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem6
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem7
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem8
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.listitem9
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: square;
+}
+.note
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.notebanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.notecontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.notecontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.output
+{
+  background-color: #FAFBFE;
+  border: 1px solid #C1C1C1;
+  border-collapse: separate;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.pageno
+{
+  background-color: #FAFBFE;
+  border-spacing: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: top;
+}
+.pages
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: decimal;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.pagesdate
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.pagesitem
+{
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  list-style-type: none;
+  margin-left: 6pt;
+}
+.pagesproclabel
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.pagesprocname
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.pagestitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: bold;
+}
+.paragraph
+{
+  background-color: #FAFBFE;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.parskip
+{
+  border: 0px solid #000000;
+  border-spacing: 0px;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.prepage
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+}
+.proctitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.proctitlefixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooter
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooteremphasis
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowfooteremphasisfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowfooterempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooterfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.rowfooterstrong
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowfooterstrongfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheader
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheaderemphasis
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowheaderemphasisfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: italic;
+  font-weight: normal;
+}
+.rowheaderempty
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheaderfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.rowheaderstrong
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.rowheaderstrongfixed
+{
+  background-color: #EDF2F9;
+  border-bottom-width: 1px;
+  border-color: #B0B7BB;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+  color: #112277;
+  font-family: BatangChe, Courier, monospace, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemfooter
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter10
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter2
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter3
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter4
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter5
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter6
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter7
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter8
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemfooter9
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.systemtitle
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle10
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle2
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle3
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle4
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle5
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle6
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle7
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle8
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systemtitle9
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: small;
+  font-style: normal;
+  font-weight: bold;
+}
+.systitleandfootercontainer
+{
+  background-color: #FAFBFE;
+  border: 0px solid #000000;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.table
+{
+  border-bottom-width: 0px;
+  border-collapse: collapse;
+  border-color: #C1C1C1;
+  border-left-width: 1px;
+  border-right-width: 0px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-top-width: 1px;
+}
+.top_stacked_value
+{
+  padding-bottom: 1px;
+  border: 0;
+}
+.middle_stacked_value
+{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: 0;
+}
+.bottom_stacked_value
+{
+  padding-top: 1px;
+  border: 0;
+}
+.titleandnotecontainer
+{
+  background-color: #FAFBFE;
+  border: 0px solid #000000;
+  border-spacing: 1px;
+  color: #000000;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+}
+.titlesandfooters
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.usertext
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.visitedlink
+{
+  color: #800080;
+}
+.warnbanner
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: bold;
+}
+.warncontent
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: Gulim, Gulim, Helvetica, Helv, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.warncontentfixed
+{
+  background-color: #FAFBFE;
+  color: #112277;
+  font-family: BatangChe, Courier, sans-serif;
+  font-size: x-small;
+  font-style: normal;
+  font-weight: normal;
+}
+.l {text-align: left }
+.c {text-align: center }
+.r {text-align: right }
+.d {text-align: right }
+.j {text-align: justify }
+.t {vertical-align: top }
+.m {vertical-align: middle }
+.b {vertical-align: bottom }
+TD, TH {vertical-align: top }
+.stacked_cell{padding: 0 }
+-->
+</style>
+</head>
+<body class="body">
+
+<div class="branch">
+<a name="IDX"></a>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemtitle">KISA OCR 진단 — 코호트·시드별 집계 (사후 진단, 합산 없음)</td>
+</tr>
+</table><br>
+<div class="c byline">cohort=kisa_representatives seed=42</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">18</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.55556</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">18</td>
+<td class="r data">12</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">6</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">3</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.66667</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX1"></a>
+<div class="c byline">cohort=kisa_representatives seed=101</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX2"></a>
+<div class="c byline">cohort=kisa_representatives seed=202</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">18</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.55556</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">18</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">2</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.61111</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX3"></a>
+<div class="c byline">cohort=kisa_representatives seed=303</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">18</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.55556</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">18</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.55556</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">18</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">2</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.61111</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.50000</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX4"></a>
+<div class="c byline">cohort=kisa_representatives seed=404</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">18</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.5</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX5"></a>
+<div class="c byline">cohort=kisa_unique seed=42</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">22</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.63636</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">22</td>
+<td class="r data">16</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">6</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">3</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.72727</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX6"></a>
+<div class="c byline">cohort=kisa_unique seed=101</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX7"></a>
+<div class="c byline">cohort=kisa_unique seed=202</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">22</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.63636</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">22</td>
+<td class="r data">15</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">2</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.68182</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX8"></a>
+<div class="c byline">cohort=kisa_unique seed=303</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">22</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.63636</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">22</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.63636</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">22</td>
+<td class="r data">15</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">2</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.68182</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX9"></a>
+<div class="c byline">cohort=kisa_unique seed=404</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">22</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">9</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">0.59091</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX10"></a>
+<div class="c byline">cohort=normal_candidates seed=42</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">226</td>
+<td class="r data">24</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.096</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">233</td>
+<td class="r data">17</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">6</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.068</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">239</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.044</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">226</td>
+<td class="r data">24</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.096</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">239</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.044</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">226</td>
+<td class="r data">24</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">13</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.096</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">239</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.025057</td>
+<td class="r data">.</td>
+<td class="r data">0.044</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX11"></a>
+<div class="c byline">cohort=normal_candidates seed=101</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">234</td>
+<td class="r data">16</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">3</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.064</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">232</td>
+<td class="r data">18</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">4</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.072</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">236</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.056</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">234</td>
+<td class="r data">16</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">3</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.064</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">236</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.056</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">234</td>
+<td class="r data">16</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">3</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.064</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">236</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">14</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.060474</td>
+<td class="r data">.</td>
+<td class="r data">0.056</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX12"></a>
+<div class="c byline">cohort=normal_candidates seed=202</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">243</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.028</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">242</td>
+<td class="r data">8</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.032</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">243</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.028</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">243</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.028</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">243</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.028</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">243</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">1</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.028</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">243</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.98578</td>
+<td class="r data">.</td>
+<td class="r data">0.028</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX13"></a>
+<div class="c byline">cohort=normal_candidates seed=303</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">221</td>
+<td class="r data">29</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.116</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">228</td>
+<td class="r data">22</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">2</td>
+<td class="r data">0</td>
+<td class="r data">5</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.088</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">231</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.076</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">221</td>
+<td class="r data">29</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.116</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">231</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.076</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">221</td>
+<td class="r data">29</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">10</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.116</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">231</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.022120</td>
+<td class="r data">.</td>
+<td class="r data">0.076</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<a name="IDX14"></a>
+<div class="c byline">cohort=normal_candidates seed=404</div>
+<p/><div>
+<div align="center">
+<table class="table" cellspacing="0" cellpadding="5" rules="all" frame="box" bordercolor="#C1C1C1" summary="Procedure Print: 데이터셋 WORK.KISA_GRID">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="l header" scope="col">조건</th>
+<th class="r header" scope="col">건수</th>
+<th class="r header" scope="col">TP</th>
+<th class="r header" scope="col">TN</th>
+<th class="r header" scope="col">FP</th>
+<th class="r header" scope="col">FN</th>
+<th class="r header" scope="col">기준 FP</th>
+<th class="r header" scope="col">기준 FN</th>
+<th class="r header" scope="col">해소 FP</th>
+<th class="r header" scope="col">해소 FN</th>
+<th class="r header" scope="col">신규 FP</th>
+<th class="r header" scope="col">신규 FN</th>
+<th class="r header" scope="col">임계값</th>
+<th class="r header" scope="col">재현율</th>
+<th class="r header" scope="col">FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="l data">cap300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">232</td>
+<td class="r data">18</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.072</td>
+</tr>
+<tr>
+<td class="l data">head_tail128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">232</td>
+<td class="r data">18</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.072</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">239</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.044</td>
+</tr>
+<tr>
+<td class="l data">ocr_delete300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">232</td>
+<td class="r data">18</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.072</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">239</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.044</td>
+</tr>
+<tr>
+<td class="l data">ocr_unk300</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">232</td>
+<td class="r data">18</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">7</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.072</td>
+</tr>
+<tr>
+<td class="l data">original128</td>
+<td class="r data">250</td>
+<td class="r data">0</td>
+<td class="r data">239</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">11</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0.026119</td>
+<td class="r data">.</td>
+<td class="r data">0.044</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<table class="systitleandfootercontainer" width="100%" cellspacing="1" cellpadding="1" rules="none" frame="void" border="0" summary="Page Layout">
+<tr>
+<td class="c systemfooter">Descriptive results; five seeds reuse the same messages. Not causal evidence.</td>
+</tr>
+</table><br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX15"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX16"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot1.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX17"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot2.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX18"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot3.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX19"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot4.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX20"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot5.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX21"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot6.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX22"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot7.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX23"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot8.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX24"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot9.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX25"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot10.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX26"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot11.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX27"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot12.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX28"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot13.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX29"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot14.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX30"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot15.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX31"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot16.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX32"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot17.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX33"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot18.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX34"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot19.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX35"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot20.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX36"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot21.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX37"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot22.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX38"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot23.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX39"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot24.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+</div>
+<div class="branch">
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX40"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot25.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX41"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot26.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX42"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot27.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX43"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot28.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+<p style="page-break-after: always;"><br/></p><hr size="3"/>
+<a name="IDX44"></a>
+<div>
+<div  class="c">
+<img alt="SGPlot 프로시저" src="SGPlot29.png" style=" height: 5.5in; width: 9in;" border="0" class="c">
+</div>
+</div>
+<br>
+</div>
+</body>
+</html>
