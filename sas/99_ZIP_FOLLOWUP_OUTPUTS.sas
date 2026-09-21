@@ -63,9 +63,10 @@ run;
       put 'NOTE:  Example: %let zip_run = run_01234567-89ab-cdef-0123-456789abcdef;';
       abort cancel;
     end;
-    /* Validate exact run_<UUID> naming format */
-    if not (prxmatch('/^run_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/', zr)
-            or prxmatch('/^run_[0-9a-fA-F]{32}$/', zr)) then do;
+    /* ZR is fixed-width: assignment pads it back to 256 bytes even after
+       STRIP. Trim at the PRXMATCH call so the end anchor sees the run ID. */
+    if not (prxmatch('/^run_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/', strip(zr))
+            or prxmatch('/^run_[0-9a-fA-F]{32}$/', strip(zr))) then do;
       put 'ERROR: [ScamLens 99] zip_run must match exact format run_<UUID>: ' zr;
       abort cancel;
     end;
