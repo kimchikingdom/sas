@@ -1,1 +1,4 @@
 .DS_Store
+
+# User-side SAS follow-up evidence stays local.
+/followup_20260921_v1/outputs/

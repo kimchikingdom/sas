@@ -3,6 +3,15 @@
 실제 실행 여부는 사용자 SAS 세션의 로그·ODS 결과로 확인한다.
 교육 최종 발표의 중심은 유형·유사도별 실패 조건이다.
 
+## 최신 후속 실행 — 2026-09-21
+
+이번 요청은 [SAS 후속 실행 안내](../docs/SAS_FOLLOWUP_RUN_GUIDE_20260921.md)의
+두 줄을 새 SAS 세션에서 실행한다. 최신 Git main의 followup_20260921_v1 폴더
+전체가 서버에 있어야 한다. 원문·개별 점수·모델 파일의 별도 업로드는 필요 없다.
+후속 패키지 내부 manifest.json을 사용하며 루트의 과거 manifest와 구분한다.
+
+이하 내용은 기존 A/B·과거 분석 재현용이다.
+
 ## 준비
 
 1. 최신 번들 내부 `sas/`, `data/`, `reports/`, `outputs/`를 `/home/student/github/`에 배치한다.
@@ -10,7 +19,7 @@
 3. `proc options option=encoding value; run;`으로 UTF-8을 확인한다.
 4. `outputs/` 쓰기 권한을 확인한다. 04를 실행할 때만 추가 WORK 공간·라이선스를 확인한다.
 
-## 이번 실행: A/B 검수 후 분석
+## 기존 실행: A/B 검수 후 분석
 
 `/home/student/github/sas/00_RUN_AB.sas`를 전체 실행한다. 순서는 11 → 12다.
 09·10은 `archive/`로 이동했으며 `00_RUN_PENDING.sas`도 실행 안내만 남긴다.
